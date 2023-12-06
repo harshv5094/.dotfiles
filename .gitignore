@@ -1,0 +1,6 @@
+./.config/nvim/lazy-lock.json
+./.config/nvim/lazyvim.json
+
+./.config/fish/functions/tide
+./.config/fish/functions/*.py
+
