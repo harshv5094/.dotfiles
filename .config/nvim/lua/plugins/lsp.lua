@@ -9,7 +9,6 @@ return {
 				"luacheck",
 				"shellcheck",
 				"shfmt",
-				-- "powershell-editor-services",
 				"tailwindcss-language-server",
 				"bash-language-server",
 				"typescript-language-server",

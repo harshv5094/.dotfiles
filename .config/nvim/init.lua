@@ -7,4 +7,5 @@ _G.dd = function(...)
 end
 vim.print = _G.dd
 
+print("Hello")
 require("config.lazy")

@@ -1,11 +1,15 @@
 vim.g.mapleader = " "
 
+-- Enable LazyVim auto format
+vim.g.autoformat = true
+
 vim.scriptencoding = "utf-8"
 vim.opt.encoding = "utf-8"
 vim.opt.fileencoding = "utf-8"
 
 vim.opt.number = true
 
+vim.opt.clipboard = "unnamedplus" -- Sync with system clipboard
 vim.opt.title = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
@@ -22,6 +26,7 @@ vim.opt.inccommand = "split"
 vim.opt.ignorecase = true -- Case insensitive searching UNLESS /C or capital in search
 vim.opt.smarttab = true
 vim.opt.breakindent = true
+vim.opt.grepprg = "rg --vimgrep"
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
 vim.opt.wrap = false -- No Wrap lines
@@ -39,7 +44,6 @@ vim.cmd([[let &t_Ce = "\e[4:0m"]])
 
 -- Add asterisks in block comments
 vim.opt.formatoptions:append({ "r" })
-
 vim.cmd([[au BufNewFile,BufRead *.astro setf astro]])
 vim.cmd([[au BufNewFile,BufRead Podfile setf ruby]])
 
