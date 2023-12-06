@@ -16,7 +16,6 @@ wezterm.log_info("Reloading")
 -- This is where you actually apply your config choices
 
 require("base").setup(config)
-require("graphic").setup(config)
 require("tabs").setup(config)
 require("links").setup(config)
 

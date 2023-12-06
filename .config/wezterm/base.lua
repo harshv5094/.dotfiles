@@ -9,8 +9,19 @@ function module.setup(config)
 	-- Auto reloads the configurations
 	config.automatically_reload_config = true
 
+	-- Cursor Animation and fps rate
+	config.default_cursor_style = "BlinkingBar"
+	config.animation_fps = 60
+	config.cursor_blink_ease_in = "Constant"
+	config.cursor_blink_ease_out = "Constant"
+
+	--  window background setting
+	config.config.window_background_opacity = 0.8
+
 	-- Changing font size
 	config.font_size = 11
+	config.bold_brightens_ansi_colors = true
+	config.default_cursor_style = "BlinkingBar"
 
 	-- Underline config and cursor config
 	config.underline_thickness = 3
