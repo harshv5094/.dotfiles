@@ -15,9 +15,6 @@ function module.setup(config)
 	config.cursor_blink_ease_in = "Constant"
 	config.cursor_blink_ease_out = "Constant"
 
-	--  window background setting
-	config.config.window_background_opacity = 0.8
-
 	-- Changing font size
 	config.font_size = 11
 	config.bold_brightens_ansi_colors = true
@@ -36,22 +33,14 @@ function module.setup(config)
 	config.audible_bell = "SystemBeep"
 
 	-- If windows use powershell as default shell
-	if wezterm.target_triple:find("windows") then
-		config.default_prog = { "pwsh" }
-		config.window_decorations = "RESIZE|TITLE"
-		wezterm.on("gui-startup", function(cmd)
-			local screen = wezterm.gui.screens().active
-			local tab, pane, window = wezterm.mux.spawn_window(cmd or {})
-			local gui = window:gui_window()
-			local width = 0.7 * screen.width
-			local height = 0.7 * screen.height
-			gui:set_inner_size(width, height)
-			gui:set_position((screen.width - width) / 2, (screen.height - height) / 2)
-		end)
-	else
-		config.term = "wezterm"
-		config.window_decorations = "RESIZE"
-	end
+	config.default_prog = { "pwsh" }
+
+	-- Web GPU
+	config.front_end = "OpenGL"
+	config.webgpu_power_preference = "HighPerformance"
+
+	--  Window background setting
+	config.window_background_opacity = 0.8
 end
 
 return module
