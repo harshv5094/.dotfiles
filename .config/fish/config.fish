@@ -54,4 +54,4 @@ if test -f $LOCAL_CONFIG
     source $LOCAL_CONFIG
 end
 
-source ./alias.fish
+source ~/.config/fish/alias.fish

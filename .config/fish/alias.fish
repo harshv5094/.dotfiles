@@ -6,3 +6,5 @@ end
 if type -q lazygit
     alias lg lazygit
 end
+
+alias vimedit "vim ~/.config/nvim"
