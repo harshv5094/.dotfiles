@@ -25,3 +25,9 @@ fisher install jorgebucaran/nvm.fish
 
 echo "Installing fzf"
 fisher install PatrickF1/fzf.fish
+
+echo "Installing sponge"
+fisher install meaningful-ooo/sponge
+
+echo "Installing puffer-fish"
+fisher install nickeb96/puffer-fish
