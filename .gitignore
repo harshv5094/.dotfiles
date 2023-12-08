@@ -4,3 +4,6 @@
 ./.config/fish/functions/tide
 ./.config/fish/functions/*.py
 
+./.config/tmux/plugins/*
+./.config/tmux/plugins/
+
