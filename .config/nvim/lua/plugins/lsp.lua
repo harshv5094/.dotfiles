@@ -4,6 +4,7 @@ return {
 		"williamboman/mason.nvim",
 		opts = function(_, opts)
 			vim.list_extend(opts.ensure_installed, {
+				-- "emmet-ls",
 				"stylua",
 				"selene",
 				"luacheck",
@@ -26,6 +27,23 @@ return {
 			inlay_hints = { enabled = true },
 			---@type lspconfig.options
 			servers = {
+				emmet_ls = {
+					{
+						"astro",
+						"css",
+						"eruby",
+						"html",
+						"htmldjango",
+						"javascriptreact",
+						"less",
+						"pug",
+						"sass",
+						"scss",
+						"svelte",
+						"typescriptreact",
+						"vue",
+					},
+				},
 				cssls = {},
 				tailwindcss = {
 					root_dir = function(...)
