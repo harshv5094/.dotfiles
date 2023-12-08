@@ -9,6 +9,8 @@ return {
 				styles = {
 					comments = "italic",
 					keywords = "italic",
+					sidebars = "transparent", -- style for sidebars, see below
+					floats = "transparent", -- style for floating windows
 				},
 			}
 		end,
