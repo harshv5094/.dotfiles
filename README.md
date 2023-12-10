@@ -18,12 +18,6 @@ curl -s https://ohmyposh.dev/install.sh | sudo bash -s -- -d /bin
 brew install jandaedobbeleer/oh-my-posh/oh-my-posh
 ```
 
-- MacOS
-
-```bash
-brew install jandedobbeleer/oh-my-posh/oh-my-posh
-```
-
 ### Fisher
 
 ```fish
