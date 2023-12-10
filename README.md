@@ -18,11 +18,23 @@ curl -s https://ohmyposh.dev/install.sh | sudo bash -s -- -d /bin
 brew install jandaedobbeleer/oh-my-posh/oh-my-posh
 ```
 
+---
+
+### NVM
+
+```bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+```
+
+---
+
 ### Fisher
 
 ```fish
 curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
 ```
+
+---
 
 ### TPM
 
