@@ -1,5 +1,6 @@
 if type -q eza
     alias ll "eza -lg --icons"
+    alias ls "eza -g --icons"
     alias la "eza -lga --icons"
 end
 
