@@ -4,7 +4,7 @@
 
 ## Plugins needed for installation (Only For Macos and Linux)
 
-### [Oh My Posh](https://github.com/JanDeDobbeleer/oh-my-posh)
+### [Oh-My-Posh](https://github.com/JanDeDobbeleer/oh-my-posh)
 
 - Linux
 
