@@ -36,7 +36,7 @@ curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fi
 
 ---
 
-### TPM
+### [TPM](https://github.com/tmux-plugins/tpm)
 
 ```bash
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
