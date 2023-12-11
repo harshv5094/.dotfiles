@@ -150,9 +150,8 @@ if command -v oh-my-posh &>/dev/null; then
 	eval "$(oh-my-posh init bash --config ~/.config/themes/harsh.omp.json)"
 fi
 
-if command -v brew &>/dev/null; then
-	eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-fi
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
