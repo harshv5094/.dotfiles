@@ -28,7 +28,7 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 
 ---
 
-### Fisher
+### [Fisher](https://github.com/jorgebucaran/fisher)
 
 ```fish
 curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
