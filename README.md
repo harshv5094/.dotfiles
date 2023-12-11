@@ -20,7 +20,7 @@ brew install jandaedobbeleer/oh-my-posh/oh-my-posh
 
 ---
 
-### NVM
+### [NVM](https://github.com/nvm-sh/nvm#install--update-script)
 
 ```bash
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
