@@ -12,7 +12,7 @@
 curl -s https://ohmyposh.dev/install.sh | sudo bash -s -- -d /bin
 ```
 
-- MacOS
+- MacOS and Linux (if installed Linuxbrew)
 
 ```bash
 brew install jandaedobbeleer/oh-my-posh/oh-my-posh
