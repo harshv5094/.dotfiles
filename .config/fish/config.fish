@@ -32,6 +32,8 @@ set -gx PATH node_modules/.bin $PATH
 set -g GOPATH $HOME/go
 set -gx PATH $GOPATH/bin $PATH
 
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
 # NVM
 function __check_rvm --on-variable PWD --description 'Do nvm stuff'
     status --is-command-substitution; and return
