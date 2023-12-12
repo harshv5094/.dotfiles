@@ -56,7 +56,7 @@ return {
 	{
 		"rcarriga/nvim-notify",
 		opts = {
-			timeout = 5000,
+			timeout = 3000,
 		},
 	},
 
@@ -185,8 +185,7 @@ return {
     ⣿⣦⡀⣿⣿⣷⣶⣬⣍⣛⣛⣛⡛⠿⠿⠿⠛⠛⢛⣛⣉⣭⣤⣂⢜⠕⢑⣡⣴⣿
 			      ]]
 
-			local logo = string.rep("\n", 4) .. lazyvim_logo .. '\n  "Welcome, Harsh 🚀" \n'
-
+			logo = string.rep("\n", 8) .. lazyvim_logo .. "\n\n"
 			opts.config.header = vim.split(logo, "\n")
 		end,
 	},

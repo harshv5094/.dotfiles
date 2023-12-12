@@ -14,46 +14,6 @@ return {
 		opts = { snippet_engine = "luasnip" },
 	},
 
-	-- Trouble plugin configuration
-	{
-		"folke/trouble.nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-		keys = {
-			{
-				"<localleader>tt",
-				function()
-					require("trouble").toggle({ mode = "workspace_diagnostics" })
-				end,
-				desc = "TroubleToggle",
-			},
-			{
-				"<localleader>tr",
-				function()
-					require("trouble").refresh({ mode = "workspace_diagnostics" })
-				end,
-				desc = "TroubleRefresh",
-			},
-			{
-				"<localleader>tc",
-				function()
-					require("trouble").close()
-				end,
-				desc = "TroubleClose",
-			},
-		},
-		opts = {
-			mode = { "workspace_diagnostics", "document_diagnostics" },
-			signs = {
-				-- icons / text used for a diagnostic
-				error = "",
-				warning = "",
-				hint = "",
-				information = "",
-				other = "",
-			},
-		},
-	},
-
 	-- Incremental rename
 	{
 		"smjonas/inc-rename.nvim",
@@ -66,7 +26,7 @@ return {
 		"ThePrimeagen/refactoring.nvim",
 		keys = {
 			{
-				"<localleader>r",
+				"<leader>r",
 				function()
 					require("refactoring").select_refactor()
 				end,
@@ -74,7 +34,6 @@ return {
 				noremap = true,
 				silent = true,
 				expr = false,
-				desc = "Refactoring Tool",
 			},
 		},
 		opts = {},

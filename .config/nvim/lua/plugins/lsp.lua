@@ -4,18 +4,15 @@ return {
 		"williamboman/mason.nvim",
 		opts = function(_, opts)
 			vim.list_extend(opts.ensure_installed, {
-				-- "emmet-ls",
 				"stylua",
 				"selene",
 				"luacheck",
 				"shellcheck",
+				"bash-language-server",
 				"shfmt",
 				"tailwindcss-language-server",
-				"bash-language-server",
 				"typescript-language-server",
 				"css-lsp",
-				"json-lsp",
-				"pyright",
 			})
 		end,
 	},
@@ -27,23 +24,6 @@ return {
 			inlay_hints = { enabled = true },
 			---@type lspconfig.options
 			servers = {
-				emmet_ls = {
-					{
-						"astro",
-						"css",
-						"eruby",
-						"html",
-						"htmldjango",
-						"javascriptreact",
-						"less",
-						"pug",
-						"sass",
-						"scss",
-						"svelte",
-						"typescriptreact",
-						"vue",
-					},
-				},
 				cssls = {},
 				tailwindcss = {
 					root_dir = function(...)
@@ -81,30 +61,12 @@ return {
 					},
 				},
 				html = {},
-				jsonls = {
-					on_new_config = function(new_config)
-						new_config.settings.json.schemas = new_config.settings.json.schemas or {}
-						vim.list_extend(new_config.settings.json.schemas, require("schemastore").json.schemas())
-					end,
-					settings = {
-						json = {
-							format = {
-								enable = false,
-							},
-							validate = { enable = true },
-						},
-					},
-				},
 				yamlls = {
 					settings = {
 						yaml = {
 							keyOrdering = false,
 						},
 					},
-				},
-				powershell_es = {
-					filetypes = { "ps1", "psm1", "psd1" },
-					-- shell = "pwsh",
 				},
 				lua_ls = {
 					-- enabled = false,

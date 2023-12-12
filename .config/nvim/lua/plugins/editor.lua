@@ -1,7 +1,5 @@
 return {
-	-- { "nvim-neo-tree/neo-tree.nvim", enabled = false },
 	{
-		enabled = false,
 		"folke/flash.nvim",
 		---@type Flash.Config
 		opts = {
@@ -29,7 +27,7 @@ return {
 				hsl_color = {
 					pattern = "hsl%(%d+,? %d+,? %d+%)",
 					group = function(_, match)
-						local utils = require("default.utils")
+						local utils = require("solarized-osaka.hsl")
 						local h, s, l = match:match("hsl%((%d+),? (%d+),? (%d+)%)")
 						h, s, l = tonumber(h), tonumber(s), tonumber(l)
 						local hex_color = utils.hslToHex(h, s, l)
@@ -63,10 +61,6 @@ return {
 			"nvim-telescope/telescope-file-browser.nvim",
 		},
 		keys = {
-			{
-				"<leader>;",
-				desc = "Telescope",
-			},
 			{
 				"<leader>fP",
 				function()
