@@ -82,7 +82,7 @@ return {
 		opts = {
 			options = {
 				mode = "tabs",
-				-- separator_style = "slant",
+				separator_style = "slant",
 				show_buffer_close_icons = false,
 				show_close_icon = false,
 			},
@@ -185,7 +185,7 @@ return {
     ⣿⣦⡀⣿⣿⣷⣶⣬⣍⣛⣛⣛⡛⠿⠿⠿⠛⠛⢛⣛⣉⣭⣤⣂⢜⠕⢑⣡⣴⣿
 			      ]]
 
-			logo = string.rep("\n", 8) .. lazyvim_logo .. "\n\n"
+			logo = string.rep("\n", 6) .. lazyvim_logo .. "\n\n"
 			opts.config.header = vim.split(logo, "\n")
 		end,
 	},
