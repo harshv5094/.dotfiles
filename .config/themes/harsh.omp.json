@@ -84,6 +84,18 @@
             "time_format": "3:04 AM"
           },
           "type": "time"
+        },
+        {
+          "style": "diamond",
+          "foreground": "#26C6DA",
+          "leading_diamond": " \ue0b6",
+          "trailing_diamond": "\ue0b4",
+          "background": "#546E7A",
+          "template": " {{ if .WSL }}WSL at {{ end }}{{ .Icon }} ",
+          "properties": {
+            "macos": ""
+          },
+          "type": "os"
         }
       ],
       "type": "prompt"
