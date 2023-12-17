@@ -12,3 +12,8 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.opt.conceallevel = 0
 	end,
 })
+
+vim.api.nvim_create_autocmd("FocusGained", {
+	pattern = "*",
+	command = "checktime",
+})
