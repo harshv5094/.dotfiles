@@ -49,8 +49,19 @@
             "fetch_upstream_icon": true
           },
           "style": "powerline",
-          "template": " {{ .HEAD }} {{ if .Working.Changed }}{{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}<#ef5350> \uf046 {{ .Staging.String }}</>{{ end }} ",
+          "template": " {{ .HEAD }}{{ if .Working.Changed }}{{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}<#ef5350> \uf046 {{ .Staging.String }}</>{{ end }} ",
           "type": "git"
+        },
+        {
+          "style": "powerline",
+          "foreground": "#26C6DA",
+          "powerline_symbol": "\ue0b0",
+          "background": "#546E7A",
+          "template": " {{ if .WSL }}WSL at {{ end }}{{ .Icon }} ",
+          "properties": {
+            "macos": ""
+          },
+          "type": "os"
         }
       ],
       "type": "prompt"
@@ -84,18 +95,6 @@
             "time_format": "3:04:05 PM"
           },
           "type": "time"
-        },
-        {
-          "style": "diamond",
-          "foreground": "#26C6DA",
-          "leading_diamond": " \ue0b6",
-          "trailing_diamond": "\ue0b4",
-          "background": "#546E7A",
-          "template": " {{ if .WSL }}WSL at {{ end }}{{ .Icon }} ",
-          "properties": {
-            "macos": ""
-          },
-          "type": "os"
         }
       ],
       "type": "prompt"
