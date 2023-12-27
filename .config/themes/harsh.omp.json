@@ -70,6 +70,15 @@
       "alignment": "right",
       "segments": [
         {
+          "background": "#21c7c7",
+          "foreground": "#e0f8ff",
+          "template": "  {{ .Full }} ",
+          "leading_diamond": " \ue0b6",
+          "trailing_diamond": "\ue0b4",
+          "style": "diamond",
+          "type": "lua"
+        },
+        {
           "background": "#303030",
           "foreground": "#3C873A",
           "leading_diamond": " \ue0b6",
