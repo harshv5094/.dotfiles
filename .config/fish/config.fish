@@ -2,6 +2,8 @@ set fish_greeting ""
 
 set -gx TERM xterm-256color
 
+oh-my-posh init fish --config "~/.config/themes/harsh.omp.json" | source
+
 # theme
 set -g theme_color_scheme terminal-dark
 set -g fish_prompt_pwd_dir_length 1
@@ -15,7 +17,11 @@ alias la "ls -A"
 alias ll "ls -l"
 alias lla "ll -A"
 alias g git
-command -qv nvim && alias vim nvim
+
+if type -q nvim
+    alias vim nvim
+end
+
 
 set -gx EDITOR nvim
 
