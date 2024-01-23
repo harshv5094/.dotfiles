@@ -2,3 +2,4 @@
 
 ln -s "$HOME/.dotfiles/.config/nvim" "$HOME/.config/"
 ln -s "$HOME/.dotfiles/.config/tmux" "$HOME/.config/"
+ln -s "$HOME/.dotfiles/.config/themes" "$HOME/.config/"

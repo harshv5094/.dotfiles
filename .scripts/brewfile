@@ -1,6 +1,4 @@
-brew "fish"
 brew "ghq"
-brew "gh"
 brew "neovim"
 brew "bat"
 brew "eza"
