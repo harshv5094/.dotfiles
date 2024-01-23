@@ -23,17 +23,6 @@
           "type": "root"
         },
         {
-          "background": "#444444",
-          "foreground": "#E4E4E4",
-          "powerline_symbol": "\ue0b0",
-          "properties": {
-            "style": "full"
-          },
-          "style": "powerline",
-          "template": " {{ .Path }} ",
-          "type": "path"
-        },
-        {
           "background": "#FFFB38",
           "background_templates": [
             "{{ if or (.Working.Changed) (.Staging.Changed) }}#ffeb95{{ end }}",
@@ -51,6 +40,17 @@
           "style": "powerline",
           "template": " {{ .HEAD }} {{ if .Working.Changed }}{{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}<#ef5350> \uf046 {{ .Staging.String }}</>{{ end }} ",
           "type": "git"
+        },
+        {
+          "background": "#444444",
+          "foreground": "#E4E4E4",
+          "powerline_symbol": "\ue0b0",
+          "properties": {
+            "style": "full"
+          },
+          "style": "powerline",
+          "template": " {{ .Path }} ",
+          "type": "path"
         }
       ],
       "type": "prompt"
@@ -80,9 +80,14 @@
           "type": "node",
           "style": "diamond",
           "trailing_diamond": "\ue0b0",
+          "properties": {
+            "fetch_package_manager": true,
+            "npm_icon": " <#cc3a3a>\ue5fa</> ",
+            "yarn_icon": " <#348cba>\ue6a7</>"
+          },
           "foreground": "#3C873A",
           "background": "#303030",
-          "template": "  {{ .Full }} "
+          "template": " \ue718{{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }} "
         },
         {
           "type": "docker",
