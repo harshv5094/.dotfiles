@@ -112,6 +112,19 @@
       "alignment": "left",
       "segments": [
         {
+          "type": "spotify",
+          "style": "plain",
+          "foreground": "#1BD760",
+          "template": "\u2502\u2500( {{ .Icon }}{{ if ne .Status \"stopped\" }}{{ .Artist }} - {{ .Track }}{{ end }} )"
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "newline": true,
+      "alignment": "left",
+      "segments": [
+        {
           "type": "text",
           "style": "plain",
           "foreground": "#8ac926",
@@ -128,6 +141,12 @@
           "style": "plain",
           "foreground": "#FFD664",
           "template": "<#8ac926>\u2500</>(\uf019: {{.Version}})"
+        },
+        {
+          "type": "npm",
+          "style": "plain",
+          "foreground": "#FFD664",
+          "template": "<#8ac926>\u2500</>( {{ .Full }})"
         },
         {
           "type": "status",
