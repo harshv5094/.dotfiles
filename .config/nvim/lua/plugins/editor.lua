@@ -85,7 +85,7 @@ return {
 						hidden = true,
 					})
 				end,
-				desc = "Lists files in your current working directory, respects .gitignore",
+				desc = "Telescope -> Find Files",
 			},
 			{
 				";r",
@@ -95,7 +95,7 @@ return {
 						additional_args = { "--hidden" },
 					})
 				end,
-				desc = "Search for a string in your current working directory and get results live as you type, respects .gitignore",
+				desc = "Telescope -> Live Grep",
 			},
 			{
 				"\\\\",
@@ -103,7 +103,7 @@ return {
 					local builtin = require("telescope.builtin")
 					builtin.buffers()
 				end,
-				desc = "Lists open buffers",
+				desc = "Telescope -> Buffers",
 			},
 			{
 				";t",
@@ -111,7 +111,7 @@ return {
 					local builtin = require("telescope.builtin")
 					builtin.help_tags()
 				end,
-				desc = "Lists available help tags and opens a new window with the relevant help info on <cr>",
+				desc = "Telescope -> Help Tags",
 			},
 			{
 				";;",
@@ -119,7 +119,7 @@ return {
 					local builtin = require("telescope.builtin")
 					builtin.resume()
 				end,
-				desc = "Resume the previous telescope picker",
+				desc = "Telescope -> Resume ",
 			},
 			{
 				";e",
@@ -127,7 +127,7 @@ return {
 					local builtin = require("telescope.builtin")
 					builtin.diagnostics()
 				end,
-				desc = "Lists Diagnostics for all open buffers or a specific buffer",
+				desc = "Telescope -> Diagnostics",
 			},
 			{
 				";s",
@@ -135,7 +135,7 @@ return {
 					local builtin = require("telescope.builtin")
 					builtin.treesitter()
 				end,
-				desc = "Lists Function names, variables, from Treesitter",
+				desc = "Telescope -> Treesitter",
 			},
 			{
 				"sf",
@@ -157,7 +157,7 @@ return {
 						layout_config = { height = 30 },
 					})
 				end,
-				desc = "Open File Browser with the path of the current buffer",
+				desc = "Telescope -> File Browser",
 			},
 		},
 		config = function(_, opts)
