@@ -51,6 +51,13 @@
           "style": "powerline",
           "template": " {{ .Path }} ",
           "type": "path"
+        },
+        {
+          "type": "os",
+          "style": "powerline",
+          "powerline_symbol": "",
+          "foreground": "#ffffff",
+          "background": "#0077c2"
         }
       ],
       "type": "prompt"
