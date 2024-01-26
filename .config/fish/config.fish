@@ -17,7 +17,7 @@ alias la "ls -A"
 alias ll "ls -l"
 alias lla "ll -A"
 alias g git
-type -q nvim && alias vim nvim
+command -qv nvim && alias vim nvim
 
 
 set -gx EDITOR nvim
@@ -58,7 +58,7 @@ if test -f $LOCAL_CONFIG
 end
 
 if test -d "/home/linuxbrew/.linuxbrew"
-	eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 end
 
 source ~/.config/fish/alias.fish
