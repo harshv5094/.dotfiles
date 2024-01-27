@@ -37,6 +37,7 @@ return {
 			},
 		},
 		opts = {},
+		desc = "Refactoring",
 	},
 
 	-- Harpoon
