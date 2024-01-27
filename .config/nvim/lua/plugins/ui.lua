@@ -178,7 +178,7 @@ return {
     ⣿⣦⡀⣿⣿⣷⣶⣬⣍⣛⣛⣛⡛⠿⠿⠿⠛⠛⢛⣛⣉⣭⣤⣂⢜⠕⢑⣡⣴⣿
 			      ]]
 
-			local logo = string.rep("\n", 5) .. ascii_username .. "\n\n"
+			local logo = string.rep("\n", 2) .. lazyvim_logo .. "\n\n"
 			opts.config.header = vim.split(logo, "\n")
 		end,
 	},
