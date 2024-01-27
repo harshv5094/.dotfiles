@@ -1,10 +1,10 @@
-local wezterm = require("wezterm")
+local wezterm = require('wezterm')
 
 local module = {}
 
 function module.setup(config)
 	-- For example, changing the color scheme
-	config.color_scheme = "Campbell"
+	config.color_scheme = "Solarized Dark (Gogh)"
 
 	-- Auto reloads the configurations
 	config.automatically_reload_config = true
@@ -33,10 +33,10 @@ function module.setup(config)
 	config.audible_bell = "SystemBeep"
 
 	-- If windows use powershell as default shell
-	config.default_prog = { "pwsh" }
+	config.default_prog = { "pwsh"  }
 
 	-- Web GPU
-	config.front_end = "OpenGL"
+	config.front_end = "WebGpu"
 	config.webgpu_power_preference = "HighPerformance"
 
 	--  Window background setting
