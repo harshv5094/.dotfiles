@@ -5,8 +5,8 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		opts = {
 			ensure_installed = {
-				"astro",
 				"cmake",
+				"tsx",
 				"cpp",
 				"css",
 				"fish",
@@ -14,11 +14,7 @@ return {
 				"go",
 				"graphql",
 				"http",
-				"java",
-				"php",
-				"rust",
 				"scss",
-				"sql",
 				"svelte",
 			},
 

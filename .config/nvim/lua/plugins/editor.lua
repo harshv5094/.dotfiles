@@ -145,7 +145,7 @@ return {
 						grouped = true,
 						previewer = false,
 						initial_mode = "normal",
-						layout_config = { height = 40 },
+						layout_config = { height = 30 },
 					})
 				end,
 				desc = "Open File Browser with the path of the current buffer",

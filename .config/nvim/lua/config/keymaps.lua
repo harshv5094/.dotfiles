@@ -1,4 +1,4 @@
-local discipline = require("craftzdog.discipline")
+local discipline = require("harsh.discipline")
 
 discipline.cowboy()
 
@@ -64,9 +64,9 @@ keymap.set("n", "<C-j>", function()
 end, opts)
 
 keymap.set("n", "<leader>r", function()
-	require("craftzdog.hsl").replaceHexWithHSL()
+	require("harsh.hsl").replaceHexWithHSL()
 end)
 
 keymap.set("n", "<leader>i", function()
-	require("craftzdog.lsp").toggleInlayHints()
+	require("harsh.lsp").toggleInlayHints()
 end)
