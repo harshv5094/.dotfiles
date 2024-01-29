@@ -15,7 +15,9 @@ return {
 				"json",
 				"bash",
 				"http",
-				"tsx",
+				"javascript",
+				"typescript",
+				"toml",
 			},
 
 			-- matchup = {
