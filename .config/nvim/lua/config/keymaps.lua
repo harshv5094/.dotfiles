@@ -58,7 +58,7 @@ keymap.set("n", "<C-w><right>", "<C-w>>")
 keymap.set("n", "<C-w><up>", "<C-w>+")
 keymap.set("n", "<C-w><down>", "<C-w>-")
 
-keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "String Replacement" })
 keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- Diagnostics
@@ -68,8 +68,23 @@ end, opts)
 
 keymap.set("n", "<leader>r", function()
 	require("harsh.hsl").replaceHexWithHSL()
-end)
+end, { desc = "replaceHexWithHSL" })
 
 keymap.set("n", "<leader>i", function()
 	require("harsh.lsp").toggleInlayHints()
-end)
+end, { desc = "toggleInlayHints" })
+
+-- Todo comments
+vim.keymap.set("n", "]t", function()
+	require("todo-comments").jump_next()
+end, { desc = "Next todo comment" })
+
+vim.keymap.set("n", "[t", function()
+	require("todo-comments").jump_prev()
+end, { desc = "Previous todo comment" })
+
+-- You can also specify a list of valid jump keywords
+
+vim.keymap.set("n", "]t", function()
+	require("todo-comments").jump_next({ keywords = { "ERROR", "WARNING" } })
+end, { desc = "Next error/warning todo comment" })
