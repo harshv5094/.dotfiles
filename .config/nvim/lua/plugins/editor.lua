@@ -1,4 +1,6 @@
 return {
+
+	-- Flash.nvim
 	{
 		enabled = false,
 		"folke/flash.nvim",
@@ -13,6 +15,82 @@ return {
 		},
 	},
 
+	{
+		"s1n7ax/nvim-window-picker",
+		name = "window-picker",
+		event = "VeryLazy",
+		version = "2.*",
+		config = function()
+			require("window-picker").setup({
+				hint = "statusline-winbar",
+				selection_chars = "FJDKSLA;CMRUEIWOQP",
+				show_prompt = true,
+				highlights = {
+					statusline = {
+						focused = {
+							fg = "#ededed",
+							bg = "#e35e4f",
+							bold = true,
+						},
+						unfocused = {
+							fg = "#ededed",
+							bg = "#44cc41",
+							bold = true,
+						},
+					},
+					winbar = {
+						focused = {
+							fg = "#ededed",
+							bg = "#e35e4f",
+							bold = true,
+						},
+						unfocused = {
+							fg = "#ededed",
+							bg = "#44cc41",
+							bold = true,
+						},
+					},
+				},
+			})
+		end,
+	},
+
+	-- Todo Comments
+	{
+		"folke/todo-comments.nvim",
+		event = "BufReadPre",
+		--- @type TodoComments.Config
+		opts = {
+			signs = true,
+			merge_keywords = true, -- when true, custom keywords will be merged with the defaults
+			gui_style = {
+				fg = "NONE", -- The gui style to use for the fg highlight group.
+				bg = "BOLD", -- The gui style to use for the bg highlight group.
+			},
+			highlight = {
+				multiline = true, -- enable multine todo comments
+				multiline_pattern = "^.", -- lua pattern to match the next multiline from the start of the matched keyword
+				multiline_context = 10, -- extra lines that will be re-evaluated when changing a line
+				before = "", -- "fg" or "bg" or empty
+				keyword = "wide", -- "fg", "bg", "wide", "wide_bg", "wide_fg" or empty. (wide and wide_bg is the same as bg, but will also highlight surrounding characters, wide_fg acts accordingly but with fg)
+				after = "fg", -- "fg" or "bg" or empty
+				pattern = [[.*<(KEYWORDS)\s*:]], -- pattern or table of patterns, used for highlighting (vim regex)
+				comments_only = true, -- uses treesitter to match keywords in comments only
+				max_line_len = 400, -- ignore lines longer than this
+				exclude = {}, -- list of file types to exclude highlighting
+			},
+			colors = {
+				error = { "DiagnosticError", "ErrorMsg", "#DC2626" },
+				warning = { "DiagnosticWarn", "WarningMsg", "#FBBF24" },
+				info = { "DiagnosticInfo", "#2563EB" },
+				hint = { "DiagnosticHint", "#10B981" },
+				default = { "Identifier", "#7C3AED" },
+				test = { "Identifier", "#FF00FF" },
+			},
+		},
+	},
+
+	-- Color Highlighter
 	{
 		"echasnovski/mini.hipatterns",
 		event = "BufReadPre",
@@ -35,6 +113,7 @@ return {
 		},
 	},
 
+	-- Git
 	{
 		"dinhhuy258/git.nvim",
 		event = "BufReadPre",
@@ -48,6 +127,7 @@ return {
 		},
 	},
 
+	--  Telescope
 	{
 		"telescope.nvim",
 		dependencies = {
