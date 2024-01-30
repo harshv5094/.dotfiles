@@ -2,6 +2,15 @@ return {
 	-- messages, cmdline and the popupmenu
 	{
 		"folke/noice.nvim",
+		config = function()
+			require("noice").setup({
+				view = {
+					cmdline = {
+						view = "cmdline",
+					},
+				},
+			})
+		end,
 		opts = function(_, opts)
 			table.insert(opts.routes, {
 				filter = {
