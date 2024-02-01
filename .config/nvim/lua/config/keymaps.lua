@@ -58,8 +58,13 @@ keymap.set("n", "<C-w><right>", "<C-w>>")
 keymap.set("n", "<C-w><up>", "<C-w>+")
 keymap.set("n", "<C-w><down>", "<C-w>-")
 
-keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "String Replacement" })
-keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+keymap.set(
+	"n",
+	"<localleader>s",
+	[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+	{ desc = "String Replacement" }
+)
+keymap.set("n", "<localleader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- Diagnostics
 keymap.set("n", "<C-j>", function()
