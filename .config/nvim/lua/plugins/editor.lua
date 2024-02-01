@@ -1,4 +1,6 @@
 return {
+	-- Lazygit.nvim
+
 	{
 		"kdheepak/lazygit.nvim",
 		event = "VeryLazy",
