@@ -2,33 +2,6 @@ return {
 	-- messages, cmdline and the popupmenu
 	{
 		"folke/noice.nvim",
-		config = function()
-			require("noice").setup({
-				views = {
-					cmdline = {
-						view = "cmdline_popup",
-					},
-					popupmenu = {
-						relative = "editor",
-						position = {
-							row = 8,
-							col = "50%",
-						},
-						size = {
-							width = 60,
-							height = 10,
-						},
-						border = {
-							style = "rounded",
-							padding = { 0, 1 },
-						},
-						win_options = {
-							winhighlight = { Normal = "Normal", FloatBorder = "DiagnosticInfo" },
-						},
-					},
-				},
-			})
-		end,
 		opts = function(_, opts)
 			table.insert(opts.routes, {
 				filter = {
