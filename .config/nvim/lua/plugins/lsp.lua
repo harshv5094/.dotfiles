@@ -61,6 +61,7 @@ return {
 					},
 				},
 				html = {},
+				emmet_language_server = {},
 				yamlls = {
 					settings = {
 						yaml = {
