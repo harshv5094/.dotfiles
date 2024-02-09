@@ -8,4 +8,10 @@ if type -q lazygit
     alias lg lazygit
 end
 
-alias vimedit "vim ~/.config/nvim"
+if type -q bat
+    alias cat bat
+end
+
+if type -q htop
+    alias top htop
+end
