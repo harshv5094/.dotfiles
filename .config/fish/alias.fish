@@ -4,6 +4,10 @@ if type -q eza
     alias la "eza -lga --icons"
 end
 
+if type -q nvim
+    alias vimedit "nvim ~/.dotfiles/.config/nvim/"
+end
+
 if type -q lazygit
     alias lg lazygit
 end
