@@ -5,6 +5,7 @@ return {
 		opts = function(_, opts)
 			vim.list_extend(opts.ensure_installed, {
 				"stylua",
+				"pyright",
 				"selene",
 				"luacheck",
 				"shellcheck",
@@ -25,7 +26,20 @@ return {
 			---@type lspconfig.options
 			servers = {
 				cssls = {},
+				pyright = {
+					cmd = { "pyright-langserver", "--stdio" },
+					settings = {
+						python = {
+							analysis = {
+								autoSearchPaths = true,
+								diagnosticMode = "workspace",
+								useLibraryCodeForTypes = true,
+							},
+						},
+					},
+				},
 				tailwindcss = {
+					cmd = { "tailwindcss-language-server", "--stdio" },
 					root_dir = function(...)
 						return require("lspconfig.util").root_pattern(".git")(...)
 					end,
