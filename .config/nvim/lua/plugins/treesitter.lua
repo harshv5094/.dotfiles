@@ -6,6 +6,7 @@ return {
 		opts = {
 			ensure_installed = {
 				"cmake",
+				"python",
 				"cpp",
 				"css",
 				"fish",
