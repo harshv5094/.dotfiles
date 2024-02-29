@@ -7,6 +7,7 @@ return {
 			ensure_installed = {
 				"cmake",
 				"python",
+				"scss",
 				"cpp",
 				"css",
 				"fish",
