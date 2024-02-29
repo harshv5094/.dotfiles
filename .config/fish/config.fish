@@ -62,3 +62,11 @@ if test -d "/home/linuxbrew/.linuxbrew"
 end
 
 source ~/.config/fish/alias.fish
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
