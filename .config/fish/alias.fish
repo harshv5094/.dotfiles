@@ -19,3 +19,7 @@ end
 if type -q htop
     alias top htop
 end
+
+if type -q starship
+    alias prompt "nvim $HOME/.dotfiles/.config/starship/starship.toml"
+end
