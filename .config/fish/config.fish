@@ -1,9 +1,5 @@
-
 set fish_greeting ""
 
-if type -q starship
-    starship init fish | source
-end
 
 set -gx TERM xterm-256color
 
