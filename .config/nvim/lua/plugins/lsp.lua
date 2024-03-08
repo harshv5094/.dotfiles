@@ -5,6 +5,7 @@ return {
 		opts = function(_, opts)
 			vim.list_extend(opts.ensure_installed, {
 				"stylua",
+				"taplo",
 				"pyright",
 				"selene",
 				"luacheck",
@@ -26,6 +27,10 @@ return {
 			---@type lspconfig.options
 			servers = {
 				cssls = {},
+				taplo = {
+					filetypes = { "toml" },
+					root_pattern("*.toml"),
+				},
 				pyright = {
 					cmd = { "pyright-langserver", "--stdio" },
 					settings = {
