@@ -2,12 +2,6 @@
 
 🔨 My Dotfiles
 
-## [Starship](https://starship.rs/)
-
-```sh
-curl -sS https://starship.rs/install.sh | sh
-```
-
 ## [NVM](https://github.com/nvm-sh/nvm#install--update-script)
 
 ```bash
