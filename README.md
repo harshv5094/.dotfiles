@@ -2,24 +2,6 @@
 
 🔨 My Dotfiles
 
-## Plugins needed for installation (Only For Macos and Linux)
-
-### [Oh-My-Posh](https://github.com/JanDeDobbeleer/oh-my-posh)
-
-- Linux
-
-```bash
-curl -s https://ohmyposh.dev/install.sh | sudo bash -s -- -d /bin
-```
-
-- MacOS and Linux (if installed Linuxbrew)
-
-```bash
-brew install jandaedobbeleer/oh-my-posh/oh-my-posh
-```
-
----
-
 ### [NVM](https://github.com/nvm-sh/nvm#install--update-script)
 
 ```bash

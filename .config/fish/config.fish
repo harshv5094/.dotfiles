@@ -2,8 +2,6 @@ set fish_greeting ""
 
 set -gx TERM xterm-256color
 
-oh-my-posh init fish --config "~/.config/themes/harsh.omp.json" | source
-
 # theme
 set -g theme_color_scheme terminal-dark
 set -g fish_prompt_pwd_dir_length 1
