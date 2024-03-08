@@ -1,5 +1,4 @@
-oh-my-posh init pwsh --config '~/.config/themes/harsh.omp.json' | Invoke-Expression
-
+oh-my-posh init pwsh --config ~/.config/oh-my-posh/harsh.omp.json | Invoke-Expression
 # Changing Text Color
 if ($IsCoreCLR) {
     $esc = "`e"
@@ -42,7 +41,7 @@ function vimview {Set-Location "~/AppData/Local/nvim" && Get-ChildItem }
 
 # neovim config edit
 function vimedit {
-  Set-Location $env:LOCALAPPDATA\nvim\ && nvim
+  Set-Location $env:LOCALAPPDATA\nvim\ && nvim .
 } 
 
 # sudo mode
