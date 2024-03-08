@@ -27,10 +27,7 @@ return {
 			---@type lspconfig.options
 			servers = {
 				cssls = {},
-				taplo = {
-					filetypes = { "toml" },
-					root_pattern("*.toml"),
-				},
+				taplo = {},
 				pyright = {
 					cmd = { "pyright-langserver", "--stdio" },
 					settings = {
