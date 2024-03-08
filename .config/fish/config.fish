@@ -1,5 +1,9 @@
 set fish_greeting ""
 
+if type -q oh-my-posh
+  oh-my-posh --init fish --config ~/.config/oh-my-posh/terminal-dark.omp.json | source
+end
+
 
 set -gx TERM xterm-256color
 
