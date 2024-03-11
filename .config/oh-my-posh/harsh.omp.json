@@ -80,6 +80,9 @@
           "invert_powerline": true,
           "foreground": "#ffffff",
           "background": "#40c4ff",
+          "properties": {
+            "time_format": "3:04:05 PM"
+          },
           "leading_diamond": " \ue0b6",
           "trailing_diamond": "\ue0b4",
           "template": " \udb80\udcf0 {{ .CurrentDate | date .Format }} "
