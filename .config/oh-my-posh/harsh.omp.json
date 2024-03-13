@@ -25,17 +25,6 @@
           }
         },
         {
-          "type": "path",
-          "style": "powerline",
-          "powerline_symbol": "\ue0b0",
-          "foreground": "#E4E4E4",
-          "background": "#444444",
-          "template": " {{ .Path }} ",
-          "properties": {
-            "style": "full"
-          }
-        },
-        {
           "type": "git",
           "style": "powerline",
           "powerline_symbol": "\ue0b0",
@@ -52,6 +41,17 @@
             "branch_icon": "\ue725 ",
             "fetch_status": true,
             "fetch_upstream_icon": true
+          }
+        },
+        {
+          "type": "path",
+          "style": "powerline",
+          "powerline_symbol": "\ue0b0",
+          "foreground": "#E4E4E4",
+          "background": "#444444",
+          "template": " {{ .Path }} ",
+          "properties": {
+            "style": "full"
           }
         }
       ]
