@@ -7,7 +7,6 @@ return {
 				"stylua",
 				"taplo",
 				"pyright",
-				"powershell-editorial-service",
 				"selene",
 				"luacheck",
 				"shellcheck",
@@ -41,7 +40,6 @@ return {
 			servers = {
 				cssls = {},
 				taplo = {},
-				powershell_es = {},
 				pyright = {
 					cmd = { "pyright-langserver", "--stdio" },
 					settings = {
