@@ -29,12 +29,12 @@ command_timeout = 5000
 # You can also replace your username with a neat symbol like  to save some space
 [username]
 show_always = true
-style_user = "bg:#3B4252"
-style_root = "bg:#3B4252"
+style_user = "bg:#3B4252 fg:#ffffff"
+style_root = "bg:#3B4252 fg:#ffffff"
 format = '[$user ]($style)'
 
 [directory]
-style = "bg:#434C5E"
+style = "bg:#434C5E fg:#ffffff"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
@@ -54,21 +54,21 @@ truncation_symbol = "…/"
 
 [c]
 symbol = " "
-style = "bg:#86BBD8"
+style = "bg:#86BBD8 #000000"
 format = '[ $symbol ($version) ]($style)'
 
 [docker_context]
 symbol = " "
-style = "bg:#06969A"
+style = "bg:#06969A #ffffff"
 format = '[ $symbol $context ]($style) $path'
 
 [git_branch]
 symbol = ""
-style = "bg:#4C566A"
+style = "bg:#4C566A #ffffff"
 format = '[ $symbol $branch ]($style)'
 
 [git_status]
-style = "bg:#4C566A "
+style = "bg:#4C566A #ffffff"
 format = '[$all_status$ahead_behind ]($style)'
 
 [golang]
@@ -82,7 +82,7 @@ style = "bg:#86BBD8 fg:#000000"
 format = '[ $symbol ($version) ]($style)'
 
 [python]
-style = "bg:#3B4252"
+style = "bg:#86BBD8 fg:#000000"
 format = '[(\($virtualenv\) )]($style)'
 
 [rust]
@@ -92,13 +92,13 @@ format = '[ $symbol ($version) ]($style)'
 
 [time]
 disabled = false
-time_format = "%I:%M %p"     # Hour:Minute Format
-style = "bg:#33658A"
+time_format = "%I:%M %p"        # Hour:Minute Format
+style = "bg:#33658A fg:#ffffff"
 format = '[ $time ]($style)'
 
 [shell]
 disabled = false
-style = "bg:#06969A fg:#000000"
+style = "bg:#06969A fg:#ffffff"
 fish_indicator = "fish"
 pwsh_indicator = "pwsh"
 bash_indicator = "bash"
