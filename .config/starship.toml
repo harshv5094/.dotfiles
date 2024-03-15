@@ -1,6 +1,5 @@
 format = """
-[](#3B4252)\
-$python\
+[╭─](#3B4252)\
 $username\
 [](bg:#434C5E fg:#3B4252)\
 $directory\
@@ -9,21 +8,20 @@ $git_branch\
 $git_status\
 [](fg:#4C566A bg:#86BBD8)\
 $c\
-$elixir\
-$elm\
+$python\
 $golang\
-$haskell\
-$java\
-$julia\
 $nodejs\
-$nim\
 $rust\
 [](fg:#86BBD8 bg:#06969A)\
 $docker_context\
+$shell\
 [](fg:#06969A bg:#33658A)\
 $time\
-[ ](fg:#33658A)\
+[](fg:#33658A)\
+\n\
+[╰─❯ ](#3B4252)
 """
+
 command_timeout = 5000
 # Disable the blank line at the start of the prompt
 # add_newline = false
@@ -64,15 +62,12 @@ symbol = " "
 style = "bg:#06969A"
 format = '[ $symbol $context ]($style) $path'
 
-[elixir]
-symbol = " "
-style = "bg:#86BBD8 fg:#000000"
-format = '[ $symbol ($version) ]($style)'
-
-[elm]
-symbol = " "
-style = "bg:#86BBD8 fg:#000000"
-format = '[ $symbol ($version) ]($style)'
+[shell]
+disabled = false
+style = "bg:#06969A"
+fish_indicator = "fish"
+powershell_indicator = ""
+format = '[$symbol$shlvl]($style)'
 
 [git_branch]
 symbol = ""
@@ -88,28 +83,8 @@ symbol = " "
 style = "bg:#86BBD8 fg:#000000"
 format = '[ $symbol ($version) ]($style)'
 
-[haskell]
-symbol = " "
-style = "bg:#86BBD8 fg:#000000"
-format = '[ $symbol ($version) ]($style)'
-
-[java]
-symbol = " "
-style = "bg:#86BBD8 fg:#000000"
-format = '[ $symbol ($version) ]($style)'
-
-[julia]
-symbol = " "
-style = "bg:#86BBD8 fg:#000000"
-format = '[ $symbol ($version) ]($style)'
-
 [nodejs]
 symbol = ""
-style = "bg:#86BBD8 fg:#000000"
-format = '[ $symbol ($version) ]($style)'
-
-[nim]
-symbol = " "
 style = "bg:#86BBD8 fg:#000000"
 format = '[ $symbol ($version) ]($style)'
 
