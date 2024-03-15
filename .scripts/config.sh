@@ -2,7 +2,7 @@
 
 ln -s "$HOME/.dotfiles/.config/nvim" "$HOME/.config/"
 ln -s "$HOME/.dotfiles/.config/tmux" "$HOME/.config/"
-ln -s "$HOME/.dotfiles/.config/oh-my-posh" "$HOME/.config/"
+ln -s "$HOME/.dotfiles/.config/starship.toml" "$HOME/.config/"
 
 ln -s "$HOME/.dotfiles/dot/.bashrc" "$HOME/.bashrc"
 ln -s "$HOME/.dotfiles/dot/.bash_aliases" "$HOME/.bash_aliases"
