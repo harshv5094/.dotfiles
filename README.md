@@ -2,7 +2,7 @@
 
 🔨 My Dotfiles
 
-##[Oh My Posh](https://ohmyposh.dev)
+## [Oh My Posh](https://ohmyposh.dev)
 
 ```bash
 curl -s https://ohmyposh.dev/install.sh | sudo bash -s -- -d /bin
