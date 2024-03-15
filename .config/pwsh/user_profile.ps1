@@ -93,8 +93,8 @@ Set-Alias fdir Get-ChildItem
 Set-Alias grep findstr
 Set-Alias lg lazygit
 
-# $cmdPath = which "eza"
-# if($cmdPath){
-#     Set-Alias ll eza
-# }
 
+$starship = which "starship"
+if($starship){
+    Invoke-Expression (&starship init powershell)
+  }
