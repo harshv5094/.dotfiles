@@ -66,12 +66,12 @@ format = '[ $symbol $context ]($style) $path'
 
 [elixir]
 symbol = " "
-style = "bg:#86BBD8"
+style = "bg:#86BBD8 fg:#000000"
 format = '[ $symbol ($version) ]($style)'
 
 [elm]
 symbol = " "
-style = "bg:#86BBD8"
+style = "bg:#86BBD8 fg:#000000"
 format = '[ $symbol ($version) ]($style)'
 
 [git_branch]
@@ -80,37 +80,37 @@ style = "bg:#4C566A"
 format = '[ $symbol $branch ]($style)'
 
 [git_status]
-style = "bg:#4C566A"
+style = "bg:#4C566A "
 format = '[$all_status$ahead_behind ]($style)'
 
 [golang]
 symbol = " "
-style = "bg:#86BBD8"
+style = "bg:#86BBD8 fg:#000000"
 format = '[ $symbol ($version) ]($style)'
 
 [haskell]
 symbol = " "
-style = "bg:#86BBD8"
+style = "bg:#86BBD8 fg:#000000"
 format = '[ $symbol ($version) ]($style)'
 
 [java]
 symbol = " "
-style = "bg:#86BBD8"
+style = "bg:#86BBD8 fg:#000000"
 format = '[ $symbol ($version) ]($style)'
 
 [julia]
 symbol = " "
-style = "bg:#86BBD8"
+style = "bg:#86BBD8 fg:#000000"
 format = '[ $symbol ($version) ]($style)'
 
 [nodejs]
 symbol = ""
-style = "bg:#86BBD8"
+style = "bg:#86BBD8 fg:#000000"
 format = '[ $symbol ($version) ]($style)'
 
 [nim]
 symbol = " "
-style = "bg:#86BBD8"
+style = "bg:#86BBD8 fg:#000000"
 format = '[ $symbol ($version) ]($style)'
 
 [python]
@@ -119,7 +119,7 @@ format = '[(\($virtualenv\) )]($style)'
 
 [rust]
 symbol = ""
-style = "bg:#86BBD8"
+style = "bg:#86BBD8 fg:#000000"
 format = '[ $symbol ($version) ]($style)'
 
 [time]
