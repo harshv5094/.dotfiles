@@ -1,5 +1,19 @@
-vim.g.mapleader = " "
+local is_linux = vim.fn.has("unix")
+local is_window = vim.fn.has('win32')
+local is_mac = vim.fn.has('macunix')
+local is_wsl = vim.fn.has('wsl')
 
+
+if is_linux or is_wsl or is_mac then
+  vim.opt.shell = "fish"
+end
+
+if is_window then
+  vim.opt.shell = "pwsh"
+end
+
+
+vim.g.mapleader = " "
 vim.scriptencoding = "utf-8"
 vim.opt.encoding = "utf-8"
 vim.opt.fileencoding = "utf-8"
@@ -16,7 +30,6 @@ vim.opt.cmdheight = 1
 vim.opt.laststatus = 2
 vim.opt.expandtab = true
 vim.opt.scrolloff = 10
-vim.opt.shell = "fish"
 vim.opt.backupskip = { "/tmp/*", "/private/tmp/*" }
 vim.opt.inccommand = "split"
 vim.opt.ignorecase = true -- Case insensitive searching UNLESS /C or capital in search
