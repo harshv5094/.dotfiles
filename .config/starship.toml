@@ -1,6 +1,7 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
 format = """
 [](#3B4252)\
-$python\
 $username\
 [](bg:#434C5E fg:#3B4252)\
 $directory\
@@ -8,6 +9,15 @@ $directory\
 $git_branch\
 $git_status\
 [](fg:#4C566A bg:#86BBD8)\
+[](fg:#86BBD8 bg:#06969A)\
+$docker_context\
+[](fg:#06969A bg:#33658A)\
+$time\
+[ ](fg:#33658A)\
+"""
+
+right_format = """
+[](#86BBD8)\
 $c\
 $elixir\
 $elm\
@@ -16,14 +26,12 @@ $haskell\
 $java\
 $julia\
 $nodejs\
+$python\
 $nim\
 $rust\
-[](fg:#86BBD8 bg:#06969A)\
-$docker_context\
-[](fg:#06969A bg:#33658A)\
-$time\
-[ ](fg:#33658A)\
+[ ](fg:#86BDD8)\
 """
+
 command_timeout = 5000
 # Disable the blank line at the start of the prompt
 # add_newline = false
