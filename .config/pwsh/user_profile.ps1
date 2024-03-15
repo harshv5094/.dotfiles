@@ -1,4 +1,3 @@
-oh-my-posh init pwsh --config ~/.config/oh-my-posh/harsh.omp.json | Invoke-Expression
 # Changing Text Color
 if ($IsCoreCLR) {
     $esc = "`e"
