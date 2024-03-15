@@ -1,5 +1,3 @@
-"$schema" = 'https://starship.rs/config-schema.json'
-
 format = """
 [](#3B4252)\
 $python\
@@ -22,15 +20,10 @@ $nim\
 $rust\
 [](fg:#86BBD8 bg:#06969A)\
 $docker_context\
-[ ](fg:#06969A)\
-"""
-
-right_format = """
-[](fg:#33658A)\
+[](fg:#06969A bg:#33658A)\
 $time\
 [ ](fg:#33658A)\
 """
-
 command_timeout = 5000
 # Disable the blank line at the start of the prompt
 # add_newline = false
