@@ -13,8 +13,8 @@ $golang\
 $nodejs\
 $rust\
 [](fg:#86BBD8 bg:#06969A)\
-$docker_context\
 $shell\
+$docker_context\
 [](fg:#06969A bg:#33658A)\
 $time\
 [](fg:#33658A)\
@@ -62,13 +62,6 @@ symbol = " "
 style = "bg:#06969A"
 format = '[ $symbol $context ]($style) $path'
 
-[shell]
-disabled = false
-style = "bg:#06969A"
-fish_indicator = "fish"
-powershell_indicator = ""
-format = '[$symbol$shlvl]($style)'
-
 [git_branch]
 symbol = ""
 style = "bg:#4C566A"
@@ -102,3 +95,14 @@ disabled = false
 time_format = "%I:%M %p"     # Hour:Minute Format
 style = "bg:#33658A"
 format = '[ $time ]($style)'
+
+[shell]
+disabled = false
+style = "bg:#06969A fg:#000000"
+fish_indicator = "fish"
+pwsh_indicator = "pwsh"
+bash_indicator = "bash"
+zsh_indicator = "zsh"
+cmd_indicator = "cmd"
+unknown_indicator = '?'
+format = '[ $indicator ]($style)'
