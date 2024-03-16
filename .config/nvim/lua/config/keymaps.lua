@@ -26,7 +26,8 @@ keymap.set("n", "<Leader>O", "O<Esc>^Da", opts)
 keymap.set("n", "<C-m>", "<C-i>", opts)
 
 -- New tab
-keymap.set("n", "te", ":tabedit")
+keymap.set("n", "te", ":tabedit<CR>", { desc = "Create New Buffer Tab" })
+keymap.set("n", "tc", ":tabclose<CR>", { desc = "Close Current Tab" })
 
 -- Split window
 keymap.set("n", "ss", ":split<Return>", opts)
