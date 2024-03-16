@@ -5,29 +5,15 @@ discipline.cowboy()
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
--- Do things without affecting the registers
--- keymap.set("n", "x", '"_x')
--- keymap.set("n", "<Leader>p", '"0p')
--- keymap.set("n", "<Leader>P", '"0P')
--- keymap.set("v", "<Leader>p", '"0p')
--- keymap.set("n", "<Leader>c", '"_c')
--- keymap.set("n", "<Leader>C", '"_C')
--- keymap.set("v", "<Leader>c", '"_c')
--- keymap.set("v", "<Leader>C", '"_C')
--- keymap.set("n", "<Leader>d", '"_d')
--- keymap.set("n", "<Leader>D", '"_D')
--- keymap.set("v", "<Leader>d", '"_d')
--- keymap.set("v", "<Leader>D", '"_D')
---
 -- Increment/decrement
 keymap.set("n", "+", "<C-a>")
 keymap.set("n", "-", "<C-x>")
 
 -- Delete a word backwards
-keymap.set("n", "dw", 'vb"_d')
+keymap.set("n", "dw", 'vb"_d', { desc = "Delete word bacwards" })
 
 -- Select all
-keymap.set("n", "<C-a>", "gg<S-v>G")
+keymap.set("n", "<C-a>", "gg<S-v>G", { desc = "Select all" })
 
 -- Save with root permission (not working for now)
 --vim.api.nvim_create_user_command('W', 'w !sudo tee > /dev/null %', {})
@@ -46,16 +32,16 @@ keymap.set("n", "te", ":tabedit")
 keymap.set("n", "ss", ":split<Return>", opts)
 keymap.set("n", "sv", ":vsplit<Return>", opts)
 -- Move window
-keymap.set("n", "sh", "<C-w>h")
-keymap.set("n", "sk", "<C-w>k")
-keymap.set("n", "sj", "<C-w>j")
-keymap.set("n", "sl", "<C-w>l")
+keymap.set("n", "sh", "<C-w>h", { desc = "Go To Left Window" })
+keymap.set("n", "sk", "<C-w>k", { desc = "Go To Upper Window" })
+keymap.set("n", "sj", "<C-w>j", { desc = "Go To Lower Window" })
+keymap.set("n", "sl", "<C-w>l", { desc = "Go To Right Window" })
 
 -- Resize window
-keymap.set("n", "<C-w><left>", "<C-w><")
-keymap.set("n", "<C-w><right>", "<C-w>>")
-keymap.set("n", "<C-w><up>", "<C-w>+")
-keymap.set("n", "<C-w><down>", "<C-w>-")
+keymap.set("n", "<C-w><left>", "<C-w><", { desc = "Decrease Window Width" })
+keymap.set("n", "<C-w><right>", "<C-w>>", { desc = "Increase Window Width" })
+keymap.set("n", "<C-w><up>", "<C-w>+", { desc = "Increase Window Height" })
+keymap.set("n", "<C-w><down>", "<C-w>-", { desc = "Decrease Window Height" })
 
 keymap.set(
 	"n",
