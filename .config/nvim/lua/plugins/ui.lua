@@ -98,6 +98,14 @@ return {
 				-- globalstatus = false,
 				theme = "solarized_dark",
 			},
+
+			sections = {
+				lualine_z = {
+					function()
+						return " " .. os.date("%r")
+					end,
+				},
+			},
 		},
 	},
 
