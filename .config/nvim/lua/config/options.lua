@@ -1,17 +1,15 @@
 local is_linux = vim.fn.has("unix")
-local is_window = vim.fn.has('win32')
-local is_mac = vim.fn.has('macunix')
-local is_wsl = vim.fn.has('wsl')
-
+local is_window = vim.fn.has("win32")
+local is_mac = vim.fn.has("macunix")
+local is_wsl = vim.fn.has("wsl")
 
 if is_linux or is_wsl or is_mac then
-  vim.opt.shell = "fish"
+	vim.opt.shell = "fish"
 end
 
 if is_window then
-  vim.opt.shell = "pwsh"
+	vim.opt.shell = "pwsh"
 end
-
 
 vim.g.mapleader = " "
 vim.scriptencoding = "utf-8"
@@ -44,7 +42,7 @@ vim.opt.wildignore:append({ "*/node_modules/*" })
 vim.opt.splitbelow = true -- Put new windows below current
 vim.opt.splitright = true -- Put new windows right of current
 vim.opt.splitkeep = "cursor"
-vim.opt.mouse = ""
+vim.opt.mouse = "a"
 
 -- Undercurl
 vim.cmd([[let &t_Cs = "\e[4:3m"]])
