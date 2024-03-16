@@ -16,23 +16,4 @@ return {
 			}
 		end,
 	},
-
-	{
-		"folke/tokyonight.nvim",
-		lazy = true,
-		priority = 1000,
-		opts = function()
-			return {
-				style = "night",
-				transparent = true,
-				terminal_colors = true,
-				styles = {
-					comments = { italic = true },
-					-- Background styles. Can be "dark", "transparent" or "normal"
-					sidebars = "transparent", -- style for sidebars, see below
-					floats = "transparent", -- style for floating windows				keywords = { italic = true },
-				},
-			}
-		end,
-	},
 }
