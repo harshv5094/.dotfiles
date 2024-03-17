@@ -57,7 +57,7 @@ function pwshview {
 }
 
 # Function for prompt edit
-function promptedit { nvim $env:USERPROFILE\.config\themes} 
+function promptedit { nvim $env:USERPROFILE\.dotfiles\.config\starship.toml} 
 
 # Home Directory Shortcut
 function home { Set-Location ~ }
