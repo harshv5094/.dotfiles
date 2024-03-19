@@ -1,3 +1,6 @@
+omp_config = Join-Path $PSScriptRoot "~/.config/themes/harsh.omp.json"
+oh-my-posh --init --shell pwsh --config $omp_config | Invoke-Expression
+
 # Changing Text Color
 if ($IsCoreCLR) {
     $esc = "`e"
@@ -5,7 +8,6 @@ if ($IsCoreCLR) {
 else {
     $esc = $([char]0x1b)
 }
-
 Set-PSReadLineOption -Colors @{
     Parameter = "$esc[96m"
     Operator  = "$esc[38;5;47m"
@@ -42,9 +44,6 @@ function vimview {Set-Location "~/AppData/Local/nvim" && Get-ChildItem }
 function vimedit {
   Set-Location $env:LOCALAPPDATA\nvim\ && nvim .
 } 
-
-# sudo mode
-function admin { sudo pwsh } 
 
 # pwsh config edit
 function pwshedit { 
