@@ -1,5 +1,4 @@
-omp_config = Join-Path $PSScriptRoot "~/.config/themes/harsh.omp.json"
-oh-my-posh --init --shell pwsh --config $omp_config | Invoke-Expression
+oh-my-posh init pwsh --config "~/.config/themes/harsh.omp.json" | Invoke-Expression
 
 # Changing Text Color
 if ($IsCoreCLR) {
