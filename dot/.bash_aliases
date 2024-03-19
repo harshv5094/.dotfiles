@@ -1,4 +1,4 @@
-# alias vim=nvim
+alias vim=nvim
 
 if command -v eza &>/dev/null; then
 	alias ll="eza -lg --icons"

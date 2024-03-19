@@ -83,7 +83,7 @@ Set-Alias ll ls
 Set-Alias g git
 Set-Alias gpt Get-PoshThemes
 Set-Alias touch New-Item
-# Set-Alias vim nvim
+Set-Alias vim nvim
 Set-Alias tigg 'C:\Program Files\Git\usr\bin\tig.exe'
 Set-Alias less 'C:\Program Files\Git\usr\bin\less.exe'
 Set-Alias eth Get-NetIPAddress
