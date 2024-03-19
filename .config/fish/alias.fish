@@ -21,5 +21,5 @@ if type -q htop
 end
 
 if type -q starship
-    alias prompt "nvim $HOME/.dotfiles/.config/starship/starship.toml"
+    alias prompt "nvim $HOME/.dotfiles/.config/themes/harsh.omp.json"
 end

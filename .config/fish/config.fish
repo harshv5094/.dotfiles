@@ -2,9 +2,10 @@ set fish_greeting ""
 
 set -gx TERM xterm-256color
 
-if type -q starship
-    starship init fish | source
+if type -q oh-my-posh
+    oh-my-posh init fish --config ~/.config/themes/harsh.omp.json | source
 end
+
 
 # theme
 set -g theme_color_scheme terminal-dark
