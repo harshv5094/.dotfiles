@@ -79,4 +79,6 @@ if type -q nvm
     nvm -s use
 end
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+if command -q brew
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+end
