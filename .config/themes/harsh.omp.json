@@ -47,9 +47,9 @@
             "folder_icon": "\uF4C1",
             "style": "full",
             "mapped_locations": {
-              "~/.config": "",
-              "~/config-files": "",
-              "~/GitHub": "\uF09B"
+              "~/.config": " ",
+              "~/.dotfiles": " ",
+              "~/Projects": "\uF09B "
             }
           },
           "template": " {{ .Path }} "
