@@ -36,6 +36,16 @@ set -gx PATH node_modules/.bin $PATH
 set -g GOPATH $HOME/go
 set -gx PATH $GOPATH/bin $PATH
 
+# NVM
+function __check_rvm --on-variable PWD --description 'Do nvm stuff'
+    status --is-command-substitution; and return
+
+    if test -f .nvmrc; and test -r .nvmrc
+        nvm use
+    else
+    end
+end
+
 switch (uname)
     case Darwin
         source (dirname (status --current-filename))/config-osx.fish
@@ -65,7 +75,7 @@ set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
 
 # Loads nvm while loading fish shell config
-if command -q nvm
+if type -q nvm
     nvm -s use
 end
 
