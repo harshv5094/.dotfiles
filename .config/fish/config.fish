@@ -2,7 +2,7 @@ set fish_greeting ""
 
 set -gx TERM xterm-256color
 
-if type -q oh-my-posh
+if command -qv oh-my-posh
     oh-my-posh init fish --config ~/.config/themes/harsh.omp.json | source
 end
 
@@ -78,3 +78,5 @@ set --export PATH $BUN_INSTALL/bin $PATH
 if type -q nvm
     nvm -s use
 end
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
