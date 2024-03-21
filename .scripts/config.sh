@@ -66,12 +66,12 @@ else
 fi
 
 # Brew File
-if [ -f "$HOME/BrewFile" ]; then
-	echo "Deleting Existing BrewFile"
-	rm -rf "$HOME/BrewFile"
-	echo "Linking BrewFile"
-	ln -s "$HOME/.dotfiles/.scripts/BrewFile" "$HOME/BrewFile"
-else
-	echo "Linking BrewFile"
-	ln -s "$HOME/.dotfiles/.scripts/BrewFile" "$HOME/BrewFile"
-fi
+# if [ -f "$HOME/BrewFile" ]; then
+# 	echo "Deleting Existing BrewFile"
+# 	rm -rf "$HOME/BrewFile"
+# 	echo "Linking BrewFile"
+# 	ln -s "$HOME/.dotfiles/.scripts/BrewFile" "$HOME/BrewFile"
+# else
+# 	echo "Linking BrewFile"
+# 	ln -s "$HOME/.dotfiles/.scripts/BrewFile" "$HOME/BrewFile"
+# fi
