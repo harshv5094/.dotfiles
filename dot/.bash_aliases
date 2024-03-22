@@ -1,10 +1,4 @@
-alias vim=nvim
-
-if command -v git &>/dev/null; then
-	alias g=git
-fi
-
-if command -v eza &>/dev/null; then
+if command -v eza &> /dev/null; then
 	alias ll="eza -lg --icons"
 	alias la="eza -lga --icons"
 fi
