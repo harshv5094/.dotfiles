@@ -1,13 +1,14 @@
-local is_linux = vim.fn.has("unix")
-local is_window = vim.fn.has("win32")
-local is_mac = vim.fn.has("macunix")
-local is_wsl = vim.fn.has("wsl")
+local has = vim.fn.has
+local is_linux = has("unix")
+local is_window = has("win32")
+local is_mac = has("macunix")
+local is_wsl = has("wsl")
 
-if is_linux or is_wsl or is_mac then
+if is_linux == 1 or is_wsl == 1 or is_mac == 1 then
 	vim.opt.shell = "fish"
 end
 
-if is_window then
+if is_window == 1 then
 	vim.opt.shell = "pwsh"
 end
 
@@ -54,6 +55,6 @@ vim.opt.formatoptions:append({ "r" })
 vim.cmd([[au BufNewFile,BufRead *.astro setf astro]])
 vim.cmd([[au BufNewFile,BufRead Podfile setf ruby]])
 
-if vim.fn.has("nvim-0.8") == 1 then
+if has("nvim-0.8") == 1 then
 	vim.opt.cmdheight = 0
 end
