@@ -42,3 +42,14 @@ else
 	echo "Linking BrewFile"
 	ln -s "$HOME/.dotfiles/.scripts/BrewFile" "$HOME/BrewFile"
 fi
+
+# vimrc file
+if [ -f "$HOME/.vimrc" ]; then
+    echo "Deleting Existing .vimrc"
+    rm -rf "$HOME/.vimrc"
+    echo "Linking Vimrc"
+    ln -s "$HOME/.dotfiles/.scripts/.vimrc" "$HOME/.vimrc"
+else
+    echo "Linking Vimrc"
+    ln -s "$HOME/.dotfiles/.scripts/.vimrc" "$HOME/.vimrc"
+fi
