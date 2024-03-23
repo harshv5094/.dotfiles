@@ -1,11 +1,11 @@
 " @format
 
 " OPTIONS ------------------------------------------------------------------------------- {{{ 
-  " Setting Colorscheme
-  " colorscheme evening
-
   " Accessing Vim Internal Clipboard
   set clipboard+=unnamed
+ 
+  " Truecolor support
+  set termguicolors
 
   " Accessing System Clipboard
   set clipboard=unnamedplus 
@@ -142,6 +142,9 @@
 	" For status line
 	Plug 'itchyny/lightline.vim'
 
+  " Solarized Theme
+  Plug 'ericbn/vim-solarized'
+
 	" For Git Branch
 	Plug 'itchyny/vim-gitbranch'
 
@@ -158,7 +161,7 @@
 
 	" Lightline Settings
 	let g:lightline = {
-      \ 'colorscheme': 'one',
+      \ 'colorscheme': 'solarized',
   		\ 'active': {
       		\   'left': [ [ 'mode', 'paste' ],
       		\             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
@@ -178,6 +181,9 @@
     " Enable auto formatting of files that have "@format" or "@prettier" tag
     let g:prettier#autoformat = 1
 
+    " Setting Colorscheme
+    colorscheme solarized
+    hi Normal guibg=NONE ctermbg=NONE
 " }}}
 
 " VIMSCRIPT -------------------------------------------------------------- {{{
