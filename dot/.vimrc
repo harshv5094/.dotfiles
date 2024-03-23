@@ -9,3 +9,26 @@ filetype plugin on
 
 " Load an indent file for the detected file type.
 filetype indent on
+
+" Loading Status Bar
+set laststatus=2
+
+" Enable line numbers
+set relativenumber
+
+" Set Syntax On
+syntax on
+
+" Plugins List
+call plug#begin()
+Plug 'itchyny/lightline.vim'
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+call plug#end()
+
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+    \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+\ }
+
