@@ -53,6 +53,7 @@ return {
 		end,
 	},
 
+	-- Neovim Notification
 	{
 		"rcarriga/nvim-notify",
 		opts = {
@@ -95,10 +96,6 @@ return {
 		"nvim-lualine/lualine.nvim",
 		event = "VeryLazy",
 		opts = {
-			options = {
-				-- globalstatus = false,
-			},
-
 			sections = {
 				lualine_z = {
 					function()
