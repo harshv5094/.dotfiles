@@ -7,6 +7,12 @@ ln -s "$BASE_DIR/alias.fish" "$CONFIG_PATH"
 ln -s "$BASE_DIR/config-osx.fish" "$CONFIG_PATH"
 ln -s "$BASE_DIR/config-windows.fish" "$CONFIG_PATH"
 ln -s "$BASE_DIR/config-linux.fish" "$CONFIG_PATH"
-mkdir "$HOME/.config/fish/functions/"
+mkdir "$CONFIG_PATH/functions/"
 ln -s "$BASE_DIR/functions/fzf_change_directory.fish" "$CONFIG_PATH/functions/"
 ln -s "$BASE_DIR/functions/fish_user_key_bindings.fish" "$CONFIG_PATH/functions/"
+
+curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+
+cp -rf ~/.dotfiles/.scripts/fish_plugins ~/.config/fish/
+
+fisher update
