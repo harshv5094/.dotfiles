@@ -140,7 +140,7 @@ select option in "Link My dotfiles 🔯" "Link My Folders 📁" "Homebrew Check 
 	"Homebrew Packages 🍺") ;;
 
 	"Run My Fish Configuration script 🐟")
-		./fish.sh
+        $(./fish.sh)
 		;;
 
 	"Quit ❌")
