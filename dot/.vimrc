@@ -1,14 +1,14 @@
 " @format
 
 " OPTIONS ------------------------------------------------------------------------------- {{{ 
-    " Setting Colorscheme
-    " colorscheme evening
+  " Setting Colorscheme
+  " colorscheme evening
     
-    " Accessing Vim Internal Clipboard
-    set clipboard+=unnamed
-    
-    " Accessing System Clipboard
-    set clipboard=unnamedplus 
+  " Accessing Vim Internal Clipboard
+  set clipboard+=unnamed
+
+  " Accessing System Clipboard
+  set clipboard=unnamedplus 
 
 	" Enable type file detection. Vim will be able to try to detect the type of file in use.
 	filetype on
@@ -22,21 +22,21 @@
 	" Loading Status Bar
 	set laststatus=2
     
-    " Setting Autoindent and smartindent
-    set autoindent
-    set smartindent
+  " Setting Autoindent and smartindent
+  set autoindent   
+  set smartindent
 
-    " Set background to dark
-    set background=dark
+  " Set background to dark
+  set background=dark
 
-    " Highlight cursor line underneath the cursor horizontally.
-    set cursorline
+  " Highlight cursor line underneath the cursor horizontally.
+  set cursorline
 
-	" Set shift width to 4 spaces.
-    set shiftwidth=4
+	" Set shift width to 2 spaces.
+  set shiftwidth=2
 
-	" Set tab width to 4 columns.
-	set tabstop=4
+	" Set tab width to 2 columns.
+	set tabstop=2
 
 	" Use space characters instead of tabs.
 	set expandtab
@@ -120,15 +120,15 @@
 	nnoremap <C-w><up> <C-w>+
 	nnoremap <C-w><down> <C-w>-
 
-    " Tab related Keymaps
-    nnoremap te :tabedit<CR>
-    nnoremap tc :tabclose<CR>
+  " Tab related Keymaps
+  nnoremap te :tabedit<CR>
+  nnoremap tc :tabclose<CR>
 
-    " String Replacement
-    nnoremap <localleader>s :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left><Left>
-    
-    " Changing file to execution
-    nnoremap <localleader>x <cmd>!chmod +x %<CR>
+  " String Replacement
+  nnoremap <localleader>s :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left><Left>
+
+  " Changing file to execution
+  nnoremap <localleader>x <cmd>!chmod +x %<CR>
 
 
 " }}}
@@ -156,15 +156,15 @@
 
 	" Lightline Settings
 	let g:lightline = {
-      			\ 'colorscheme': 'one',
-  			    \ 'active': {
-      			\   'left': [ [ 'mode', 'paste' ],
-      			\             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      			\ },
-    			\ 'component_function': {
-      			\   'gitbranch': 'FugitiveHead'
-      		\ },
-	    \ }
+      \ 'colorscheme': 'one',
+  		\ 'active': {
+      		\   'left': [ [ 'mode', 'paste' ],
+      		\             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      	\ },
+    	\ 'component_function': {
+      		\   'gitbranch': 'FugitiveHead'
+      	\ },
+	\ }
 
 	" NerdTree Settings
 	nnoremap <leader>n :NERDTreeFocus<CR>
