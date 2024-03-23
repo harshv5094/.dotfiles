@@ -102,11 +102,7 @@ function brew_check() {
 	if command -v brew &>/dev/null; then
 		echo -e "${RED}Homebrew is not installed in your system${NC}"
 		echo -e "${YELLOW}Installing Homebrew${NC}"
-		if [ -x "/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"" ]; then
-			echo -e "${GREEN}Homebrew is installed in your system${NC}"
-		else
-			echo -e "${RED}Unable to install Homebrew in your system${NC}"
-		fi
+		/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 	else
 		echo -e "${GREEN}Homebrew is installed in your system${NC}"
 	fi
