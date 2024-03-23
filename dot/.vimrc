@@ -1,4 +1,5 @@
 " @format
+
 " OPTIONS ------------------------------------------------------------------------------- {{{ 
     " Setting Colorscheme
     " colorscheme evening
@@ -31,7 +32,7 @@
 	set incsearch
 
 	" Ignore capital letters during search.
-	" set ignorecase
+	set ignorecase
 
 	" Override the ignorecase option if searching for capital letters.
 	" This will allow you to search specifically for capital letters.
@@ -146,14 +147,14 @@
 	" Lightline Settings
 	let g:lightline = {
       			\ 'colorscheme': 'one',
-  			\ 'active': {
+  			    \ 'active': {
       			\   'left': [ [ 'mode', 'paste' ],
       			\             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
       			\ },
     			\ 'component_function': {
       			\   'gitbranch': 'FugitiveHead'
       		\ },
-	\ }
+	    \ }
 
 	" NerdTree Settings
 	nnoremap <leader>n :NERDTreeFocus<CR>
@@ -179,4 +180,5 @@ augroup END
 " More Vimscripts code goes here.
 
 " }}}
+
 
