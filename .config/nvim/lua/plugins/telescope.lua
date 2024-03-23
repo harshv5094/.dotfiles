@@ -11,6 +11,24 @@ return {
 		},
 		keys = {
 			{
+				";g",
+				function()
+					local builtin = require("telescope.builtin")
+					builtin.git_files()
+				end,
+				desc = "Telescope -> Git Files",
+			},
+			{
+				";F",
+				function()
+					local builtin = require("telescope.builtin")
+					builtin.grep_string({
+						search = vim.fn.input("Grep > "),
+					})
+				end,
+				desc = "Telescope -> Grep String",
+			},
+			{
 				"<leader>fP",
 				function()
 					require("telescope.builtin").find_files({
@@ -62,7 +80,7 @@ return {
 					local builtin = require("telescope.builtin")
 					builtin.resume()
 				end,
-				desc = "Resume the previous telescope picker",
+				desc = "Telescope -> Resume",
 			},
 			{
 				";e",
@@ -91,6 +109,7 @@ return {
 
 					telescope.extensions.file_browser.file_browser({
 						path = "%:p:h",
+						select_buffer = true,
 						cwd = telescope_buffer_dir(),
 						respect_gitignore = false,
 						hidden = true,
@@ -106,7 +125,7 @@ return {
 		config = function(_, opts)
 			local telescope = require("telescope")
 			local actions = require("telescope.actions")
-			local fb_actions = require("telescope").extensions.file_browser.actions
+			local fb_actions = telescope.extensions.file_browser.actions
 
 			opts.defaults = vim.tbl_deep_extend("force", opts.defaults, {
 				wrap_results = true,

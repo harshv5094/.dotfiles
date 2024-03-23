@@ -13,7 +13,7 @@ keymap.set("n", "-", "<C-x>")
 keymap.set("n", "dw", 'vb"_d', { desc = "Delete word bacwards" })
 
 -- Select all
-keymap.set("n", "<C-a>", "gg<S-v>G", { desc = "Select all" })
+-- keymap.set("n", "<C-a>", "ggVG", { desc = "Select all" })
 
 -- Save with root permission (not working for now)
 --vim.api.nvim_create_user_command('W', 'w !sudo tee > /dev/null %', {})
@@ -44,12 +44,15 @@ keymap.set("n", "<C-w><right>", "<C-w>>", { desc = "Increase Window Width" })
 keymap.set("n", "<C-w><up>", "<C-w>+", { desc = "Increase Window Height" })
 keymap.set("n", "<C-w><down>", "<C-w>-", { desc = "Decrease Window Height" })
 
+-- String Replacement
 keymap.set(
 	"n",
 	"<localleader>s",
 	[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
 	{ desc = "String Replacement" }
 )
+
+-- Changing file permissions to executable
 keymap.set("n", "<localleader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- Diagnostics
@@ -77,5 +80,8 @@ end, { desc = "Previous todo comment" })
 -- You can also specify a list of valid jump keywords
 
 vim.keymap.set("n", "]t", function()
-	require("todo-comments").jump_next({ keywords = { "ERROR", "WARNING" } })
+	require("todo-comments").jump_next({ keywords = {
+		"ERROR",
+		"WARNING",
+	} })
 end, { desc = "Next error/warning todo comment" })
