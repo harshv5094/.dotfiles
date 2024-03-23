@@ -40,6 +40,10 @@ return {
 			servers = {
 				cssls = {},
 				taplo = {},
+				powershell_es = {
+					filetypes = { "ps1" },
+					shell = "pwsh",
+				},
 				pyright = {
 					cmd = { "pyright-langserver", "--stdio" },
 					settings = {
