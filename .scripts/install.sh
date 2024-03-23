@@ -137,10 +137,12 @@ select option in "Link My dotfiles 🔯" "Link My Folders 📁" "Homebrew Check 
 		brew_check
 		;;
 
-	"Homebrew Packages 🍺") ;;
+	"Homebrew Packages 🍺") 
+        brew_package_install
+        ;;
 
 	"Run My Fish Configuration script 🐟")
-        $(./fish.sh)
+        $(~/.dotfiles/.scripts/fish.sh)
 		;;
 
 	"Quit ❌")
