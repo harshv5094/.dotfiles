@@ -10,5 +10,6 @@
     "hover.floatConfig": {
         "border": true,
         "rounded": true
-    }
+    },
+    "colors.enable": true
 }
