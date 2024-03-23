@@ -1,8 +1,8 @@
-.config/nvim/lazy-lock.json
-.config/nvim/lazyvim.json
+./.config/nvim/lazy-lock.json
+./.config/nvim/lazyvim.json
 
-.config/fish/functions/tide
-.config/fish/functions/*.py
+./.config/fish/functions/tide
+./.config/fish/functions/*.py
 
-.config/tmux/plugins/*
-.config/tmux/plugins/
+./.config/tmux/plugins/*
+./.config/tmux/plugins/
