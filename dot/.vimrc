@@ -3,7 +3,7 @@
 " OPTIONS ------------------------------------------------------------------------------- {{{ 
   " Setting Colorscheme
   " colorscheme evening
-    
+
   " Accessing Vim Internal Clipboard
   set clipboard+=unnamed
 
@@ -123,6 +123,8 @@
   " Tab related Keymaps
   nnoremap te :tabedit<CR>
   nnoremap tc :tabclose<CR>
+  nnoremap <Tab> :tabnext<CR>
+  nnoremap <S-Tab> :tabprevious<CR>
 
   " String Replacement
   nnoremap <localleader>s :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left><Left>
@@ -190,5 +192,3 @@ augroup END
 " More Vimscripts code goes here.
 
 " }}}
-
-
