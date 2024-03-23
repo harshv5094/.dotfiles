@@ -119,11 +119,25 @@ function brew_package_install() {
 	fi
 }
 
+function vim_configuration() {
+	if [ -d "$HOME/.vim" ]; then
+		echo -e "${YELLOW}Copying config-settings.json${NC}"
+		ln -s "$HOME/.dotfiles/.scripts/coc-settings.json" "$HOME/.vim/coc-settings.json"
+	else
+		echo -e "${RED}Vim Plug is not installed${NC}"
+		echo -e "${YELLOW}Installling Vim Plugin${NC}"
+		curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+			https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+		echo -e "${YELLOW}Copying config-settings.json${NC}"
+		ln -s "$HOME/.dotfiles/.scripts/coc-settings.json" "$HOME/.vim/coc-settings.json"
+	fi
+}
+
 echo -e -e "${YELLOW}Welcome to My Setup installation script.${NC}"
 
 PS3="Please Select An Option: "
 
-select option in "Link My dotfiles 🔯" "Link My Folders 📁" "Homebrew Check 🍺" "Homebrew Packages 🍺" "Run My Fish Configuration script 🐟" "Quit ❌"; do
+select option in "Link My dotfiles 🔯" "Link My Folders 📁" "Vim Config" "Homebrew Check 🍺" "Homebrew Packages 🍺" "Run My Fish Configuration script 🐟" "Quit ❌"; do
 	case $option in
 	"Link My dotfiles 🔯")
 		dotfiles
@@ -133,16 +147,20 @@ select option in "Link My dotfiles 🔯" "Link My Folders 📁" "Homebrew Check 
 		config_folders
 		;;
 
+	"Vim Config")
+		vim_configuration
+		;;
+
 	"Homebrew Check 🍺")
 		brew_check
 		;;
 
-	"Homebrew Packages 🍺") 
-        brew_package_install
-        ;;
+	"Homebrew Packages 🍺")
+		brew_package_install
+		;;
 
 	"Run My Fish Configuration script 🐟")
-        $(~/.dotfiles/.scripts/fish.sh)
+		$(~/.dotfiles/.scripts/fish.sh)
 		;;
 
 	"Quit ❌")

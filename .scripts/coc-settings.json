@@ -1,0 +1,14 @@
+{
+    "coc.preferences.formatOnSave": true,
+    "coc.preferences.formatOnType": true,
+    "suggest.minTriggerInputLength": 4,
+    "coc.preferences.enableLinkedEditing": true,
+    "coc.preferences.enableMessageDialog": true,
+    "coc.preferences.extensionUpdateCheck": "daily",
+    "coc.preferences.useQuickfixForLocations": true,
+    "coc.preferences.willSaveHandlerTimeout": 1000,
+    "hover.floatConfig": {
+        "border": true,
+        "rounded": true
+    }
+}
