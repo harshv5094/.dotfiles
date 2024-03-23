@@ -1,6 +1,6 @@
 return {
-	-- Lazygit.nvim
 
+	-- Lazygit.nvim
 	{
 		"kdheepak/lazygit.nvim",
 		event = "VeryLazy",
@@ -137,7 +137,7 @@ return {
 					local builtin = require("telescope.builtin")
 					builtin.help_tags()
 				end,
-				desc = "Telescope -> Help Tags",
+				desc = "Telescope -> Help Guide",
 			},
 			{
 				";;",
@@ -145,15 +145,7 @@ return {
 					local builtin = require("telescope.builtin")
 					builtin.resume()
 				end,
-				desc = "Telescope -> Resume",
-			},
-			{
-				";e",
-				function()
-					local builtin = require("telescope.builtin")
-					builtin.diagnostics()
-				end,
-				desc = "Telescope -> Diagnostics  ",
+				desc = "Telescope -> Resume Previous Buffer",
 			},
 			{
 				";s",
@@ -161,7 +153,7 @@ return {
 					local builtin = require("telescope.builtin")
 					builtin.treesitter()
 				end,
-				desc = "Telescope -> Treesitter",
+				desc = "Telescope -> Treesitter Symbols (For Navigation)",
 			},
 			{
 				"sf",
@@ -202,15 +194,6 @@ return {
 					n = {},
 				},
 			})
-			opts.pickers = {
-				diagnostics = {
-					theme = "ivy",
-					initial_mode = "normal",
-					layout_config = {
-						preview_cutoff = 9999,
-					},
-				},
-			}
 			opts.extensions = {
 				file_browser = {
 					theme = "ivy",
@@ -245,6 +228,18 @@ return {
 			require("telescope").load_extension("fzf")
 			require("telescope").load_extension("file_browser")
 		end,
+	},
+
+	{
+		"folke/trouble.nvim",
+		cmd = { "TroubleToggle", "Trouble" },
+		opts = { use_diagnostic_signs = true },
+		keys = {
+			{ ";e", "<cmd>TroubleToggle document_diagnostics<cr>", desc = "Trouble -> Document Diagnostics" },
+			{ ";E", "<cmd>TroubleToggle workspace_diagnostics<cr>", desc = "Trouble -> Workspace Diagnostics" },
+			{ ";L", "<cmd>TroubleToggle loclist<cr>", desc = "Trouble -> Location List" },
+			{ ";Q", "<cmd>TroubleToggle quickfix<cr>", desc = "Trouble -> Quickfix List" },
+		},
 	},
 
 	-- Todo Comments
