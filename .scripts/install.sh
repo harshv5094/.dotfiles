@@ -108,11 +108,22 @@ function brew_check() {
 	fi
 }
 
+function brew_package_install() {
+	if command -v brew &>/dev/null; then
+		echo -e "${YELLOW}Installing Homebrew Packages${NC}"
+		brew bundle install --file="$HOME/Brewfile"
+	else
+		echo -e "${RED}Homebrew is not installed in your system${NC}"
+		echo -e "${YELLOW}Installing Homebrew${NC}"
+		/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+	fi
+}
+
 echo -e -e "${YELLOW}Welcome to My Setup installation script.${NC}"
 
 PS3="Please Select An Option: "
 
-select option in "Link My dotfiles 🔯" "Link My Folders 📁" "Homebrew Check 🍺" "Run My Fish Configuration script 🐟" "Quit ❌"; do
+select option in "Link My dotfiles 🔯" "Link My Folders 📁" "Homebrew Check 🍺" "Homebrew Packages 🍺" "Run My Fish Configuration script 🐟" "Quit ❌"; do
 	case $option in
 	"Link My dotfiles 🔯")
 		dotfiles
@@ -125,6 +136,8 @@ select option in "Link My dotfiles 🔯" "Link My Folders 📁" "Homebrew Check 
 	"Homebrew Check 🍺")
 		brew_check
 		;;
+
+	"Homebrew Packages 🍺") ;;
 
 	"Run My Fish Configuration script 🐟")
 		./fish.sh
