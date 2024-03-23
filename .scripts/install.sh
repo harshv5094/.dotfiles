@@ -116,7 +116,7 @@ echo -e -e "${YELLOW}Welcome to My Setup installation script.${NC}"
 
 PS3="Please Select An Option: "
 
-select option in "Link My dotfiles 🔯" "Link My Folders 📁" "Run My Fish Configuration script 🐟" "Quit ❌"; do
+select option in "Link My dotfiles 🔯" "Link My Folders 📁" "Homebrew Check 🍺" "Run My Fish Configuration script 🐟" "Quit ❌"; do
 	case $option in
 	"Link My dotfiles 🔯")
 		dotfiles
