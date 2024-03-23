@@ -12,7 +12,7 @@ return {
 				"c",
 				"lua",
 				"luadoc",
-				"dockerfile",
+				-- "dockerfile",
 				"python",
 				"html",
 				"cpp",
