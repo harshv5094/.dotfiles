@@ -98,7 +98,7 @@ function config_folders() {
 	fi
 }
 
-function homebrew_check() {
+function brew_check() {
 	if command -v brew &>/dev/null; then
 		echo -e "${RED}Homebrew is not installed in your system${NC}"
 		echo -e "${YELLOW}Installing Homebrew${NC}"
