@@ -13,7 +13,7 @@ function dotfiles() {
 		echo -e "${GREEN}Linking .bashrc"
 		ln -s "$HOME/.dotfiles/dot/.bashrc" "$HOME/.bashrc"
 	else
-		echo -e "${GREEN}Linking .bashrc"
+		echo -e "${YELLOW}Linking .bashrc"
 		ln -s "$HOME/.dotfiles/dot/.bashrc" "$HOME/.bashrc"
 	fi
 
@@ -24,7 +24,7 @@ function dotfiles() {
 		echo -e "${GREEN}Linking .bash_aliases"
 		ln -s "$HOME/.dotfiles/dot/.bash_aliases" "$HOME/.bash_aliases"
 	else
-		echo -e "${GREEN}Linking .bash_aliases"
+		echo -e "${YELLOW}Linking .bash_aliases"
 		ln -s "$HOME/.dotfiles/dot/.bash_aliases" "$HOME/.bash_aliases"
 	fi
 
@@ -35,19 +35,19 @@ function dotfiles() {
 		echo -e "${GREEN}Linking .gitconfig"
 		ln -s "$HOME/.dotfiles/dot/.gitconfig" "$HOME/.gitconfig"
 	else
-		echo -e "${GREEN}Linking .gitconfig"
+		echo -e "${YELLOW}Linking .gitconfig"
 		ln -s "$HOME/.dotfiles/dot/.gitconfig" "$HOME/.gitconfig"
 	fi
 
 	# Brew File
-	if [ -f "$HOME/BrewFile" ]; then
-		echo -e "${RED}Deleting Existing BrewFile${NC}"
-		rm -rf "$HOME/BrewFile"
-		echo -e "${GREEN}Linking BrewFile"
-		ln -s "$HOME/.dotfiles/.scripts/BrewFile" "$HOME/BrewFile"
+	if [ -f "$HOME/Brewfile" ]; then
+		echo -e "${RED}Deleting Existing Brewfile${NC}"
+		rm -rf "$HOME/Brewfile"
+		echo -e "${GREEN}Copying Brewfile to home directory"
+		ln -s "$HOME/.dotfiles/.scripts/Brewfile" "$HOME/Brewfile"
 	else
-		echo -e "${GREEN}Linking BrewFile"
-		ln -s "$HOME/.dotfiles/.scripts/BrewFile" "$HOME/BrewFile"
+		echo -e "${GREEN}Copying Brewfile to home directory"
+		ln -s "$HOME/.dotfiles/.scripts/Brewfile" "$HOME/Brewfile"
 	fi
 
 	# vimrc file
@@ -55,10 +55,10 @@ function dotfiles() {
 		echo -e "${RED}Deleting Existing .vimrc${NC}"
 		rm -rf "$HOME/.vimrc"
 		echo -e "${GREEN}Linking Vimrc"
-		ln -s "$HOME/.dotfiles/.scripts/.vimrc" "$HOME/.vimrc"
+		ln -s "$HOME/.dotfiles/dot/.vimrc" "$HOME/.vimrc"
 	else
-		echo -e "${GREEN}Linking Vimrc"
-		ln -s "$HOME/.dotfiles/.scripts/.vimrc" "$HOME/.vimrc"
+		echo -e "${YELLOW}Linking Vimrc"
+		ln -s "$HOME/.dotfiles/dot/.vimrc" "$HOME/.vimrc"
 	fi
 
 }
@@ -71,7 +71,7 @@ function config_folders() {
 		echo -e "${GREEN}Linking Nvim Config Folder"
 		ln -s "$HOME/.dotfiles/.config/nvim" "$HOME/.config/"
 	else
-		echo -e "${GREEN}Linking Nvim Config Folder"
+		echo -e "${YELLOW}Linking Nvim Config Folder"
 		ln -s "$HOME/.dotfiles/.config/nvim" "$HOME/.config/"
 	fi
 
@@ -82,7 +82,7 @@ function config_folders() {
 		echo -e "${GREEN}Linking Tmux Config Folder"
 		ln -s "$HOME/.dotfiles/.config/tmux" "$HOME/.config/"
 	else
-		echo -e "${GREEN}Linking Tmux Config Folder"
+		echo -e "${YELLOW}Linking Tmux Config Folder"
 		ln -s "$HOME/.dotfiles/.config/tmux" "$HOME/.config/"
 	fi
 
@@ -93,8 +93,22 @@ function config_folders() {
 		echo -e "${GREEN}Linking Oh My Posh Config Folder"
 		ln -s "$HOME/.dotfiles/.config/themes/" "$HOME/.config/"
 	else
-		echo -e "${GREEN}Linking Oh My Posh Config Folder"
+		echo -e "${YELLOW}Linking Oh My Posh Config Folder"
 		ln -s "$HOME/.dotfiles/.config/themes/" "$HOME/.config/"
+	fi
+}
+
+function homebrew_check() {
+	if command -v brew &>/dev/null; then
+		echo -e "${RED}Homebrew is not installed in your system${NC}"
+		echo -e "${YELLOW}Installing Homebrew${NC}"
+		if [ -x "/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"" ]; then
+			echo -e "${GREEN}Homebrew is installed in your system${NC}"
+		else
+			echo -e "${RED}Unable to install Homebrew in your system${NC}"
+		fi
+	else
+		echo -e "${GREEN}Homebrew is installed in your system${NC}"
 	fi
 }
 
@@ -102,14 +116,18 @@ echo -e -e "${YELLOW}Welcome to My Setup installation script.${NC}"
 
 PS3="Please Select An Option: "
 
-select option in "Link My dotfiles" "Link My Folders" "Run My Fish Configuration script 🐟" "Quit ❌"; do
+select option in "Link My dotfiles 🔯" "Link My Folders 📁" "Run My Fish Configuration script 🐟" "Quit ❌"; do
 	case $option in
-	"Link My dotfiles")
+	"Link My dotfiles 🔯")
 		dotfiles
 		;;
 
-	"Link My Folders")
+	"Link My Folders 📁")
 		config_folders
+		;;
+
+	"Homebrew Check 🍺")
+		brew_check
 		;;
 
 	"Run My Fish Configuration script 🐟")
