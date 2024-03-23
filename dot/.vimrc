@@ -1,5 +1,11 @@
 " @format
 " OPTIONS ------------------------------------------------------------------------------- {{{ 
+    " Setting Colorscheme
+    " colorscheme evening
+    
+    " Set background to dark
+    set background=dark
+
     " Highlight cursor line underneath the cursor horizontally.
     set cursorline
 
@@ -103,6 +109,17 @@
 	nnoremap <C-w><up> <C-w>+
 	nnoremap <C-w><down> <C-w>-
 
+    " Tab related Keymaps
+    nnoremap te :tabedit<CR>
+    nnoremap tc :tabclose<CR>
+
+    " String Replacement
+    nnoremap <localleader>s :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left><Left>
+    
+    " Changing file to execution
+    nnoremap <localleader>x <cmd>!chmod +x %<CR>
+
+
 " }}}
 
 " PLUGINS ---------------------------------------------------------------- {{{
@@ -128,7 +145,7 @@
 
 	" Lightline Settings
 	let g:lightline = {
-      			\ 'colorscheme': 'wombat',
+      			\ 'colorscheme': 'one',
   			\ 'active': {
       			\   'left': [ [ 'mode', 'paste' ],
       			\             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
