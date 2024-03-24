@@ -160,7 +160,7 @@ select option in "Link My dotfiles 🔯" "Link My Folders 📁" "Vim Config" "Ho
 		;;
 
 	"Run My Fish Configuration script 🐟")
-		$(~/.dotfiles/.scripts/fish.sh)
+		~/.dotfiles/.scripts/fish.sh
 		;;
 
 	"Quit ❌")
