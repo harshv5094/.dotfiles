@@ -44,12 +44,19 @@ keymap.set("n", "<C-w><right>", "<C-w>>", { desc = "Increase Window Width" })
 keymap.set("n", "<C-w><up>", "<C-w>+", { desc = "Increase Window Height" })
 keymap.set("n", "<C-w><down>", "<C-w>-", { desc = "Decrease Window Height" })
 
--- String Replacement
+-- String Replacements keymaps
 keymap.set(
 	"n",
 	"<localleader>s",
 	[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
-	{ desc = "String Replacement" }
+	{ desc = "String Auto Replacement" }
+)
+
+keymap.set(
+	"n",
+	"<localleader>S",
+	[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gc<Left><Left><Left>]],
+	{ desc = "String Manual Replacement" }
 )
 
 -- Changing file permissions to executable
