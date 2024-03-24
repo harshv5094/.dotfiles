@@ -1,32 +1,32 @@
 alias setup "~/.dotfiles/.scripts/install.sh"
 
-if command -q eza
-    alias ll "eza -lg --icons"
-    alias ls "eza -g --icons"
-    alias la "eza -lga --icons"
+if type -q vim
+    alias nvim-e "vim ~/.dotfiles/.config/nvim/"
+    alias vim-e "vim ~/.dotfiles/dot/.vimrc"
+    alias fish-e "vim ~/.dotfiles/.config/fish/"
+    alias tmux-e "vim ~/.dotfiles/.config/fish/"
+    alias setup-e "vim ~/.dotfiles/.scripts/install.sh"
 end
 
-if command -q vim
-    alias setup_editor "vim ~/.dotfiles/.scripts/install.sh"
+if type -q nvim
+    alias vim-e "nvim ~/.dotfiles/.config/nvim/"
+    alias fish-e "nvim ~/.dotfiles/.config/fish/"
+    alias tmux-e "nvim ~/.dotfiles/.config/fish/"
+    alias setup-e "nvim ~/.dotfiles/.scripts/install.sh"
 end
 
-if command -q nvim
-    alias vimedit "nvim ~/.dotfiles/.config/nvim/"
-    alias setup_editor "nvim ~/.dotfiles/.scripts/install.sh"
-end
-
-if command -q lazygit
+if type -q lazygit
     alias lg lazygit
 end
 
-if command -q bat
+if type -q bat
     alias cat bat
 end
 
-if command -q htop
+if type -q htop
     alias top htop
 end
 
-if command -q oh-my-posh
+if type -q oh-my-posh
     alias prompt "nvim $HOME/.dotfiles/.config/themes/harsh.omp.json"
 end
