@@ -7,9 +7,9 @@ NC='\033[0m' # No Color
 
 function dotfiles() {
 	# .bashrc
-	if [ -f "$HOME/.bashrc" ]; then
+	if [ -e "$HOME/.bashrc" ]; then
 		echo -e -e "${RED}Deleting Existing .bashrc${NC}"
-		rm -rf "$HOME/.bashrc"
+		rm "$HOME/.bashrc"
 		echo -e "${GREEN}Linking .bashrc"
 		ln -s "$HOME/.dotfiles/dot/.bashrc" "$HOME/.bashrc"
 	else
@@ -18,9 +18,9 @@ function dotfiles() {
 	fi
 
 	# .bash_aliases
-	if [ -f "$HOME/.bash_aliases" ]; then
+	if [ -e "$HOME/.bash_aliases" ]; then
 		echo -e "${RED}Deleting Existing .bashrc${NC}"
-		rm -rf "$HOME/.bash_aliases"
+		rm "$HOME/.bash_aliases"
 		echo -e "${GREEN}Linking .bash_aliases"
 		ln -s "$HOME/.dotfiles/dot/.bash_aliases" "$HOME/.bash_aliases"
 	else
@@ -29,9 +29,9 @@ function dotfiles() {
 	fi
 
 	# .gitconfig
-	if [ -f "$HOME/.gitconfig" ]; then
+	if [ -e "$HOME/.gitconfig" ]; then
 		echo -e "${RED}Deleting Existing .gitconfig${NC}"
-		rm -rf "$HOME/.gitconfig"
+		rm "$HOME/.gitconfig"
 		echo -e "${GREEN}Linking .gitconfig"
 		ln -s "$HOME/.dotfiles/dot/.gitconfig" "$HOME/.gitconfig"
 	else
@@ -40,20 +40,20 @@ function dotfiles() {
 	fi
 
 	# Brew File
-	if [ -f "$HOME/Brewfile" ]; then
+	if [ -e "$HOME/Brewfile" ]; then
 		echo -e "${RED}Deleting Existing Brewfile${NC}"
-		rm -rf "$HOME/Brewfile"
+		rm "$HOME/Brewfile"
 		echo -e "${GREEN}Copying Brewfile to home directory"
-		ln -s "$HOME/.dotfiles/.scripts/Brewfile" "$HOME/Brewfile"
+		ln -s "$HOME/.dotfiles/dot/Brewfile" "$HOME/Brewfile"
 	else
 		echo -e "${GREEN}Copying Brewfile to home directory"
-		ln -s "$HOME/.dotfiles/.scripts/Brewfile" "$HOME/Brewfile"
+		ln -s "$HOME/.dotfiles/dot/Brewfile" "$HOME/Brewfile"
 	fi
 
 	# vimrc file
-	if [ -f "$HOME/.vimrc" ]; then
+	if [ -e "$HOME/.vimrc" ]; then
 		echo -e "${RED}Deleting Existing .vimrc${NC}"
-		rm -rf "$HOME/.vimrc"
+		rm "$HOME/.vimrc"
 		echo -e "${GREEN}Linking Vimrc"
 		ln -s "$HOME/.dotfiles/dot/.vimrc" "$HOME/.vimrc"
 	else
@@ -67,7 +67,7 @@ function config_folders() {
 	# nvim folder
 	if [ -d "$HOME/.config/nvim" ]; then
 		echo -e "${RED}Deleting Existing Nvim Config Folder${NC}"
-		rm -rf "$HOME/.config/nvim"
+		rm "$HOME/.config/nvim"
 		echo -e "${GREEN}Linking Nvim Config Folder"
 		ln -s "$HOME/.dotfiles/.config/nvim" "$HOME/.config/"
 	else
@@ -78,7 +78,7 @@ function config_folders() {
 	# Tmux Folder
 	if [ -d "$HOME/.config/tmux" ]; then
 		echo -e "${RED}Deleting Existing Nvim Config Folder${NC}"
-		rm -rf "$HOME/.config/tmux"
+		rm "$HOME/.config/tmux"
 		echo -e "${GREEN}Linking Tmux Config Folder"
 		ln -s "$HOME/.dotfiles/.config/tmux" "$HOME/.config/"
 	else
@@ -122,20 +122,20 @@ function brew_package_install() {
 function vim_configuration() {
 	if [ -d "$HOME/.vim" ]; then
 		echo -e "${YELLOW}Copying config-settings.json${NC}"
-		ln -s "$HOME/.dotfiles/.scripts/coc-settings.json" "$HOME/.vim/coc-settings.json"
+		ln -s "$HOME/.dotfiles/scripts/coc-settings.json" "$HOME/.vim/coc-settings.json"
 	else
 		echo -e "${RED}Vim Plug is not installed${NC}"
 		echo -e "${YELLOW}Installling Vim Plugin${NC}"
 		curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 			https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 		echo -e "${YELLOW}Copying config-settings.json${NC}"
-		ln -s "$HOME/.dotfiles/.scripts/coc-settings.json" "$HOME/.vim/coc-settings.json"
+		ln -s "$HOME/.dotfiles/scripts/coc-settings.json" "$HOME/.vim/coc-settings.json"
 	fi
 }
 
 echo -e -e "${YELLOW}Welcome to My Setup installation script.${NC}"
 
-PS3="Please Select An Option: "
+PS3="Your Option: "
 
 select option in "Link My dotfiles 🔯" "Link My Folders 📁" "Vim Config" "Homebrew Check 🍺" "Homebrew Packages 🍺" "Run My Fish Configuration script 🐟" "Quit ❌"; do
 	case $option in
@@ -160,7 +160,7 @@ select option in "Link My dotfiles 🔯" "Link My Folders 📁" "Vim Config" "Ho
 		;;
 
 	"Run My Fish Configuration script 🐟")
-		~/.dotfiles/.scripts/fish.sh
+		~/.dotfiles/scripts/fish.sh
 		;;
 
 	"Quit ❌")
