@@ -122,14 +122,14 @@ function brew_package_install() {
 function vim_configuration() {
 	if [ -d "$HOME/.vim" ]; then
 		echo -e "${YELLOW}Copying config-settings.json${NC}"
-		ln -s "$HOME/.dotfiles/scripts/coc-settings.json" "$HOME/.vim/coc-settings.json"
+		ln -s "$HOME/.dotfiles/script/coc-settings.json" "$HOME/.vim/coc-settings.json"
 	else
 		echo -e "${RED}Vim Plug is not installed${NC}"
 		echo -e "${YELLOW}Installling Vim Plugin${NC}"
 		curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 			https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 		echo -e "${YELLOW}Copying config-settings.json${NC}"
-		ln -s "$HOME/.dotfiles/scripts/coc-settings.json" "$HOME/.vim/coc-settings.json"
+		ln -s "$HOME/.dotfiles/script/coc-settings.json" "$HOME/.vim/coc-settings.json"
 	fi
 }
 
@@ -160,7 +160,7 @@ select option in "Link My dotfiles 🔯" "Link My Folders 📁" "Vim Config" "Ho
 		;;
 
 	"Run My Fish Configuration script 🐟")
-		~/.dotfiles/scripts/fish.sh
+		~/.dotfiles/script/fish.sh
 		;;
 
 	"Quit ❌")
