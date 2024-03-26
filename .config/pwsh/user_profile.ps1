@@ -52,16 +52,14 @@ if ($checkEza)
 {
   function ll
   {
-    eza $args -lg --icons
+    eza $args -lg --bytes --icons --header
   }
 
   function la
   {
-    eza $args -lga --icons
+    eza $args -lga --bytes --icons --header
   }
 }
-
-
 
 # neovim config view
 function vimview
@@ -88,17 +86,13 @@ function pwshview
 
 # Function for prompt edit
 function promptedit
-{ nvim $env:USERPROFILE\.dotfiles\.config\starship.toml
-} 
-
-# Home Directory Shortcut
-function home
-{ Set-Location ~ 
+{ nvim $env:USERPROFILE\.dotfiles\.config\themes\harsh.omp.json 
 }
 
 # Terminal Config Editing (Windows)
 function wtview
-{ Set-Location $env:USERPROFILE\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\ 
+{ 
+  Set-Location $env:USERPROFILE\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\ 
 }
 function wtedit
 { nvim $env:USERPROFILE\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json 
