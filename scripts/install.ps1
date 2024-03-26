@@ -65,7 +65,7 @@ function Show-Menu
   Write-Host "1. Install Scoop"
   Write-Host "2. Install Scoop Packages"
   Write-Host "3. Link My Directories"
-  Write-Host "3. Install Powershell Packages"
+  Write-Host "4. Install Powershell Packages"
   Write-Host "Q. Quit"
 }
 
