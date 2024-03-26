@@ -1,6 +1,17 @@
-oh-my-posh init pwsh --config "~/.config/themes/harsh.omp.json" | Invoke-Expression
+# Adding which function
+function which ($command)
+{
+  Get-Command -Name $command -ErrorAction SilentlyContinue |
+    Select-Object -ExpandProperty Path -ErrorAction SilentlyContinue
+}
 
-# Changing Text Color
+$promptEditor = which "oh-my-posh"
+if($promptEditor)
+{
+  oh-my-posh init pwsh --config "~/.config/themes/harsh.omp.json" | Invoke-Expression
+}
+
+# Changing Text Color for transparency
 if ($IsCoreCLR)
 {
   $esc = "`e"
@@ -33,17 +44,24 @@ Import-Module posh-git
 Import-Module PSFzf
 Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+f' -PSReadlineChordReverseHistory 'Ctrl+r'
 
-function ll
+# Terminal Icons
+Import-Module Terminal-Icons
+
+$checkEza = which "eza"
+if ($checkEza)
 {
-  eza $args -lg --icons
+  function ll
+  {
+    eza $args -lg --icons
+  }
+
+  function la
+  {
+    eza $args -lga --icons
+  }
 }
 
-function la
-{
-  eza $args -lga --icons
-}
 
-# Import-Module Terminal-Icons
 
 # neovim config view
 function vimview
@@ -92,18 +110,10 @@ function winget_edit
   nvim $env:LOCALAPPDATA\Packages\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe\LocalState\settings.json
 }
 
-# Adding which function
-function which ($command)
-{
-  Get-Command -Name $command -ErrorAction SilentlyContinue |
-    Select-Object -ExpandProperty Path -ErrorAction SilentlyContinue
-}
-
 # Importing My Custom set alias script
 
 # Setting Aliases
 Set-Alias apt scoop
-Set-Alias ll ls
 Set-Alias g git
 Set-Alias gpt Get-PoshThemes
 Set-Alias touch New-Item
@@ -115,9 +125,3 @@ Set-Alias fdir Get-ChildItem
 Set-Alias grep findstr
 Set-Alias lg lazygit
 
-
-$starship = which "starship"
-if($starship)
-{
-  Invoke-Expression (&starship init powershell)
-}
