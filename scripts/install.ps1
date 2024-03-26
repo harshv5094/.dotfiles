@@ -1,5 +1,4 @@
 # Installing Scoop on Windows
-
 function Install-Scoop
 {
   if (Test-Path -Path "$env:USERPROFILE\scoop")
@@ -36,12 +35,78 @@ function Install-Scoop-Packages
 # Creating Symbolic Links for the config 
 function Copy-Folder-Links
 {
-  sudo New-Item -Path "$env:USERPROFILE\Documents\PowerShell\Microsoft.PowerShell_profile.ps1" -ItemType SymbolicLink -Value "$env:USERPROFILE\.dotfiles\scripts\Microsoft.PowerShell_profile.ps1"
-  sudo New-Item -Path "$env:USERPROFILE\.config\pwsh\" -ItemType SymbolicLink -Value "$env:USERPROFILE\.dotfiles\.config\pwsh"
-  sudo New-Itme -Path "$env:USERPROFILE\.config\themes" -ItemType SymbolicLink -Value "$env:USERPROFILE\.dotfiles\.config\themes"
-  sudo New-Item -Path "$env:USERPROFILE\.gitconfig" -ItemType SymbolicLink -Value "$env:USERPROFILE\.dotfiles\dot\.gitconfig"
-  sudo New-Item -Path "$env:USERPROFILE\.vimrc" -ItemType SymbolicLink -Value "$env:USERPROFILE\.dotfiles\dot\.vimrc"
-  sudo New-Item -Path "$env:LOCALAPPDATA\nvim" -ItemType SymbolicLink -Value "$env:USERPROFILE\.dotfiles\.config\nvim"
+  if (Test-Path -Path "$env:USERPROFILE\Documents\PowerShell\Microsoft.PowerShell_profile.ps1" )
+  {
+    Write-Output "Removing the existing Microsoft.PowerShell_profile.ps1 file."
+    Remove-Item -Recurse -Force "$env:USERPROFILE\Documents\PowerShell\Microsoft.PowerShell_profile.ps1"
+    Write-Output "Creating the Symbolic Link for Microsoft.PowerShell_profile.ps1"
+    sudo New-Item -Path "$env:USERPROFILE\Documents\PowerShell\Microsoft.PowerShell_profile.ps1" -ItemType SymbolicLink -Value "$env:USERPROFILE\.dotfiles\scripts\Microsoft.PowerShell_profile.ps1"
+  } else
+  {
+    Write-Output "Creating the Symbolic Link for Microsoft.PowerShell_profile.ps1"
+    sudo New-Item -Path "$env:USERPROFILE\Documents\PowerShell\Microsoft.PowerShell_profile.ps1" -ItemType SymbolicLink -Value "$env:USERPROFILE\.dotfiles\scripts\Microsoft.PowerShell_profile.ps1"
+  }
+
+  if (Test-Path -Path "$env:USERPROFILE\.config\pwsh")
+  {
+    Write-Output "Removing the existing pwsh directory."
+    Remove-Item -Recurse -Force "$env:USERPROFILE\.config\pwsh"
+    Write-Output "Creating the Symbolic Link for pwsh directory."
+    sudo New-Item -Path "$env:USERPROFILE\.config\pwsh\" -ItemType SymbolicLink -Value "$env:USERPROFILE\.dotfiles\.config\pwsh"
+  } else
+  {
+    Write-Output "Creating the Symbolic Link for pwsh directory."
+    sudo New-Item -Path "$env:USERPROFILE\.config\pwsh\" -ItemType SymbolicLink -Value "$env:USERPROFILE\.dotfiles\.config\pwsh"
+  }
+
+  if (Test-Path -Path "$env:USERPROFILE\.config\themes")
+  {
+    Write-Output "Removing the existing themes directory."
+    Remove-Item -Recurse -Force "$env:USERPROFILE\.config\themes"
+    Write-Output "Creating the Symbolic Link for themes directory."
+    sudo New-Itme -Path "$env:USERPROFILE\.config\themes" -ItemType SymbolicLink -Value "$env:USERPROFILE\.dotfiles\.config\themes"
+  } else
+  {
+    Write-Output "Creating the Symbolic Link for themes directory."
+    sudo New-Itme -Path "$env:USERPROFILE\.config\themes" -ItemType SymbolicLink -Value "$env:USERPROFILE\.dotfiles\.config\themes"
+  }
+
+  if (Test-Path -Path "$env:USERPROFILE\.gitconfig")
+  {
+    Write-Output "Removing the existing .gitconfig file."
+    Remove-Item -Recurse -Force "$env:USERPROFILE\.gitconfig"
+    Write-Output "Creating the Symbolic Link for .gitconfig file."
+    sudo New-Item -Path "$env:USERPROFILE\.gitconfig" -ItemType SymbolicLink -Value "$env:USERPROFILE\.dotfiles\dot\.gitconfig"
+  } else
+  {
+    Write-Output "Creating the Symbolic Link for .gitconfig file."
+    sudo New-Item -Path "$env:USERPROFILE\.gitconfig" -ItemType SymbolicLink -Value "$env:USERPROFILE\.dotfiles\dot\.gitconfig"
+  }
+
+  if (Test-Path -Path "$env:USERPROFILE\.vimrc")
+  {
+    Write-Output "Removing the existing .vimrc file."
+    Remove-Item -Recures -Force "$env:USERPROFILE\.vimrc"
+    Write-Output "Creating the Symbolic Link for .vimrc file."
+    sudo New-Item -Path "$env:USERPROFILE\.vimrc" -ItemType SymbolicLink -Value "$env:USERPROFILE\.dotfiles\dot\.vimrc"
+  } else
+  {
+    Write-Output "Creating the Symbolic Link for .vimrc file."
+    sudo New-Item -Path "$env:USERPROFILE\.vimrc" -ItemType SymbolicLink -Value "$env:USERPROFILE\.dotfiles\dot\.vimrc"
+  }
+
+  if (Test-Path -Path "$env:LOCALAPPDATA\nvim")
+  {
+    Write-Output "Removing the existing nvim directory."
+    Remove-Item -Recurse -Force "$env:LOCALAPPDATA\nvim"
+    Write-Output "Creating the Symbolic Link for nvim directory."
+    sudo New-Item -Path "$env:LOCALAPPDATA\nvim" -ItemType SymbolicLink -Value "$env:USERPROFILE\.dotfiles\.config\nvim"
+  } else
+  {
+    Write-Output "Creating the Symbolic Link for nvim directory."
+    sudo New-Item -Path "$env:LOCALAPPDATA\nvim" -ItemType SymbolicLink -Value "$env:USERPROFILE\.dotfiles\.config\nvim"
+  }
+
 }
 
 function Install-Pwsh-Packages
