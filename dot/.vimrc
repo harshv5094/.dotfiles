@@ -195,6 +195,6 @@ augroup filetype_vim
     autocmd FileType vim setlocal foldmethod=marker
 augroup END
 
-" More Vimscript code goes here.
+" More Vimscripts code goes here.
 
 " }}}
