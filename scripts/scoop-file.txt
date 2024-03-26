@@ -1,5 +1,6 @@
 7zip
 bat
+eza
 curl
 fd
 fzf

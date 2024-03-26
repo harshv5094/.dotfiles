@@ -1,17 +1,18 @@
 oh-my-posh init pwsh --config "~/.config/themes/harsh.omp.json" | Invoke-Expression
 
 # Changing Text Color
-if ($IsCoreCLR) {
-    $esc = "`e"
-}
-else {
-    $esc = $([char]0x1b)
+if ($IsCoreCLR)
+{
+  $esc = "`e"
+} else
+{
+  $esc = $([char]0x1b)
 }
 Set-PSReadLineOption -Colors @{
-    Parameter = "$esc[96m"
-    Operator  = "$esc[38;5;47m"
-    comment   = "$esc[92m"
-    String    = "$esc[38;5;51m"
+  Parameter = "$esc[96m"
+  Operator  = "$esc[38;5;47m"
+  comment   = "$esc[92m"
+  String    = "$esc[38;5;51m"
 }
 
 # set PowerShell to UTF-8
@@ -32,47 +33,70 @@ Import-Module posh-git
 Import-Module PSFzf
 Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+f' -PSReadlineChordReverseHistory 'Ctrl+r'
 
-# Install-Module -Name PSReadLine -AllowPrerelease -Scope CurrentUser -Force -SkipPublisherCheck
-# InstallModule -Name Terminal-Icons -Repository PSGallery -Force
-Import-Module Terminal-Icons
+function ll
+{
+  eza $args -lg --icons
+}
+
+function la
+{
+  eza $args -lga --icons
+}
+
+# Import-Module Terminal-Icons
 
 # neovim config view
-function vimview {Set-Location "~/AppData/Local/nvim" && Get-ChildItem } 
+function vimview
+{Set-Location "~/AppData/Local/nvim" && Get-ChildItem 
+} 
 
 # neovim config edit
-function vimedit {
+function vimedit
+{
   Set-Location $env:LOCALAPPDATA\nvim\ && nvim .
 } 
 
 # pwsh config edit
-function pwshedit { 
+function pwshedit
+{ 
   nvim $env:USERPROFILE\.config\pwsh\user_profile.ps1
 }
 
 # pwsh config view
-function pwshview {
+function pwshview
+{
   Set-Location "$env:USERPROFILE/.config/powershell/" && Get-ChildItem 
 }
 
 # Function for prompt edit
-function promptedit { nvim $env:USERPROFILE\.dotfiles\.config\starship.toml} 
+function promptedit
+{ nvim $env:USERPROFILE\.dotfiles\.config\starship.toml
+} 
 
 # Home Directory Shortcut
-function home { Set-Location ~ }
+function home
+{ Set-Location ~ 
+}
 
 # Terminal Config Editing (Windows)
-function wtview { Set-Location $env:USERPROFILE\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\ }
-function wtedit{ nvim $env:USERPROFILE\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json }
+function wtview
+{ Set-Location $env:USERPROFILE\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\ 
+}
+function wtedit
+{ nvim $env:USERPROFILE\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json 
+}
 
 # Function for winget config 
-function winget_edit{
+function winget_edit
+{
   nvim $env:LOCALAPPDATA\Packages\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe\LocalState\settings.json
 }
 
 # Adding which function
-function which ($command) {
+function which ($command)
+{
   Get-Command -Name $command -ErrorAction SilentlyContinue |
-  Select-Object -ExpandProperty Path -ErrorAction SilentlyContinue
+    Select-Object -ExpandProperty Path -ErrorAction SilentlyContinue
 }
 
 # Importing My Custom set alias script
@@ -93,6 +117,7 @@ Set-Alias lg lazygit
 
 
 $starship = which "starship"
-if($starship){
-    Invoke-Expression (&starship init powershell)
-  }
+if($starship)
+{
+  Invoke-Expression (&starship init powershell)
+}
