@@ -137,7 +137,7 @@ echo -e -e "${YELLOW}Welcome to My Setup installation script.${NC}"
 
 PS3="Your Option: "
 
-select option in "Link My dotfiles 🔯" "Link My Folders 📁" "Vim Config" "Homebrew Check 🍺" "Homebrew Packages 🍺" "Run My Fish Configuration script 🐟" "Quit ❌"; do
+select option in "Link My dotfiles 🔯" "Link My Folders 📁" "Vim Config 🔧" "Install NPM Packages" "Homebrew Check 🍺" "Homebrew Packages 🍺" "Run My Fish Configuration script 🐟" "Quit ❌"; do
 	case $option in
 	"Link My dotfiles 🔯")
 		dotfiles
@@ -147,8 +147,12 @@ select option in "Link My dotfiles 🔯" "Link My Folders 📁" "Vim Config" "Ho
 		config_folders
 		;;
 
-	"Vim Config")
+	"Vim Config 🔧")
 		vim_configuration
+		;;
+
+	"Install NPM Packages 📦")
+		npm i -g commitizen cz-conventional-changelog
 		;;
 
 	"Homebrew Check 🍺")
