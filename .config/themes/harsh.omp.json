@@ -130,12 +130,6 @@
           "template": "<#8ac926>\u2500</>(\uf019: {{.Version}})"
         },
         {
-          "type": "npm",
-          "style": "plain",
-          "foreground": "#FFD664",
-          "template": "<#8ac926>\u2500</>( {{ .Full }})"
-        },
-        {
           "type": "status",
           "style": "plain",
           "foreground": "#e0f8ff",
