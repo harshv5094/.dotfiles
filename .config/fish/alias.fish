@@ -1,3 +1,5 @@
+command -qv nala && alias apt nala
+
 if type -q vim
     alias nvim-e "vim ~/.dotfiles/.config/nvim/"
     alias vim-e "vim ~/.dotfiles/dot/.vimrc"
