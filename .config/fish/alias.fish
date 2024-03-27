@@ -30,3 +30,5 @@ end
 if type -q oh-my-posh
     alias prompt "nvim $HOME/.dotfiles/.config/themes/harsh.omp.json"
 end
+
+alias ide "$HOME/.dotfiles/scripts/ide.sh"

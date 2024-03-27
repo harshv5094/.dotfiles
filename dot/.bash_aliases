@@ -10,3 +10,5 @@ fi
 if command -v lazygit &>/dev/null; then
 	alias lg="lazygit"
 fi
+
+alias ide="~/.dotfiles/scripts/ide.sh"
