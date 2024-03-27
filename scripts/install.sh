@@ -10,11 +10,11 @@ function dotfiles() {
 	if [ -e "$HOME/.bashrc" ]; then
 		echo -e -e "${RED}Deleting Existing .bashrc${NC}"
 		rm "$HOME/.bashrc"
-		echo -e "${GREEN}Linking .bashrc"
-		ln -s "$HOME/.dotfiles/dot/.bashrc" "$HOME/.bashrc"
+		echo -e "${GREEN}Copying .bashrc"
+		cp "$HOME/.dotfiles/dot/.bashrc" "$HOME/"
 	else
-		echo -e "${YELLOW}Linking .bashrc"
-		ln -s "$HOME/.dotfiles/dot/.bashrc" "$HOME/.bashrc"
+		echo -e "${GREEN}Copying .bashrc"
+		cp "$HOME/.dotfiles/dot/.bashrc" "$HOME/"
 	fi
 
 	# .bash_aliases
@@ -24,7 +24,7 @@ function dotfiles() {
 		echo -e "${GREEN}Linking .bash_aliases"
 		ln -s "$HOME/.dotfiles/dot/.bash_aliases" "$HOME/.bash_aliases"
 	else
-		echo -e "${YELLOW}Linking .bash_aliases"
+		echo -e "${GREEN}Linking .bash_aliases"
 		ln -s "$HOME/.dotfiles/dot/.bash_aliases" "$HOME/.bash_aliases"
 	fi
 
@@ -32,21 +32,21 @@ function dotfiles() {
 	if [ -e "$HOME/.gitconfig" ]; then
 		echo -e "${RED}Deleting Existing .gitconfig${NC}"
 		rm "$HOME/.gitconfig"
-		echo -e "${GREEN}Linking .gitconfig"
-		ln -s "$HOME/.dotfiles/dot/.gitconfig" "$HOME/.gitconfig"
+		echo -e "${GREEN}Copying .gitconfig"
+		cp "$HOME/.dotfiles/dot/.gitconfig" "$HOME/"
 	else
-		echo -e "${YELLOW}Linking .gitconfig"
-		ln -s "$HOME/.dotfiles/dot/.gitconfig" "$HOME/.gitconfig"
+		echo -e "${GREEN}Copying .gitconfig"
+		cp "$HOME/.dotfiles/dot/.gitconfig" "$HOME/"
 	fi
 
 	# Brew File
 	if [ -e "$HOME/Brewfile" ]; then
 		echo -e "${RED}Deleting Existing Brewfile${NC}"
 		rm "$HOME/Brewfile"
-		echo -e "${GREEN}Copying Brewfile to home directory"
+		echo -e "${GREEN}Linking Brewfile to home directory"
 		ln -s "$HOME/.dotfiles/dot/Brewfile" "$HOME/Brewfile"
 	else
-		echo -e "${GREEN}Copying Brewfile to home directory"
+		echo -e "${GREEN}Linking Brewfile to home directory"
 		ln -s "$HOME/.dotfiles/dot/Brewfile" "$HOME/Brewfile"
 	fi
 
