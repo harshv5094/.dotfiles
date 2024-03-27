@@ -1,3 +1,4 @@
+node_modules/
 .config/nvim/*.json
 
 .config/fish/functions/tide
