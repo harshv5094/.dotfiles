@@ -78,7 +78,12 @@
           "trailing_diamond": "\ue0b0",
           "foreground": "#3C873A",
           "background": "#303030",
-          "template": "  {{ .Full }} "
+          "properties": {
+            "fetch_package_manager": true,
+            "npm_icon": " <#cc3a3a>\ue5fa</> ",
+            "yarn_icon": " <#348cba>\ue6a7</>"
+          },
+          "template": " \ue718 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }} "
         },
         {
           "type": "docker",
