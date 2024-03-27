@@ -64,29 +64,30 @@ function Copy-Folder-Links
     Write-Output "Removing the existing themes directory."
     Remove-Item -Recurse -Force "$env:USERPROFILE\.config\themes"
     Write-Output "Creating the Symbolic Link for themes directory."
-    sudo New-Itme -Path "$env:USERPROFILE\.config\themes" -ItemType SymbolicLink -Value "$env:USERPROFILE\.dotfiles\.config\themes"
+    sudo New-Item -Path "$env:USERPROFILE\.config\themes" -ItemType SymbolicLink -Value "$env:USERPROFILE\.dotfiles\.config\themes"
   } else
   {
     Write-Output "Creating the Symbolic Link for themes directory."
-    sudo New-Itme -Path "$env:USERPROFILE\.config\themes" -ItemType SymbolicLink -Value "$env:USERPROFILE\.dotfiles\.config\themes"
+    sudo New-Item -Path "$env:USERPROFILE\.config\themes" -ItemType SymbolicLink -Value "$env:USERPROFILE\.dotfiles\.config\themes"
   }
 
   if (Test-Path -Path "$env:USERPROFILE\.gitconfig")
   {
     Write-Output "Removing the existing .gitconfig file."
     Remove-Item -Recurse -Force "$env:USERPROFILE\.gitconfig"
-    Write-Output "Creating the Symbolic Link for .gitconfig file."
-    sudo New-Item -Path "$env:USERPROFILE\.gitconfig" -ItemType SymbolicLink -Value "$env:USERPROFILE\.dotfiles\dot\.gitconfig"
+    Write-Output "Copying .gitconfig file."
+    Copy-Item "$env:USERPROFILE\.dotfiles\dot\.gitconfig" "$env:USERPROFILE"
+
   } else
   {
-    Write-Output "Creating the Symbolic Link for .gitconfig file."
-    sudo New-Item -Path "$env:USERPROFILE\.gitconfig" -ItemType SymbolicLink -Value "$env:USERPROFILE\.dotfiles\dot\.gitconfig"
+    Write-Output "Copying .gitconfig file."
+    Copy-Item "$env:USERPROFILE\.dotfiles\dot\.gitconfig" "$env:USERPROFILE"
   }
 
   if (Test-Path -Path "$env:USERPROFILE\.vimrc")
   {
     Write-Output "Removing the existing .vimrc file."
-    Remove-Item -Recures -Force "$env:USERPROFILE\.vimrc"
+    Remove-Item -Recurse -Force "$env:USERPROFILE\.vimrc"
     Write-Output "Creating the Symbolic Link for .vimrc file."
     sudo New-Item -Path "$env:USERPROFILE\.vimrc" -ItemType SymbolicLink -Value "$env:USERPROFILE\.dotfiles\dot\.vimrc"
   } else
