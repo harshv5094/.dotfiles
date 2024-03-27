@@ -62,7 +62,7 @@
           "background": "#627264",
           "leading_diamond": "\ue0b6",
           "trailing_diamond": "\ue0b0",
-          "template": " {{ if .SSHSession }} {{ end }}{{ .UserName }} "
+          "template": "{{ if .SSHSession }} {{ end }}{{ .UserName }} "
         },
         {
           "type": "lua",
@@ -99,7 +99,7 @@
           "foreground": "#020202",
           "background": "#2EC4B6",
           "trailing_diamond": "\ue0b4",
-          "template": " {{ .CurrentDate | date .Format }} ",
+          "template": " {{ .CurrentDate | date .Format }}",
           "properties": {
             "time_format": "3:04 PM"
           }
