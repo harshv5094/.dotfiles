@@ -49,18 +49,6 @@ function dotfiles() {
 		echo -e "${GREEN}Linking Brewfile to home directory"
 		ln -s "$HOME/.dotfiles/dot/Brewfile" "$HOME/Brewfile"
 	fi
-
-	# vimrc file
-	if [ -e "$HOME/.vimrc" ]; then
-		echo -e "${RED}Deleting Existing .vimrc${NC}"
-		rm "$HOME/.vimrc"
-		echo -e "${GREEN}Linking Vimrc"
-		ln -s "$HOME/.dotfiles/dot/.vimrc" "$HOME/.vimrc"
-	else
-		echo -e "${YELLOW}Linking Vimrc"
-		ln -s "$HOME/.dotfiles/dot/.vimrc" "$HOME/.vimrc"
-	fi
-
 }
 
 function config_folders() {
@@ -119,25 +107,11 @@ function brew_package_install() {
 	fi
 }
 
-function vim_configuration() {
-	if [ -d "$HOME/.vim" ]; then
-		echo -e "${YELLOW}Copying config-settings.json${NC}"
-		ln -s "$HOME/.dotfiles/scripts/coc-settings.json" "$HOME/.vim/coc-settings.json"
-	else
-		echo -e "${RED}Vim Plug is not installed${NC}"
-		echo -e "${YELLOW}Installling Vim Plugin${NC}"
-		curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-			https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-		echo -e "${YELLOW}Copying config-settings.json${NC}"
-		ln -s "$HOME/.dotfiles/scripts/coc-settings.json" "$HOME/.vim/coc-settings.json"
-	fi
-}
-
 echo -e -e "${YELLOW}Welcome to My Setup installation script.${NC}"
 
 PS3="Your Option: "
 
-select option in "Link My dotfiles 🔯" "Link My Folders 📁" "Vim Config 🔧" "Install NPM Packages" "Homebrew Check 🍺" "Homebrew Packages 🍺" "Run My Fish Configuration script 🐟" "Quit ❌"; do
+select option in "Link My dotfiles 🔯" "Link My Folders 📁" "Install NPM Packages" "Homebrew Check 🍺" "Homebrew Packages 🍺" "Run My Fish Configuration script 🐟" "Quit ❌"; do
 	case $option in
 	"Link My dotfiles 🔯")
 		dotfiles
@@ -145,10 +119,6 @@ select option in "Link My dotfiles 🔯" "Link My Folders 📁" "Vim Config 🔧
 
 	"Link My Folders 📁")
 		config_folders
-		;;
-
-	"Vim Config 🔧")
-		vim_configuration
 		;;
 
 	"Install NPM Packages 📦")
