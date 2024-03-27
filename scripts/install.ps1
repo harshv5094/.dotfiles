@@ -84,18 +84,6 @@ function Copy-Folder-Links
     Copy-Item "$env:USERPROFILE\.dotfiles\dot\.gitconfig" "$env:USERPROFILE"
   }
 
-  if (Test-Path -Path "$env:USERPROFILE\.vimrc")
-  {
-    Write-Output "Removing the existing .vimrc file."
-    Remove-Item -Recurse -Force "$env:USERPROFILE\.vimrc"
-    Write-Output "Creating the Symbolic Link for .vimrc file."
-    sudo New-Item -Path "$env:USERPROFILE\.vimrc" -ItemType SymbolicLink -Value "$env:USERPROFILE\.dotfiles\dot\.vimrc"
-  } else
-  {
-    Write-Output "Creating the Symbolic Link for .vimrc file."
-    sudo New-Item -Path "$env:USERPROFILE\.vimrc" -ItemType SymbolicLink -Value "$env:USERPROFILE\.dotfiles\dot\.vimrc"
-  }
-
   if (Test-Path -Path "$env:LOCALAPPDATA\nvim")
   {
     Write-Output "Removing the existing nvim directory."
