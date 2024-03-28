@@ -134,10 +134,11 @@ __bash_prompt() {
         fi`'
 
 	local nodeversion='`\
-        if [ -e package.json ]; then \
+        if [ -f package.json ]; then \
             export NODE_VERSION=$(node -v); \
-            echo -n " \[\033[0;33m\](${NODE_VERSION}) "; \
+            echo -n " \[\033[0;33m\](node: ${NODE_VERSION}) "; \
         fi`'
+
 	local lightblue='\[\033[1;34m\]'
 	local removecolor='\[\033[0m\]'
 	PS1="${userpart} ${lightblue}\w ${gitbranch}${nodeversion}${removecolor} \$ "
@@ -145,10 +146,6 @@ __bash_prompt() {
 }
 __bash_prompt
 export PROMPT_DIRTRIM=4
-
-if command -v oh-my-posh &>/dev/null; then
-	eval "$(oh-my-posh init bash --config ~/.config/themes/harsh.omp.json)"
-fi
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
