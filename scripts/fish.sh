@@ -13,6 +13,6 @@ ln -s "$BASE_DIR/functions/fish_user_key_bindings.fish" "$CONFIG_PATH/functions/
 
 curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
 
-cp -rf ~/.dotfiles/.scripts/fish_plugins ~/.config/fish/
+cp -rf ~/.dotfiles/scripts/fish_plugins ~/.config/fish/
 
 fisher update
