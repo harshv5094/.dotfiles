@@ -88,7 +88,6 @@ return {
 		},
 		opts = function(_, opts)
 			table.insert(opts.sources, { name = "emoji" })
-			vim.api.nvim_set_hl(0, "PopMenu", { bg = "#1F2335", blend = 0 })
 			local cmp = require("cmp")
 			local win_opt = {
 				col_offset = 0,
