@@ -22,7 +22,7 @@ normal = { family = "JetBrainsMono NF", style = "SemiBold" }
 bold = { family = "JetBrainsMono NF", style = "Bold" }
 italic = { family = "JetBrainsMono NF", style = "Italic" }
 bold_italic = { family = "JetBrainsMono NF", style = "Bold Italic" }
-size = 13
+size = 14
 builtin_box_drawing = true
 
 [window]
