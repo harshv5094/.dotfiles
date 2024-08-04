@@ -18,6 +18,7 @@ return {
 
 	{
 		"nvim-orgmode/org-bullets.nvim",
+		event = "BufReadPre",
 		opts = {
 			concealcursor = false,
 			symbols = {
