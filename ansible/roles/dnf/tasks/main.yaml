@@ -1,0 +1,59 @@
+- import_tasks: repos.yaml
+
+- name: Install all necessary packages
+  become: true
+  ansible.builtin.dnf:
+    name:
+      # NOTE: Group Packages
+      - "@Development Tools"
+
+      # NOTE: GUI
+      - transmission
+      - gnome-tweaks
+      - vlc
+      - timeshift
+      - kitty
+      - alacritty
+      - gimp
+      - emacs
+      - syncthing
+      - firefox
+
+      # NOTE: CLI Tools
+      - stow
+      - trash-cli
+      - git
+      - gh
+      - fish
+      - zsh
+      - neovim
+      - make
+      - ripgrep
+      - fzf
+      - tmux
+      - vim
+      - bat
+      - eza
+      - go
+      - cmake
+      - lazygit
+      - lazydocker
+      - luarocks
+      - btop
+      - fd-find
+      - zoxide
+      - ufw
+      - yt-dlp
+      - pass
+      - cargo
+      - playerctl
+      - gnome-power-manager
+      - gparted
+      - distrobox
+      - xsel
+      - fastfetch
+      - gnome-shell-extension-appindicator
+      - dconf-editor
+      - tldr
+      - progress
+      - cmatrix

@@ -1,0 +1,5 @@
+# NOTE: For Directory SymLinks
+- name: Run stow
+  shell: "cd {{ ansible_env.HOME }}/.dotfiles && stow . --target {{ ansible_env.HOME }} --verbose 2"
+  register: result
+  changed_when: 'result.stderr is search("LINK: ")'

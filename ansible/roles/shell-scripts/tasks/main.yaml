@@ -1,0 +1,17 @@
+- name: Building bat cache
+  command: bat cache --build
+
+- name: Setting up my Fish Shell configuration
+  command: ~/.dotfiles/.scripts/modules/fish.sh
+
+- name: Setting up nvm Packages
+  command: ~/.dotfiles/.scripts/modules/nvm.sh
+
+- name: Copying gitconfig to home directory
+  command: cp -rf ~/.dotfiles/extras/.gitconfig ~
+
+- name: Setting up username in gitconfig
+  command: git config --global user.name "your_username"
+
+- name: Setting up email in gitconfig
+  command: git config --global user.email "your_email"

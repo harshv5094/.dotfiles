@@ -1,0 +1,8 @@
+- name: Installing homebrew packages
+  community.general.homebrew:
+    name:
+      # NOTE: CLI
+      - yazi
+      - peco
+      - ghq
+    state: "present"

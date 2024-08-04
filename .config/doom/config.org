@@ -1,0 +1,642 @@
+#+TITLE: Harsh Vyapari's Doom Emacs Configuration
+#+AUTHOR: Harsh Vyapari (harshv5094)
+#+EMAIL: harshv5094@gmail.com
+#+DATE: <2024-06-05 Wed>
+#+DESCRIPTION: My personal doom emacs configuration file, inspired from distrotube's configuration
+#+STARTUP: showeverything
+
+* Table of Contents :toc:
+- [[#about-this-config][About This Config]]
+- [[#basic-necessary-configuration][Basic Necessary Configuration]]
+  - [[#custom-doom-emacs-theme][Custom Doom Emacs Theme]]
+  - [[#default-font-for-doom-emacs][Default font for DOOM Emacs]]
+  - [[#doom-modeline][Doom Modeline]]
+  - [[#relative-line-numbers][Relative Line Numbers]]
+  - [[#setting-default-org-location][Setting Default org location]]
+- [[#beacon][Beacon]]
+- [[#bookmarks][Bookmarks]]
+- [[#clippy][Clippy]]
+- [[#changing-local-leader-key][Changing Local Leader Key]]
+- [[#dashboard-banner][Dashboard Banner]]
+- [[#dired][Dired]]
+  - [[#keybindings-to-open-dired][Keybindings to open Dired]]
+  - [[#keybindings-within-dired][Keybindings within Dired]]
+  - [[#keybindings-within-dired-with-peep-dired-mode-enabled][Keybindings Within Dired With Peep-Dired-Mode Enabled]]
+- [[#emojis][Emojis]]
+- [[#insert-date][Insert Date]]
+- [[#markdown][Markdown]]
+  - [[#font-header-adjustment][Font Header Adjustment]]
+  - [[#markdown-keybindings][Markdown Keybindings]]
+- [[#minimap][Minimap]]
+- [[#mouse-support][Mouse Support]]
+- [[#neotree][Neotree]]
+- [[#obsidian-plugin][Obsidian Plugin]]
+  - [[#directory-setup][Directory Setup]]
+  - [[#basic-keymaps-for-obsidianel][Basic Keymaps for =obsidian.el=]]
+- [[#org][ORG]]
+  - [[#org-mode][Org Mode]]
+  - [[#org-agenda][Org Agenda]]
+  - [[#org-fonts][Org Fonts]]
+  - [[#org-journal][Org Journal]]
+  - [[#org-roam][Org Roam]]
+- [[#rainbow-mode][Rainbow Mode]]
+- [[#terminal-shells][Terminal Shells]]
+
+* About This Config
+By using distrotube's basic structure, I've added my own spin in my configuration.
+
+* Basic Necessary Configuration
+This are the necessary configuration that I need in my config
+
+** Custom Doom Emacs Theme
+Here we are setting custom doom emacs theme for your setup
+#+begin_src emacs-lisp
+(setq doom-theme 'doom-one)
+#+end_src
+
+** Default font for DOOM Emacs
+Changing the default font of DOOM Emacs
+- 'doom-font’ – standard monospace font that is used for most things in Emacs.
+- ‘doom-variable-pitch-font’ – variable font which is useful in some Emacs plugins.
+- ‘doom-big-font’ – used in doom-big-font-mode; useful for presentations.
+- ‘font-lock-comment-face’ – for comments.
+- ‘font-lock-keyword-face’ – for keywords with special significance like ‘setq’ in elisp.
+
+#+begin_src emacs-lisp
+(setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 15 :weight 'semi-bold)
+      doom-big-font (font-spec :family "JetBrainsMono Nerd Font" :size 15 :weight 'bold)
+      doom-variable-pitch-font (font-spec :family "JetBrainsMono Nerd Font" :size 15 :weight 'bold :slant 'italic))
+(after! doom-themes
+  (setq doom-themes-enable-bold t
+        doom-themes-enable-italic t))
+(custom-set-faces!
+  '(font-lock-comment-face :slant italic)
+  '(font-lock-keyword-face :slant italic))
+#+end_src
+
+** Doom Modeline
+The modeline is the bottom status bar that appears in Emacs windows.
+For more information on what is available to configure in the Doom modeline, check out: https://github.com/seagle0128/doom-modeline
+#+begin_src emacs-lisp
+(set-face-attribute 'mode-line nil :font "JetBrainsMono Nerd Font Bold")
+(setq doom-modeline-height 30                   ;; Sets modeline height
+      doom-modeline-bar-width 5                 ;; Sets right bar width
+      doom-modeline-persp-name t                ;; adds perspective name to modeline
+      doom-modeline-env-load-string "..."       ;; sets modeline loading string
+      doom-modeline-persp-icon t)               ;; adds folder icon next to persp name
+#+end_src
+
+** Relative Line Numbers
+Here we are setting relative line number as we setup in vim
+#+begin_src emacs-lisp
+(setq display-line-numbers-type 'relative)
+#+end_src
+
+** Setting Default org location
+If you are using org and you don't want your files in the default location below,
+change `org-directory`. It must be set before org loads!
+#+begin_src emacs-lisp
+(setq org-directory "~/org/")
+#+end_src
+
+* Beacon
+Never loose your cursor. When you scroll, yourr cursor will shine! This is a global mirror. Turn it on everywhere with:
+#+begin_src emacs-lisp
+(beacon-mode 1)
+#+end_src
+
+* Bookmarks
+Bookmarks are somewhat like registers in that they record positions you can jump to.  Unlike registers, they have long names, and they persist automatically from one Emacs session to the next. The prototypical use of bookmarks is to record where you were reading in various files.
+
+| Command         | Description     | Keybindings |
+|-----------------+-----------------+-------------|
+| list-bookmarks  | /List bookmarks/  | SPC b L     |
+| bookmark-set    | /Set bookmark/    | SPC b m     |
+| bookmark-delete | /Delete bookmark/ | SPC b M     |
+| bookmark-save   | /Save bookmark/   | SPC b w     |
+
+#+begin_src emacs-lisp
+(setq bookmark-default-file "~/.config/doom/bookmarks")
+
+(map! :leader
+      (:prefix ("b". "buffer")
+       :desc "List bookmarks"                          "L" #'list-bookmarks
+       :desc "Set bookmark"                            "m" #'bookmark-set
+       :desc "Delete bookmark"                         "M" #'bookmark-set
+       :desc "Save current bookmarks to bookmark file" "w" #'bookmark-save))
+#+end_src
+
+* Clippy
+Gives us a popup box with "Clippy, the paper clip". You can make him say various thing by calling =clippy-say= function.
+But the more useful functions are the two describe functions provided: =clippy-describe-function= and =clippy-describe-variable=.
+Hit the appropriate keybindings while the point is over a function/variable to call it.
+A popup with helpful clippy will appear, telling you about the function/variable (using describe-function and describe-variable rescpectively).
+
+| COMMAND                  | DESCRIPTION                           | KEYBINDING |
+|--------------------------+---------------------------------------+------------|
+| clippy-describe-function | /Clippy describes function under point/ | SPC c h f  |
+| clippy-describe-variable | /Clippy describes variable under point/ | SPC c h v  |
+
+
+#+begin_src emacs-lisp
+(map! :leader
+      (:prefix ("c h" . "Help info from Clippy")
+       :desc "Clippy describes function under point" "f" #'clippy-describe-function
+       :desc "Clippy describe variable under point" "v" #'clippy-describe-variable))
+#+end_src
+
+* Changing Local Leader Key
+Here we are setting local leader key
+#+begin_src emacs-lisp
+(setq doom-localleader-key "\\")
+#+end_src
+
+* Dashboard Banner
+#+begin_src emacs-lisp
+;; (setq fancy-splash-image "~/.config/doom/banner/doom-emacs-dash.png")
+(defun custom-dashboard ()
+  (let* ((banner'("______ _____ ____ ___ ___"
+                  "`  _  V  _  V  _ \\|  V  ´"
+                  "| | | | | | | | | |     |"
+                  "| | | | | | | | | | . . |"
+                  "| |/ / \\ \\| | |/ /\\ |V| |"
+                  "|   /   \\__/ \\__/  \\| | |"
+                  "|  /                ' | |"
+                  "| /     E M A C S     \\ |"
+                  "´´                     ``"))
+         (longest-line (apply #'max (mapcar #'length banner))))
+    (put-text-property
+     (point)
+     (dolist (line banner (point))
+       (insert (+doom-dashboard--center
+                +doom-dashboard--width
+                (concat line (make-string (max 0 (- longest-line (length line))) 32)))
+               "\n"))
+     'face 'doom-dashboard-banner)))
+
+(setq +doom-dashboard-ascii-banner-fn #'custom-dashboard)
+#+end_src
+
+* Dired
+Dired is the file manager within Emacs. Below, I setup keybindings for image previews (peep-dired). Doom Emacs does not use =SPC d= for any of its keybindings, So I've chosen the format of =SPC d + `key`=.
+
+** Keybindings to open Dired
+
+| COMMAND         | DESCRIPTION                        | KEYBINDING |
+|-----------------+------------------------------------+------------|
+| dired           | /Open dired file manager/            | SPC d d    |
+| dired-jump      | /Jump to current directory in dired/ | SPC d j    |
+| peep-dired      | /Peep-dired image previews/          | SPC d p    |
+| dired-view-file | /Dired view file/                    | SPC d v    |
+
+
+#+begin_src emacs-lisp
+(map! :leader
+      (:prefix ("d". "dired")
+       :desc "Open Dired" "d" #'dired
+       :desc "Dired Jump To Current Directory" "j" #'dired-jump)
+      (:after dired
+        (:map dired-mode-map
+         :desc "Peep-dired image previews" "d p" #'peep-dired
+         :desc "Dired view file" "d v" #'dired-view-file)))
+#+end_src
+
+** Keybindings within Dired
+
+*** Basic Dired Commands
+
+| COMMAND                 | DESCRIPTION                                 | KEYBINDING |
+|-------------------------+---------------------------------------------+------------|
+| dired-view-file         | /View file in dired/                          | SPC d v    |
+| dired-up-directory      | /Go up in directory tree/                     | h          |
+| dired-find-file         | /Go down in directory tree (or open if file)/ | l          |
+| dired-next-line         | /Move down to next line/                      | j          |
+| dired-previous-line     | /Move up to previous line/                    | k          |
+| dired-mark              | /Mark file at point/                          | m          |
+| dired-unmark            | /Unmark file at point/                        | u          |
+| dired-do-copy           | /Copy current file or marked files/           | C          |
+| dired-do-rename         | /Rename current file or marked files/         | R          |
+| dired-hide-details      | /Toggle detailed listings on/off/             | (          |
+| dired-git-info-mode     | /Toggle git information on/off/               | )          |
+| dired-create-directory  | /Create new empty directory/                  | +          |
+| dired-create-empty-file | /Creates new empty file/                      | N          |
+| dired-diff              | /Compare file at point with another/          | =          |
+| dired-subtree-toggle    | /Toggle viewing subtree at point/             | TAB        |
+
+*** Dired Commands using regex
+
+| COMMAND                 | DESCRIPTION                | KEYBINDING |
+|-------------------------+----------------------------+------------|
+| dired-mark-files-regexp | /Mark files using regex/     | % m        |
+| dired-do-copy-regexp    | /Copy files using regex/     | % C        |
+| dired-do-rename-regexp  | /Rename files using regex/   | % R        |
+| dired-mark-files-regexp | /Mark all files using regex/ | * %        |
+
+*** File Permissions and Ownership
+
+| COMMAND         | DESCRIPTION                      | KEYBINDING |
+|-----------------+----------------------------------+------------|
+| dired-do-chgrp  | /Change the group of marked files/ | g G        |
+| dired-do-chmod  | /Change the mode of marked files/  | M          |
+| dired-do-chown  | /Change the owner of marked files/ | O          |
+| dired-do-rename | /Rename file or all marked files/  | R          |
+
+#+begin_src emacs-lisp
+(evil-define-key 'normal dired-mode-map
+  (kbd "M-RET") 'dired-display-file
+  (kbd "h") 'dired-up-directory
+  (kbd "l") 'dired-open-file ; use dired-find-file instead of dired-open.
+  (kbd "m") 'dired-mark
+  (kbd "t") 'dired-toggle-marks
+  (kbd "u") 'dired-unmark
+  (kbd "C") 'dired-do-copy
+  (kbd "D") 'dired-do-delete
+  (kbd "J") 'dired-goto-file
+  (kbd "M") 'dired-do-chmod
+  (kbd "O") 'dired-do-chown
+  (kbd "P") 'dired-do-print
+  (kbd "R") 'dired-do-rename
+  (kbd "T") 'dired-do-touch
+  (kbd "Y") 'dired-copy-filenamecopy-filename-as-kill ; copies filename to kill ring.
+  (kbd "Z") 'dired-do-compress
+  (kbd "+") 'dired-create-directory
+  (kbd "N") 'dired-create-empty-file
+  (kbd "-") 'dired-do-kill-lines
+  (kbd "% l") 'dired-downcase
+  (kbd "% m") 'dired-mark-files-regexp
+  (kbd "% u") 'dired-upcase
+  (kbd "* %") 'dired-mark-files-regexp
+  (kbd "* .") 'dired-mark-extension
+  (kbd "* /") 'dired-mark-directories
+  (kbd "; d") 'epa-dired-do-decrypt
+  (kbd "; e") 'epa-dired-do-encrypt)
+;; Get file icons in dired
+(add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
+;; With dired-open plugin, you can launch external programs for certain extensions
+;; For example, I set all .png files to open in 'sxiv' and all .mp4 files to open in 'mpv'
+(setq dired-open-extensions '(("gif" . "sxiv")
+                              ("jpg" . "sxiv")
+                              ("png" . "sxiv")
+                              ("mkv" . "mpv")
+                              ("mp4" . "mpv")))
+#+end_src
+
+** Keybindings Within Dired With Peep-Dired-Mode Enabled
+If peep-dired is enabled, you will get image previews as you go up/down with 'j' and 'k'
+
+| COMMAND              | DESCRIPTION                              | KEYBINDING |
+|----------------------+------------------------------------------+------------|
+| peep-dired           | /Toggle previews within dired/             | SPC p d    |
+| peep-dired-next-file | /Move to next file in peep-dired-mode/     | j          |
+| peep-dired-prev-file | /Move to previous file in peep-dired-mode/ | k          |
+
+#+begin_src emacs-lisp
+(evil-define-key 'normal peep-dired-mode-map
+  (kbd "j") 'peep-dired-next-file
+  (kbd "k") 'peep-dired-prev-file)
+(add-hook 'peep-dired-hook 'evil-normalize-keymaps)
+#+end_src
+
+* Emojis
+Emojify is an Emacs extensions to display emojis. It can display github style emojis like :smile: or plain ascii ones like :)
+#+begin_src emacs-lisp
+(use-package emojify
+  :hook (after-init . global-emojify-mode))
+#+end_src
+
+* Insert Date
+ome custom functions to insert the date.  The function ‘insert-todays-date’ can be used one of three different ways: (1) just the keybinding without the universal argument prefix, (2) with one universal argument prefix, or (3) with two universal argument prefixes.  The universal argument prefix is ‘SPC-u’ in Doom Emacs (C-u in standard GNU Emacs).  The function ‘insert-any-date’ only outputs to one format, which is the same format as ‘insert-todays-date’ without a prefix.
+
+| COMMAND               | DESCRIPTION              | KEYBINDINGS       |
+|-----------------------+--------------------------+-------------------|
+| hv/insert-todays-date | /Wednesday, July 03, 2024/ | SPC i d t         |
+| hv/insert-todays-date | /03-07-2024/               | SPC u SPC i d t   |
+| hv/inset-todays-date  | /2024-07-03/               | SPC u SPC u i d t |
+| hv/insert-any-date    | Wednesday, July 03, 2024 | SPC i d a         |
+
+#+begin_src emacs-lisp
+(defun hv/insert-todays-date (prefix)
+  (interactive "P")
+  (let ((format (cond
+                 ((not prefix) "%A, %B %d, %Y")
+                 ((equal prefix '(4)) "%m-%d-%Y")
+                 ((equal prefix '(16)) "%Y-%m-%d"))))
+    (insert (format-time-string format))))
+
+(require 'calendar)
+(defun hv/insert-any-date (date)
+  "Insert DATE using the current locale."
+  (interactive (list (calendar-read-date)))
+  (insert (calendar-date-string date)))
+
+(map! :leader
+      (:prefix ("i d" . "Insert date")
+        :desc "Insert any date"    "a" #'hv/insert-any-date
+        :desc "Insert todays date" "t" #'hv/insert-todays-date))
+#+end_src
+
+#+end_src
+
+* Markdown
+
+** Font Header Adjustment
+Here we are adjusting the font size for markdown
+#+begin_src emacs-lisp
+(defun hv/markdown-colors-doom-one ()
+  "Enable Doom One colors for Markdown headers."
+  (interactive)
+  (require 'markdown-mode) ; Ensure Markdown mode is loaded
+  (dolist
+      (face
+       '((markdown-header-face-1 1.6 "#51afef" ultra-bold)
+         (markdown-header-face-2 1.5 "#c678dd" extra-bold)
+         (markdown-header-face-3 1.4 "#98be65" bold)
+         (markdown-header-face-4 1.3 "#da8548" semi-bold)
+         (markdown-header-face-5 1.2 "#5699af" normal)
+         (markdown-header-face-6 1.1 "#a9a1e1" normal)))
+    (set-face-attribute (nth 0 face) nil :font doom-variable-pitch-font :weight (nth 3 face) :height (nth 1 face) :foreground (nth 2 face))))
+
+(hv/markdown-colors-doom-one)
+#+end_src
+
+** Markdown Keybindings
+Here are some markdown command keybindings. I'm using =SPC m= as my default keybinding
+
+| Commands                      | Description                            | Keybindings |
+|-------------------------------+----------------------------------------+-------------|
+| markdown-toggle-inline-images | /Toggles the inline images in markdown/  | SPC m i     |
+| markdown-toc-generate-toc     | /Generate Table of Contents in markdown/ | SPC m t     |
+|                               |                                        |             |
+
+#+begin_src emacs-lisp
+(map! :leader
+      (:prefix ("m". "markdown")
+       :desc "Toggle Inline Image" "i" #'markdown-toggle-inline-images
+       :desc "Generate toc" "t" #'markdown-toc-generate-toc ))
+#+end_src
+
+* Minimap
+A minimap sidebar displaying a smaller version of the current buffer on either the left or right side.
+It highlights the currently shown region and updates its position automatically.
+Be aware this minimap program does not work in Org documents.
+
+| COMMAND      | DESCRIPTION                               | KEYBINDING |
+|--------------+-------------------------------------------+------------|
+| minimap-mode | /Toggle minimap-mode/                       | SPC t m    |
+
+#+begin_src emacs-lisp
+(setq minimap-window-location 'right)
+(map! :leader
+      (:prefix ("t" . "toggle")
+       :desc "Toggle minimap-mode" "m" #'minimap-mode))
+#+end_src
+
+* Mouse Support
+Adding mouse support in the terminal version of the emacs
+#+begin_src emacs-lisp
+(xterm-mouse-mode 1)
+#+end_src
+
+* Neotree
+Neotree is a file viewer. When you open neotree, it jumps to the current file thanks to neo-smart-open.
+The neo-window-fixed-size setting makes the neotree width be adjustable. Doom Emacs had no keybinding set for neotree.
+Since Doom Emacs uses `SPC t` for `toggle` keybindings, I used `SPC t n` for toggle-neotree.
+
+| COMMAND        | DESCRIPTION               | KEYBINDING |
+|----------------+---------------------------+------------|
+| neotree-toggle | /Toggle neotree/            | SPC t n    |
+| neotree- dir   | /Open directory in neotree/ | SPC d n    |
+
+#+begin_src emacs-lisp
+(after! neotree
+  (setq neo-smart-open t
+        neo-window-fixed-size nil))
+(after! doom-themes
+  (setq doom-neotree-enable-variable-pitch t))
+(map! :leader
+      :desc "Toggle neotree file viewer" "t n" #'neotree-toggle
+      :desc "Open directory in neotree" "d n" #'neotree-dir)
+#+end_src
+
+* Obsidian Plugin
+I'm setting up =obsidian.el= plugin in my emacs so I can use obsidian within emacs
+
+** Directory Setup
+#+begin_src emacs-lisp
+(use-package obsidian
+  :ensure t
+  :demand t
+  :config
+  (obsidian-specify-path "/run/media/harsh/Vault/Notebook")
+  )
+#+end_src
+
+** Basic Keymaps for =obsidian.el=
+
+Since there is no keybindings associated with =SPC O=, I'm using it for my obsidian keybindings
+
+| COMMANDS                 | DESCRIPTION                       | KEYBINDINGS |
+|--------------------------+-----------------------------------+-------------|
+| obsidian-insert-link     | /Insert Markdown Link In Obsidian/  | SPC O l     |
+| obsidian-insert-wikilink | /Insert a link in wikilink format/  | SPC O w     |
+| obsidian-jump            | /Jump Between Notes/                | SPC O j     |
+| obsidian-capture         | /Creating new notes/                | SPC O n     |
+| obsidian-search          | /Searching notes in Obsidian Vault/ | SPC O s     |
+| obsidian-tag-find        | /Finding all notes by tag/          | SPC O t     |
+| obsidian-move-file       | /Move note to another folder/       | SPC O m     |
+
+#+begin_src emacs-lisp
+(map! :leader
+      (:prefix ("O" . "Obsidian")
+       :desc "obsidian-insert-link" "l" #'obsidian-insert-link
+       :desc "obsidian-insert-wikilink" "w" #'obsidian-insert-wikilink
+       :desc "obsidian-jump" "j" #'obsidian-jump
+       :desc "obsidian-capture" "n" #'obsidian-capture
+       :desc "obsidian-search" "s" #'obsidian-search
+       :desc "obsidian-tag-find" "t" #'obsidian-tag-find
+       :desc "obsidian-move-file" "m" #'obsidian-move-file))
+#+end_src
+
+
+* ORG
+I'm wrapping most of this block in (after! org). Without this, my settings might be evaluated too early,
+which will result in my settings being overwritten by Doom's defaults.
+I have also enabled org-journal, org-superstar, and org-roam by adding (+journal +pretty +roam2) to the org section of my Doom Emacs
+init.el
+
+** Org Mode
+#+begin_src emacs-lisp
+(map! :leader
+      :desc "Org babel Tangle" "\\ B" #'org-babel-tangle)
+
+(after! org
+  (setq org-directory "~/org"
+        org-default-notes-file (expand-file-name "notes.org" org-directory)
+        org-ellipsis " ▼ "
+        org-superstar-headline-bullets-list '("◉" "●" "○" "◆" "●" "○" "◆")
+        org-superstar-itembullet-alist '((?+ . ?➤) (?- . ?✦)) ; changes +/- symbols in item lists
+        org-log-done 'time
+        org-hide-emphasis-markers t
+        ;; ex. of org-link-abbrev-alist in action
+        ;; [[arch-wiki:Name_of_Page][Description]]
+        org-link-abbrev-alist  ;This overwrites the default Doom org-link-abbrev-list
+        '(("google" . "https://www.google.com/search?q=")
+          ("wiki" . "https://en.wikipedia.org/wiki/"))
+        org-table-convert-region-max-lines 2000
+        org-todo-keywords        ; This overwrites the default Doom org-todo-keywords
+          '((sequence
+             "TODO(t)"           ; A task that is ready to be tackled
+             "BLOG(b)"           ; Blog writing assignments
+             "GYM(g)"            ; Things to accomplish at the gym
+             "PROJ(p)"           ; A project that contains other tasks
+             "VIDEO(v)"          ; Video assignments
+             "WAIT(w)"           ; Something is holding up this task
+             "|"                 ; The pipe necessary to separate "active" states and "inactive" states
+             "DONE(d)"           ; Task has been completed
+             "CANCELLED"))))    ; Task has been cancelled
+#+end_src
+
+** Org Agenda
+Setting org agenda drive
+#+begin_src emacs-lisp
+(after! org
+  (setq org-agenda-files '("~/org/agenda.org")))
+
+(setq
+   org-fancy-priorities-list '("🟥" "🟧" "🟨")
+   org-priority-faces
+   '((?A :foreground "#ff6c6b" :weight bold)
+     (?B :foreground "#98be65" :weight bold)
+     (?C :foreground "#c678dd" :weight bold))
+   org-agenda-block-separator 8411)
+
+(setq org-agenda-custom-commands
+      '(("v" "A better agenda view"
+         ((tags "PRIORITY=\"A\""
+                ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
+                 (org-agenda-overriding-header "High-priority unfinished tasks:")))
+          (tags "PRIORITY=\"B\""
+                ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
+                 (org-agenda-overriding-header "Medium-priority unfinished tasks:")))
+          (tags "PRIORITY=\"C\""
+                ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
+                 (org-agenda-overriding-header "Low-priority unfinished tasks:")))
+          (tags "customtag"
+                ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
+                 (org-agenda-overriding-header "Tasks marked with customtag:")))
+
+          (agenda "")
+          (alltodo "")))))
+#+end_src
+
+** Org Fonts
+This emacs lisp code allow to set font size of org header
+#+begin_src emacs-lisp
+(defun hv/org-headers ()
+  "Enable Doom One colors for Org headers."
+  (interactive)
+  (require 'org) ; Ensure Org mode is loaded
+  (dolist
+      (face
+       '((org-level-1 1.7 "#51afef" ultra-bold)
+         (org-level-2 1.6 "#c678dd" extra-bold)
+         (org-level-3 1.5 "#98be65" bold)
+         (org-level-4 1.4 "#da8548" semi-bold)
+         (org-level-5 1.3 "#5699af" normal)
+         (org-level-6 1.2 "#a9a1e1" normal)
+         (org-level-7 1.1 "#46d9ff" normal)
+         (org-level-8 1.0 "#ff6c6b" normal)))
+    (set-face-attribute (nth 0 face) nil :font doom-variable-pitch-font :weight (nth 3 face) :height (nth 1 face) :foreground (nth 2 face)))
+    (set-face-attribute 'org-table nil :font doom-font :weight 'normal :height 1.0 :foreground "#bfafdf"))
+
+(hv/org-headers)
+#+end_src
+
+** Org Journal
+#+begin_src emacs-lisp
+(setq org-journal-dir "~/org/journal"
+      org-journal-date-prefix "* "
+      org-journal-time-prefix "** "
+      org-journal-date-format "%B %d %Y (%A)"
+      org-journal-file-format "%Y-%m-%d")
+#+end_src
+
+** Org Roam
+[[https://github.com/org-roam/org-roam][Org-Roam]] is a plain-text Knowledge management system. Org-roam borrows principles from the =Zettelkasten= method, providing
+a solution for non-hierarchical note-taking. It should also work as a plug-and-play solution for anyone already using
+Org-Mode for their personal wiki.
+
+| COMMAND                | DESCRIPTION                        | KEYBINDING |
+|------------------------+------------------------------------+------------|
+| completion at point    | /Completion of node-insert at point/ | SPC n r c  |
+| org-roam-note-find     | /Find node or create a new one/      | SPC n r f  |
+| org-roam-graph         | /Show graph of all nodes/            | SPC n r g  |
+| org-roam-node-insert   | /Insert link to a node/              | SPC n r i  |
+| org-roam-capture       | /Capture to node/                    | SPC n r n  |
+| org-roam-buffer-toggle | /Toggle roam buffer/                 | SPC n r r  |
+
+#+begin_src emacs-lisp
+(after! org
+  (setq org-roam-directory "~/org/roam"
+        org-roam-graph-view "/usr/bin/firefox"))
+(map! :leader
+      (:prefix ("n". "Custom Maps")))
+
+(map! :leader
+      (:prefix ("n r". "org-roam")
+       :desc "Completion at point" "c" #'completion-at-point
+       :desc "Find node" "f" #'org-roam-node-find
+       :desc "Show graph" "g" #'org-roam-graph
+       :desc "Insert node" "i" #'org-roam-node-insert
+       :desc "Capture to node" "n" #'org-roam-capture
+       :desc "Toggle roam buffer" "r" #'org-roam-buffer-toggle))
+#+end_src
+
+* Rainbow Mode
+Rainbow mode displays the actual color for any hex value color. It's such a nice feature that I wanted to turned on all the time,
+regardless of what mode I am in. The following creates a global minor mode for rainbow-mode and enables it
+(exception: org-agenda-mode since rainbow-mode destroys all highlighting in org-agenda.)
+#+begin_src emacs-lisp
+(define-globalized-minor-mode global-rainbow-mode rainbow-mode
+  (lambda ()
+    (when (not (memq major-mode
+                (list 'org-agenda-mode)))
+     (rainbow-mode 1))))
+(global-rainbow-mode 1 )
+#+end_src
+
+* Terminal Shells
+Settings for the various shells and terminal emulators within Emacs.
+
+| COMMAND             | DESCRIPTION                | KEYBINDING |
+|---------------------+----------------------------+------------|
+| eshell              | /Launch the eshell/          | SPC e s    |
+| +eshell/toggle      | /Toggle eshell popup window/ | SPC e t    |
+| counsel-esh-history | /Browse the eshell history/  | SPC e h    |
+| +vterm/toggle       | /Toggle vterm popup window/  | SPC v t    |
+
+
+#+begin_src emacs-lisp
+(setq shell-file-name "/bin/fish"
+      vterm-max-scrollback 5000)
+(setq eshell-rc-script "~/.config/doom/eshell/profile"
+      echell-aliases-file "~/.config/doom/eshell/aliases"
+      eshell-history-size 5000
+      eshell-buffer-maximum-lines 5000
+      eshell-hist-ignoredups t
+      eshell-scroll-to-bottom-on-input t
+      eshell-destroy-buffer-when-process-dies t
+      eshell-visual-commands '("bash" "fish" "btop" "ssh" "top" "zsh"))
+
+;; Eshell Mapping
+(map! :leader
+      (:prefix ("e" . "Eshell")
+      :desc "Eshell"                 "s" #'eshell
+      :desc "Eshell popup toggle"    "t" #'+eshell/toggle
+      :desc "Counsel eshell history" "h" #'counsel-esh-history))
+
+;; For Vterm Mapping
+(map! :leader
+      (:prefix ("v". "Vterm")
+       :desc "Vterm Popup Toggle" "t" #'+vterm/toggle))
+#+end_src

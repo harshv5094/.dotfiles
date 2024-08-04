@@ -1,0 +1,9 @@
+nixpkgs.neovim
+nixpkgs.bat
+nixpkgs.eza
+nixpkgs.fd
+nixpkgs.ripgrep
+nixpkgs.tmux
+nixpkgs.git
+nixpkgs.playerctl
+nixpkgs.emacs

@@ -1,0 +1,23 @@
+- name: Creating ghq folder
+  file:
+    path: ~/.ghq
+    state: directory
+
+- name: Clonning my wallpaper
+  shell:
+    cmd: ghq clone -p https://github.com/harshv5094/window-manager-setup
+    chdir: "{{ ansible_env.HOME }}"
+
+- name: Installing vim-plug
+  shell:
+    cmd: curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    chdir: "{{ ansible_env.HOME }}"
+
+- name: Installing Tmux Plugin Manager
+  shell:
+    cmd: git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    chdir: "{{ ansible_env.HOME }}"
+
+- name: Clonning doom emacs repository
+  shell:
+    cmd: git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs

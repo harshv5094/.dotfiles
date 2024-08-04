@@ -1,0 +1,11 @@
+- name: Setting up my Linux Workstation
+  hosts: local
+  roles:
+    - dnf
+    # - pacman
+    - stow
+    - brew
+    - flatpak
+    - fonts
+    - shell-scripts
+    - git-repo

@@ -1,0 +1,34 @@
+- name: Installing ExtensionManager Flatpak Package
+  community.general.flatpak:
+    name: com.mattjakeman.ExtensionManager
+    state: present
+
+- name: Installing Google Chrome Flatpak Package
+  community.general.flatpak:
+    name: com.google.Chrome
+    state: present
+
+- name: Installing Mozilla Thunderbird Flatpak Package
+  community.general.flatpak:
+    name: org.mozilla.Thunderbird
+    state: present
+
+- name: Installing Obsidian Flatpak Package
+  community.general.flatpak:
+    name: md.obsidian.Obsidian
+    state: present
+
+- name: Installing Discord Flatpak Package
+  community.general.flatpak:
+    name: com.discordapp.Discord
+    state: present
+
+- name: Installing Flatseal Flatpak Package
+  community.general.flatpak:
+    name: com.github.tchx84.Flatseal
+    state: present
+
+- name: Installing ProtonUp-Qt Flatpak Package
+  community.general.flatpak:
+    name: net.davidotek.pupgui2
+    state: present

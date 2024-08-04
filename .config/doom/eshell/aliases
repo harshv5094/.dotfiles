@@ -1,0 +1,4 @@
+# Changing "ls" to "eza"
+alias ll eza -lgih
+alias ls eza -gi
+alias la eza -lgaih

@@ -1,0 +1,20 @@
+- name: Create {{ item }} directory
+  become: true
+  file:
+    path: /usr/share/fonts/{{ item }}
+    state: directory
+
+- name: Installing {{ item }}
+  become: true
+  ansible.builtin.unarchive:
+    src: https://github.com/ryanoasis/nerd-fonts/releases/latest/download/{{ item }}.zip
+    dest: /usr/share/fonts/{{ item }}
+    creates: /usr/share/fonts/{{ item }}/done
+    remote_src: true
+  notify: update font cache
+
+- name: Installed {{ item }}
+  become: true
+  copy:
+    dest: /usr/share/fonts/{{ item }}/done
+    content: ""

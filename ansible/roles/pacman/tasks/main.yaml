@@ -1,0 +1,28 @@
+- name: Install all necessary packages
+  become: true
+  community.general.pacman:
+    name:
+      # NOTE: CLI Tools
+      - stow
+      - git
+      - github-cli
+      - fish
+      - zsh
+      - neovim
+      - make
+      - ripgrep
+      - fzf
+      - tmux
+      - vim
+      - bat
+      - eza
+      - go
+      - cmake
+      - lazygit
+      - btop
+      - fd
+      - zoxide
+      - ufw
+      - yt-dlp
+      - xsel
+      - fastfetch
