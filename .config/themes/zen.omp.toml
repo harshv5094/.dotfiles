@@ -9,13 +9,13 @@ type = 'prompt'
 alignment = 'left'
 newline = true
 
-# User Name Segment
+# Shell Segment
 [[blocks.segments]]
-type = 'session'
-style = 'plain'
+type = "shell"
+style = "plain"
 background = 'transparent'
 foreground = 'red'
-template = '{{ if .SSHSession }}SSH:{{ end }}{{ .UserName }} '
+template = '{{ .Name }} '
 
 # Path Segment
 [[blocks.segments]]
@@ -48,13 +48,13 @@ fetch_upstream_icon = true
 type = 'rprompt'
 overflow = 'hidden'
 
-# Shell Segment
+# User Name Segment
 [[blocks.segments]]
-type = "shell"
-style = "plain"
+type = 'session'
+style = 'plain'
 background = 'transparent'
 foreground = 'red'
-template = '{{ .Name }} '
+template = '{{ if .SSHSession }}SSH:{{ end }}{{ .UserName }} '
 
 # Execution Time Segment
 [[blocks.segments]]
