@@ -3,9 +3,9 @@
     name: com.mattjakeman.ExtensionManager
     state: present
 
-- name: Installing Google Chrome Flatpak Package
+- name: Installing Brave Flatpak Package
   community.general.flatpak:
-    name: com.google.Chrome
+    name: com.brave.Browser
     state: present
 
 - name: Installing Mozilla Thunderbird Flatpak Package
