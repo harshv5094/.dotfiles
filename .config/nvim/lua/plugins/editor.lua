@@ -27,7 +27,7 @@ return {
             hidden = true,
           })
         end,
-        desc = "Lists files in your current working directory, respects .gitignore",
+        desc = "Telescope -> Find Files",
       },
       {
         ";r",
@@ -37,7 +37,7 @@ return {
             additional_args = { "--hidden" },
           })
         end,
-        desc = "Search for a string in your current working directory and get results live as you type, respects .gitignore",
+        desc = "Telescope -> Live Grep",
       },
       {
         "\\\\",
@@ -45,10 +45,10 @@ return {
           local builtin = require("telescope.builtin")
           builtin.buffers()
         end,
-        desc = "Lists open buffers",
+        desc = "Telescope -> Buffers",
       },
       {
-        ";t",
+        ";h",
         function()
           local builtin = require("telescope.builtin")
           builtin.help_tags()
@@ -69,7 +69,7 @@ return {
           local builtin = require("telescope.builtin")
           builtin.diagnostics()
         end,
-        desc = "Telescope -> diagnostics",
+        desc = "Telescope -> Diagnostics",
       },
       {
         ";s",
@@ -89,6 +89,7 @@ return {
           end
 
           telescope.extensions.file_browser.file_browser({
+            theme = "ivy",
             path = "%:p:h",
             cwd = telescope_buffer_dir(),
             respect_gitignore = false,
@@ -97,7 +98,6 @@ return {
             grouped = true,
             previewer = true,
             initial_mode = "normal",
-            layout_config = { height = 20 },
           })
         end,
         desc = "Telescope -> File Browser",
@@ -129,7 +129,6 @@ return {
       }
       opts.extensions = {
         file_browser = {
-          theme = "ivy",
           -- disables netrw and use telescope-file-browser in its place
           hijack_netrw = true,
           mappings = {
