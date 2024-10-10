@@ -1,4 +1,27 @@
 return {
+
+  -- Highlight Color
+  {
+    "brenoprata10/nvim-highlight-colors",
+    opts = function()
+      local colors = require("nvim-highlight-colors")
+      local opts = colors.setup({
+        render = "virtual",
+        virtual_symbol = "■",
+        virtual_symbol_prefix = "",
+        virtual_symbol_suffix = " ",
+        virtual_symbol_position = "inline",
+        enable_tailwind = true,
+        enable_hex = true,
+        enable_rgb = true,
+        enable_var_usage = true,
+        enable_named_colors = true,
+      })
+      return opts
+    end,
+  },
+
+  -- Tab Line
   {
     "akinsho/bufferline.nvim",
     event = "VeryLazy",
