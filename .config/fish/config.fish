@@ -38,5 +38,9 @@ if type -q oh-my-posh
     oh-my-posh init fish --config ~/.config/themes/zen.toml | source
 end
 
+if type -q zoxide
+    zoxide --cmd cd init fish | source
+end
+
 # Importing my custom aliases
 source (dirname (status --current-filename))/alias.fish
