@@ -29,12 +29,12 @@ alias linutildev="curl -fsSL https://christitus.com/linuxdev | sh"
 
 alias temp_delete="sudo find /tmp -mtime +7 -and -not -exec fuser -s {} ';' -and -exec echo {} ';'"
 
-alias ide="~/dotfiles/.scripts/ide.sh"
+alias ide="~/.dotfiles/.scripts/ide.sh"
 
 alias remove-nvim-plugin="rm -rf ~/.local/share/nvim/ ~/.local/state/nvim/ ~/.cache/nvim/"
 
 # Setup Scripts
-alias nix-setup="~/dotfiles/.scripts/nix-setup.sh"
-alias posh-setup="~/dotfiles/.scripts/posh-setup.sh"
-alias nvm-setup="~/dotfiles/.scripts/nvm-setup.sh"
-alias nvidia-setup="~/dotfiles/.scripts/nvidia-setup.sh"
+alias nix-setup="~/.dotfiles/.scripts/nix-setup.sh"
+alias posh-setup="~/.dotfiles/.scripts/posh-setup.sh"
+alias nvm-setup="~/.dotfiles/.scripts/nvm-setup.sh"
+alias nvidia-setup="~/.dotfiles/.scripts/nvidia-setup.sh"

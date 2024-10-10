@@ -17,7 +17,7 @@ fi
 
 # Run ansible
 if have dnf; then
-  ansible-playbook -i ~/dotfiles/ansible/hosts.ini ~/dotfiles/ansible/os/fedora.yaml --ask-become-pass
+  ansible-playbook -i ~/.dotfiles/ansible/hosts.ini ~/.dotfiles/ansible/os/fedora.yaml --ask-become-pass
 elif have pacman; then
-  ansible-playbook -i ~/dotfiles/ansible/hosts.ini ~/dotfiles/ansible/os/arch.yaml --ask-become-pass
+  ansible-playbook -i ~/.dotfiles/ansible/hosts.ini ~/.dotfiles/ansible/os/arch.yaml --ask-become-pass
 fi

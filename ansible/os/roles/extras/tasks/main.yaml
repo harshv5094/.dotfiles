@@ -17,13 +17,13 @@
   command: bat cache --build
 
 - name: Setting up fish shell
-  command: ~/dotfiles/.scripts/fish-shell-setup.fish
+  command: ~/.dotfiles/.scripts/fish-shell-setup.fish
 
 - name: Setting up nvm for fish shell
-  command: ~/dotfiles/.scripts/nvm-fish-setup.fish
+  command: ~/.dotfiles/.scripts/nvm-fish-setup.fish
 
 - name: Copying gitconfig to home directory
-  command: cp -rf ~/dotfiles/extras/.gitconfig ~
+  command: cp -rf ~/.dotfiles/extras/.gitconfig ~
 
 - name: Setting up username in gitconfig
   command: git config --global user.name "harshv5094 (personal PC)"

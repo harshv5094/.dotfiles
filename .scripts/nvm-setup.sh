@@ -1,6 +1,6 @@
 #!/bin/sh -s
 
-. "$HOME/dotfiles/.scripts/common-script.sh"
+. "$HOME/.dotfiles/.scripts/common-script.sh"
 
 if command_exist nvm; then
   nvm install lts

@@ -1,6 +1,6 @@
 #!/bin/sh -e
 
-. "$HOME/dotfiles/.scripts/common-script.sh"
+. "$HOME/.dotfiles/.scripts/common-script.sh"
 
 nixSetup() {
   printf "%b\n" "${CYAN} Welcome to Nix Package Manager Setup ${RC}"
@@ -24,7 +24,7 @@ nixSetup() {
   2)
     if command_exists nix; then
       printf "%b\n" "${GREEN} Installing your packages ${RC}"
-      nix-env -iA $(grep -vE "^\s*#" ~/dotfiles/.scripts/txt-pkg-list/nix.txt | tr "\n" " ")
+      nix-env -iA $(grep -vE "^\s*#" ~/.dotfiles/.scripts/txt-pkg-list/nix.txt | tr "\n" " ")
       return
     else
       printf "%b\n" "${RED} Please! Execute your 1st option to install nix ${RC}"

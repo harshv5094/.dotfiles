@@ -1,6 +1,6 @@
 #!/bin/sh -e
 
-. "$HOME/dotfiles/.scripts/common-script.sh"
+. "$HOME/.dotfiles/.scripts/common-script.sh"
 
 poshSetup() {
   printf "%b\n" "${CYAN} Welcome to Oh My Posh Setup ${RC}"

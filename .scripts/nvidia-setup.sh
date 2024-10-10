@@ -1,6 +1,6 @@
 #!/bin/sh -e
 
-. "$HOME/dotfiles/.scripts/common-script.sh"
+. "$HOME/.dotfiles/.scripts/common-script.sh"
 # This script allows user to download proprietary drivers for nvidia in fedora
 
 # It also disables noveau nvidia drivers
