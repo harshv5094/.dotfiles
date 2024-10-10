@@ -1,0 +1,66 @@
+- name: Install all necessary packages
+  become: true
+  community.general.pacman:
+    name:
+      # NOTE: GUI Apps
+      - plasma-systemmonitor
+      - firefox
+      - konsole
+      - kitty
+      - alacritty
+      - yakuake
+      - gnome-disk-utility
+      - kwalletmanager
+      - rhythmbox
+      - timeshift
+      - gwenview
+      - vlc
+      - syncthing
+      - spectacle
+      - transmission-qt
+      - kdeconnect
+      - kate
+
+      # NOTE: Icon theme
+      - papirus-icon-theme
+
+      # NOTE: CLI Tools
+      - stow
+      - git
+      - github-cli
+      - fish
+      - zsh
+      - neovim
+      - make
+      - luarocks
+      - ripgrep
+      - fzf
+      - tmux
+      - vim
+      - bat
+      - eza
+      - go
+      - rust
+      - rustup
+      - cmake
+      - lazygit
+      - btop
+      - fd
+      - zoxide
+      - ufw
+      - yt-dlp
+      - xsel
+      - fastfetch
+      - openssh
+      - base-devel
+      - tldr
+      - trash-cli
+      - power-profiles-daemon
+      - fwupd
+
+      # NOTE: Nerd Fonts
+      - ttf-jetbrains-mono-nerd
+
+      # NOTE: Japanese Font Support
+      - ttf-arphic-ukai
+      - ttf-arphic-umig

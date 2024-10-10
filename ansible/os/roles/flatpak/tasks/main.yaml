@@ -1,0 +1,19 @@
+- name: Installing Brave Flatpak Package
+  community.general.flatpak:
+    name: com.brave.Browser
+    state: present
+
+- name: Installing Obsidian Flatpak Package
+  community.general.flatpak:
+    name: md.obsidian.Obsidian
+    state: present
+
+- name: Installing Discord Flatpak Package
+  community.general.flatpak:
+    name: com.discordapp.Discord
+    state: present
+
+- name: Installing Flatseal Flatpak Package
+  community.general.flatpak:
+    name: com.github.tchx84.Flatseal
+    state: present

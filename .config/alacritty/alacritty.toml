@@ -1,0 +1,9 @@
+import = ["~/.config/alacritty/colorsheme.toml"]
+
+[font]
+size = 13
+normal = { family = "JetBrainsMono Nerd Font", style = "SemiBold"}
+bold = { family = "JetBrainsMono Nerd Font", style = "Bold"}
+italic = { family = "JetBrainsMono Nerd Font", style = "SemiBold"}
+bold_italic = { family = "JetBrainsMono Nerd Font", style = "SemiBold"}
+

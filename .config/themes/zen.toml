@@ -1,0 +1,103 @@
+#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+
+version = 2
+final_space = true
+console_title_template = '{{ .Shell }} in {{ .Folder }}'
+
+# Left prompt
+[[blocks]]
+type = 'prompt'
+alignment = 'left'
+newline = true
+
+# OS Icon
+[[blocks.segments]]
+type = "os"
+style = "plain"
+background = 'transparent'
+foreground = 'cyan'
+template = "{{ if .WSL }}WSL at {{ end }}{{ .Icon }} "
+
+# Shell
+[[blocks.segments]]
+type = "shell"
+style = "plain"
+foreground = "red"
+background = "transparent"
+
+# Directory Path
+[[blocks.segments]]
+type = 'path'
+style = 'plain'
+background = 'transparent'
+foreground = 'blue'
+template = '{{ .Path }}'
+
+[blocks.segments.properties]
+style = 'full'
+
+# Git
+[[blocks.segments]]
+type = 'git'
+style = 'plain'
+foreground = 'p:grey'
+background = 'transparent'
+template = " {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }} "
+
+[blocks.segments.properties]
+branch_icon = ''
+commit_icon = '@'
+fetch_status = true
+
+# Right Prompt
+[[blocks]]
+type = 'rprompt'
+overflow = 'hidden'
+
+# UserName
+[[blocks.segments]]
+type = "session"
+style = "plain"
+foreground = "red"
+background = "transparent"
+template = "{{ if .SSHSession }} {{ end }}{{ .UserName }}"
+
+# Execution Time
+[[blocks.segments]]
+type = 'executiontime'
+style = 'plain'
+foreground = 'yellow'
+background = 'transparent'
+template = ' {{ .FormattedMs }}'
+
+[blocks.segments.properties]
+threshold = 5000
+always_enabled = true
+
+[[blocks]]
+type = 'prompt'
+alignment = 'left'
+newline = true
+
+[[blocks.segments]]
+type = 'text'
+style = 'plain'
+foreground_templates = [
+  "{{if gt .Code 0}}red{{end}}",
+  "{{if eq .Code 0}}magenta{{end}}",
+]
+background = 'transparent'
+template = '❯'
+
+[transient_prompt]
+foreground_templates = [
+  "{{if gt .Code 0}}red{{end}}",
+  "{{if eq .Code 0}}magenta{{end}}",
+]
+background = 'transparent'
+template = '❯ '
+
+[secondary_prompt]
+foreground = 'magenta'
+background = 'transparent'
+template = '❯❯ '
