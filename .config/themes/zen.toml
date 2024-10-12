@@ -1,0 +1,108 @@
+#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+
+version = 2
+final_space = true
+console_title_template = '{{ .Shell }} in {{ .Folder }}'
+
+# Left prompt
+[[blocks]]
+type = 'prompt'
+alignment = 'left'
+newline = true
+
+# OS Icon
+[[blocks.segments]]
+type = "os"
+style = "plain"
+background = 'transparent'
+foreground = 'cyan'
+template = "{{ if .WSL }}WSL at {{ end }}{{ .Icon }} "
+
+# Directory Path
+[[blocks.segments]]
+type = 'path'
+style = 'plain'
+background = 'transparent'
+foreground = 'blue'
+template = ' {{ .Path }}'
+
+[blocks.segments.properties]
+style = 'full'
+
+# Git
+[[blocks.segments]]
+type = 'git'
+style = 'plain'
+foreground = 'p:grey'
+background = 'transparent'
+template = " \u005b {{ .UpstreamIcon }} {{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }} \u005d"
+
+[blocks.segments.properties]
+branch_icon = "\ue725 "
+fetch_status = true
+fetch_upstream_icon = true
+fetch_user = true
+
+# Right Prompt
+[[blocks]]
+type = 'rprompt'
+overflow = 'hidden'
+
+# Execution Time
+[[blocks.segments]]
+type = 'executiontime'
+style = 'plain'
+foreground = 'yellow'
+background = 'transparent'
+template = '{{ .FormattedMs }}'
+
+[blocks.segments.properties]
+threshold = 5000
+always_enabled = false
+
+# UserName
+[[blocks.segments]]
+type = "session"
+style = "plain"
+foreground = "red"
+background = "transparent"
+template = " {{ if .SSHSession }} {{ end }}{{ .UserName }}"
+
+# Clock
+[[blocks.segments]]
+type = 'time'
+style = "plain"
+template = ' {{ .CurrentDate | date .Format }}'
+background = "transparent"
+foreground = 'green'
+
+[blocks.segments.properties]
+time_format = '3:04 PM'
+
+[[blocks]]
+type = 'prompt'
+alignment = 'left'
+newline = true
+
+[[blocks.segments]]
+type = 'text'
+style = 'plain'
+foreground_templates = [
+  "{{if gt .Code 0}}red{{end}}",
+  "{{if eq .Code 0}}magenta{{end}}",
+]
+background = 'transparent'
+template = '❯'
+
+[transient_prompt]
+foreground_templates = [
+  "{{if gt .Code 0}}red{{end}}",
+  "{{if eq .Code 0}}magenta{{end}}",
+]
+background = 'transparent'
+template = '❯ '
+
+[secondary_prompt]
+foreground = 'magenta'
+background = 'transparent'
+template = '❯❯ '

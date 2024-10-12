@@ -1,0 +1,64 @@
+- import_tasks: repos.yaml
+
+- name: Install all necessary packages
+  become: true
+  community.general.pacman:
+    name:
+      # NOTE: GUI Apps
+      - firefox
+      - kitty
+      - alacritty
+      - gnome-disk-utility
+      - rhythmbox
+      - timeshift
+      - vlc
+      - syncthing
+      - transmission-gtk
+
+      # NOTE: Icon theme
+      - papirus-icon-theme
+
+      # NOTE: CLI Tools
+      - stow
+      - git
+      - github-cli
+      - fish
+      - zsh
+      - neovim
+      - make
+      - luarocks
+      - ripgrep
+      - fzf
+      - tmux
+      - vim
+      - bat
+      - eza
+      - go
+      - rustup
+      - cmake
+      - lazygit
+      - btop
+      - fd
+      - zoxide
+      - ufw
+      - yt-dlp
+      - xsel
+      - fastfetch
+      - openssh
+      - base-devel
+      - tldr
+      - trash-cli
+      - power-profiles-daemon
+      - fwupd
+      - bluez
+      - bluez-utils
+
+      # NOTE: Nerd Fonts
+      - ttf-jetbrains-mono-nerd
+      - ttf-nerd-fonts-symbols
+      - ttf-nerd-fonts-symbols-common
+      - ttf-nerd-fonts-symbols-mono
+
+      # NOTE: Japanese Font Support
+      - ttf-arphic-ukai
+      - ttf-arphic-uming

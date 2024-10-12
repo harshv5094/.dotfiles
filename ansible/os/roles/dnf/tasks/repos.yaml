@@ -1,0 +1,20 @@
+- name: Removing unused packages
+  become: true
+  ansible.builtin.dnf:
+    name:
+      - totem
+      - gnome-weather
+      - gnome-tour
+      - gnome-maps
+      - gnome-text-editor
+      - gnome-boxes
+      - gnome-software
+    state: "absent"
+
+- name: Enabling needed fedora copr
+  become: true
+  community.general.copr:
+    name: "{{ item }}"
+  loop:
+    - "atim/lazygit"
+    - "atim/lazydocker"

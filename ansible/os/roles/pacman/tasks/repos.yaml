@@ -1,0 +1,13 @@
+- name: Removing unused packages
+  become: true
+  community.general.pacman:
+    name:
+      - totem
+      - gnome-weather
+      - gnome-tour
+      - gnome-maps
+      - gnome-boxes
+      - gnome-music
+      - gnome-contacts
+      - epiphany
+    state: "absent"
