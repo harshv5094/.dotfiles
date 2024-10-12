@@ -58,7 +58,7 @@ template = '{{ .FormattedMs }}'
 
 [blocks.segments.properties]
 threshold = 5000
-always_enabled = false
+always_enabled = true
 
 # Clock
 [[blocks.segments]]
