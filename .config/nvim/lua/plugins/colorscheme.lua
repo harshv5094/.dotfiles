@@ -8,8 +8,6 @@ return {
       opts.styles = {
         comments = { italic = true },
         keywords = { italic = true },
-        sidebars = "dark",
-        floats = "dark",
       }
       opts.lualine_bold = true
     end,
