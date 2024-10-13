@@ -65,4 +65,6 @@
       - ttf-arphic-uming
 
 - name: Enable cronie.services
-  command: sudo systemctl enable --now cronie.services
+  become: true
+  shell:
+    cmd: sudo systemctl enable --now cronie.services
