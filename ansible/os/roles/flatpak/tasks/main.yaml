@@ -1,24 +1,27 @@
-- name: Installing Extension Manager Flatpak Package
+- name: Installing my flatpaks
   community.general.flatpak:
-    name: com.mattjakeman.ExtensionManager
-    state: present
+    name:
+      # ExtensionManager
+      - com.mattjakeman.ExtensionManager
 
-- name: Installing Brave Flatpak Package
-  community.general.flatpak:
-    name: com.brave.Browser
-    state: present
+      # Brave Browser
+      - com.brave.Browser
 
-- name: Installing Obsidian Flatpak Package
-  community.general.flatpak:
-    name: md.obsidian.Obsidian
-    state: present
+      # Obsidian
+      - md.obsidian.Obsidian
 
-- name: Installing Discord Flatpak Package
-  community.general.flatpak:
-    name: com.discordapp.Discord
-    state: present
+      # Discord
+      - com.discordapp.Discord
 
-- name: Installing Flatseal Flatpak Package
-  community.general.flatpak:
-    name: com.github.tchx84.Flatseal
+      # Flatseal
+      - com.github.tchx84.Flatseal
+
+      # Steam
+      - com.valvesoftware.steam
+
+      # ProtonUp
+      - net.davidotek.pupgui2
+
+      # OBS Studio
+      - com.obsproject.Studio
     state: present
