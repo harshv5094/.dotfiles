@@ -43,20 +43,24 @@
     },
     {
       "type": "os",
-      "key": "  " // Just get your distro's logo off nerdfonts.com,
+      "key": "  ", // Just get your distro's logo off nerdfonts.com,
+      "keyColor": "red"
     },
     {
       "type": "kernel",
       "key": "  ",
-      "format": "{1} {2}"
+      "format": "{1} {2}",
+      "keyColor": "red"
     },
     {
       "type": "wm",
-      "key": "  "
+      "key": "  ",
+      "keyColor": "red"
     },
     {
       "type": "shell",
-      "key": "  "
+      "key": "  ",
+      "keyColor": "red"
     },
     {
       "type": "custom",
@@ -64,18 +68,28 @@
     },
     {
       "type": "command",
-      "key": "  OS Age ",
+      "key": "  OS Age",
       "keyColor": "magenta",
       "text": "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days"
     },
     {
       "type": "uptime",
-      "key": "  Uptime ",
+      "key": "  Uptime",
       "keyColor": "magenta"
     },
     {
       "type": "locale",
-      "key": "  Locale ",
+      "key": "  Locale",
+      "keyColor": "magenta"
+    },
+    {
+      "type": "terminal",
+      "key": "  Terminal",
+      "keyColor": "magenta"
+    },
+    {
+      "type": "terminalfont",
+      "key": "  Terminal Font",
       "keyColor": "magenta"
     },
     {
