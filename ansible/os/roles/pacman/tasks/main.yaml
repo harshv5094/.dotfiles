@@ -52,6 +52,7 @@
       - fwupd
       - bluez
       - bluez-utils
+      - imagemagick
 
       # NOTE: Nerd Fonts
       - ttf-jetbrains-mono-nerd
