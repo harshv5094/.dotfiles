@@ -83,16 +83,6 @@
       "keyColor": "magenta"
     },
     {
-      "type": "terminal",
-      "key": "  Terminal",
-      "keyColor": "magenta"
-    },
-    {
-      "type": "terminalfont",
-      "key": "  Terminal Font",
-      "keyColor": "magenta"
-    },
-    {
       "type": "custom", // InformationEnd
       "format": "└────────────────────────────────────────────────────┘"
     },
