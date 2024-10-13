@@ -1,5 +1,11 @@
 return {
 
+  -- Noice UI
+  {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+  },
+
   -- Highlight Color
   {
     "brenoprata10/nvim-highlight-colors",
