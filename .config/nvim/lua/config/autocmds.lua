@@ -5,6 +5,6 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 })
 
 -- Changing cmdline color
-vim.api.nvim_create_autocmd({ "BufEnter", "CmdlineEnter", "VimEnter" }, {
-  command = "hi MsgArea guifg=#fca7ea",
-})
+-- vim.api.nvim_create_autocmd({ "BufEnter", "CmdlineEnter", "VimEnter" }, {
+--   command = "hi MsgArea guifg=#fca7ea",
+-- })
