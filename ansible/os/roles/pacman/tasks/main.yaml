@@ -63,3 +63,6 @@
       # NOTE: Japanese Font Support
       - ttf-arphic-ukai
       - ttf-arphic-uming
+
+- name: Enable cronie.services
+  command: sudo systemctl enable --now cronie.services
