@@ -67,4 +67,4 @@
 - name: Enable cronie.services
   become: true
   shell:
-    cmd: sudo systemctl enable --now cronie.services
+    cmd: systemctl enable --now cronie
