@@ -60,6 +60,14 @@ template = '{{ .FormattedMs }}'
 threshold = 5000
 always_enabled = true
 
+# UserName
+[[blocks.segments]]
+type = "session"
+style = "plain"
+foreground = "red"
+background = "transparent"
+template = " {{ if .SSHSession }} {{ end }}{{ .UserName }}"
+
 # Clock
 [[blocks.segments]]
 type = 'time'
