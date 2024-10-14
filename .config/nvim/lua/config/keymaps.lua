@@ -41,7 +41,7 @@ map("n", "<C-j>", function()
 end, opts)
 
 -- Automatic find and replace
-map("n", "<localleader>sa", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "String auto replace" })
+map("n", "<localleader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "String auto replace" })
 
 -- Adding executable permission to script
-map("n", "<localleader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+map("n", "<localleader>x", "<cmd>!chmod +x %<CR>", { desc = " Set Script To Executable", silent = true })
