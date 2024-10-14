@@ -15,7 +15,7 @@ newline = true
 type = "os"
 style = "plain"
 background = 'transparent'
-foreground = 'cyan'
+foreground = 'blue'
 template = "{{ if .WSL }}WSL at {{ end }}{{ .Icon }} "
 
 # Directory Path
@@ -23,7 +23,7 @@ template = "{{ if .WSL }}WSL at {{ end }}{{ .Icon }} "
 type = 'path'
 style = 'plain'
 background = 'transparent'
-foreground = 'blue'
+foreground = 'cyan'
 template = ' {{ .Path }}'
 
 [blocks.segments.properties]
