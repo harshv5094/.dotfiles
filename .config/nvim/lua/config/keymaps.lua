@@ -12,12 +12,12 @@ map("n", "<C-m>", "<C-i>", opts)
 
 -- New tab
 map("n", "te", ":tabedit")
-map("n", "<tab>", ":tabnext<Return>", opts)
-map("n", "<s-tab>", ":tabprev<Return>", opts)
+map("n", "<tab>", ":tabnext<CR>", opts)
+map("n", "<s-tab>", ":tabprev<CR>", opts)
 
 -- Split window
-map("n", "ss", ":split<Return>", opts)
-map("n", "sv", ":vsplit<Return>", opts)
+map("n", "ss", ":split<CR>", opts)
+map("n", "sv", ":vsplit<CR>", opts)
 
 -- Move window
 map("n", "sh", "<C-w>h")
