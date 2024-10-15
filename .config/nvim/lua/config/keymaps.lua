@@ -41,3 +41,6 @@ map("n", "<localleader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]
 
 -- Adding executable permission to script
 map("n", "<localleader>x", "<cmd>!chmod +x %<CR>", { desc = " Set Script To Executable", silent = true })
+
+-- adding lazy extras keybind
+map("n", "<leader>L", "<cmd>LazyExtras<CR>", { desc = "LazyExtras", silent = true })
