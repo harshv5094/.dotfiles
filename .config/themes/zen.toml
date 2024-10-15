@@ -60,6 +60,13 @@ template = '{{ .FormattedMs }}'
 threshold = 5000
 always_enabled = false
 
+[[blocks.segments]]
+type = 'shell'
+style = 'plain'
+foreground = 'white'
+background = 'transparent'
+template = ' {{ .Name }}'
+
 # Clock
 [[blocks.segments]]
 type = 'time'
