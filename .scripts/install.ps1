@@ -104,8 +104,6 @@ function Install-Pwsh-Packages
   Install-Module posh-git -Scope CurrentUser -Force
   Write-Output "Installing Terminal-Icons"
   Install-Module -Name Terminal-Icons -Repository PSGallery -Force
-  Write-Output "Installing z (Directory Jumper)"
-  Install-Module -Name z -Force
   Write-Output "Installing PSReadLine"
   Install-Module -Name PSReadLine -AllowPrerelease -Scope CurrentUser -SkipPublisherCheck -Force
   Write-Output "Installing PSFzf"
