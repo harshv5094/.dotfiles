@@ -183,26 +183,4 @@ return {
 			return require("toggleterm").setup(opts)
 		end,
 	},
-
-	-- Refactor (By thePrimeagen)
-	{
-		"thePrimeagen/refactoring.nvim",
-		keys = {
-			{ "<leader>re", "<cmd>Refactor extract<CR>", desc = "Refactoring.nvim -> Extract" },
-			{ "<leader>rf", "<cmd>Refactor extract_to_file<CR>", desc = "Refactoring.nvim -> Extract to file" },
-			{ "<leader>rv", "<cmd>Refactor extract_var<CR>", desc = "Refactoring.nvim -> Extract Variable" },
-			{
-				"<leader>ri",
-				{ "<cmd>Refactor inline_var<CR>", mode = { "n", "x" } },
-				desc = "Refactoring.nvim -> Inline Variable",
-			},
-			{ "<leader>rI", "<cmd>Refactor inline_func<CR>", desc = "Refactoring.nvim -> Inline Function" },
-			{ "<leader>rb", "<cmd>Refactor extract_block<CR>", desc = "Refactoring.nvim -> Extract Block" },
-			{ "<leader>rBf", "<cmd>Refactor extract_block_to_file<CR>", desc = "Refactoring.nvim -> Extract Block to file" },
-		},
-		opts = function()
-			local opts = {}
-			return require("refactoring").setup(opts)
-		end,
-	},
 }
