@@ -37,7 +37,7 @@ map("n", "<C-w><down>", "<C-w>-")
 
 -- Diagnostics
 map("n", "<C-j>", function()
-  vim.diagnostic.goto_next()
+	vim.diagnostic.goto_next()
 end, opts)
 
 -- Automatic find and replace
