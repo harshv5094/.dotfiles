@@ -10,21 +10,13 @@ type = 'prompt'
 alignment = 'left'
 newline = true
 
-# OS Icon
-[[blocks.segments]]
-type = "os"
-style = "plain"
-background = 'transparent'
-foreground = 'blue'
-template = "{{ if .WSL }}WSL at {{ end }}{{ .Icon }} "
-
 # Directory Path
 [[blocks.segments]]
 type = 'path'
 style = 'plain'
 background = 'transparent'
-foreground = 'cyan'
-template = ' {{ .Path }}'
+foreground = 'blue'
+template = '{{ .Path }}'
 
 [blocks.segments.properties]
 style = 'full'
