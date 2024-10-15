@@ -166,6 +166,7 @@ return {
 	-- Toggle Terminal
 	{
 		"akinsho/toggleterm.nvim",
+		event = "VeryLazy",
 		keys = {
 			{
 				"<leader>tt",
