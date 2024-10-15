@@ -162,4 +162,25 @@ return {
 			require("telescope").load_extension("file_browser")
 		end,
 	},
+
+	-- Toggle Terminal
+	{
+		"akinsho/toggleterm.nvim",
+		keys = {
+			{
+				"<leader>tt",
+				"<cmd>ToggleTerm<cr>",
+				desc = "Toggle Terminal",
+			},
+		},
+		opts = function()
+			local opts = {
+				direction = "horizontal",
+				close_on_exit = true,
+				autochdir = true,
+				start_in_insert = true,
+			}
+			return require("toggleterm").setup(opts)
+		end,
+	},
 }
