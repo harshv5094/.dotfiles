@@ -10,13 +10,21 @@ type = 'prompt'
 alignment = 'left'
 newline = true
 
+# UserName
+[[blocks.segments]]
+type = "session"
+style = "plain"
+foreground = "red"
+background = "transparent"
+template = "{{ if .SSHSession }} {{ end }}{{ .UserName }}"
+
 # Directory Path
 [[blocks.segments]]
 type = 'path'
 style = 'plain'
 background = 'transparent'
 foreground = 'blue'
-template = '{{ .Path }}'
+template = ' {{ .Path }}'
 
 [blocks.segments.properties]
 style = 'full'
@@ -50,15 +58,7 @@ template = '{{ .FormattedMs }}'
 
 [blocks.segments.properties]
 threshold = 5000
-always_enabled = true
-
-# UserName
-[[blocks.segments]]
-type = "session"
-style = "plain"
-foreground = "red"
-background = "transparent"
-template = " {{ if .SSHSession }} {{ end }}{{ .UserName }}"
+always_enabled = false
 
 # Clock
 [[blocks.segments]]
