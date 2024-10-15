@@ -1,3 +1,7 @@
+---
+name: README
+description: This is my dotfiles docs
+---
 # 🔨 My Dotfiles
 
 ⚠️ Warning: Don't blindly use my setup unless you know what it is. Use it at your own risk!
