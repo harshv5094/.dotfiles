@@ -20,7 +20,12 @@ Some configuration needs nerd fonts to properly show icons. You can download the
 
 ### Linux and MacOS
 
-Install ansible in your system and run `install.sh` in `.dotfiles/ansible` directory.
+Install `ansible` in your system and run `install.sh` in `.dotfiles/ansible` directory.
+
+My Setup is based on two distros.
+
+1. Fedora
+2. Arch Linux
 
 ```sh
 cd ~/.dotfiles/ansible/
