@@ -35,6 +35,10 @@ require("lazy").setup({
 
 		-- Editor Extras
 		{ import = "lazyvim.plugins.extras.editor.refactoring" },
+
+		-- DAP Extras
+		{ import = "lazyvim.plugins.extras.dap.core" },
+		{ import = "lazyvim.plugins.extras.dap.nlua" },
 	},
 	defaults = {
 		-- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
