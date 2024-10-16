@@ -23,10 +23,6 @@ if type -q emacs
     alias emacs="emacs -nw"
 end
 
-# Linutil
-alias linutil="curl -fsSL https://christitus.com/linux | sh"
-alias linutildev="curl -fsSL https://christitus.com/linuxdev | sh"
-
 alias temp_delete="sudo find /tmp -mtime +7 -and -not -exec fuser -s {} ';' -and -exec echo {} ';'"
 
 alias ide="~/.dotfiles/.scripts/ide.sh"
