@@ -83,6 +83,11 @@
       "keyColor": "magenta"
     },
     {
+      "type": "packages",
+      "key": "  Packages",
+      "keyColor": "magenta"
+    },
+    {
       "type": "custom", // InformationEnd
       "format": "└────────────────────────────────────────────────────┘"
     },
