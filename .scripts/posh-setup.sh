@@ -21,7 +21,7 @@ poshSetup() {
     ;;
 
   2)
-    if command_exists nix; then
+    if command_exists oh-my-posh; then
       printf "%b\n" "${YELLOW} Updating oh my posh ${RC}"
       oh-my-posh upgrade
       return
