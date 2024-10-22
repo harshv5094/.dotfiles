@@ -24,4 +24,7 @@
 
       # OBS Studio
       - com.obsproject.Studio
+
+      # ZapZap (Whatsapp Client for linux)
+      - com.rtosta.zapzap
     state: present
