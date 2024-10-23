@@ -1,4 +1,4 @@
-- import_tasks: repos.yaml
+- import_tasks: remove.yaml
 
 - name: Install all necessary packages
   become: true
@@ -27,6 +27,7 @@
       - neovim
       - make
       - luarocks
+      - peco
       - ripgrep
       - fzf
       - tmux
