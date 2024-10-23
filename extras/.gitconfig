@@ -41,9 +41,9 @@
   rst = restore
   ci = commit
   cl = clone
+	ps = !git remote | xargs -L1 git push --all
+	pl = !git remote | xargs -L1 git pull --all
   ca = commit -a
-  ps = push
-  pl = pull 
   st = status
   sw = switch
   sts = status --short
