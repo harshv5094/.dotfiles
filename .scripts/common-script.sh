@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/bin/bash
 
 # shellcheck disable=SC2034
 
@@ -8,11 +8,11 @@ YELLOW='\033[33m'
 CYAN='\033[36m'
 GREEN='\033[32m'
 
-command_exists() {
-  command -v "$1" >/dev/null 2>&1
+function command_exists() {
+  command -v "$1" &>/dev/null
 }
 
-checkAURHelper() {
+function checkAURHelper() {
   ## Check & Install AUR helper
   if [ "$PACKAGER" = "pacman" ]; then
     if [ -z "$AUR_HELPER_CHECKED" ]; then
@@ -42,7 +42,7 @@ checkAURHelper() {
   fi
 }
 
-checkEscalationTool() {
+function checkEscalationTool() {
   ## Check for escalation tools.
   if [ -z "$ESCALATION_TOOL_CHECKED" ]; then
     ESCALATION_TOOLS='sudo doas'
@@ -60,7 +60,7 @@ checkEscalationTool() {
   fi
 }
 
-checkCommandRequirements() {
+function checkCommandRequirements() {
   ## Check for requirements.
   REQUIREMENTS=$1
   for req in ${REQUIREMENTS}; do
@@ -71,7 +71,7 @@ checkCommandRequirements() {
   done
 }
 
-checkPackageManager() {
+function checkPackageManager() {
   ## Check Package Manager
   PACKAGEMANAGER=$1
   for pgm in ${PACKAGEMANAGER}; do
@@ -87,8 +87,7 @@ checkPackageManager() {
     exit 1
   fi
 }
-
-checkSuperUser() {
+function checkSuperUser() {
   ## Check SuperUser Group
   SUPERUSERGROUP='wheel sudo root'
   for sug in ${SUPERUSERGROUP}; do
@@ -106,7 +105,7 @@ checkSuperUser() {
   fi
 }
 
-checkCurrentDirectoryWritable() {
+function checkCurrentDirectoryWritable() {
   ## Check if the current directory is writable.
   GITPATH="$(dirname "$(realpath "$0")")"
   if [ ! -w "$GITPATH" ]; then
@@ -115,7 +114,7 @@ checkCurrentDirectoryWritable() {
   fi
 }
 
-checkDistro() {
+function checkDistro() {
   DTYPE="unknown" # Default to unknown
   # Use /etc/os-release for modern distro identification
   if [ -f /etc/os-release ]; then
@@ -124,7 +123,7 @@ checkDistro() {
   fi
 }
 
-checkEnv() {
+function checkEnv() {
   checkCommandRequirements 'curl groups sudo'
   checkPackageManager 'nala apt-get dnf pacman zypper'
   checkCurrentDirectoryWritable
@@ -133,4 +132,3 @@ checkEnv() {
   checkEscalationTool
   checkAURHelper
 }
-
