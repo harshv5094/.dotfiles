@@ -15,14 +15,14 @@ customCommands:
 
   - key: "<c-p>"
     context: "localBranches"
-    command: "!git remote | xargs -L1 git push --all"
+    command: "git remote | xargs -L1 git push --all"
     description: "Push to all present remote repository"
     loadingText: "Pushing to all remote repos"
     subprocess: true
 
   - key: "<c-x>"
     context: "localBranches"
-    command: "!git remote | xargs -L1 git pull --all"
+    command: "git remote | xargs -L1 git pull --all"
     description: "Pull from all present remote repository"
     loadingText: "Pulling from all remote repos"
 
