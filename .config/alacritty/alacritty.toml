@@ -10,7 +10,7 @@ bold_italic = { family = "JetBrainsMono Nerd Font", style = "SemiBold" }
 [window]
 startup_mode = "Maximized"
 dynamic_title = true
-padding = { x = 3, y = 3 }
+padding = { x = 5, y = 5 }
 
 [selection]
 save_to_clipboard = true
