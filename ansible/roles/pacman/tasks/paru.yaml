@@ -12,7 +12,7 @@
   ansible.builtin.git:
     repo: https://aur.archlinux.org/paru.git
     dest: /tmp/paru
-    update: yes
+    update: true
 
 - name: Build and install paru
   ansible.builtin.shell:
@@ -35,8 +35,7 @@
 
 - name: Install my AUR Packages
   ansible.builtin.shell:
-    cmd: |
-      paru -S --noconfirm oh-my-posh-bin grimblast-git
+    cmd: paru -S --noconfirm oh-my-posh-bin grimblast-git
   args:
     executable: /bin/bash
   register: paru_install_output
