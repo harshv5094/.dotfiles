@@ -16,6 +16,8 @@ alias ll "ls -l"
 alias lla "ll -A"
 
 set -gx EDITOR (which nvim)
+set -gx VISUAL $EDITOR
+set -gx SUDO_EDITOR $EDITOR
 
 set -gx PATH bin $PATH
 set -gx PATH ~/bin $PATH
