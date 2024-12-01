@@ -1,0 +1,24 @@
+- name: Installing my flatpaks
+  community.general.flatpak:
+    name:
+      # ExtensionManager
+      - com.mattjakeman.ExtensionManager
+
+      # Brave Browser
+      - com.brave.Browser
+
+      # Obsidian
+      - md.obsidian.Obsidian
+
+      # Discord
+      - com.discordapp.Discord
+
+      # Flatseal
+      - com.github.tchx84.Flatseal
+
+      # ZapZap (Whatsapp Client for linux)
+      - com.rtosta.zapzap
+
+      # Shortwave (Internet Radio Manager)
+      - de.haeckerfelix.Shortwave
+    state: present

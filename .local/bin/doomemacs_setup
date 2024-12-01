@@ -1,0 +1,34 @@
+#!/bin/bash
+
+. "$HOME/.local/bin/common_script"
+
+checkEnv
+
+function cloneRepos() {
+  if [ ! -d "$HOME/.config/emacs" ]; then
+    printf "%b\n" "${YELLOW}Clonning doomemacs directory${RC}"
+    git clone --depth 1 https://github.com/doomemacs/doomemacs/ "$HOME/.config/emacs"
+  else
+    printf "%b\n" "${YELLOW}doomemacs Directory Exists${RC}"
+  fi
+
+  if [ ! -d "$HOME/.config/doom" ]; then
+    printf "%b\n" "${YELLOW}Clonning My doomemacs config directory${RC}"
+    git clone https://github.com/harshv5094/doom "$HOME/.config/doom"
+  else
+    printf "%b\n" "${YELLOW}My doomemacs config Directory Exists${RC}"
+  fi
+}
+
+if command_exists emacs; then
+  case "$PACKAGER" in
+  pacman)
+    "$AUR_HELPER" -S --noconfirm emacs
+    cloneRepos
+    ;;
+  *)
+    "$ESCALATION_TOOL" "$PACKAGER" install -y emacs
+    cloneRepos
+    ;;
+  esac
+fi

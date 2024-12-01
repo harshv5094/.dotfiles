@@ -1,0 +1,12 @@
+#!/bin/sh -e
+
+function have (){
+  command -v "$1" &>/dev/null
+}
+
+if have pacman; then
+  # Installing nvidia drivers
+  sudo pacman -S nvidia-dkms nvidia-utils egl-wayland opencl-nvidia nvidia-settings linux-headers linux-lts-headers xorg
+  sudo systemctl enable nvidia-hibernate.service nvidia-persistenced.service nvidia-powerd.service nvidia-resume.service nvidia-suspend.service
+  mkinitcpio
+fi

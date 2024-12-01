@@ -1,0 +1,123 @@
+- name: Install all necessary packages
+  become: true
+  community.general.pacman:
+    name:
+      # NOTE: GUI Apps
+      - firefox
+      - kitty
+      - gnome-disk-utility
+      - gnome-tweaks
+      - gnome-characters
+      - rhythmbox
+      - loupe
+      - timeshift
+      - thunar
+      - vlc
+      - syncthing
+      - transmission-gtk
+
+      # NOTE: Icon theme
+      - papirus-icon-theme
+
+      # HACK: Text Editor
+      - neovim
+
+      # NOTE: CLI Tools
+      - stow
+      - flatpak
+      - gnome-keyring
+      - xdg-desktop-portal-gtk
+      - git
+      - github-cli
+      - fish
+      - make
+      - wget
+      - curl
+      - luarocks
+      - peco
+      - ripgrep
+      - fzf
+      - sox
+      - tmux
+      - bat
+      - eza
+      - lazygit
+      - btop
+      - fd
+      - zoxide
+      - ufw
+      - yt-dlp
+      - xsel
+      - fastfetch
+      - openssh
+      - base-devel
+      - tldr
+      - trash-cli
+      - power-profiles-daemon
+      - fwupd
+      - bluez
+      - bluez-utils
+      - cronie
+      - imagemagick
+      - man-db
+
+      # NOTE: Programming and Packages Related
+      - go
+      - cmake
+      - rust
+
+      # NOTE: Nerd Fonts
+      - noto-fonts
+      - noto-fonts-emoji
+      - noto-fonts-extra
+      - ttf-jetbrains-mono-nerd
+      - ttf-firacode-nerd
+      - ttf-nerd-fonts-symbols
+      - ttf-nerd-fonts-symbols-common
+      - ttf-nerd-fonts-symbols-mono
+
+      # NOTE: Japanese Font Support
+      - ttf-hanazono
+      - noto-fonts-cjk
+
+# - name: Removing unused packages
+#   become: true
+#   community.general.pacman:
+#     name:
+#       - totem
+#       - gnome-weather
+#       - gnome-software
+#       - gnome-tour
+#       - gnome-maps
+#       - gnome-boxes
+#       - gnome-music
+#       - gnome-contacts
+#       - epiphany
+#     state: "absent"
+
+- name: Enable cronie services
+  become: true
+  ansible.builtin.systemd_service:
+    name: cronie.service
+    enabled: true
+    state: started
+    daemon_reload: false
+
+- name: Enable Syncthing services
+  become: true
+  ansible.builtin.systemd_service:
+    name: syncthing@harsh.service
+    enabled: true
+    state: started
+    daemon_reload: false
+
+- name: Enable bluetooth services
+  become: true
+  ansible.builtin.systemd_service:
+    name: bluetooth.service
+    enabled: true
+    state: started
+    daemon_reload: false
+
+- name: AUR Setup
+  ansible.builtin.import_tasks: paru.yaml

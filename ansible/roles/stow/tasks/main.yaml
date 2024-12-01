@@ -1,0 +1,11 @@
+# NOTE: For Directory SymLinks
+
+- name: Removing existing files
+  ansible.builtin.shell:
+    cmd: "rm -rf {{ ansible_env.HOME }}/.bashrc {{ ansible_env.HOME }}/.bash_profile {{ ansible_env.HOME }}/.zshrc"
+    chdir: "{{ ansible_env.HOME }}"
+
+- name: Run stow
+  ansible.builtin.shell: "cd {{ ansible_env.HOME }}/.dotfiles && stow . --target {{ ansible_env.HOME }} --verbose 2"
+  register: result
+  changed_when: 'result.stderr is search("LINK: ")'

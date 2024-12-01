@@ -1,0 +1,8 @@
+- name: Setting up my Linux Workstation
+  hosts: local
+  roles:
+    - dnf
+    - stow
+    - fonts
+    - extras
+    - flatpak

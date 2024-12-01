@@ -1,0 +1,47 @@
+- name: Ensure base-devel is installed
+  community.general.pacman:
+    name: base-devel
+    state: present
+
+- name: Ensure git is installed
+  community.general.pacman:
+    name: git
+    state: present
+
+- name: Clone paru repository
+  ansible.builtin.git:
+    repo: https://aur.archlinux.org/paru.git
+    dest: /tmp/paru
+    update: yes
+
+- name: Build and install paru
+  ansible.builtin.shell:
+    cmd: |
+      makepkg -si --noconfirm
+    chdir: /tmp/paru
+  args:
+    creates: /usr/bin/paru
+
+- name: Cleanup paru build files
+  ansible.builtin.file:
+    path: /tmp/paru
+    state: absent
+
+- name: Syncing Packages
+  ansible.builtin.shell:
+    cmd: paru
+  args:
+    executable: /bin/bash
+
+- name: Install my AUR Packages
+  ansible.builtin.shell:
+    cmd: |
+      paru -S --noconfirm oh-my-posh-bin grimblast-git
+  args:
+    executable: /bin/bash
+  register: paru_install_output
+  failed_when: "'error' in paru_install_output.stderr.lower()"
+
+- name: Display paru installation output
+  ansible.builtin.debug:
+    msg: "{{ paru_install_output.stdout }}"

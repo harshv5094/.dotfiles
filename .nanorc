@@ -1,0 +1,6 @@
+set mouse
+set tabsize 2
+set boldtext
+set showcursor
+set statuscolor black,white
+set titlecolor blue,black

@@ -1,0 +1,14 @@
+node_modules/
+.config/nvim/*.json
+
+.config/fish/functions/tide
+.config/fish/functions/*.py
+
+.config/tmux/plugins/*
+.config/tmux/plugins/
+
+.config/emacs/eln-cache/*
+.config/emacs/auto-save-list/*
+.config/emacs/elpaca/*
+
+.config/btop/btop.log
