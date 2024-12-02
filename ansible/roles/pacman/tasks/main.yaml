@@ -31,9 +31,7 @@
       - git
       - github-cli
       - fish
-      - make
       - wget
-      - curl
       - luarocks
       - peco
       - ripgrep
@@ -51,7 +49,6 @@
       - xsel
       - fastfetch
       - openssh
-      - base-devel
       - tldr
       - trash-cli
       - power-profiles-daemon
@@ -62,10 +59,15 @@
       - imagemagick
       - man-db
 
-      # NOTE: Programming and Packages Related
+      # NOTE: Programming and Build Dependency
       - go
       - cmake
       - rust
+      - base-devel
+      - make
+      - ninja
+      - unzip
+      - curl
 
       # NOTE: Nerd Fonts
       - noto-fonts
