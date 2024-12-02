@@ -19,6 +19,7 @@ ln -s "$BASE_DIR/alias.fish" "$CONFIG_PATH"
 ln -s "$BASE_DIR/fish_variables" "$CONFIG_PATH"
 ln -s "$BASE_DIR/functions/fish_prompt.fish" "$CONFIG_PATH/functions/"
 ln -s "$BASE_DIR/completions/gh.fish" "$CONFIG_PATH/completions/"
+ln -s "$BASE_DIR/completions/colorscript.fish" "$CONFIG_PATH/completions/"
 ln -s "$BASE_DIR/themes/tokyonight_moon.theme" "$CONFIG_PATH/themes/"
 
 echo "Installing fisher..."
