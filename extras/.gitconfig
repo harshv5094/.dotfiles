@@ -21,22 +21,7 @@
   grep = auto
   ui = auto
 
-[difftool "nvimdiff"]
-  cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
-
-[mergetool "nvimdiff"]
-	cmd = nvim -d \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
-
-[filter "lfs"]
-  clean = git-lfs clean -- %f
-  smudge = git-lfs smudeg -- %f
-  required = true
-  process = git-lfs filter-process
-
 [alias]
-  a = "!git status --short | peco | awk '{print $2}' | xargs git add"
-  d = diff
   co = checkout
   rst = restore
   ci = commit
@@ -54,8 +39,6 @@
   bn = branch --no-merged
   df = "!git hist | peco | awk '{print $2}' | xargs -I {} git diff {}^ {}"
   empty = "git commit --allow-empty"
-  hist = log --pretty=format:\"%Cgreen%h %Creset%cd %Cblue[%cn] %Creset%s%C(yellow)%d%C(reset)\" --graph --date=relative --decorate --all
-  llog = log --graph --name-status --pretty=format:\"%C(red)%h %C(reset)(%cd) %C(green)%an %Creset%s %C(yellow)%d%Creset\" --date=relative
   delete-local-merged = "!git fetch && git branch --merged | egrep -v 'main' | xargs git branch -d"
   open = "!hub browse"
   type = cat-file -t
@@ -68,3 +51,19 @@
 
 [ghq]
   root = ~/.ghq/
+
+[github]
+  user = harshv5094
+
+[difftool "nvimdiff"]
+  cmd = nvim -d "$LOCAL" "$REMOTE"
+
+[mergetool "nvimdiff"]
+	cmd = nvim -d "$LOCAL" "$REMOTE" -ancestor "$BASE" -merge "$MERGED"
+	trustExitCode = true
+
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudeg -- %f
+  required = true
+  process = git-lfs filter-process
