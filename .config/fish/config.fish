@@ -10,6 +10,7 @@ set -g theme_hide_hostname no
 set -g theme_hostname always
 
 # aliases
+alias g git
 alias ls "ls -p -G"
 alias la "ls -A"
 alias ll "ls -l"
