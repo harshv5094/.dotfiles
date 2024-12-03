@@ -35,7 +35,7 @@
 
 - name: Install my AUR Packages
   ansible.builtin.shell:
-    cmd: paru -S --noconfirm oh-my-posh-bin grimblast-git
+    cmd: paru -S --noconfirm oh-my-posh-bin
   args:
     executable: /bin/bash
   register: paru_install_output
