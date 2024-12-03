@@ -26,8 +26,6 @@
   rst = restore
   ci = commit
   cl = clone
-	ps = !git remote | xargs -L1 git push --all
-	pl = !git remote | xargs -L1 git pull --all
   ca = commit -a
   st = status
   sw = switch
@@ -38,11 +36,9 @@
   bm = branch --merged
   bn = branch --no-merged
   df = "!git hist | peco | awk '{print $2}' | xargs -I {} git diff {}^ {}"
-  empty = "git commit --allow-empty"
   delete-local-merged = "!git fetch && git branch --merged | egrep -v 'main' | xargs git branch -d"
   open = "!hub browse"
-  type = cat-file -t
-  dump = cat-file -p
+  dump = "!git checkout -- ."
   find = "!f() { git log --pretty=format:\"%h %cd [%cn] %s%d\" --date=relative -S'pretty' -S\"$@\" | peco | awk '{print $1}' | xargs -I {} git diff {}^ {}; }; f"
   # edit conflicted file on merge
   edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; nvim `f`"
@@ -54,6 +50,10 @@
 
 [github]
   user = harshv5094
+
+[user]
+	name = harshv5094
+	email = harshv5094@gmail.com
 
 [difftool "nvimdiff"]
   cmd = nvim -d "$LOCAL" "$REMOTE"
