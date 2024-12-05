@@ -29,6 +29,4 @@ end
 
 alias temp_delete="sudo find /tmp -mtime +7 -and -not -exec fuser -s {} ';' -and -exec echo {} ';'"
 
-alias ide="~/.dotfiles/.scripts/ide.sh"
-
 alias remove-nvim-plugin="rm -rf ~/.local/share/nvim/ ~/.local/state/nvim/ ~/.cache/nvim/"
