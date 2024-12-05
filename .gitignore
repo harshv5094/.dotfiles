@@ -7,8 +7,4 @@ node_modules/
 .config/tmux/plugins/*
 .config/tmux/plugins/
 
-.config/emacs/eln-cache/*
-.config/emacs/auto-save-list/*
-.config/emacs/elpaca/*
-
 .config/btop/btop.log
