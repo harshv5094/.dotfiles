@@ -8,13 +8,8 @@ description: This is my dotfiles docs
 
 ## Table of Contents
 
-- [Introduction](#introduction)
 - [Font Dependency](#font-dependency)
 - [How to install my setup](#how-to-install-my-setup)
-
-## Introduction
-
-My setup is inspired from [craftzdog's](https://github.com/craftzdog/dotfiles-public) setup. This setup contains some of his configuration with my customization mixed in it.
 
 ## Font Dependency
 
