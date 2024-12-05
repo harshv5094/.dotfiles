@@ -1,6 +1,6 @@
-#!/bin/sh -e
+#!/bin/bash
 
-function have (){
+function have() {
   command -v "$1" &>/dev/null
 }
 
