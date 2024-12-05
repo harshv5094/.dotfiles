@@ -57,14 +57,3 @@ end
 if type -q zoxide
     zoxide init --cmd cd fish | source
 end
-
-if type -q yazi
-    function yy
-        set tmp (mktemp -t "yazi-cwd.XXXXXX")
-        yazi $argv --cwd-file="$tmp"
-        if set cwd (command cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
-            builtin cd -- "$cwd"
-        end
-        rm -f -- "$tmp"
-    end
-end
