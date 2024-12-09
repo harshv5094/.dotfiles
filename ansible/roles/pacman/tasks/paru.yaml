@@ -27,12 +27,6 @@
     path: /tmp/paru
     state: absent
 
-- name: Syncing Packages
-  ansible.builtin.shell:
-    cmd: paru
-  args:
-    executable: /bin/bash
-
 - name: Install my AUR Packages
   ansible.builtin.shell:
     cmd: paru -S --noconfirm oh-my-posh-bin
