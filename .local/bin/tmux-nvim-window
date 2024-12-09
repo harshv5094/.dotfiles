@@ -3,7 +3,8 @@
 if [[ $# -eq 1 ]]; then
   selected=$1
 else
-  selected=$(find ~/.dotfiles/.config/ ~/.dotfiles/ ~/.dotfiles/.local ~/hyprland/ ~/hyprland/.config -mindepth 1 -maxdepth 1 -type d -not -path '*/.git*' | fzf --layout=reverse --border)
+  selected=$(find ~/.dotfiles/.config/ ~/.dotfiles/ ~/.dotfiles/.local ~/hyprland/ ~/hyprland/.config \
+    -mindepth 1 -maxdepth 1 -type d -not -path '*/.git*' | fzf --layout=reverse --border --bind 'alt-j:down,alt-k:up')
 fi
 
 if [[ -z $selected ]]; then
@@ -11,11 +12,13 @@ if [[ -z $selected ]]; then
 fi
 
 selected_name=$(basename "$selected" | tr . _)
-tmux_running=$(pgrep tmux)
 
-# If not in a tmux session and tmux is not running, create a new session and attach
-if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-  tmux new-session -s $selected_name -c $selected
+# Avoid unnecessary tmux and grep processes by checking conditions directly
+if [[ -z $TMUX ]]; then
+  if ! tmux has-session -t "$selected_name" 2>/dev/null; then
+    tmux new-session -d -s "$selected_name" -c "$selected"
+  fi
+  tmux attach-session -t "$selected_name"
   exit 0
 fi
 
@@ -26,14 +29,5 @@ if tmux list-windows -a | grep -q ": $selected_name"; then
   tmux switch-client -t "$session_window"
 else
   # If the window does not exist, create a new window
-  if [[ -n $TMUX ]]; then
-    tmux new-window -n "$selected_name" -c "$selected" "nvim ."
-  else
-    # If not in tmux, attach to the session and create a new window
-    if tmux has-session -t=$selected_name 2>/dev/null; then
-      tmux attach-session -t $selected_name \; new-window -n "$selected_name" -c "$selected" "nvim ."
-    else
-      tmux new-session -s $selected_name -c "$selected" \; rename-window "$selected_name" \; send-keys "nvim ." C-m
-    fi
-  fi
+  tmux new-window -n "$selected_name" -c "$selected" "nvim ."
 fi
