@@ -27,6 +27,10 @@ if type -q emacs
     alias emc="emacs -c -a "emacs""
 end
 
+if type -q git
+    alias g=git
+end
+
 alias temp_delete="sudo find /tmp -mtime +7 -and -not -exec fuser -s {} ';' -and -exec echo {} ';'"
 
 alias remove-nvim-plugin="rm -rf ~/.local/share/nvim/ ~/.local/state/nvim/ ~/.cache/nvim/"
