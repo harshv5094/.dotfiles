@@ -3,7 +3,7 @@
 if [[ $# -eq 1 ]]; then
   selected=$1
 else
-  selected=$(find ~/.dotfiles/.config/ ~/.dotfiles/ ~/hyprland/ ~/hyprland/.config -mindepth 1 -maxdepth 1 -type d -not -path '*/.git*' | fzf --layout=reverse --border)
+  selected=$(find ~/.dotfiles/.config/ ~/.dotfiles/ ~/.dotfiles/.local ~/hyprland/ ~/hyprland/.config -mindepth 1 -maxdepth 1 -type d -not -path '*/.git*' | fzf --layout=reverse --border)
 fi
 
 if [[ -z $selected ]]; then
