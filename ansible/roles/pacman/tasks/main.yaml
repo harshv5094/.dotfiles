@@ -23,6 +23,7 @@
 
       # HACK: Text Editor
       - neovim
+      - nano
 
       # NOTE: CLI Tools
       - stow
