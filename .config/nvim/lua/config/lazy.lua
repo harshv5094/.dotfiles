@@ -42,6 +42,7 @@ require("lazy").setup({
 
 		-- Editor Extras
 		{ import = "lazyvim.plugins.extras.editor.refactoring" },
+		{ import = "lazyvim.plugins.extras.editor.harpoon2" },
 
 		-- DAP Extras
 		{ import = "lazyvim.plugins.extras.dap.core" },
