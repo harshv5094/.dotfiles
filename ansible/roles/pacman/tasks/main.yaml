@@ -62,6 +62,11 @@
       - imagemagick
       - man-db
 
+      # NOTE: Media Codecs
+      - gst-plugin-ugly
+      - gst-libav
+      - grilo-plugins
+
       # NOTE: Programming and Build Dependency
       - go
       - cmake
