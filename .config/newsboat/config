@@ -1,20 +1,50 @@
-# A simple color scheme designed to work well with pretty much any terminal:
-#   Uses the basic 16 ANSI colors
-#   Works with dark and light (inverted) terminal color schemes
-#   Avoids color-on-color text
-#   Avoids blue and yellow as those are often too bright or too dim
-#   Works with Linux framebuffer terminal despite it being weird with bold text
+# col # item              # fg      # bg
+color background          color7   default        # the most bottom bar
+color listnormal          color7   default        # unfocused and without N
+color listnormal_unread   color7   default        # unfocused and with N
+color listfocus           color7   color8         # focused and without N
+color listfocus_unread    color7   color8   bold  # focused but with N
+color info                color0   color1         # bottom and top info bars
+color article             color7   default        # content of an article
 
-color background         default default
-color listnormal         default default
-color listnormal_unread  color15 default bold
-color listfocus          green   default reverse
-color listfocus_unread   color10 default reverse bold
-color title              cyan    default reverse
-color info               magenta default reverse
-color hint-description   magenta default
-color article            default default
-color end-of-text-marker color8  default
+# highlights
+highlight article "^(Feed|Link):.*$" color6 default bold
+highlight article "^(Title|Date|Author):.*$" color6 default bold
+highlight article "https?://[^ ]+" color10 default underline
+highlight article "\\[[0-9]+\\]" color10 default bold
+highlight article "\\[image\\ [0-9]+\\]" color10 default bold
 
-# Highlight URLs with regex
-highlight article "[a-z]+://[^ ]+" green default underline
+# Refresh on Startup
+refresh-on-startup yes
+
+# Automatically add new feeds
+reload-threads 100
+
+# Remove Readed Feeds
+show-read-feeds no
+show-read-articles no
+
+# Custom Vim Keybindings
+bind-key h quit
+bind-key j down
+bind-key k up
+bind-key l open
+bind-key H prev-feed
+bind-key L next-feed
+bind-key g home
+bind-key G end
+bind-key SPACE macro-prefix 
+bind-key b bookmark 
+bind-key ^F pagedown 
+bind-key ^B pageup 
+bind-key ^H toggle-show-read-feeds 
+
+# Open Article in firefox
+macro f set browser "setsid --fork firefox %u > /dev/null 2>&1"; open-in-browser; set browser "xdg-open %u";
+
+# Close the window
+macro q quit
+
+# Macros to watch youtube videos
+macro 3 set browser "setsid --fork mpv --profile=360p %u > /dev/null 2>&1"; open-in-browser; set browser "xdg-open %u";
+macro 7 set browser "setsid --fork mpv --profile=720p %u > /dev/null 2>&1"; open-in-browser; set browser "xdg-open %u";
