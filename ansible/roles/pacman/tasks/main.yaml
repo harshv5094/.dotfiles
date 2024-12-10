@@ -28,6 +28,7 @@
       # NOTE: CLI Tools
       - stow
       - flatpak
+      - vdpauinfo
       - tree
       - gnome-keyring
       - xdg-desktop-portal-gtk
