@@ -25,6 +25,9 @@
       - neovim
       - nano
 
+      # NOTE: RSS Read Feeder
+      - newsboat
+
       # NOTE: CLI Tools
       - stow
       - flatpak
