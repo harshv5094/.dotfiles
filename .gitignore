@@ -7,5 +7,4 @@ node_modules/
 .config/tmux/plugins/*
 .config/tmux/plugins/
 
-.newsboat/cache*
 .config/btop/btop.log
