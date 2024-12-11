@@ -9,6 +9,8 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UC6biysICWOJ-C3P4Tyeggzg "Li
 https://www.youtube.com/feeds/videos.xml?channel_id=UCxrqVfm7FUHSkboVbp1dr7w "Linux" "YouTube"                              # Reluctant Anarchist
 https://www.youtube.com/feeds/videos.xml?channel_id=UCjSEJkpGbcZhvo0lr-44X_w "Linux" "YouTube"                              # Tech Hut
 https://www.youtube.com/feeds/videos.xml?channel_id=UC8uT9cgJorJPWu7ITLGo9Ww "Retro Tech" "YouTube"                         # 8 Bit Guy
+https://www.youtube.com/feeds/videos.xml?channel_id=UCR-DXc1voovS8nhAvccRZhg "IT" "Retro Tech" "YouTube"                    # Jeff Gerling
+https://www.youtube.com/feeds/videos.xml?channel_id=UC9x0AN7BWHpCDHSm9NiJFJQ "IT" "Retro Tech" "YouTube"                    # NetworkChuck
 
 "query:Reddit:tags # \"Reddit\""
 https://www.reddit.com/r/hyprland.rss "Reddit" "hyprland"
