@@ -11,8 +11,9 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCjSEJkpGbcZhvo0lr-44X_w "Li
 https://www.youtube.com/feeds/videos.xml?channel_id=UC8uT9cgJorJPWu7ITLGo9Ww "Retro Tech" "YouTube"                         # 8 Bit Guy
 
 "query:Reddit:tags # \"Reddit\""
-https://www.reddit.com/r/hyprland.rss "Reddit" "Hyprland"
+https://www.reddit.com/r/hyprland.rss "Reddit" "hyprland"
 https://www.reddit.com/r/neovim.rss "Reddit" "neovim"
+https://www.reddit.com/r/archlinux.rss "Reddit" "archlinux"
 
 "query:Web Articles:tags # \"Posts\""
 https://archlinux.org/feeds/news "Posts"  "Arch Linux"                                                               # Arch Linux News
