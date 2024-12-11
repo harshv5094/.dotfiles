@@ -86,6 +86,7 @@
       - noto-fonts-emoji
       - noto-fonts-extra
       - ttf-jetbrains-mono-nerd
+      - inter-font
       - ttf-firacode-nerd
       - ttf-nerd-fonts-symbols
       - ttf-nerd-fonts-symbols-common
