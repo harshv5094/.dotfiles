@@ -1,14 +1,15 @@
 "query:YouTube:tags # \"YouTube\""
-https://www.youtube.com/feeds/videos.xml?channel_id=UCg6gPGh8HU2U01vaFCAsvmQ "Linux" "YouTube"                              #Chris Titus Tech
-https://www.youtube.com/feeds/videos.xml?channel_id=UCVls1GmFKf6WlTraIb_IaJg "Linux" "YouTube"                              #Distro Tube
-https://www.youtube.com/feeds/videos.xml?channel_id=UCld68syR8Wi-GY_n4CaoJGA "Linux" "YouTube"                              #Brodie
-https://www.youtube.com/feeds/videos.xml?channel_id=UC7YOGHUfC1Tb6E4pudI9STA "Linux" "YouTube"                              #Mental Outlaw
-https://www.youtube.com/feeds/videos.xml?channel_id=UCMiyV_Ib77XLpzHPQH_q0qQ "Linux" "YouTube"                              #Veronica Explains
-https://www.youtube.com/feeds/videos.xml?channel_id=UCsBjURrPoezykLs9EqgamOA "Linux" "YouTube"                              #Fireship
-https://www.youtube.com/feeds/videos.xml?channel_id=UC6biysICWOJ-C3P4Tyeggzg "Linux" "YouTube"                              #Low Level
-https://www.youtube.com/feeds/videos.xml?channel_id=UCxrqVfm7FUHSkboVbp1dr7w "Linux" "YouTube"                              #Reluctant Anarchist
+https://www.youtube.com/feeds/videos.xml?channel_id=UCg6gPGh8HU2U01vaFCAsvmQ "Linux" "YouTube"                              # Chris Titus Tech
+https://www.youtube.com/feeds/videos.xml?channel_id=UCVls1GmFKf6WlTraIb_IaJg "Linux" "YouTube"                              # Distro Tube
+https://www.youtube.com/feeds/videos.xml?channel_id=UCld68syR8Wi-GY_n4CaoJGA "Linux" "YouTube"                              # Brodie
+https://www.youtube.com/feeds/videos.xml?channel_id=UC7YOGHUfC1Tb6E4pudI9STA "Linux" "YouTube"                              # Mental Outlaw
+https://www.youtube.com/feeds/videos.xml?channel_id=UCMiyV_Ib77XLpzHPQH_q0qQ "Linux" "YouTube"                              # Veronica Explains
+https://www.youtube.com/feeds/videos.xml?channel_id=UCsBjURrPoezykLs9EqgamOA "Linux" "YouTube"                              # Fireship
+https://www.youtube.com/feeds/videos.xml?channel_id=UC6biysICWOJ-C3P4Tyeggzg "Linux" "YouTube"                              # Low Level
+https://www.youtube.com/feeds/videos.xml?channel_id=UCxrqVfm7FUHSkboVbp1dr7w "Linux" "YouTube"                              # Reluctant Anarchist
+https://www.youtube.com/feeds/videos.xml?channel_id=UCjSEJkpGbcZhvo0lr-44X_w "Linux" "YouTube"                              # Tech Hut
 
-"query:Blogs:tags # \"Blog\""
-https://archlinux.org/feeds/news "Blog"  "Arch Linux"
-https://www.howtogeek.com/feed/ "Blog" "howtogeek"
-
+"query:\"Web Articles\":tags # \"Web Articles\""
+https://archlinux.org/feeds/news "Web Articles"  "Arch Linux"                                                               # Arch Linux News
+https://www.howtogeek.com/feed/ "Web Articles" "How To Geek"                                                                  # How To Geek
+https://itsfoss.com/rss/ "Web Articles" "Its Foss"                                                                          # Its Foss
