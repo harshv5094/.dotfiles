@@ -1,4 +1,4 @@
-#!/bin/fish
+#!/usr/bin/fish
 
 if type -q nvm
     nvm install lts

@@ -1,4 +1,4 @@
-#!/bin/fish
+#!/usr/bin/fish
 
 set CONFIG_PATH ~/.config/fish
 set BASE_DIR $HOME/.dotfiles/.config/fish
