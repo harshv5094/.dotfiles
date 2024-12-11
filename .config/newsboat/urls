@@ -10,7 +10,7 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCxrqVfm7FUHSkboVbp1dr7w "Li
 https://www.youtube.com/feeds/videos.xml?channel_id=UCjSEJkpGbcZhvo0lr-44X_w "Linux" "YouTube"                              # Tech Hut
 https://www.youtube.com/feeds/videos.xml?channel_id=UC8uT9cgJorJPWu7ITLGo9Ww "Retro Tech" "YouTube"                         # 8 Bit Guy
 
-"query:\"Web Articles\":tags # \"Web Articles\""
-https://archlinux.org/feeds/news "Web Articles"  "Arch Linux"                                                               # Arch Linux News
-https://www.howtogeek.com/feed/ "Web Articles" "How To Geek"                                                                # How To Geek
-https://itsfoss.com/rss/ "Web Articles" "Its Foss"                                                                          # Its Foss
+"query:Web Articles:tags # \"Posts\""
+https://archlinux.org/feeds/news "Posts"  "Arch Linux"                                                               # Arch Linux News
+https://www.howtogeek.com/feed/ "Posts" "How To Geek"                                                                # How To Geek
+https://itsfoss.com/rss/ "Posts" "Its Foss"                                                                          # Its Foss
