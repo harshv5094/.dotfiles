@@ -8,9 +8,9 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCsBjURrPoezykLs9EqgamOA "Li
 https://www.youtube.com/feeds/videos.xml?channel_id=UC6biysICWOJ-C3P4Tyeggzg "Linux" "YouTube"                              # Low Level
 https://www.youtube.com/feeds/videos.xml?channel_id=UCxrqVfm7FUHSkboVbp1dr7w "Linux" "YouTube"                              # Reluctant Anarchist
 https://www.youtube.com/feeds/videos.xml?channel_id=UCjSEJkpGbcZhvo0lr-44X_w "Linux" "YouTube"                              # Tech Hut
-https://www.youtube.com/feeds/videos.xml?channel_id=UC8uT9cgJorJPWu7ITLGo9Ww "Linux" "YouTube"                              # 8 Bit Guy
+https://www.youtube.com/feeds/videos.xml?channel_id=UC8uT9cgJorJPWu7ITLGo9Ww "Retro Tech" "YouTube"                         # 8 Bit Guy
 
 "query:\"Web Articles\":tags # \"Web Articles\""
 https://archlinux.org/feeds/news "Web Articles"  "Arch Linux"                                                               # Arch Linux News
-https://www.howtogeek.com/feed/ "Web Articles" "How To Geek"                                                                  # How To Geek
+https://www.howtogeek.com/feed/ "Web Articles" "How To Geek"                                                                # How To Geek
 https://itsfoss.com/rss/ "Web Articles" "Its Foss"                                                                          # Its Foss
