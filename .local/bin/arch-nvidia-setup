@@ -1,12 +1,45 @@
 #!/bin/bash
 
+RED=$(tput setaf 1)
+GREEN=$(tput setaf 2)
+YELLOW=$(tput setaf 3)
+CYAN=$(tput setaf 6)
+RESET=$(tput sgr0)
+
 function have() {
   command -v "$1" &>/dev/null
 }
 
 if have pacman; then
   # Installing nvidia drivers
+  printf "%b\n" "${CYAN}** Installing Nvidia Drivers **${RESET}"
   sudo pacman -S nvidia-dkms nvidia-utils egl-wayland opencl-nvidia nvidia-settings linux-headers linux-lts-headers xorg
-  sudo systemctl enable nvidia-hibernate.service nvidia-persistenced.service nvidia-powerd.service nvidia-resume.service nvidia-suspend.service
+
+  function systemdServices() {
+    printf "%b\n" "${CYAN}** Enable Systemd Services **${RESET}"
+
+    # Helper function to enable a service
+    function enableService() {
+      local serviceName="$1"
+      printf "%b\n" "${YELLOW}** Enabling ${serviceName} **${RESET}"
+      sudo systemctl enable "${serviceName}.service"
+
+      if systemctl is-active --quiet "${serviceName}.service"; then
+        printf "%b\n" "${GREEN}** ${serviceName} is now active **${RESET}"
+      else
+        printf "%b\n" "${RED}** Failed to activate ${serviceName} **${RESET}"
+      fi
+    }
+
+    # List of services to enable
+    local services=("nvidia-hibernate" "nvidia-powerd" "nvidia-persistenced" "nvidia-resume" "nvidia-suspend")
+
+    for service in "${services[@]}"; do
+      enableService "$service"
+    done
+  }
+  systemdServices
+
+  printf "%b\n" "${CYAN}** Creating Initial Ramdisk Environment **${RESET}"
   mkinitcpio
 fi
