@@ -8,6 +8,7 @@
       - gnome-disk-utility
       - gnome-tweaks
       - gnome-characters
+      - thunderbird
       - seahorse
       - rhythmbox
       - loupe
@@ -17,7 +18,7 @@
       - syncthing
       - transmission-gtk
 
-      # NOTE: File Manager
+      # NOTE: File Manager (And its necessary plugins)
       - thunar
       - tumbler
       - libgepub
