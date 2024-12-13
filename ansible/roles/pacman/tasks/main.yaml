@@ -13,10 +13,18 @@
       - loupe
       - timeshift
       - evince
-      - thunar
       - vlc
       - syncthing
       - transmission-gtk
+
+      # NOTE: File Manager
+      - thunar
+      - tumbler
+      - libgepub
+      - libopenraw
+      - thunar-volman
+      - thunar-archive-manager
+      - thunar-media-tags-plugin
 
       # NOTE: Icon theme
       - papirus-icon-theme
