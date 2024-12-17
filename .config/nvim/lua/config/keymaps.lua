@@ -36,3 +36,6 @@ map("n", "<localleader>x", "<cmd>!chmod +x %<CR>", { desc = " Set Script To Exec
 
 -- adding lazy extras keybind
 map("n", "<leader>L", "<cmd>LazyExtras<CR>", { desc = "LazyExtras", silent = true })
+
+-- Custom file manager keybinding
+map("n", "sf", LazyVim.pick("files"), { desc = "Find Files (Root Dir)" })
