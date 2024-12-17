@@ -1,7 +1,9 @@
-vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
-
+local g = vim.g
 local opt = vim.opt
+
+g.mapleader = " "
+g.maplocalleader = "\\"
+g.snacks_animate = true
 
 opt.encoding = "utf-8"
 opt.fileencoding = "utf-8"
