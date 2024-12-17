@@ -29,6 +29,7 @@ opt.breakindent = true
 opt.shiftwidth = 2
 opt.tabstop = 2
 opt.wrap = false -- No Wrap lines
+opt.swapfile = true -- Toggle swap files
 opt.backspace = { "start", "eol", "indent" }
 opt.path:append({ "**" }) -- Finding files - Search down into subfolders
 opt.wildignore:append({ "*/node_modules/*" })
