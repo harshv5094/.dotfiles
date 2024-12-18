@@ -56,3 +56,13 @@ end
 if type -q zoxide
     zoxide init --cmd cd fish | source
 end
+
+# Yazi Change Directory Command
+function y
+    set tmp (mktemp -t "yazi-cwd.XXXXXX")
+    yazi $argv --cwd-file="$tmp"
+    if set cwd (command cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+        builtin cd -- "$cwd" || exit
+    end
+    rm -f -- "$tmp"
+end

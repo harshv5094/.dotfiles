@@ -146,6 +146,16 @@ if command -v firefox &> /dev/null; then
     alias yazi-keybindings="firefox https://yazi-rs.github.io/docs/quick-start/#selection"
 fi
 
+# Yazi Change Directory Command
+function y() {
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+  yazi "$@" --cwd-file="$tmp"
+  if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+    builtin cd -- "$cwd" || exit
+  fi
+  rm -f -- "$tmp"
+}
+
 if [ -e /home/harsh/.nix-profile/etc/profile.d/nix.sh ]; then . /home/harsh/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 export NVM_DIR="$HOME/.nvm"
