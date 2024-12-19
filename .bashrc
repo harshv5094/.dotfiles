@@ -149,6 +149,12 @@ if command -v nvim &>/dev/null; then
   export VISUAL=nvim
 fi
 
+# GitHub CLI completion
+if command -v gh &>/dev/null; then
+  eval "$(gh completion -s bash)"
+fi
+
+# Yazi Change Directory Command
 function y() {
   local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
   yazi "$@" --cwd-file="$tmp"
