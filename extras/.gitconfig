@@ -51,10 +51,6 @@
 [github]
   user = harshv5094
 
-[user]
-	name = harshv5094
-	email = harshv5094@gmail.com
-
 [difftool "nvimdiff"]
   cmd = nvim -d "$LOCAL" "$REMOTE"
 
