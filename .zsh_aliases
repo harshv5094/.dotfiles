@@ -29,6 +29,7 @@ fi
 
 if have emacs; then
   alias emc="emacs -c -a "emacs""
+  alias org-bkup="~/org/commit.sh"
 fi
 
 if have git; then

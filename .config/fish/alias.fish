@@ -25,6 +25,7 @@ end
 
 if type -q emacs
     alias emc="emacs -c -a "emacs""
+    alias org-bkup="~/org/commit.sh"
 end
 
 if type -q git
