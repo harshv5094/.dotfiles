@@ -7,9 +7,6 @@
       # Brave Browser
       - com.brave.Browser
 
-      # Obsidian
-      - md.obsidian.Obsidian
-
       # Discord
       - com.discordapp.Discord
 
