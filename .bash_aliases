@@ -28,7 +28,7 @@ if have kitty; then
 fi
 
 if have emacs; then
-  alias emc="emacs -c -a "emacs""
+  alias emc="emacsclient -c -a "emacs""
   alias org-bkup="~/org/commit.sh"
 fi
 
