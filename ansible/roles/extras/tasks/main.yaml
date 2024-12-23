@@ -1,0 +1,19 @@
+- name: Clonning Tmux Plugin Manager Repository
+  ansible.builtin.git:
+    repo: 'https://github.com/tmux-plugins/tpm'
+    dest: '{{ ansible_env.HOME }}/.tmux/plugins/tpm'
+    clone: true
+
+- name: Setting up fish shell
+  ansible.builtin.command: ~/.dotfiles/.scripts/fish-shell-setup.fish
+
+- name: Setting up nvm in fish shell
+  ansible.builtin.command: ~/.dotfiles/.scripts/nvm-fish-setup.fish
+
+- name: Copying gitconfig file
+  ansible.builtin.copy:
+    src: "{{ ansible_env.HOME }}/.dotfiles/extras/.gitconfig"
+    dest: "{{ ansible_env.HOME }}"
+
+- name: Building bat cache
+  ansible.builtin.command: bat cache --build

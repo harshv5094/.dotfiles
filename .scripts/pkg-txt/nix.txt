@@ -1,0 +1,4 @@
+nixpkgs.peco
+nixpkgs.ghq
+nixpkgs.ytfzf
+nixpkgs.yazi

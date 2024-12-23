@@ -1,0 +1,6 @@
+- name: Setting up my Linux Workstation
+  hosts: local
+  roles:
+    - pacman
+    - stow
+    - extras

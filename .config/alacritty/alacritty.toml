@@ -1,0 +1,28 @@
+[font]
+size = 13
+normal = { family = "JetBrainsMono Nerd Font", style = "SemiBold" }
+bold = { family = "JetBrainsMono Nerd Font", style = "Bold" }
+italic = { family = "JetBrainsMono Nerd Font", style = "SemiBold" }
+bold_italic = { family = "JetBrainsMono Nerd Font", style = "SemiBold" }
+
+[window]
+startup_mode = "Maximized"
+dynamic_title = true
+# opacity = 0.8
+padding = { x = 5, y = 5 }
+
+[selection]
+save_to_clipboard = true
+
+[cursor]
+style = { shape = "Block", blinking = "Always" }
+thickness = 0.15
+
+[terminal]
+osc52 = "OnlyCopy"
+
+[mouse]
+hide_when_typing = true
+
+[general]
+import = ["~/.config/alacritty/colorsheme.toml"]
