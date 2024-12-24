@@ -37,7 +37,7 @@
   bn = branch --no-merged
   df = "!git hist | peco | awk '{print $2}' | xargs -I {} git diff {}^ {}"
   delete-local-merged = "!git fetch && git branch --merged | egrep -v 'main' | xargs git branch -d"
-  open = "!hub browse"
+  open = "!gh repo view --web"
   dump = "!git checkout -- ."
   find = "!f() { git log --pretty=format:\"%h %cd [%cn] %s%d\" --date=relative -S'pretty' -S\"$@\" | peco | awk '{print $1}' | xargs -I {} git diff {}^ {}; }; f"
   # edit conflicted file on merge
