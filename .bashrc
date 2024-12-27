@@ -163,7 +163,3 @@ function y() {
   fi
   rm -f -- "$tmp"
 }
-
-# User specific environment and startup programs
-
-if [ -e /home/harsh/.nix-profile/etc/profile.d/nix.sh ]; then . /home/harsh/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

@@ -57,7 +57,7 @@ if type -q nvm
     end
 end
 
-# Changing zoxide 'z' alias to c
+# Changing zoxide 'z' alias to cd
 if type -q zoxide
     zoxide init --cmd cd fish | source
 end
