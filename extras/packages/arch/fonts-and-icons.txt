@@ -10,3 +10,4 @@ ttf-nerd-fonts-symbols-mono
 ttf-hanazono
 noto-fonts-cjk
 papirus-icon-theme
+otf-font-awesome
