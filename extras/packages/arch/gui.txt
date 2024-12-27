@@ -1,0 +1,14 @@
+firefox
+kitty
+gnome-disk-utility
+gnome-tweaks
+gnome-characters
+thunderbird
+seahorse
+rhythmbox
+loupe
+timeshift
+evince
+vlc
+syncthing
+transmission-gtk

@@ -1,0 +1,66 @@
+#!/bin/bash
+
+. "$HOME/.local/bin/common-script"
+
+# Create a script template
+function create_script() {
+  local script_name="$1"
+
+  if [[ -z "$script_name" ]]; then
+    printf "%b\n" "${RED}Error: Please provide a script name.${RESET}"
+    return 1
+  fi
+
+  # Check if the file already exists
+  if [[ -e "$script_name" ]]; then
+    printf "%b\n" "${YELLOW}Warning: $script_name already exists. Overwrite? [y/N] ${RESET}"
+    read -r confirm
+    if [[ "$confirm" != "y" && "$confirm" != "Y" ]]; then
+      printf "%b\n" "${CYAN}Operation cancelled.${RESET}"
+      return 0
+    fi
+  fi
+
+  # Create the script template
+  cat >"$script_name" <<'EOF'
+#!/bin/bash
+
+RED=$(tput setaf 1)
+GREEN=$(tput setaf 2)
+YELLOW=$(tput setaf 3)
+CYAN=$(tput setaf 6)
+RESET=$(tput sgr0)
+
+# Check if a command exists
+function have() {
+  command -v "$1" &>/dev/null
+}
+
+# Print success or failure message for commands
+function cmdCheck() {
+  if [ $? -eq 0 ]; then
+    printf "%b\n" "${GREEN}$Success${RESET}"
+  else
+    printf "%b\n" "${RED}$Failed${RESET}"
+  fi
+}
+
+EOF
+
+  # Make the script executable
+  chmod +x "$script_name"
+  cmdCheck "Creating and setting executable permissions for $script_name"
+}
+
+# Main logic
+if have "chmod"; then
+  printf "%b\n" "${CYAN}chmod is available.${RESET}"
+else
+  printf "%b\n" "${RED}chmod is not available. Cannot proceed.${RESET}"
+  exit 1
+fi
+
+# Ask the user for a script name
+printf "%b" "${CYAN}Enter the name of the script to create: ${RESET}"
+read -r script_name
+create_script "$script_name"

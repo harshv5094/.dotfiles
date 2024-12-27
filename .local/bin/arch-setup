@@ -1,0 +1,50 @@
+#!/bin/bash
+
+. "$HOME/.local/bin/common-script"
+
+function packageInstall() {
+  if have pacman; then
+    if have paru; then
+      local packages=$(grep -vE "^\s#" "$HOME/.dotfiles/extras/packages/arch/cli.txt" | tr "\n" " ")
+      printf "%b\n" "${CYAN}** Installing Required CLI tools **${RESET}"
+      paru -S --noconfirm $packages
+
+      printf "\n\n%b\n" "${CYAN}** Installing My GUI tools **${RESET}"
+      packages=$(grep -vE "^\s#" "$HOME/.dotfiles/extras/packages/arch/gui.txt" | tr "\n" " ")
+      paru -S --noconfirm $packages
+
+      printf "\n\n%b\n" "${CYAN}** Installing My file Manager **${RESET}"
+      paru -S --noconfirm thunar tumbler libgepub libopenraw thunar-volman thunar-media-tags-plugin
+
+      printf "\n\n%b\n" "${CYAN}** Installing My Text Editors **${RESET}"
+      paru -S --noconfirm neovim nano emacs
+
+      printf "\n\n%b\n" "${CYAN}** Installing My RSS Reader **${RESET}"
+      paru -S --noconfirm newsboat
+
+      printf "\n\n%b\n" "${CYAN}** Installing My Programming and Build Dependency **${RESET}"
+      paru -S --noconfirm go rust base-devel make ninja luarocks
+
+      printf "\n\n%b\n" "${CYAN}** Installing all my fonts and icons **${RESET}"
+      packages=$(grep -vE "^\s#" "$HOME/.dotfiles/extras/packages/arch/fonts-and-icons.txt" | tr "\n" " ")
+      paru -S --noconfirm $packages
+
+      printf "%b\n\n" "${GREEN}** All the Packages are install successfully **${RESET}"
+
+      # Enabling Necessary Systemd Services
+      systemdServices cronie syncthing@harsh bluetooth
+      extras-setup
+    else
+      installParu
+      packageInstall
+    fi
+  else
+    printf "%b\n" "${RED}** Your system does not support it **"
+  fi
+}
+
+function main() {
+  packageInstall
+}
+
+main
