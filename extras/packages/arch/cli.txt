@@ -1,4 +1,5 @@
 vdpauinfo
+flatpak
 tree
 gnome-keyring
 xdg-desktop-portal-gtk
