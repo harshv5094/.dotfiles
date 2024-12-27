@@ -49,10 +49,15 @@ end
 # Importing my custom aliases
 source (dirname (status --current-filename))/alias.fish
 
-if test -e ~/.nvmrc
-    nvm --silent use
+# Check for nvm to exist
+if type -q nvm
+    # if nvm exist then check for nvmrc
+    if test -e ~/.nvmrc
+        nvm --silent use
+    end
 end
 
+# Changing zoxide 'z' alias to c
 if type -q zoxide
     zoxide init --cmd cd fish | source
 end
