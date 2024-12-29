@@ -35,7 +35,8 @@
   ba = branch -a
   bm = branch --merged
   bn = branch --no-merged
-  df = "!git hist | peco | awk '{print $2}' | xargs -I {} git diff {}^ {}"
+	logs = log --show-signature
+	cis = commit -S
   delete-local-merged = "!git fetch && git branch --merged | egrep -v 'main' | xargs git branch -d"
   open = "!gh repo view --web"
   dump = "!git checkout -- ."
@@ -44,8 +45,6 @@
   edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; nvim `f`"
   # add conflicted file on merge
   add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
-	logs = log --show-signature
-	cis = commit -S
 
 [ghq]
   root = ~/.ghq/
