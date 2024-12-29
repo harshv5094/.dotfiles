@@ -44,6 +44,8 @@
   edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; nvim `f`"
   # add conflicted file on merge
   add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
+	logs = log --show-signature
+	cis = commit -S
 
 [ghq]
   root = ~/.ghq/
@@ -63,3 +65,11 @@
   smudge = git-lfs smudeg -- %f
   required = true
   process = git-lfs filter-process
+
+[user]
+	name = Harsh Vyapari (harshv5094)
+	email = harshv5094@gmail.com
+	signingKey = A897C10C48C4E722
+
+[commit]
+	gpgsign = true
