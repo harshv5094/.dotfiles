@@ -1,6 +1,8 @@
 if type -q eza
     alias ll="eza -l -g --icons --header"
-    alias lla="ll -a"
+    alias lla="eza -l -g -a --icons --header"
+    alias llt="eza -l -g --icons --header --tree"
+    alias llta="eza -l -g -a --icons --header --tree"
 end
 
 if type -q tmux
