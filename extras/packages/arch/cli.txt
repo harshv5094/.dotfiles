@@ -36,3 +36,4 @@ usbutils
 cronie
 imagemagick
 man-db
+linutil-bin
