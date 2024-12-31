@@ -97,7 +97,7 @@ return {
 						grouped = true,
 						previewer = true,
 						initial_mode = "normal",
-						layout_config = { height = 30 },
+						layout_config = { height = 20 },
 					})
 				end,
 				desc = "Telescope -> Browse File",
@@ -129,7 +129,7 @@ return {
 			}
 			opts.extensions = {
 				file_browser = {
-					theme = "dropdown",
+					theme = "ivy",
 					-- disables netrw and use telescope-file-browser in its place
 					hijack_netrw = true,
 					mappings = {
