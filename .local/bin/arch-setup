@@ -23,7 +23,7 @@ function packageInstall() {
       paru -S --noconfirm newsboat
 
       printf "\n\n%b\n" "${CYAN}** Installing My Programming and Build Dependency **${RESET}"
-      paru -S --noconfirm go rust base-devel make ninja luarocks
+      paru -S --noconfirm go rust base-devel make ninja luarocks hugo
 
       printf "\n\n%b\n" "${CYAN}** Installing all my fonts and icons **${RESET}"
       packages=$(grep -vE "^\s#" "$HOME/.dotfiles/extras/packages/arch/fonts-and-icons.txt" | tr "\n" " ")
