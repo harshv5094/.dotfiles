@@ -2,6 +2,7 @@ vdpauinfo
 flatpak
 tree
 gnome-keyring
+gnome-text-editor
 xdg-desktop-portal-gtk
 git
 github-cli
