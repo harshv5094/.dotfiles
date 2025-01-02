@@ -19,58 +19,11 @@ return {
 				desc = "Telescope -> Find files from Lazy config root",
 			},
 			{
-				";f",
-				function()
-					require("telescope.builtin").find_files({
-						no_ignore = false,
-						hidden = true,
-					})
-				end,
-				desc = "Telescope -> Find Files",
-			},
-			{
-				";r",
-				function()
-					require("telescope.builtin").live_grep({
-						additional_args = { "--hidden" },
-					})
-				end,
-				desc = "Telescope -> Live Grep",
-			},
-			{
-				";j",
-				function()
-					require("telescope.builtin").buffers()
-				end,
-				desc = "Telescope -> Buffers",
-			},
-			{
-				";h",
-				function()
-					require("telescope.builtin").help_tags()
-				end,
-				desc = "Telescope -> Help Tags",
-			},
-			{
 				";;",
 				function()
 					require("telescope.builtin").resume()
 				end,
 				desc = "Telescope -> Resume",
-			},
-			{
-				";e",
-				function()
-					require("telescope.builtin").diagnostics()
-				end,
-				desc = "Telescope -> Diagnostics",
-			},
-			{
-				";s",
-				function()
-					require("telescope.builtin").treesitter()
-				end,
-				desc = "Telescope -> Treesitter Symbols",
 			},
 			{
 				"sf",
@@ -105,17 +58,6 @@ return {
 				winblend = 0,
 				mappings = {
 					n = {},
-				},
-			},
-
-			-- Default behavior for diagnostics
-			pickers = {
-				diagnostics = {
-					theme = "ivy",
-					initial_mode = "normal",
-					layout_config = {
-						preview_cutoff = 9999,
-					},
 				},
 			},
 		},

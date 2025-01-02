@@ -73,7 +73,6 @@ m.youtube.com##ytm-chip-cloud-chip-renderer:has(.yt-core-attributed-string:has-t
 
 ! Block Youtube Add Popup
 
-
 youtube.com##+js(set, yt.config_.openPopupConfig.supportedPopups.adBlockMessageViewModel, false)
 
 youtube.com##+js(set, Object.prototype.adBlocksFound, 0)
