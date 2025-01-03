@@ -8,7 +8,7 @@ bold_italic = { family = "JetBrainsMono Nerd Font", style = "SemiBold" }
 [window]
 startup_mode = "Maximized"
 dynamic_title = true
-# opacity = 0.8
+opacity = 0.8
 padding = { x = 5, y = 5 }
 
 [selection]
