@@ -8,3 +8,4 @@ node_modules/
 .config/tmux/plugins/
 
 .config/btop/btop.log
+.local/bin/oh-my-posh
