@@ -33,11 +33,6 @@ if type -q git
     alias g=git
 end
 
-if type -q yt-dlp
-    alias yt-fhd-with-subs="yt-dlp -f "bv[height<=1080]+ba/b[height<=1080]" --write-subs --sub-lang en --embed-subs "
-    alias yt-fhd="yt-dlp -f "bv[height<=1080]+ba/b[height<=1080]""
-end
-
 alias temp_delete="sudo find /tmp -mtime +7 -and -not -exec fuser -s {} ';' -and -exec echo {} ';'"
 
 alias remove-nvim-plugin="rm -rf ~/.local/share/nvim/ ~/.local/state/nvim/ ~/.cache/nvim/"
