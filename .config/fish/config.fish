@@ -44,6 +44,9 @@ set -g FZF_LEGACY_KEYBINDINGS 0
 # Setting up oh my posh prompt
 if type -q oh-my-posh
     oh-my-posh init fish --config ~/.config/themes/zen.toml | source
+else
+    curl -s https://ohmyposh.dev/install.sh | bash -s
+    oh-my-posh init fish --config ~/.config/themes/zen.toml | source
 end
 
 # Importing my custom aliases
