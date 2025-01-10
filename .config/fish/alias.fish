@@ -1,4 +1,6 @@
 if type -q eza
+    alias ls="eza -g --icons"
+    alias la="eza -g -a --icons"
     alias ll="eza -l -g --icons --header"
     alias lla="eza -l -g -a --icons --header"
     alias llt="eza -l -g --icons --header --tree"

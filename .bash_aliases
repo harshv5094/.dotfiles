@@ -3,6 +3,8 @@ function have() {
 }
 
 if have eza; then
+  alias ls="eza -g --icons"
+  alias ls="eza -g -a --icons"
   alias ll="eza -l -g --icons --header"
   alias lla="eza -l -g -a --icons --header"
   alias llt="eza -l -g --icons --header --tree"
