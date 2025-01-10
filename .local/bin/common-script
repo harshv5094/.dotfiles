@@ -6,10 +6,6 @@ YELLOW=$(tput setaf 3)
 CYAN=$(tput setaf 6)
 RESET=$(tput sgr0)
 
-function have() {
-  command -v "$1" &>/dev/null
-}
-
 # Print success or failure message for commands
 function cmdCheck() {
   if [ $? -eq 0 ]; then
@@ -20,7 +16,7 @@ function cmdCheck() {
 }
 
 # Check if a command exists
-function command_exists() {
+function have() {
   command -v "$1" >/dev/null 2>&1
 }
 
