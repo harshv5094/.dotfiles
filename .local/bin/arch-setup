@@ -14,7 +14,7 @@ function packageInstall() {
       paru -S --noconfirm $packages
 
       printf "\n\n%b\n" "${CYAN}** Installing My file Manager **${RESET}"
-      paru -S --noconfirm thunar tumbler libgepub libopenraw thunar-volman thunar-media-tags-plugin
+      paru -S --noconfirm thunar tumbler libgepub libopenraw thunar-volman thunar-media-tags-plugin thunar-archive-plugin xarchiver
 
       printf "\n\n%b\n" "${CYAN}** Installing My Text Editors **${RESET}"
       paru -S --noconfirm neovim nano emacs obsidian
