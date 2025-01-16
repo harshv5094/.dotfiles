@@ -34,6 +34,12 @@ function packageInstall() {
       # Enabling Necessary Systemd Services
       systemdServices cronie syncthing@harsh bluetooth
       extras-setup
+
+      # Setting up my hyprland
+      printf "%b\n\n" "${GREEN}** Clonning my Hyprland Setup **${RESET}"
+      git clone --depth 1 https://github.com/harshv5094/hyprland.git ~/hyprland/
+      ~/hyprland/setup.sh
+
     else
       installParu
       packageInstall
