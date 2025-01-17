@@ -24,8 +24,8 @@ refresh-on-startup yes
 reload-threads 100
 
 # Remove Readed Feeds
-show-read-feeds no
-show-read-articles no
+# show-read-feeds no
+# show-read-articles no
 
 # Custom Vim Keybindings
 bind-key h quit
