@@ -28,6 +28,13 @@ map("n", "<C-l>", "<C-w>>", opts)
 map("n", "<C-k>", "<C-w>+", opts)
 map("n", "<C-j>", "<C-w>-", opts)
 
+-- netrw Directory explore window
+map("n", ";f", "<cmd>Explore<CR>", opts)
+
+-- Jump to start and end of line
+map("n", ";s", "^", { desc = "Go to start of line" })
+map("n", ";e", "%", { desc = "Go to end of line" })
+
 -- Automatic find and replace
 map("n", "<localleader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "String auto replace" })
 
