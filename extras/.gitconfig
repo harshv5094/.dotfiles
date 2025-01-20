@@ -25,24 +25,23 @@
   co = checkout
   rst = restore
   ci = commit
+  cia = commit -a
+	cis = commit -S
   cl = clone
-  ca = commit -a
   st = status
   sw = switch
   sts = status --short --branch --renames
   ps = push
   pl = pull
+  pr = "!gh pr list"
   br = branch
   bd = branch --delete
   ba = branch -a
   bm = branch --merged
   bn = branch --no-merged
 	logs = log --show-signature
-	cis = commit -S
-  delete-local-merged = "!git fetch && git branch --merged | egrep -v 'main' | xargs git branch -d"
   open = "!gh repo view --web"
-  dump = "!git checkout -- ."
-  find = "!f() { git log --pretty=format:\"%h %cd [%cn] %s%d\" --date=relative -S'pretty' -S\"$@\" | peco | awk '{print $1}' | xargs -I {} git diff {}^ {}; }; f"
+  issue = "!gh issue list"
   # edit conflicted file on merge
   edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; nvim `f`"
   # add conflicted file on merge
