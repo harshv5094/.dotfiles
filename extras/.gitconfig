@@ -29,7 +29,9 @@
   ca = commit -a
   st = status
   sw = switch
-  sts = status --short
+  sts = status --short --branch --renames
+  ps = push
+  pl = pull
   br = branch
   bd = branch --delete
   ba = branch -a
