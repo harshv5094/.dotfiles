@@ -6,8 +6,6 @@ g.maplocalleader = "\\"
 g.snacks_animate = true
 
 opt.encoding = "utf-8"
-opt.fileencoding = "utf-8"
-
 opt.number = true
 
 opt.title = true
