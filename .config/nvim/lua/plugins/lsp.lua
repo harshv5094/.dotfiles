@@ -19,6 +19,16 @@ return {
 			"moyiz/blink-emoji.nvim",
 		},
 		opts = {
+			completion = {
+				menu = {
+					winblend = vim.o.pumblend,
+				},
+			},
+			signature = {
+				window = {
+					winblend = vim.o.pumblend,
+				},
+			},
 			sources = {
 				default = {
 					"emoji",

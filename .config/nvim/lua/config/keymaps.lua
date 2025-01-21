@@ -29,7 +29,7 @@ map("n", "<C-k>", "<C-w>+", opts)
 map("n", "<C-j>", "<C-w>-", opts)
 
 -- netrw Directory explore window
-map("n", ";f", "<cmd>Explore<CR>", opts)
+map("n", ";x", "<cmd>Explore<CR>", opts)
 
 -- Jump to start and end of line
 map("n", ";s", "^", { desc = "Go to start of line" })
