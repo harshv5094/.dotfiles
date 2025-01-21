@@ -26,6 +26,34 @@ return {
 				desc = "Telescope -> Resume",
 			},
 			{
+				";f",
+				function()
+					local builtin = require("telescope.builtin")
+					builtin.find_files({
+						no_ignore = false,
+						follow = true,
+						hidden = true,
+					})
+				end,
+				desc = "Telescope -> Find Files",
+			},
+			{
+				"\\\\",
+				function()
+					local builtin = require("telescope.builtin")
+					builtin.buffers()
+				end,
+				desc = "Telescope -> Buffers",
+			},
+			{
+				";h",
+				function()
+					local builtin = require("telescope.builtin")
+					builtin.help_tags()
+				end,
+				desc = "Telescope -> Help Tags",
+			},
+			{
 				"sf",
 				function()
 					local telescope = require("telescope")
@@ -48,23 +76,25 @@ return {
 				desc = "Telescope -> Browse File",
 			},
 		},
-		opts = {
-			-- Default Telescope Configuration
-			defaults = {
+		config = function(_, opts)
+			local telescope = require("telescope")
+			local actions = require("telescope.actions")
+			local fb_actions = require("telescope").extensions.file_browser.actions
+
+			opts.defaults = vim.tbl_deep_extend("force", opts.defaults or {}, {
+				prompt_prefix = "🔍 ",
+				selection_caret = "➤ ",
 				wrap_results = true,
 				layout_strategy = "horizontal",
 				layout_config = { prompt_position = "top" },
 				sorting_strategy = "ascending",
 				winblend = 0,
 				mappings = {
-					n = {},
+					n = {
+						["q"] = actions.close,
+					},
 				},
-			},
-		},
-		config = function(_, opts)
-			local telescope = require("telescope")
-			local actions = require("telescope.actions")
-			local fb_actions = require("telescope").extensions.file_browser.actions
+			})
 
 			opts.extensions = {
 				file_browser = {
