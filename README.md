@@ -1,7 +1,3 @@
----
-name: README
-description: This is my dotfiles docs
----
 # 🔨 My Dotfiles
 
 ⚠️ Warning: Don't blindly use my setup unless you know what it is. Use it at your own risk!
@@ -17,20 +13,20 @@ Some configuration needs nerd fonts to properly show icons. You can download the
 
 ## How to install my setup
 
-### Linux and MacOS
+For now I'm using Arch Linux as my current system.
 
-Install `ansible` in your system and run `install.sh` in `.dotfiles/ansible` directory.
+### Linux
 
-My Setup is based on two distros.
-
-1. Fedora
-2. Arch Linux
+1. Arch Linux
 
 ```sh
-cd ~/.dotfiles/ansible/
-./install.sh
-# For now I've completed rpm based distro and arch linux setup.
+git clone https://github.com/harshv5094/.dotfiles ~/.dotfiles
+# Then install stow from your package manager
+cd .dotfiles && stow .
+arch-setup
 ```
+
+The `arch-setup` script is stored in `~/.local/bin` for directly executing in the terminal.
 
 ### Windows
 
