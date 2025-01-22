@@ -17,19 +17,16 @@ Some configuration needs nerd fonts to properly show icons. You can download the
 
 ## How to install my setup
 
-### Linux and MacOS
+### Linux
 
-Install `ansible` in your system and run `install.sh` in `.dotfiles/ansible` directory.
-
-My Setup is based on two distros.
-
-1. Fedora
-2. Arch Linux
+For now, I'm using arch-linux. Run this commands below, to install my setup
 
 ```sh
-cd ~/.dotfiles/ansible/
-./install.sh
-# For now I've completed rpm based distro and arch linux setup.
+cd ~/.dotfiles/
+stow .
+arch-setup
+```
+
 ```
 
 ### Windows
