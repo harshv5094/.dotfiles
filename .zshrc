@@ -90,45 +90,6 @@ if [ -x "$(command -v zoxide)" ]; then
 	eval "$(zoxide init --cmd cd zsh)"
 fi
 
-# Define a custom Zsh prompt
-function __zsh_prompt() {
-  # Determine the last command's exit status
-  local exit_code=$?
-
-  # User part of the prompt
-  local userpart
-  if [[ -n "${GITHUB_USER}" ]]; then
-    userpart="%F{green}@${GITHUB_USER} "
-  else
-    userpart="%F{green}%n "
-  fi
-
-  # Add a red arrow if the last command failed
-  if [[ $exit_code -ne 0 ]]; then
-    userpart+="%F{red}➜"
-  else
-    userpart+="%F{default}➜"
-  fi
-
-  # Check for the presence of a .git folder and retrieve the branch name
-  local git_branch=""
-  if [[ -d ".git" ]] || git rev-parse --is-inside-work-tree &>/dev/null; then
-    git_branch="$(git symbolic-ref --short HEAD 2>/dev/null || git describe --tags --exact-match 2>/dev/null || echo '(detached)')"
-    git_branch=" %F{yellow}(${git_branch})"
-  fi
-
-  # Define the final prompt
-  PROMPT="${userpart} %F{blue}%~${git_branch} %F{default}$ "
-}
-
-# Ensure the prompt updates dynamically
-precmd_functions+=(__zsh_prompt)
-
-# Limit the displayed directory depth in the prompt
-setopt PROMPT_SUBST
-PROMPT_DIRTRIM=4
-
-
 # Tokyonight night fzf theme
 export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
 --color=fg:#c0caf5,bg:#1a1b26,hl:#ff9e64 \
@@ -138,18 +99,16 @@ export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
 
 # Oh my Posh Initializing
 if command -v oh-my-posh &>/dev/null; then
-  eval "$(oh-my-posh init bash --config "$HOME/.config/themes/zen.toml")"
+  eval "$(oh-my-posh init zsh --config "$HOME/zen.toml")"
 else
-  if [ ! -e "$HOME/.config/themes" ]; then
-    echo "Downloading my prompt themes from my repository"
-    mkdir -p ~/.config/themes/
-    cd ~/.config/themes || exit
-    curl -LO https://raw.githubusercontent.com/harshv5094/.dotfiles/refs/heads/main/.config/themes/zen.toml
+  if [ ! -e "$HOME/zen.toml" ]; then
+    echo "Downloading my prompt theme from my repository"
+    curl -Lo "$HOME/zen.toml" https://raw.githubusercontent.com/harshv5094/.dotfiles/refs/heads/main/extras/zen.toml
   else
-    echo "Themes directory exist"
+    echo "My prompt theme already exist"
   fi
   curl -s https://ohmyposh.dev/install.sh | bash -s
-  eval "$(oh-my-posh init bash --config "$HOME/.config/themes/zen.toml")"
+  eval "$(oh-my-posh init zsh --config "$HOME/zen.toml")"
 fi
 
 # HACK: Yazi keybindings

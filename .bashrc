@@ -68,18 +68,16 @@ fi
 
 # Oh my Posh Initializing
 if command -v oh-my-posh &>/dev/null; then
-  eval "$(oh-my-posh init bash --config "$HOME/.config/themes/zen.toml")"
+  eval "$(oh-my-posh init bash --config "$HOME/zen.toml")"
 else
-  if [ ! -e "$HOME/.config/themes" ]; then
-    echo "Downloading my prompt themes from my repository"
-    mkdir -p ~/.config/themes/
-    cd ~/.config/themes || exit
-    curl -LO https://raw.githubusercontent.com/harshv5094/.dotfiles/refs/heads/main/.config/themes/zen.toml
+  if [ ! -e "$HOME/zen.toml" ]; then
+    echo "Downloading my prompt theme from my repository"
+    curl -Lo "$HOME/zen.toml" https://raw.githubusercontent.com/harshv5094/.dotfiles/refs/heads/main/extras/zen.toml
   else
-    echo "Themes directory exist"
+    echo "My prompt theme already exist"
   fi
   curl -s https://ohmyposh.dev/install.sh | bash -s
-  eval "$(oh-my-posh init bash --config "$HOME/.config/themes/zen.toml")"
+  eval "$(oh-my-posh init bash --config "$HOME/zen.toml")"
 fi
 
 # Set up fzf key bindings and fuzzy completion
