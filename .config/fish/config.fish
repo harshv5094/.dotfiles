@@ -43,10 +43,18 @@ set -g FZF_LEGACY_KEYBINDINGS 0
 
 # Setting up oh my posh prompt
 if type -q oh-my-posh
-    oh-my-posh init fish --config ~/.config/themes/zen.toml | source
+    oh-my-posh init fish --config ~/zen.toml | source
 else
+    if type -f $HOME/zen.toml then
+        echo "My prompt theme already exist"
+    else
+        echo "Downloading my prompt theme from my repository"
+        cd "$HOME"
+        curl -Lo "$HOME/zen.toml" https://raw.githubusercontent.com/harshv5094/.dotfiles/refs/heads/main/extras/zen.toml
+    end
+    echo "Downloading Oh My Posh"
     curl -s https://ohmyposh.dev/install.sh | bash -s
-    oh-my-posh init fish --config ~/.config/themes/zen.toml | source
+    oh-my-posh init fish --config ~/zen.toml | source
 end
 
 # Importing my custom aliases

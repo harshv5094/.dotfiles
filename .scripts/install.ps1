@@ -59,16 +59,16 @@ function Copy-Folder-Links
     sudo New-Item -Path "$env:USERPROFILE\.config\pwsh\" -ItemType SymbolicLink -Value "$env:USERPROFILE\.dotfiles\.config\pwsh"
   }
 
-  if (Test-Path -Path "$env:USERPROFILE\.config\themes")
+  if (Test-Path -Path "$env:USERPROFILE\zen.toml")
   {
     Write-Output "Removing the existing themes directory."
-    Remove-Item -Recurse -Force "$env:USERPROFILE\.config\themes"
+    Remove-Item -Recurse -Force "$env:USERPROFILE\zen.toml"
     Write-Output "Creating the Symbolic Link for themes directory."
-    sudo New-Item -Path "$env:USERPROFILE\.config\themes" -ItemType SymbolicLink -Value "$env:USERPROFILE\.dotfiles\.config\themes"
+    sudo New-Item -Path "$env:USERPROFILE\zen.toml" -ItemType SymbolicLink -Value "$env:USERPROFILE\.dotfiles\extras\zen.toml"
   } else
   {
     Write-Output "Creating the Symbolic Link for themes directory."
-    sudo New-Item -Path "$env:USERPROFILE\.config\themes" -ItemType SymbolicLink -Value "$env:USERPROFILE\.dotfiles\.config\themes"
+    sudo New-Item -Path "$env:USERPROFILE\zen.toml" -ItemType SymbolicLink -Value "$env:USERPROFILE\.dotfiles\extras\zen.toml"
   }
 
   if (Test-Path -Path "$env:USERPROFILE\.gitconfig")
