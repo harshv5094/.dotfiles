@@ -92,6 +92,15 @@ style = 'plain'
 cache_duration = 'none'
 time_format = '3:04 PM'
 
+[[blocks.segments]]
+foreground = "yellow"
+background = "transparent"
+type = "upgrade"
+style = "plain"
+
+[blocks.segments.properties]
+cache_duration = "12h"
+
 [[blocks]]
 type = 'prompt'
 alignment = 'left'
