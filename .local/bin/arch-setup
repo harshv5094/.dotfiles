@@ -37,7 +37,7 @@ function packageInstall() {
 
       # Setting up my hyprland
       printf "%b\n\n" "${GREEN}** Clonning my Hyprland Setup **${RESET}"
-      git clone --depth 1 https://github.com/harshv5094/hyprland.git ~/hyprland/
+      git clone https://github.com/harshv5094/hyprland.git ~/hyprland/
       ~/hyprland/setup.sh
 
     else
