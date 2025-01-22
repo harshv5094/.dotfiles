@@ -136,10 +136,18 @@ export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
 --color=info:#7aa2f7,prompt:#7dcfff,pointer:#7dcfff \
 --color=marker:#9ece6a,spinner:#9ece6a,header:#9ece6a"
 
-# Prompt theme
-if command -v oh-my-posh &> /dev/null; then
-  eval "$(oh-my-posh init zsh --config "$HOME/.config/themes/zen.toml")"
+# Oh my Posh Initializing
+if command -v oh-my-posh &>/dev/null; then
+  eval "$(oh-my-posh init bash --config "$HOME/.config/themes/zen.toml")"
 else
+  if [ ! -e "$HOME/.config/themes" ]; then
+    echo "Downloading my prompt themes from my repository"
+    mkdir -p ~/.config/themes/
+    cd ~/.config/themes || exit
+    curl -LO https://raw.githubusercontent.com/harshv5094/.dotfiles/refs/heads/main/.config/themes/zen.toml
+  else
+    echo "Themes directory exist"
+  fi
   curl -s https://ohmyposh.dev/install.sh | bash -s
   eval "$(oh-my-posh init bash --config "$HOME/.config/themes/zen.toml")"
 fi
