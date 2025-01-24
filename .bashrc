@@ -9,10 +9,7 @@ export HISTFILESIZE=10000
 export HISTTIMEFORMAT="%F %T " # add timestamp to history
 
 # Don't put duplicate lines in the history and do not add lines that start with a space
-export HISTCONTROL=ignoredups:erasedups:ignorespaces
-
-# don't put duplicate lines or lines starting with space in the history.
-HISTCONTROL=ignoreboth
+export HISTCONTROL=ignoredups:erasedups:ignorespaces:ignoreboth
 
 # Adding doom emacs export path
 export PATH="$PATH:$HOME/.config/emacs/bin"
@@ -26,18 +23,6 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_CACHE_HOME="$HOME/.cache"
 
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-  alias ls='ls --color=auto'
-  alias dir='dir --color=auto'
-  alias vdir='vdir --color=auto'
-
-  alias grep='grep --color=auto'
-  alias fgrep='fgrep --color=auto'
-  alias egrep='egrep --color=auto'
-fi
-
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
@@ -48,12 +33,9 @@ if [ -f ~/.bash_aliases ]; then
   . "$HOME/.bash_aliases"
 fi
 
-if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-  fi
+# Bash Completion Check
+if [ -f /usr/share/bash-completion/bash_completion ]; then
+  . /usr/share/bash-completion/bash_completion
 fi
 
 # Initializing zoxide
@@ -61,7 +43,7 @@ if [ -x "$(command -v zoxide)" ]; then
   eval "$(zoxide init --cmd cd bash)"
 fi
 
-# HACK: Yazi keybindings
+# Yazi keybindings
 if command -v firefox &>/dev/null; then
   alias yazi-keybindings="firefox https://yazi-rs.github.io/docs/quick-start/#selection"
 fi
@@ -104,14 +86,16 @@ if command -v gh &>/dev/null; then
 fi
 
 # Yazi Change Directory Command
-function y() {
-  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-  yazi "$@" --cwd-file="$tmp"
-  if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-    builtin cd -- "$cwd" || exit
-  fi
-  rm -f -- "$tmp"
-}
+if command -v yazi &>/dev/null; then
+  function y() {
+    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+    yazi "$@" --cwd-file="$tmp"
+    if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+      builtin cd -- "$cwd" || exit
+    fi
+    rm -f -- "$tmp"
+  }
+fi
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm

@@ -66,13 +66,6 @@ if [ -e ~/.zsh_aliases ]; then
   . ~/.zsh_aliases
 fi
 
-# Shell Integrations
-
-# Run colorscript if exist
-if [ -x "$(command -v colorscript)" ]; then
-	colorscript -e six
-fi
-
 # set up XDG folders
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -111,22 +104,23 @@ else
   eval "$(oh-my-posh init zsh --config "$HOME/zen.toml")"
 fi
 
-# HACK: Yazi keybindings
+# Yazi keybindings
 if command -v firefox &> /dev/null; then 
     alias yazi-keybindings="firefox https://yazi-rs.github.io/docs/quick-start/#selection"
 fi
 
 # Yazi Change Directory Command
-function y() {
-  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-  yazi "$@" --cwd-file="$tmp"
-  if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-    builtin cd -- "$cwd" || exit
-  fi
-  rm -f -- "$tmp"
-}
+if command -v yazi &>/dev/null; then
+  function y() {
+    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+    yazi "$@" --cwd-file="$tmp"
+    if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+      builtin cd -- "$cwd" || exit
+    fi
+    rm -f -- "$tmp"
+  }
+fi
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
