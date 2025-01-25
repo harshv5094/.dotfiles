@@ -9,3 +9,7 @@ node_modules/
 
 .config/btop/btop.log
 .local/bin/oh-my-posh
+
+.ssh/id*
+.ssh/known*
+.ssh/environment
