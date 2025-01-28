@@ -2,7 +2,6 @@ vdpauinfo
 flatpak
 tree
 gnome-keyring
-gnome-text-editor
 xdg-desktop-portal-gtk
 git
 github-cli
@@ -27,6 +26,7 @@ yt-dlp
 xsel
 fastfetch
 openssh
+openresolv
 tldr
 trash-cli
 power-profiles-daemon
@@ -37,4 +37,4 @@ usbutils
 cronie
 imagemagick
 man-db
-linutil-bin
+bind
