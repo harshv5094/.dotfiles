@@ -2,6 +2,7 @@ firefox
 kitty
 gnome-disk-utility
 gnome-tweaks
+gnome-text-editor
 gnome-characters
 thunderbird
 seahorse
@@ -12,3 +13,4 @@ evince
 vlc
 syncthing
 transmission-gtk
+baobab
