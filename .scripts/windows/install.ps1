@@ -19,7 +19,7 @@ function Install-Scoop-Packages
 {
   if (Test-Path -Path "$env:USERPROFILE\scoop")
   {
-    $packageFile = "$env:USERPROFILE\.dotfiles\.scripts\pkg-txt\scoop.txt"
+    $packageFile = "$env:USERPROFILE\.dotfiles\.scripts\windows\scoop.txt"
     # Read the file line by line and install the packages
     Get-Content $packageFile | ForEach-Object {
       $packageName = $_.Trim()
@@ -40,11 +40,11 @@ function Copy-Folder-Links
     Write-Output "Removing the existing Microsoft.PowerShell_profile.ps1 file."
     Remove-Item -Recurse -Force "$env:USERPROFILE\Documents\PowerShell\Microsoft.PowerShell_profile.ps1"
     Write-Output "Creating the Symbolic Link for Microsoft.PowerShell_profile.ps1"
-    sudo New-Item -Path "$env:USERPROFILE\Documents\PowerShell\Microsoft.PowerShell_profile.ps1" -ItemType SymbolicLink -Value "$env:USERPROFILE\.dotfiles\.scripts\Microsoft.PowerShell_profile.ps1"
+    sudo New-Item -Path "$env:USERPROFILE\Documents\PowerShell\Microsoft.PowerShell_profile.ps1" -ItemType SymbolicLink -Value "$env:USERPROFILE\.dotfiles\.scripts\windows\Microsoft.PowerShell_profile.ps1"
   } else
   {
     Write-Output "Creating the Symbolic Link for Microsoft.PowerShell_profile.ps1"
-    sudo New-Item -Path "$env:USERPROFILE\Documents\PowerShell\Microsoft.PowerShell_profile.ps1" -ItemType SymbolicLink -Value "$env:USERPROFILE\.dotfiles\.scripts\Microsoft.PowerShell_profile.ps1"
+    sudo New-Item -Path "$env:USERPROFILE\Documents\PowerShell\Microsoft.PowerShell_profile.ps1" -ItemType SymbolicLink -Value "$env:USERPROFILE\.dotfiles\.scripts\windows\Microsoft.PowerShell_profile.ps1"
   }
 
   if (Test-Path -Path "$env:USERPROFILE\.config\pwsh")
