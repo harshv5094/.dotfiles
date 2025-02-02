@@ -22,11 +22,13 @@ return {
 			completion = {
 				menu = {
 					winblend = vim.o.pumblend,
+					border = "rounded",
 				},
 			},
 			signature = {
 				window = {
 					winblend = vim.o.pumblend,
+					border = "rounded",
 				},
 			},
 			sources = {
