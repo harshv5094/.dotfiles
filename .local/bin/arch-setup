@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. "$HOME/.local/bin/common-script"
+. "$HOME/.local/bin/modules.sh"
 
 function packageInstall() {
   if have pacman; then

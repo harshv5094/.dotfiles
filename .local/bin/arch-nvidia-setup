@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. "$HOME/.local/bin/common-script"
+. "$HOME/.local/bin/modules.sh"
 
 if have pacman; then
   # Installing nvidia drivers
