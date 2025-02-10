@@ -1,0 +1,40 @@
+#!/bin/bash
+
+if [[ $# -eq 1 ]]; then
+  selected=$1
+else
+  selected=$(find ~/.dotfiles/.config/ ~/.dotfiles/ ~/.dotfiles/.local ~/hyprland/ ~/hyprland/.config \
+    -mindepth 1 -maxdepth 1 -type d -not -path '*/.git*' | fzf \
+    --layout=reverse \
+    --border \
+    --bind 'alt-j:down,alt-k:up' \
+    --preview "tree -C --noreport -L 1 {}" \
+    --preview-window=right:40%:wrap \
+    --header="Select a directory (use arrow keys to navigate, Enter to select)" \
+    --ansi)
+fi
+
+if [[ -z $selected ]]; then
+  exit 0
+fi
+
+selected_name=$(basename "$selected" | tr . _)
+
+# Avoid unnecessary tmux and grep processes by checking conditions directly
+if [[ -z $TMUX ]]; then
+  if ! tmux has-session -t "$selected_name" 2>/dev/null; then
+    tmux new-session -d -s "$selected_name" -c "$selected"
+  fi
+  tmux attach-session -t "$selected_name"
+  exit 0
+fi
+
+# Check if a window with the same name exists globally
+if tmux list-windows -a | grep -q ": $selected_name"; then
+  # If the window exists, switch to it
+  session_window=$(tmux list-windows -a | grep ": $selected_name" | awk -F: '{print $1 ":" $2}')
+  tmux switch-client -t "$session_window"
+else
+  # If the window does not exist, create a new window
+  tmux new-window -n "$selected_name" -c "$selected" "nvim ."
+fi
