@@ -39,7 +39,7 @@ if [ -f /usr/share/bash-completion/bash_completion ]; then
 fi
 
 # Initialize zoxide
-if [ -x "$(command -v zoxide)" ]; then
+if command -v zoxide &>/dev/null; then
   eval "$(zoxide init --cmd cd bash)"
 fi
 
@@ -56,6 +56,13 @@ fi
 # Initialize GitHub CLI completion
 if command -v gh &>/dev/null; then
   eval "$(gh completion -s bash)"
+fi
+
+# Setting up nvm in bash
+if command -v nvm &>/dev/null; then
+  export NVM_DIR="$HOME/.config/nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 fi
 
 # Yazi functions
