@@ -131,7 +131,7 @@ nvidiaSetup() {
 stowFiles() {
   if have stow; then
     # Remove if any of this file exist in the system
-    file_paths=".bashrc .gitconfig .czrc .bash_aliases"
+    file_paths=".bashrc .zshrc .gitconfig .czrc"
 
     for file in $file_paths; do
       if [ -e "$HOME/$file" ]; then
