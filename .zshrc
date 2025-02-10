@@ -30,8 +30,14 @@ zinit light Aloxaf/fzf-tab
 zinit snippet OMZL::git.zsh
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo
+zinit snippet OMZP::nvm
 zinit snippet OMZP::archlinux
 zinit snippet OMZP::command-not-found
+
+# Install Macos Plugin if macos is present
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  zinit snippet OMZP::macos
+fi
 
 # Load completions
 autoload -Uz compinit && compinit
@@ -97,16 +103,39 @@ if have nvim; then
   export VISUAL=nvim
 fi
 
+# Set up fzf key bindings and fuzzy completion
 if have fzf; then
   eval "$(fzf --zsh)"
 fi
 
+# Initialize zoxide
 if have zoxide; then
   eval "$(zoxide init --cmd cd zsh)"
 fi
 
+# Initialize Starship prompt theme
 if have starship; then
   eval "$(starship init zsh)"
+fi
+
+# Yazi functions
+if command -v yazi &>/dev/null; then
+  function y() {
+    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+    yazi "$@" --cwd-file="$tmp"
+    if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+      builtin cd -- "$cwd" || exit
+    fi
+    rm -f -- "$tmp"
+  }
+fi
+
+
+# Setting up nvm in zsh
+if have nvm; then
+  export NVM_DIR="$HOME/.config/nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fi
 
 #######################################################
@@ -152,3 +181,7 @@ fi
 
 alias temp_delete="sudo find /tmp -mtime +7 -and -not -exec fuser -s {} ';' -and -exec echo {} ';'"
 alias remove-nvim-plugin="rm -rf ~/.local/share/nvim/ ~/.local/state/nvim/ ~/.cache/nvim/"
+
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
