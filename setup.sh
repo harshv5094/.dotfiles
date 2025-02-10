@@ -76,7 +76,6 @@ fishSetup() {
 
   info_msg "** Setting Up Fish Shell **"
   ~/.dotfiles/.scripts/fish-shell-setup.fish
-  ~/.dotfiles/.scripts/nvm-fish-setup.fish
 
   info_msg "** Setting up fish shell as default shell **"
   chsh --shell /bin/fish
