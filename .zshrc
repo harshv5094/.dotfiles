@@ -89,7 +89,7 @@ export HISTCONTROL=ignoredups:erasedups:ignorespaces:ignoreboth
 export PATH="$PATH:$HOME/.config/emacs/bin"
 
 # Adding home binary path
-export PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/bin:$HOME/.bun/bin:$PATH"
 
 
 # set up XDG folders

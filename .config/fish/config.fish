@@ -19,6 +19,7 @@ set -gx SUDO_EDITOR $EDITOR
 set -gx PATH bin $PATH
 set -gx PATH ~/bin $PATH
 set -gx PATH ~/.local/bin $PATH
+set -gx PATH ~/.bun/bin $PATH
 set -gx PATH ~/.config/emacs/bin $PATH
 
 # NodeJS
