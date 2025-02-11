@@ -141,7 +141,7 @@ stowFiles() {
     done
 
     # Remove all the config foler setup if present
-    folder_paths="bat btop fastfetch fish kitty lazydocker lazygit newsboat nvim tmux yazi"
+    folder_paths="bat btop git fastfetch fish kitty lazydocker lazygit newsboat nvim tmux yazi"
     for folder in $folder_paths; do
       if [ -e "$CONFIG_DIR/$folder" ]; then
         warning_msg "*** $CONFIG_DIR/$folder exists ***"
