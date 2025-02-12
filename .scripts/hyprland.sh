@@ -78,7 +78,7 @@ packageInstall() {
 
     info_msg "** Installing GUI tools **"
     paru -S --noconfirm firefox gnome-disk-utility gnome-tweaks gnome-text-editor gnome-clocks gnome-characters \
-      transmission-gtk seahorse rhythmbox loupe timeshift evince vlc localsend-bin transmission-gtk baobab obsidian visual-studio-code-bin
+      transmission-gtk seahorse rhythmbox loupe timeshift evince vlc localsend-bin transmission-gtk baobab visual-studio-code-bin
 
     info_msg "** Installing File Manager **"
     paru -S --noconfirm thunar tumbler libgepub libopenraw thunar-volman thunar-media-tags-plugin thunar-archive-plugin xarchiver
