@@ -15,15 +15,15 @@ checkFolderStatus() {
   info_msg "Checking folder status..."
 
   for folder in $dir_paths; do
-    if [ -e "$CONFIG_DIR/$folder" ]; then
-      warning_msg "*** $CONFIG_DIR/$folder exists **"
+    if [ -e "${CONFIG_DIR}/${folder}" ]; then
+      warning_msg "*** ${CONFIG_DIR}/${folder} exists **"
       mv "${CONFIG_DIR:?}/${folder:?}" "${CONFIG_DIR:?}/${folder:?}.bak"
-      info_msg "* Creating symlink for $folder directory *"
-      ln -s "$BASE_DIR/$folder" "$CONFIG_DIR"
+      info_msg "* Creating symlink for ${folder} directory *"
+      ln -s "${BASE_DIR}/${folder}" "${CONFIG_DIR}"
     else
-      error_msg "** $CONFIG_DIR/$folder does not exist **"
-      info_msg "* Creating symlink for $folder directory *"
-      ln -s "$BASE_DIR/$folder" "$CONFIG_DIR"
+      error_msg "** ${CONFIG_DIR}/${folder} does not exist **"
+      info_msg "* Creating symlink for ${folder} directory *"
+      ln -s "${BASE_DIR}/${folder}" "${CONFIG_DIR}"
     fi
 
   done
@@ -72,7 +72,7 @@ packageInstall() {
 
     info_msg "** Installing Base tools **"
     paru -S --noconfirm pavucontrol brightnessctl playerctl network-manager-applet gnome-keyring power-profiles-daemon \
-      wl-clipboard copyq swaync blueman waybar grimblast-git mate-polkit nwg-look \
+      wl-clipboard copyq swaync blueman bluez bluez-utils waybar grimblast-git mate-polkit nwg-look \
       xdg-utils xdg-user-dirs xdg-user-dirs-gtk nitch \
       gnome-themes-extra breeze-gtk qt5ct
 
@@ -92,6 +92,7 @@ packageInstall() {
 
     info_msg "** Setting up XDG GTK Default Directories **"
     xdg-user-dirs-gtk-update
+
   else
     installParu
     packageInstall
@@ -102,6 +103,7 @@ packageInstall() {
 main() {
   checkFolderStatus
   packageInstall
+  systemdServices cronie bluetooth
   settingUpSddm
 }
 

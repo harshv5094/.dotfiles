@@ -30,7 +30,7 @@ have() {
 # Paru AUR Helper installer #
 installParu() {
   info_msg "** Installing Paru **"
-  "$ESCALATION_TOOL" pacman -S --noconfirm --needed git base-devel
+  "${ESCALATION_TOOL}" pacman -S --noconfirm --needed git base-devel
   git clone https://aur.archlinux.org/paru.git /tmp/paru && cd /tmp/paru && makepkg -si
   rm -rf /tmp/paru
 }
@@ -63,69 +63,6 @@ systemdServices() {
   done
 }
 
-# Fish Setup #
-fishSetup() {
-  info_msg "** Installing Fish and Required CLI tools **"
-  package_manager=$(command -v pacman || true)
-  if [ -n "$package_manager" ]; then
-    "$ESCALATION_TOOL" "$package_manager" -S --needed --noconfirm fish vdpauinfo flatpak tree git github-cli git-lfs git-filter-repo wget curl zip unzip peco ripgrep \
-      fzf sox bat eza lazygit btop fd zoxide yt-dlp xsel fastfetch openssh openresolv tldr yazi \
-      trash-cli fwupd bluez bluez-utils usbutils cronie imagemagick man-db bind speech-dispatcher \
-      starship bash-completion neovim newsboat go rust base-devel make cmake ninja luarocks hugo neovim
-  fi
-
-  info_msg "** Setting Up Fish Shell **"
-  ~/.dotfiles/.scripts/fish-shell-setup.fish
-
-  info_msg "** Setting up fish shell as default shell **"
-  chsh --shell /bin/fish
-}
-
-# Tmux Setup #
-tmuxSetup() {
-  if have tmux; then
-    if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
-      warning_msg "** Clonning Tmux Plugin Manager Repositroy **"
-      git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm/
-    else
-      warning_msg "** Tmux Plugin Manager already exist **"
-    fi
-  else
-    package_manager=$(command -v pacman || true)
-    "$ESCALATION_TOOL" "$package_manager" -S --noconfirm tmux
-    tmuxSetup
-  fi
-}
-
-# Firewall Setup #
-ufwSetup() {
-  if have ufw; then
-    info_msg "** Enable my default firewall rules **"
-    "$ESCALATION_TOOL" ufw limit 22/tcp
-    "$ESCALATION_TOOL" ufw allow 80/tcp
-    "$ESCALATION_TOOL" ufw allow 443/tcp
-    "$ESCALATION_TOOL" ufw default deny incoming
-    "$ESCALATION_TOOL" ufw default allow outgoing
-    info_msg "** Enable ufw systemd service **"
-    "$ESCALATION_TOOL" ufw enable
-  else
-    package_manager=$(command -v pacman || true)
-    "$ESCALATION_TOOL" "$package_manager" -S --noconfirm ufw
-    ufwSetup
-  fi
-}
-
-# Nvidia Drivers #
-nvidiaSetup() {
-  # Installing my nvidia drivers
-  info_msg "** Installing Nvidia Drivers **"
-  "$ESCALATION_TOOL" pacman -S nvidia-dkms nvidia-utils egl-wayland opencl-nvidia nvidia-settings linux-headers linux-lts-headers xorg
-  systemdServices nvidia-hibernate nvidia-powerd nvidia-persistenced nvidia-resume nvidia-suspend
-
-  info_msg "** Creating Initial Ramdisk Environment **"
-  mkinitcpio
-}
-
 # Stow files function #
 stowFiles() {
   if have stow; then
@@ -133,9 +70,9 @@ stowFiles() {
     file_paths=".bashrc .zshrc .gitconfig .czrc"
 
     for file in $file_paths; do
-      if [ -e "$HOME/$file" ]; then
-        warning_msg "*** $HOME/$file exists ***"
-        warning_msg "** Backing up existing $file directory **"
+      if [ -e "${HOME}/${file}" ]; then
+        warning_msg "*** ${HOME}/${file} exists ***"
+        warning_msg "** Backing up existing ${file} directory **"
         mv "${HOME:?}/${file:?}" "${HOME:?}/${file:?}.bak"
       fi
     done
@@ -143,15 +80,15 @@ stowFiles() {
     # Remove all the config foler setup if present
     folder_paths="bat btop git fastfetch fish kitty lazydocker lazygit newsboat nvim tmux yazi"
     for folder in $folder_paths; do
-      if [ -e "$CONFIG_DIR/$folder" ]; then
-        warning_msg "*** $CONFIG_DIR/$folder exists ***"
-        warning_msg "** Backing up existing $folder directory **"
+      if [ -e "${CONFIG_DIR}/${folder}" ]; then
+        warning_msg "*** ${CONFIG_DIR}/${folder} exists ***"
+        warning_msg "** Backing up existing ${folder} directory **"
         mv "${CONFIG_DIR:?}/${folder:?}" "${CONFIG_DIR:?}/${folder:?}.bak"
       fi
     done
 
     # Stow my directories
-    if [ -d "$DOTFILES_DIR" ]; then
+    if [ -d "${DOTFILES_DIR}" ]; then
       warning_msg "** Stowing my files **"
       stow .
     fi
@@ -159,14 +96,11 @@ stowFiles() {
   else
     warning_msg "** Stow is not installed, Installing stow **"
     package_manager=$(command -v pacman || true)
-    "$ESCALATION_TOOL" "$package_manager" -S --noconfirm stow
+    "${ESCALATION_TOOL}" "${package_manager}" -S --noconfirm stow
     stowFiles
   fi
 }
 
-##################
-# Hyprland Setup #
-##################
 hyprlandCheck() {
   printf "%b" "Do you want to install my Hyprland setup? (Y/N): "
   read -r choice
@@ -219,7 +153,7 @@ prompt() {
   info_msg "5. Arch Nvidia Drivers Setup"
   info_msg "6. My Hyprland Configuration"
   info_msg "7. Home Row Mods Configuration"
-  info_msg "8. All the above"
+  info_msg "8. My Doom Emacs Configuration"
   info_msg "0. Exit"
   printf "%b" "Choose the option [0-8]: "
   read -r choice
@@ -230,18 +164,18 @@ DOTFILES_DIR="$HOME/.dotfiles"
 CONFIG_DIR="$HOME/.config"
 ESCALATION_TOOL=$(command -v doas || command -v sudo || error_msg "No escalation tool found")
 
-if [ ! -d "$CONFIG_DIR" ]; then
-  mkdir -p "$CONFIG_DIR"
+if [ ! -d "${CONFIG_DIR}" ]; then
+  mkdir -p "${CONFIG_DIR}"
 fi
 
-if [ ! -d "$DOTFILES_DIR" ]; then
+if [ ! -d "${DOTFILES_DIR}" ]; then
   info_msg "Cloning my dotfiles repository..."
-  git clone https://github.com/harshv5094/.dotfiles "$DOTFILES_DIR"
-  cd "$DOTFILES_DIR"
+  git clone https://github.com/harshv5094/.dotfiles "${DOTFILES_DIR}"
+  cd "${DOTFILES_DIR}"
   success_msg "DOTFILES_DIR: $(pwd)"
   prompt
 else
-  cd "$DOTFILES_DIR"
+  cd "${DOTFILES_DIR}"
   success_msg "DOTFILES_DIR: $(pwd)"
   prompt
 fi
@@ -252,16 +186,16 @@ while [ "$choice" != "0" ]; do
     stowFiles
     ;;
   2)
-    fishSetup
+    . ./.scripts/fish.sh
     ;;
   3)
-    tmuxSetup
+    . ./.scripts/tmux.sh
     ;;
   4)
-    ufwSetup
+    . ./.scripts/firewall.sh
     ;;
   5)
-    nvidiaSetup
+    . ./.scripts/nvidia-linux.sh
     ;;
   6)
     hyprlandCheck
@@ -270,11 +204,7 @@ while [ "$choice" != "0" ]; do
     homeRowModsCheck
     ;;
   8)
-    stowFiles
-    baseInstall
-    nvidiaSetup
-    hyprlandCheck
-    homeRowModsCheck
+    . ./.scripts/doom.sh
     ;;
   *)
     error_msg "Invalid choice. Please enter a valid option !!"
