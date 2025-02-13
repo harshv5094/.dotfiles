@@ -66,11 +66,11 @@
     // "format-good": "", // An empty format will hide the module
     // "format-full": "",
     "format-icons": [
-      "",
-      "",
-      "",
-      "",
-      ""
+      "󰁺", // 0-20%
+      "󰁻", // 20-40%
+      "󰁼", // 40-60%
+      "󰁽", // 60-80%
+      "󰁾" // 80-100%
     ],
   },
   "power-profiles-daemon": {
@@ -78,33 +78,33 @@
     "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
     "tooltip": true,
     "format-icons": {
-      "default": "",
-      "performance": "",
-      "balanced": "",
-      "power-saver": "",
-    },
+      "default": "󰔡", // Default power icon
+      "performance": "󰅶", // Speed/Performance icon
+      "balanced": "󰾆", // Balanced scale icon
+      "power-saver": "󰿢" // Leaf icon for power-saving
+    }
   },
   "pulseaudio": {
-    "format": "{volume}% {icon} {format_source}",
-    "format-bluetooth": "{volume}% {icon} {format_source}",
-    "format-bluetooth-muted": " {icon} {format_source}",
+    "format": "{volume}% {icon}{format_source}",
+    "format-bluetooth": "{volume}% {icon} {format_source}",
+    "format-bluetooth-muted": " {icon} {format_source}",
     "format-muted": " {format_source}",
-    "format-source": "{volume}% ",
-    "format-source-muted": "",
+    "format-source": "{volume}% 󰍬",
+    "format-source-muted": "󰍭",
     "format-icons": {
-      "headphone": " ",
-      "hands-free": " ",
-      "headset": " ",
-      "phone": " ",
-      "portable": " ",
-      "car": " ",
+      "headphone": "󰋋 ", // Headphones icon
+      "hands-free": "󰋎 ", // Hands-free icon
+      "headset": "󰋎 ", // Headset icon
+      "phone": "󰤨 ", // Phone icon
+      "portable": "󰤨 ", // Portable device icon
+      "car": "󰗡 ", // Car Bluetooth icon
       "default": [
-        " ",
-        " ",
-        " "
-      ],
+        "󰕿 ", // Low volume
+        "󰖀 ", // Medium volume
+        "󰕾 " // High volume
+      ]
     },
-    "on-click": "pavucontrol",
+    "on-click": "pavucontrol"
   },
   // Custom Power Button
   "custom/power": {
