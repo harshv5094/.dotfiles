@@ -21,7 +21,7 @@ function main() {
   echo "# BACKGROUND
 background {
     monitor =
-    blur_passes = 2
+    blur_passes = 3
     contrast = 1
     brightness = 0.5
     vibrancy = 0.2
