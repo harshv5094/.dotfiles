@@ -9,12 +9,12 @@ function main() {
   # monitors=$(hyprctl monitors -j | jq -r ".[] | .name")
 
   # for monitor in $monitors; do
-  #   wallpaper=$(fd ".png|.jpg|.jpeg|.webp" ~/Pictures/Wallpapers/ | shuf -n1)
+  #   wallpaper=$(fd ".png|.jpg|.jpeg|.webp" ~/Pictures/wallpapers/ | shuf -n1)
   #   echo "preload = $wallpaper" >>~/.config/hypr/hyprpaper.conf
   #   echo "wallpaper = $monitor,$wallpaper" >>~/.config/hypr/hyprpaper.conf
   # done
 
-  wallpaper=$(fd ".png|.jpg|.jpeg|.webp" ~/Pictures/Wallpapers/ | shuf -n1)
+  wallpaper=$(fd ".png|.jpg|.jpeg|.webp" ~/Pictures/wallpapers/ | shuf -n1)
   echo "preload = $wallpaper" >>~/.config/hypr/hyprpaper.conf
   echo "wallpaper = ,$wallpaper" >>~/.config/hypr/hyprpaper.conf
 
