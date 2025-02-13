@@ -8,6 +8,7 @@
 window#waybar {
   background-color: rgba(0, 0, 0, 0.6);
   color: #ffffff;
+  border-radius: 10px;
   border-bottom: 2px solid white;
   transition-property: background-color;
   transition-duration: 0.5s;
@@ -74,12 +75,12 @@ window#waybar.empty #window {
 
 /* Increasing margin of the leftest module*/
 .modules-left>widget:first-child>#workspaces {
-  margin-left: 1px;
+  margin-left: 5px;
 }
 
 /* Increasing margin of the rightest module*/
 .modules-right>widget:last-child>#custom-power {
-  margin-right: 2px;
+  margin-right: 5px;
 }
 
 #battery.charging,
