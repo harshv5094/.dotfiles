@@ -111,6 +111,10 @@ if have kitty; then
   alias icat="kitten icat"
 fi
 
+if have tmux; then
+  alias ide="~/.dotfiles/.scripts/ide.sh"
+fi
+
 if have git; then
   alias g=git
 fi

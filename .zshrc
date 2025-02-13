@@ -98,6 +98,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_CACHE_HOME="$HOME/.cache"
 
+# Setting editor variables to nvim
 if have nvim; then
   export EDITOR=nvim
   export VISUAL=nvim
@@ -166,6 +167,10 @@ fi
 
 if have kitty; then
   alias icat="kitten icat"
+fi
+
+if have tmux; then
+  alias ide="~/.dotfiles/.scripts/ide.sh"
 fi
 
 if have git; then

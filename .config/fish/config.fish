@@ -114,6 +114,10 @@ if type -q kitty
     alias icat="kitten icat"
 end
 
+if type -q tmux
+    alias ide="~/.dotfiles/.scripts/ide.sh"
+end
+
 if type -q git
     alias g=git
 end
