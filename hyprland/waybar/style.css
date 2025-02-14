@@ -1,0 +1,122 @@
+* {
+  font-family: "JetBrainsMono Nerd Font", FontAwesome, sans-serif;
+  /* `otf-font-awesome` is required to be installed for icons */
+  font-weight: 700;
+  font-size: 15px;
+}
+
+window#waybar {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+  border-radius: 10px;
+  border-bottom: 2px solid white;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+@keyframes blink {
+  to {
+    color: #ffffff;
+    /* color: #000000; */
+  }
+}
+
+#workspaces button {
+  padding: 0px;
+  background-color: rgba(0, 0, 0, 0);
+  color: #ffffff;
+}
+
+#workspaces button:hover {
+  background-color: rgba(0, 0, 0, 0);
+  color: #ffcc47;
+}
+
+#workspaces button.active {
+  color: #ffcc47;
+}
+
+#workspaces button.urgent {
+  color: #f53c3c;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: steps(12);
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#clock,
+#window,
+#tray,
+#workspaces,
+#battery,
+#power-profiles-daemon,
+#backlight,
+#pulseaudio {
+  padding: 2px 6px;
+}
+
+/* make window module transparent when no windows present */
+window#waybar.empty #window {
+  background-color: transparent;
+  border: none;
+}
+
+/* Increasing margin of the leftest module*/
+.modules-left>widget:first-child>#workspaces {
+  margin-left: 5px;
+}
+
+/* Increasing margin of the rightest module*/
+.modules-right>widget:last-child>#custom-power {
+  margin-right: 5px;
+}
+
+#battery.charging,
+#battery.plugged {
+  color: #2ecc71;
+  padding-right: 4px;
+}
+
+/* Using steps() instead of linear as a timing function to limit cpu usage */
+#battery.critical:not(.charging) {
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: steps(12);
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+
+#power-profiles-daemon.performance {
+  color: #f53c3c;
+}
+
+#power-profiles-daemon.balanced {
+  color: #49aef5;
+}
+
+#power-profiles-daemon.power-saver {
+  color: #2ecc71;
+}
+
+label:focus {
+  background-color: #000000;
+}
+
+#pulseaudio.muted {
+  color: #f53c3c;
+}
+
+#tray>.passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray>.needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: #eb4d4b;
+}
