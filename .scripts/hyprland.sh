@@ -77,7 +77,7 @@ packageInstall() {
       gnome-themes-extra breeze-gtk qt5ct
 
     info_msg "** Installing GUI tools **"
-    paru -S --noconfirm firefox gnome-disk-utility gnome-tweaks gnome-text-editor gnome-clocks gnome-characters \
+    paru -S --noconfirm firefox thunderbird gnome-disk-utility gnome-tweaks gnome-text-editor gnome-clocks gnome-characters \
       transmission-gtk seahorse rhythmbox loupe timeshift evince vlc localsend-bin transmission-gtk baobab visual-studio-code-bin
 
     info_msg "** Installing File Manager **"
