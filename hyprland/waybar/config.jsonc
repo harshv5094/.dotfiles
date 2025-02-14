@@ -9,16 +9,24 @@
   ],
   "modules-center": [
     "clock",
+    "hyprland/window",
   ],
   "modules-right": [
-    "hyprland/window",
     "power-profiles-daemon",
+    "idle_inhibitor",
     "backlight",
     "battery",
     "pulseaudio",
-    "custom/power"
+    "custom/power",
   ],
   "hyprland/workspaces": {},
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": " ",
+      "deactivated": " "
+    }
+  },
   "hyprland/window": {
     "format": "{class}",
     "icon": true,
