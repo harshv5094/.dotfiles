@@ -9,9 +9,9 @@
   ],
   "modules-center": [
     "clock",
-    "hyprland/window",
   ],
   "modules-right": [
+    "hyprland/window",
     "power-profiles-daemon",
     "backlight",
     "battery",

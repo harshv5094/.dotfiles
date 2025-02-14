@@ -7,6 +7,7 @@
 
 window#waybar {
   background-color: rgba(0, 0, 0, 0.6);
+  color: #ffffff;
   border-radius: 10px;
   border-bottom: 2px solid white;
   transition-property: background-color;
@@ -55,10 +56,13 @@ window#waybar.hidden {
 #battery,
 #power-profiles-daemon,
 #backlight,
-#custom-power,
 #pulseaudio {
-  color: #ffffff;
   padding: 2px 6px;
+}
+
+
+#custom-power {
+  padding: 2px 0px;
 }
 
 /* make window module transparent when no windows present */
