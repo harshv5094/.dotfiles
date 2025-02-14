@@ -4,9 +4,6 @@ local opts = { noremap = true, silent = true }
 -- Delete a word backwards
 map("n", "dw", 'vb"_d')
 
--- Select all
-map("n", "<C-a>", "gg<S-v>G")
-
 -- New tab
 map("n", "te", ":tabedit<CR>")
 map("n", "<tab>", ":tabnext<CR>", opts)
