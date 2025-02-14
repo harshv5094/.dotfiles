@@ -1,30 +1,31 @@
+/* General Styling */
 * {
   font-family: "JetBrainsMono Nerd Font", FontAwesome, sans-serif;
-  /* `otf-font-awesome` is required to be installed for icons */
   font-weight: 700;
   font-size: 15px;
 }
 
+/* Waybar Window */
 window#waybar {
   background-color: rgba(0, 0, 0, 0.6);
   color: #ffffff;
   border-radius: 10px;
   border-bottom: 2px solid white;
-  transition-property: background-color;
-  transition-duration: 0.5s;
+  transition: background-color 0.5s ease-in-out;
 }
 
 window#waybar.hidden {
   opacity: 0.2;
 }
 
+/* Blinking Animation */
 @keyframes blink {
   to {
     color: #ffffff;
-    /* color: #000000; */
   }
 }
 
+/* Workspaces */
 #workspaces button {
   padding: 0px 1px;
   background-color: rgba(0, 0, 0, 0);
@@ -32,7 +33,6 @@ window#waybar.hidden {
 }
 
 #workspaces button:hover {
-  background-color: rgba(0, 0, 0, 0);
   color: #ffcc47;
 }
 
@@ -42,61 +42,56 @@ window#waybar.hidden {
 
 #workspaces button.urgent {
   color: #f53c3c;
-  animation-name: blink;
-  animation-duration: 0.5s;
-  animation-timing-function: steps(12);
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
+  animation: blink 0.5s steps(12) infinite alternate;
 }
 
+/* Module Padding */
 #clock,
 #window,
-#tray,
 #workspaces,
-#battery,
+#idle_inhibitor,
 #power-profiles-daemon,
 #backlight,
 #pulseaudio {
   padding: 2px 6px;
 }
 
-
+#tray,
 #custom-power {
-  padding: 2px 0px;
+  padding: 2px 2px;
 }
 
-/* make window module transparent when no windows present */
+/* Transparent Window Module */
 window#waybar.empty #window {
   background-color: transparent;
   border: none;
 }
 
-/* Increasing margin of the leftest module*/
+/* Leftmost and Rightmost Module Margins */
 .modules-left>widget:first-child>#workspaces {
   margin-left: 5px;
 }
 
-/* Increasing margin of the rightest module*/
 .modules-right>widget:last-child>#custom-power {
-  margin-right: 5px;
+  margin-right: 10px;
+}
+
+/* Battery Styling */
+#battery {
+  transition: color 0.3s ease-in-out;
 }
 
 #battery.charging,
 #battery.plugged {
   color: #2ecc71;
-  padding-right: 4px;
 }
 
-/* Using steps() instead of linear as a timing function to limit cpu usage */
 #battery.critical:not(.charging) {
-  animation-name: blink;
-  animation-duration: 0.5s;
-  animation-timing-function: steps(12);
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
+  color: #f53c3c;
+  animation: blink 0.5s steps(12) infinite alternate;
 }
 
-
+/* Power Profiles */
 #power-profiles-daemon.performance {
   color: #f53c3c;
 }
@@ -109,14 +104,12 @@ window#waybar.empty #window {
   color: #2ecc71;
 }
 
-label:focus {
-  background-color: #000000;
-}
-
+/* Audio Muted */
 #pulseaudio.muted {
   color: #f53c3c;
 }
 
+/* Tray Icons */
 #tray>.passive {
   -gtk-icon-effect: dim;
 }
@@ -124,4 +117,9 @@ label:focus {
 #tray>.needs-attention {
   -gtk-icon-effect: highlight;
   background-color: #eb4d4b;
+}
+
+/* Focus Styling */
+label:focus {
+  background-color: #000000;
 }
