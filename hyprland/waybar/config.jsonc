@@ -1,15 +1,14 @@
 {
   "position": "top",
-  "height": 30, // Waybar height (to be removed for auto height)
-  "margin": "2 5 0 5",
-  "spacing": 4, // Gaps between modules (4px)
+  "height": 30,
+  "spacing": 4,
   "modules-left": [
     "hyprland/workspaces",
-    "tray",
+    "tray"
   ],
   "modules-center": [
     "clock",
-    "hyprland/window",
+    "hyprland/window"
   ],
   "modules-right": [
     "power-profiles-daemon",
@@ -21,23 +20,20 @@
   "hyprland/workspaces": {},
   "hyprland/window": {
     "format": "{class}",
-    "format-alt": "{title}",
     "icon": true,
-    "icon-size": "20",
-    "seperate-outputs": true,
+    "separate-outputs": true
   },
   "tray": {
-    "icon-size": 21,
-    "spacing": 8,
+    "icon-size": 20,
+    "spacing": 8
   },
   "clock": {
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format": "{:%I:%M:%S %p}", //12 hour format
+    "format": "{:%I:%M:%S %p}",
     "format-alt": "{:%a %d %b %Y}",
-    "interval": 1,
+    "interval": 1
   },
   "backlight": {
-    // "device": "acpi_video1",
     "format": "{percent}% {icon}",
     "format-icons": [
       "",
@@ -49,13 +45,12 @@
       "",
       "",
       ""
-    ],
+    ]
   },
   "battery": {
     "states": {
-      // "good": 95,
       "warning": 30,
-      "critical": 15,
+      "critical": 15
     },
     "format": "{capacity}% {icon}",
     "format-full": "{capacity}% {icon}",
@@ -63,25 +58,23 @@
     "format-plugged": "{capacity}% ",
     "format-alt": "{time} {icon}",
     "interval": 1,
-    // "format-good": "", // An empty format will hide the module
-    // "format-full": "",
     "format-icons": [
-      "󰁺", // 0-20%
-      "󰁻", // 20-40%
-      "󰁼", // 40-60%
-      "󰁽", // 60-80%
-      "󰂄" // 100% (Full Battery)
-    ],
+      "󰁺",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰂄"
+    ]
   },
   "power-profiles-daemon": {
     "format": "{icon}",
     "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
     "tooltip": true,
     "format-icons": {
-      "default": "󰔡", // Default power icon
-      "performance": "󰅶", // Speed/Performance icon
-      "balanced": "󰾆", // Balanced scale icon
-      "power-saver": "󰿢" // Leaf icon for power-saving
+      "default": "󰔡",
+      "performance": "󰅶",
+      "balanced": "󰾆",
+      "power-saver": "󰿢"
     }
   },
   "pulseaudio": {
@@ -92,23 +85,22 @@
     "format-source": "{volume}% 󰍬",
     "format-source-muted": "󰍭",
     "format-icons": {
-      "headphone": "󰋋 ", // Headphones icon
-      "hands-free": "󰋎 ", // Hands-free icon
-      "headset": "󰋎 ", // Headset icon
-      "phone": "󰤨 ", // Phone icon
-      "portable": "󰤨 ", // Portable device icon
-      "car": "󰗡 ", // Car Bluetooth icon
+      "headphone": "󰋋 ",
+      "hands-free": "󰋎 ",
+      "headset": "󰋎 ",
+      "phone": "󰤨 ",
+      "portable": "󰤨 ",
+      "car": "󰗡 ",
       "default": [
-        "󰕿 ", // Low volume
-        "󰖀 ", // Medium volume
-        "󰕾 " // High volume
+        "󰕿 ",
+        "󰖀 ",
+        "󰕾 "
       ]
     },
     "on-click": "pavucontrol"
   },
-  // Custom Power Button
   "custom/power": {
     "format": "⏻ ",
-    "on-click": "~/.config/hypr/scripts/power_menu.sh",
+    "on-click": "~/.config/hypr/scripts/power_menu.sh"
   }
 }

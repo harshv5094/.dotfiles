@@ -1,34 +1,43 @@
+/* Set global font properties */
 * {
-  font-family: "JetBrainsMono Nerd Font", FontAwesome, sans-serif;
-  /* `otf-font-awesome` is required to be installed for icons */
+  font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free", sans-serif;
+  /* Ensure FontAwesome is installed for icons */
   font-weight: 700;
   font-size: 15px;
 }
 
+/* Waybar main window styling */
 window#waybar {
   background-color: rgba(0, 0, 0, 0.6);
   color: #ffffff;
-  border-radius: 10px;
   border-bottom: 2px solid white;
-  transition-property: background-color;
-  transition-duration: 0.5s;
+  transition: background-color 0.5s ease-in-out;
 }
 
+/* Reduce opacity when Waybar is hidden */
 window#waybar.hidden {
   opacity: 0.2;
 }
 
+/* Define a blinking animation for urgent elements */
 @keyframes blink {
   to {
-    color: #ffffff;
-    /* color: #000000; */
+    color: #f53c3c;
   }
 }
 
+@keyframes w-blink {
+  to {
+    color: #ffcc47;
+  }
+}
+
+/* Workspaces button styles */
 #workspaces button {
-  padding: 0px;
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0);
+  padding: 1px 2px;
   color: #ffffff;
+  transition: color 0.3s ease-in-out;
 }
 
 #workspaces button:hover {
@@ -39,15 +48,13 @@ window#waybar.hidden {
   color: #ffcc47;
 }
 
+/* Urgent workspace animation */
 #workspaces button.urgent {
   color: #f53c3c;
-  animation-name: blink;
-  animation-duration: 0.5s;
-  animation-timing-function: steps(12);
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
+  animation: blink 0.5s steps(12) infinite alternate;
 }
 
+/* Padding for various modules */
 #clock,
 #window,
 #tray,
@@ -56,42 +63,43 @@ window#waybar.hidden {
 #power-profiles-daemon,
 #backlight,
 #pulseaudio {
-  padding: 2px 6px;
+  padding: 2px 4px;
 }
 
-/* make window module transparent when no windows present */
+/* Make the window module transparent when no windows are present */
 window#waybar.empty #window {
   background-color: transparent;
   border: none;
 }
 
-/* Increasing margin of the leftest module*/
+/* Adjust left margin for the first left-side module (workspaces) */
 .modules-left>widget:first-child>#workspaces {
   margin-left: 5px;
 }
 
-/* Increasing margin of the rightest module*/
+/* Adjust right margin for the last right-side module (custom power button) */
 .modules-right>widget:last-child>#custom-power {
-  margin-right: 5px;
+  margin-right: 8px;
 }
 
+/* Battery status styling */
 #battery.charging,
 #battery.plugged {
   color: #2ecc71;
-  padding-right: 4px;
 }
 
-/* Using steps() instead of linear as a timing function to limit cpu usage */
+/* Battery warning level */
+#battery.warning:not(.charging) {
+  color: #ffcc47;
+  animation: w-blink 0.5s steps(12) infinite alternate;
+}
+
+/* Critical battery warning with blinking effect */
 #battery.critical:not(.charging) {
-  color: #f53c3c;
-  animation-name: blink;
-  animation-duration: 0.5s;
-  animation-timing-function: steps(12);
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
+  animation: blink 0.5s steps(12) infinite alternate;
 }
 
-
+/* Power profile daemon module colors */
 #power-profiles-daemon.performance {
   color: #f53c3c;
 }
@@ -104,14 +112,17 @@ window#waybar.empty #window {
   color: #2ecc71;
 }
 
+/* Change background when a label is focused */
 label:focus {
   background-color: #000000;
 }
 
+/* PulseAudio muted state styling */
 #pulseaudio.muted {
   color: #f53c3c;
 }
 
+/* System tray icon effects */
 #tray>.passive {
   -gtk-icon-effect: dim;
 }
