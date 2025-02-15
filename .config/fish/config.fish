@@ -122,5 +122,29 @@ if type -q git
     alias g=git
 end
 
-alias temp_delete="sudo find /tmp -mtime +7 -and -not -exec fuser -s {} ';' -and -exec echo {} ';'"
-alias remove-nvim-plugin="rm -rf ~/.local/share/nvim/ ~/.local/state/nvim/ ~/.cache/nvim/"
+if type -q nvim
+    # Backing up nvim plugins and cache
+    function bkup-nvim
+        mv "$HOME/.local/share/nvim{,.bak}"
+        mv "$HOME/.local/state/nvim{,.bak}"
+        mv "$HOME/.cache/nvim{,.bak}"
+    end
+
+    # Restoring backed up nvim plugins and cache
+    function rst-nvim
+        echo "Restoring backed up nvim "
+        mv "$HOME/.local/share/nvim{.bak,}"
+        mv "$HOME/.local/state/nvim{.bak,}"
+        mv "$HOME/.cache/nvim{.bak,}"
+    end
+
+    # Remvove nvim plugins and cache
+    function rm-nvim
+        rm -rf "$HOME/.local/share/nvim" "$HOME/.local/state/nvim" "$HOME/.cache/"
+    end
+
+    # Removes backed up nvim plugins and cache
+    function rm-bkup-nvim
+        rm -rf "$HOME/.local/share/nvim.bak" "$HOME/.local/state/nvim.bak" "$HOME/.cache.bak"
+    end
+end

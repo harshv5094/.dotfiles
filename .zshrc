@@ -177,8 +177,33 @@ if have git; then
   alias g=git
 fi
 
-alias temp_delete="sudo find /tmp -mtime +7 -and -not -exec fuser -s {} ';' -and -exec echo {} ';'"
-alias remove-nvim-plugin="rm -rf ~/.local/share/nvim/ ~/.local/state/nvim/ ~/.cache/nvim/"
+if have nvim; then
+  # Backing up nvim config plugins and cache
+  function bkup-nvim() {
+    mv "$HOME/.local/share/nvim" "$HOME/.local/share/nvim.bak"
+    mv "$HOME/.local/state/nvim" "$HOME/.local/state/nvim.bak"
+    mv "$HOME/.cache/nvim" "$HOME/.cache/nvim.bak"
+  }
+
+  # Restoring backed up nvim plugins and cache
+  function rst-bkup() {
+    mv "$HOME/.local/share/nvim.bak" "$HOME/.local/share/nvim"
+    mv "$HOME/.local/state/nvim.bak" "$HOME/.local/state/nvim"
+    mv "$HOME/.cache/nvim.bak" "$HOME/.cache/nvim"
+  }
+
+  # Remvove nvim plugins and cache
+  function rm-nvim() {
+    rm -rf "$HOME/.local/share/nvim" "$HOME/.local/state/nvim" "$HOME/.cache"
+  }
+
+  # Removes backed up nvim plugins and cache
+  function rst-bkup-nvim() {
+    rm -rf "$HOME/.local/share/nvim.bak" "$HOME/.local/state/nvim.bak" "$HOME/.cache.bak"
+  }
+
+fi
+
 
 #######################################################
 # NVM_DIR
