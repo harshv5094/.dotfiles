@@ -1,12 +1,6 @@
 local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
--- Delete a word backwards
-map("n", "dw", 'vb"_d')
-
--- Select all
-map("n", "<C-a>", "gg<S-v>G")
-
 -- New tab
 map("n", "te", ":tabedit<CR>")
 map("n", "<tab>", ":tabnext<CR>", opts)
@@ -30,10 +24,6 @@ map("n", "<C-j>", "<C-w>-", opts)
 
 -- netrw Directory explore window
 map("n", ";x", "<cmd>Explore<CR>", opts)
-
--- Jump to start and end of line
-map("n", ";s", "^", { desc = "Go to start of line" })
-map("n", ";e", "%", { desc = "Go to end of line" })
 
 -- Automatic find and replace
 map("n", "<localleader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "String auto replace" })
