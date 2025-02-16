@@ -22,13 +22,7 @@ window#waybar.hidden {
 /* Define a blinking animation for urgent elements */
 @keyframes blink {
   to {
-    color: #f53c3c;
-  }
-}
-
-@keyframes w-blink {
-  to {
-    color: #ffcc47;
+    color: #ffffff;
   }
 }
 
@@ -91,11 +85,12 @@ window#waybar.empty #window {
 /* Battery warning level */
 #battery.warning:not(.charging) {
   color: #ffcc47;
-  animation: w-blink 0.5s steps(12) infinite alternate;
+  animation: blink 0.5s steps(12) infinite alternate;
 }
 
 /* Critical battery warning with blinking effect */
 #battery.critical:not(.charging) {
+  color: #f53c3c;
   animation: blink 0.5s steps(12) infinite alternate;
 }
 
