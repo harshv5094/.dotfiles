@@ -56,6 +56,12 @@
   # Short log aliases
 	logs = log --show-signature
 
+  # Checks for all unreachable object
+  pdr = prune --dry-run
+
+  # Set expirty of all unreachable object to now 
+  ref-exp-now = reflog expire --expire=now --expire-unreachable=now --all
+
   # Special GitHub Aliases
   pr = "!gh pr list"
   open = "!gh repo view --web"
