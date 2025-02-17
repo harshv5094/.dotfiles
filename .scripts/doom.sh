@@ -13,6 +13,9 @@ if [ -e "${CONFIG_DIR}/emacs" ]; then
 
   info_msg "** Clonning doom emacs setup directory **"
   git clone --depth 1 https://github.com/doomemacs/doomemacs "${CONFIG_DIR}/emacs"
+else
+  info_msg "** Clonning doom emacs setup directory **"
+  git clone --depth 1 https://github.com/doomemacs/doomemacs "${CONFIG_DIR}/emacs"
 fi
 
 # Clonning my doom emacs config directory
