@@ -43,5 +43,10 @@ if tmux list-windows -a | grep -q ": $selected_name"; then
   tmux switch-client -t "$session_window"
 else
   # If the window does not exist, create a new window
-  tmux new-window -n "$selected_name" -c "$selected" "nvim ."
+  if [[ "$selected_name" = "nvim" ]]; then
+    # If selected window is nvim then change its name
+    tmux new-window -n "neovim" -c "$selected" "nvim ."
+  else
+    tmux new-window -n "$selected_name" -c "$selected" "nvim ."
+  fi
 fi
