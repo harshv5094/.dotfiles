@@ -104,34 +104,6 @@ if have nvim; then
   export VISUAL=nvim
 fi
 
-# Set up fzf key bindings and fuzzy completion
-if have fzf; then
-  eval "$(fzf --zsh)"
-fi
-
-# Initialize zoxide
-if have zoxide; then
-  eval "$(zoxide init --cmd cd zsh)"
-fi
-
-# Initialize Starship prompt theme
-if have starship; then
-  eval "$(starship init zsh)"
-fi
-
-# Yazi functions
-if command -v yazi &>/dev/null; then
-  function y() {
-    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-    yazi "$@" --cwd-file="$tmp"
-    if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-      builtin cd -- "$cwd" || exit
-    fi
-    rm -f -- "$tmp"
-  }
-fi
-
-
 #######################################################
 # Aliases
 #######################################################
@@ -204,10 +176,36 @@ if have nvim; then
 
 fi
 
+# Yazi functions
+if command -v yazi &>/dev/null; then
+  function y() {
+    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+    yazi "$@" --cwd-file="$tmp"
+    if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+      builtin cd -- "$cwd" || exit
+    fi
+    rm -f -- "$tmp"
+  }
+fi
 
 #######################################################
-# NVM_DIR
+# Eval / Initialization
 #######################################################
+
+# Set up fzf key bindings and fuzzy completion
+if have fzf; then
+  eval "$(fzf --zsh)"
+fi
+
+# Initialize zoxide
+if have zoxide; then
+  eval "$(zoxide init --cmd cd zsh)"
+fi
+
+# Initialize Starship prompt theme
+if have starship; then
+  eval "$(starship init zsh)"
+fi
 if have nvm; then
   export NVM_DIR="$HOME/.config/nvm"
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

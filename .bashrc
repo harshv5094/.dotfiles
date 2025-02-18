@@ -30,47 +30,6 @@ if command -v nvim &>/dev/null; then
 fi
 
 #######################################################
-# Eval / Initializations
-#######################################################
-
-# Bash Completion Check
-if [ -f /usr/share/bash-completion/bash_completion ]; then
-  . /usr/share/bash-completion/bash_completion
-fi
-
-# Initialize zoxide
-if command -v zoxide &>/dev/null; then
-  eval "$(zoxide init --cmd cd bash)"
-fi
-
-# Initialize Starship prompt theme
-if command -v starship &>/dev/null; then
-  eval "$(starship init bash)"
-fi
-
-# Set up fzf key bindings and fuzzy completion
-if command -v fzf &>/dev/null; then
-  eval "$(fzf --bash)"
-fi
-
-# Initialize GitHub CLI completion
-if command -v gh &>/dev/null; then
-  eval "$(gh completion -s bash)"
-fi
-
-# Yazi functions
-if command -v yazi &>/dev/null; then
-  function y() {
-    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-    yazi "$@" --cwd-file="$tmp"
-    if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-      builtin cd -- "$cwd" || exit
-    fi
-    rm -f -- "$tmp"
-  }
-fi
-
-#######################################################
 # Aliases
 #######################################################
 # Basic Aliases
@@ -146,9 +105,41 @@ if have nvim; then
 
 fi
 
+# Yazi functions
+if command -v yazi &>/dev/null; then
+  function y() {
+    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+    yazi "$@" --cwd-file="$tmp"
+    if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+      builtin cd -- "$cwd" || exit
+    fi
+    rm -f -- "$tmp"
+  }
+fi
+
 #######################################################
-# NVM_DIR
+# Eval / Initializations
 #######################################################
+# Bash Completion Check
+if [ -f /usr/share/bash-completion/bash_completion ]; then
+  . /usr/share/bash-completion/bash_completion
+fi
+
+# Initialize Starship prompt theme
+if command -v starship &>/dev/null; then
+  eval "$(starship init bash)"
+fi
+
+# Set up fzf key bindings and fuzzy completion
+if command -v fzf &>/dev/null; then
+  eval "$(fzf --bash)"
+fi
+
+# Initialize GitHub CLI completion
+if command -v gh &>/dev/null; then
+  eval "$(gh completion -s bash)"
+fi
+
 if have nvm; then
   export NVM_DIR="$HOME/.config/nvm"
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
