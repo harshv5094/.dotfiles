@@ -28,13 +28,6 @@ return {
 				},
 				{ icon = " ", key = "s", desc = "Restore Session", section = "session" },
 				{ icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
-				{ icon = " ", key = "q", desc = "Quit", action = ":qa" },
-			}
-
-			-- NOTE: Dashboard Sections
-			opts.dashboard.sections = {
-				{ section = "header" },
-				{ icon = " ", title = "Keymaps", section = "keys", indent = 2, padding = 1 },
 				{
 					icon = " ",
 					desc = "Browse Repo",
@@ -46,6 +39,13 @@ return {
 						Snacks.gitbrowse()
 					end,
 				},
+				{ icon = " ", key = "q", desc = "Quit", action = ":qa" },
+			}
+
+			-- NOTE: Dashboard Sections
+			opts.dashboard.sections = {
+				{ section = "header" },
+				{ icon = " ", title = "Keymaps", section = "keys", indent = 2, padding = 1 },
 				{
 					icon = " ",
 					title = "Git Status",
@@ -54,7 +54,7 @@ return {
 						return Snacks.git.get_root() ~= nil
 					end,
 					cmd = "git status --short --branch --renames",
-					height = 5,
+					height = 3,
 					padding = 1,
 					ttl = 5 * 60,
 					indent = 3,

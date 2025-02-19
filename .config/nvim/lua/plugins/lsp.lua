@@ -12,7 +12,7 @@ return {
 		},
 	},
 
-	-- Add emoji support for blink.cmp
+	-- blink.cmp - Code completion made easy
 	{
 		"saghen/blink.cmp",
 		dependencies = {
