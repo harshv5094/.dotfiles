@@ -46,8 +46,6 @@ if have eza; then
   alias la="eza -g -a --icons"
   alias ll="eza -l -g --icons --header"
   alias lla="eza -l -g -a --icons --header"
-  alias llt="eza -l -g --icons --header --tree"
-  alias llta="eza -l -g -a --icons --header --tree"
 fi
 
 if have tmux; then
@@ -76,33 +74,6 @@ fi
 
 if have git; then
   alias g=git
-fi
-
-if have nvim; then
-  # Backing up nvim config plugins and cache
-  function bkup-nvim() {
-    mv "$HOME/.local/share/nvim" "$HOME/.local/share/nvim.bak"
-    mv "$HOME/.local/state/nvim" "$HOME/.local/state/nvim.bak"
-    mv "$HOME/.cache/nvim" "$HOME/.cache/nvim.bak"
-  }
-
-  # Restoring backed up nvim plugins and cache
-  function rst-bkup() {
-    mv "$HOME/.local/share/nvim.bak" "$HOME/.local/share/nvim"
-    mv "$HOME/.local/state/nvim.bak" "$HOME/.local/state/nvim"
-    mv "$HOME/.cache/nvim.bak" "$HOME/.cache/nvim"
-  }
-
-  # Remvove nvim plugins and cache
-  function rm-nvim() {
-    rm -rf "$HOME/.local/share/nvim" "$HOME/.local/state/nvim" "$HOME/.cache"
-  }
-
-  # Removes backed up nvim plugins and cache
-  function rst-bkup-nvim() {
-    rm -rf "$HOME/.local/share/nvim.bak" "$HOME/.local/state/nvim.bak" "$HOME/.cache.bak"
-  }
-
 fi
 
 # Yazi functions
@@ -140,8 +111,6 @@ if command -v gh &>/dev/null; then
   eval "$(gh completion -s bash)"
 fi
 
-if have nvm; then
-  export NVM_DIR="$HOME/.config/nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
-  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
-fi
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion

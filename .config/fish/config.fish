@@ -39,6 +39,45 @@ set -gx XDG_CACHE_HOME $HOME/.cache
 set -g FZF_PREVIEW_FILE_CMD "bat --style=numbers --color=always --line-range :500"
 set -g FZF_LEGACY_KEYBINDINGS 0
 
+########################################
+# Aliases
+########################################
+
+alias ls "ls -p -G"
+alias la "ls -A"
+alias ll "ls -l"
+alias lla "ll -A"
+
+if type -q eza
+    alias ls="eza -g --icons"
+    alias la="eza -g -a --icons"
+    alias ll="eza -l -g --icons --header"
+    alias lla="eza -l -g -a --icons --header"
+end
+
+if type -q lazygit
+    alias lg="lazygit"
+end
+
+if type -q lazydocker
+    alias lzd="lazydocker"
+end
+
+if type -q bat
+    alias os-info="bat /etc/os-release"
+end
+
+if type -q kitty
+    alias icat="kitten icat"
+end
+
+if type -q tmux
+    alias ide="~/.dotfiles/.scripts/ide.sh"
+end
+
+if type -q git
+    alias g=git
+end
 
 ########################################
 # Eval / Initlaization
@@ -76,75 +115,5 @@ if type -q yazi
             builtin cd -- "$cwd"
         end
         rm -f -- "$tmp"
-    end
-end
-
-
-########################################
-# Aliases
-########################################
-
-alias ls "ls -p -G"
-alias la "ls -A"
-alias ll "ls -l"
-alias lla "ll -A"
-
-if type -q eza
-    alias ls="eza -g --icons"
-    alias la="eza -g -a --icons"
-    alias ll="eza -l -g --icons --header"
-    alias lla="eza -l -g -a --icons --header"
-    alias llt="eza -l -g --icons --header --tree"
-    alias llta="eza -l -g -a --icons --header --tree"
-end
-
-if type -q lazygit
-    alias lg="lazygit"
-end
-
-if type -q lazydocker
-    alias lzd="lazydocker"
-end
-
-if type -q bat
-    alias os-info="bat /etc/os-release"
-end
-
-if type -q kitty
-    alias icat="kitten icat"
-end
-
-if type -q tmux
-    alias ide="~/.dotfiles/.scripts/ide.sh"
-end
-
-if type -q git
-    alias g=git
-end
-
-if type -q nvim
-    # Backing up nvim plugins and cache
-    function bkup-nvim
-        mv "$HOME/.local/share/nvim{,.bak}"
-        mv "$HOME/.local/state/nvim{,.bak}"
-        mv "$HOME/.cache/nvim{,.bak}"
-    end
-
-    # Restoring backed up nvim plugins and cache
-    function rst-nvim
-        echo "Restoring backed up nvim "
-        mv "$HOME/.local/share/nvim{.bak,}"
-        mv "$HOME/.local/state/nvim{.bak,}"
-        mv "$HOME/.cache/nvim{.bak,}"
-    end
-
-    # Remvove nvim plugins and cache
-    function rm-nvim
-        rm -rf "$HOME/.local/share/nvim" "$HOME/.local/state/nvim" "$HOME/.cache/"
-    end
-
-    # Removes backed up nvim plugins and cache
-    function rm-bkup-nvim
-        rm -rf "$HOME/.local/share/nvim.bak" "$HOME/.local/state/nvim.bak" "$HOME/.cache.bak"
     end
 end
