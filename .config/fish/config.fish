@@ -34,7 +34,6 @@ set -gx XDG_DATA_HOME $HOME/.local/share
 set -gx XDG_CONFIG_HOME $HOME/.config
 set -gx XDG_STATE_HOME $HOME/.local/state
 set -gx XDG_CACHE_HOME $HOME/.cache
-
 # Fzf
 set -g FZF_PREVIEW_FILE_CMD "bat --style=numbers --color=always --line-range :500"
 set -g FZF_LEGACY_KEYBINDINGS 0
@@ -63,10 +62,6 @@ if type -q lazydocker
     alias lzd="lazydocker"
 end
 
-if type -q bat
-    alias os-info="bat /etc/os-release"
-end
-
 if type -q kitty
     alias icat="kitten icat"
 end
@@ -92,18 +87,14 @@ if type -q starship
     enable_transience
 end
 
-
-# Check for nvm to exist
-if type -q nvm
-    # if nvm exist then check for nvmrc
-    if test -e ~/.nvmrc
-        nvm --silent use
-    end
-end
-
 # Changing zoxide 'z' alias to cd
 if type -q zoxide
     zoxide init --cmd cd fish | source
+end
+
+if type -q nvm
+    set --universal nvm_default_version v22.14.0
+    set --universal nvm_default_packages commitizen cz-git
 end
 
 # Yazi keybindings
