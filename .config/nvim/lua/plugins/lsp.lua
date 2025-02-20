@@ -17,6 +17,8 @@ return {
 		"saghen/blink.cmp",
 		dependencies = {
 			"moyiz/blink-emoji.nvim",
+			"epwalsh/obsidian.nvim",
+			"saghen/blink.compat",
 		},
 		opts = {
 			completion = {
@@ -32,6 +34,7 @@ return {
 				},
 			},
 			sources = {
+				compat = { "obsidian", "obsidian_new", "obsidian_tags" },
 				default = {
 					"emoji",
 				},
