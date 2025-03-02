@@ -1,0 +1,106 @@
+{
+  "position": "top",
+  "height": 30,
+  "spacing": 4,
+  "modules-left": [
+    "hyprland/workspaces",
+    "tray"
+  ],
+  "modules-center": [
+    "clock",
+    "hyprland/window"
+  ],
+  "modules-right": [
+    "power-profiles-daemon",
+    "backlight",
+    "battery",
+    "pulseaudio",
+    "custom/power"
+  ],
+  "hyprland/workspaces": {},
+  "hyprland/window": {
+    "format": "{class}",
+    "icon": true,
+    "separate-outputs": true
+  },
+  "tray": {
+    "icon-size": 20,
+    "spacing": 8
+  },
+  "clock": {
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format": "{:%I:%M:%S %p}",
+    "format-alt": "{:%a %d %b %Y}",
+    "interval": 1
+  },
+  "backlight": {
+    "format": "{percent}% {icon}",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{capacity}% {icon}",
+    "format-full": "{capacity}% {icon}",
+    "format-charging": "{capacity}% ",
+    "format-plugged": "{capacity}% ",
+    "format-alt": "{time} {icon}",
+    "interval": 1,
+    "format-icons": [
+      "󰁺",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰂄"
+    ]
+  },
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "󰔡",
+      "performance": "󰅶",
+      "balanced": "󰾆",
+      "power-saver": "󰿢"
+    }
+  },
+  "pulseaudio": {
+    "format": "{volume}% {icon}{format_source}",
+    "format-bluetooth": "{volume}% {icon} {format_source}",
+    "format-bluetooth-muted": " {icon} {format_source}",
+    "format-muted": " {format_source}",
+    "format-source": "{volume}% 󰍬",
+    "format-source-muted": "󰍭",
+    "format-icons": {
+      "headphone": "󰋋 ",
+      "hands-free": "󰋎 ",
+      "headset": "󰋎 ",
+      "phone": "󰤨 ",
+      "portable": "󰤨 ",
+      "car": "󰗡 ",
+      "default": [
+        "󰕿 ",
+        "󰖀 ",
+        "󰕾 "
+      ]
+    },
+    "on-click": "pavucontrol"
+  },
+  "custom/power": {
+    "format": "⏻ ",
+    "on-click": "~/.config/hypr/scripts/power_menu.sh"
+  }
+}

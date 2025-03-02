@@ -1,0 +1,128 @@
+/* Set global font properties */
+* {
+  font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free", sans-serif;
+  /* Ensure FontAwesome is installed for icons */
+  font-weight: 700;
+  font-size: 15px;
+}
+
+/* Waybar main window styling */
+window#waybar {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+  border-bottom: 2px solid white;
+  transition: background-color 0.5s ease-in-out;
+}
+
+/* Reduce opacity when Waybar is hidden */
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+/* Define a blinking animation for urgent elements */
+@keyframes blink {
+  to {
+    color: #ffffff;
+  }
+}
+
+/* Workspaces button styles */
+#workspaces button {
+  background-color: rgba(0, 0, 0, 0);
+  padding: 1px 2px;
+  color: #ffffff;
+  transition: color 0.3s ease-in-out;
+}
+
+#workspaces button:hover {
+  color: #ffcc47;
+}
+
+#workspaces button.active {
+  color: #ffcc47;
+}
+
+/* Urgent workspace animation */
+#workspaces button.urgent {
+  color: #f53c3c;
+  animation: blink 0.5s steps(12) infinite alternate;
+}
+
+/* Padding for various modules */
+#clock,
+#window,
+#tray,
+#workspaces,
+#battery,
+#power-profiles-daemon,
+#backlight,
+#pulseaudio {
+  padding: 2px 4px;
+}
+
+/* Make the window module transparent when no windows are present */
+window#waybar.empty #window {
+  background-color: transparent;
+  border: none;
+}
+
+/* Adjust left margin for the first left-side module (workspaces) */
+.modules-left>widget:first-child>#workspaces {
+  margin-left: 5px;
+}
+
+/* Adjust right margin for the last right-side module (custom power button) */
+.modules-right>widget:last-child>#custom-power {
+  margin-right: 8px;
+}
+
+/* Battery status styling */
+#battery.charging,
+#battery.plugged {
+  color: #2ecc71;
+}
+
+/* Battery warning level */
+#battery.warning:not(.charging) {
+  color: #ffcc47;
+  animation: blink 0.5s steps(12) infinite alternate;
+}
+
+/* Critical battery warning with blinking effect */
+#battery.critical:not(.charging) {
+  color: #f53c3c;
+  animation: blink 0.5s steps(12) infinite alternate;
+}
+
+/* Power profile daemon module colors */
+#power-profiles-daemon.performance {
+  color: #f53c3c;
+}
+
+#power-profiles-daemon.balanced {
+  color: #49aef5;
+}
+
+#power-profiles-daemon.power-saver {
+  color: #2ecc71;
+}
+
+/* Change background when a label is focused */
+label:focus {
+  background-color: #000000;
+}
+
+/* PulseAudio muted state styling */
+#pulseaudio.muted {
+  color: #f53c3c;
+}
+
+/* System tray icon effects */
+#tray>.passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray>.needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: #eb4d4b;
+}

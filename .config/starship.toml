@@ -1,0 +1,36 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Main Prompt
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_state\
+$git_status\
+$cmd_duration\
+$line_break\
+$character"""
+
+# Right Prompt
+right_format = """
+$shell\
+$time\
+"""
+
+# Enable shell module
+[shell]
+disabled = false
+
+# Time Module
+[time]
+use_12hr = true
+disabled = false
+time_format = "%I:%M %p"
+
+# Starship modules
+[character]
+success_symbol = "[[󰄛](green) ❯](green)"
+error_symbol = "[[󰄛](red) ❯](green)"
+vimcmd_symbol = "[󰄛 ❮](green)"           # For use with zsh-vi-mode

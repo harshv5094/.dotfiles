@@ -1,0 +1,111 @@
+[push]
+  default = simple
+  autoSetupRemote = true
+
+[init]
+  defaultBranch = main
+
+[diff]
+  tool = nvimdiff
+
+[core]
+  excludesfiles = ~/.gitignore
+  editor = nvim
+  ignorecase = false
+
+[color]
+  status = auto
+  diff = auto
+  branch = auto
+  interactive = auto
+  grep = auto
+  ui = auto
+
+[alias]
+  # Add all
+  aa = add -A
+
+  # Amend to the last commit
+  amend = commit --amend --no-edit --allow-empty
+
+  # Force pushes the repository overwriting remote
+  forcepush = push --force-with-lease
+
+  # Short commit aliases
+  co = checkout
+  ci = commit
+  cia = commit -a
+	cis = commit -S
+
+  # Short branch aliases
+  br = branch
+  bd = branch --delete
+  ba = branch -a
+  bm = branch --merged
+  bn = branch --no-merged
+
+  # Remaining aliases
+  rst = restore
+  cl = clone
+  st = status
+  sw = switch
+  sts = status --short --branch --renames
+  ps = push
+  pl = pull
+
+  # Short log aliases
+	logs = log --show-signature
+
+  # Checks for all unreachable object
+  pdr = prune --dry-run
+
+  # Set expirty of all unreachable object to now 
+  ref-exp-now = reflog expire --expire=now --expire-unreachable=now --all
+
+  # Special GitHub Aliases
+  pr = "!gh pr list"
+  open = "!gh repo view --web"
+  issue = "!gh issue list"
+
+  # edit conflicted file on merge
+  edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; nvim `f`"
+  # add conflicted file on merge
+  add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
+
+[ghq]
+  root = ~/.ghq/
+
+[github]
+  user = harshv5094
+
+[difftool "nvimdiff"]
+  cmd = nvim -d "$LOCAL" "$REMOTE"
+
+[mergetool "nvimdiff"]
+	cmd = nvim -d "$LOCAL" "$REMOTE" -ancestor "$BASE" -merge "$MERGED"
+	trustExitCode = true
+
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudeg -- %f
+  required = true
+  process = git-lfs filter-process
+
+[user]
+	name = Harsh Vyapari (harshv5094)
+	email = harshvy5094@proton.me
+	signingKey = A897C10C48C4E722
+
+# Setup signed commit using gpg keys
+[commit]
+	gpgsign = true
+
+# Credential authenticator using github cli
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+
+# Credential authenticator using github cli
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential

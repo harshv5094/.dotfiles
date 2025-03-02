@@ -1,0 +1,53 @@
+# col # item              # fg      # bg
+color background          color7   default        # the most bottom bar
+color listnormal          color7   default        # unfocused and without N
+color listnormal_unread   color7   default        # unfocused and with N
+color listfocus           color7   color8         # focused and without N
+color listfocus_unread    color7   color8   bold  # focused but with N
+color info                color0   color1         # bottom and top info bars
+color article             color7   default        # content of an article
+
+# highlights
+highlight article "^(Feed|Link):.*$" color6 default bold
+highlight article "^(Title|Date|Author):.*$" color6 default bold
+highlight article "https?://[^ ]+" color10 default underline
+highlight article "\\[[0-9]+\\]" color10 default bold
+highlight article "\\[image\\ [0-9]+\\]" color10 default bold
+feedlist-format "%?T?║%4i %n %8u %8T %t &╠═══════════════════════════════════════════════════════════════%t?"
+highlight feedlist "[║│]" color3 color0
+highlight feedlist "╠═.*" color3 color0 
+
+# Refresh on Startup
+refresh-on-startup yes
+
+# Automatically add new feeds
+reload-threads 100
+
+# Remove Readed Feeds
+show-read-feeds no
+show-read-articles no
+
+# Custom Vim Keybindings
+bind-key h quit
+bind-key j down
+bind-key k up
+bind-key l open
+bind-key H prev-feed
+bind-key L next-feed
+bind-key g home
+bind-key G end
+bind-key SPACE macro-prefix 
+bind-key b bookmark 
+bind-key ^F pagedown 
+bind-key ^B pageup 
+bind-key ^H toggle-show-read-feeds 
+
+# Open Article in firefox
+macro f set browser "setsid --fork firefox %u > /dev/null 2>&1"; open-in-browser; set browser "xdg-open %u";
+
+# Close the window
+macro q quit
+
+# Macros to watch youtube videos
+macro 3 set browser "setsid --fork mpv --profile=360p %u > /dev/null 2>&1"; open-in-browser; set browser "xdg-open %u";
+macro 7 set browser "setsid --fork mpv --profile=720p %u > /dev/null 2>&1"; open-in-browser; set browser "xdg-open %u";
