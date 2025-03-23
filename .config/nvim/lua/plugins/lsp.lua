@@ -21,6 +21,9 @@ return {
 			"saghen/blink.compat",
 		},
 		opts = {
+			fuzzy = {
+				implementation = "lua",
+			},
 			completion = {
 				menu = {
 					winblend = vim.o.pumblend,
