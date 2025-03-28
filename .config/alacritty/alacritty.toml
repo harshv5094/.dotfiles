@@ -1,0 +1,28 @@
+[general]
+import = ["./colorscheme.toml"]
+
+[env]
+TERM = "xterm-256color"
+
+[window]
+startup_mode = "Maximized"
+padding = { x = 5, y = 5 }
+decorations = "full"
+opacity = 1
+
+[font]
+normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
+bold = { family = "JetBrainsMono Nerd Font", style = "Bold" }
+italic = { family = "JetBrainsMono Nerd Font", style = "Italic" }
+size = 12.0
+
+# [terminal.shell]
+# program = "C:\\Program Files\\PowerShell\\7\\pwsh.exe"
+# args = ["-NoLogo"]
+
+[keyboard]
+bindings = [
+  { key = "V", mods = "Control|Shift", action = "Paste" },
+  { key = "C", mods = "Control|Shift", action = "Copy" },
+  { key = "Return", mods = "Control|Shift", action = "SpawnNewInstance" },
+]
