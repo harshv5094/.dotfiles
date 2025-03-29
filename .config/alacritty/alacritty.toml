@@ -8,12 +8,13 @@ TERM = "xterm-256color"
 startup_mode = "Maximized"
 padding = { x = 5, y = 5 }
 decorations = "full"
-opacity = 1
+opacity = 0.8
 
 [font]
-normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
+normal = { family = "JetBrainsMono Nerd Font", style = "SemiBold" }
 bold = { family = "JetBrainsMono Nerd Font", style = "Bold" }
 italic = { family = "JetBrainsMono Nerd Font", style = "Italic" }
+bold_italic = { family = "JetBrainsMono Nerd Font", style = "Bold Italic" }
 size = 12.0
 
 # [terminal.shell]
