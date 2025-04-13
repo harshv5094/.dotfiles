@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/env sh
 
 info_msg() {
   printf "\033[0;36m%b\033[0m\n" "$1"

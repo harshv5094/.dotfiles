@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/env sh
 
 # Install packages for arch based distro
 package_manager=$(command -v pacman || true)

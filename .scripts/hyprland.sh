@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/env sh
 
 # Check for sudo execution
 if [ "$(id -u)" -eq 0 ]; then

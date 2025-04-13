@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/env sh
 
 # Fish Shell Setup
 info_msg "** Install fish shell and required cli tools"
