@@ -79,7 +79,8 @@ fi
 # Yazi functions
 if command -v yazi &>/dev/null; then
   function y() {
-    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+    local tmp
+    tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
     yazi "$@" --cwd-file="$tmp"
     if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
       builtin cd -- "$cwd" || exit
