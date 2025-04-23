@@ -8,7 +8,7 @@ if [ -n "${package_manager}" ]; then
     wget curl zip unzip peco ripgrep fzf sox bat eza lazygit btop fd \
     zoxide yt-dlp xsel fastfetch openssh tldr yazi \
     trash-cli usbutils cronie imagemagick man-db vdpauinfo \
-    starship bash-completion neovim newsboat go rust base-devel make cmake ninja luarocks hugo
+    starship bash-completion neovim newsboat go rust base-devel make cmake ninja luarocks
 fi
 
 if have fish; then
