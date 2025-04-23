@@ -160,14 +160,13 @@ cloneWallpapers() {
 prompt() {
   info_msg "\n** Welcome to my setup installation script **"
   info_msg "1. Stow My files"
-  info_msg "2. Fish Shell Setup "
+  info_msg "2. Fish Shell Setup"
   info_msg "3. Tmux Setup"
   info_msg "4. My Hyprland Configuration"
   info_msg "5. Home Row Mods Configuration"
-  info_msg "6. My Doom Emacs Configuration"
-  info_msg "7. Clone My Wallpapers"
+  info_msg "6. Clone My Wallpapers"
   info_msg "0. Exit"
-  printf "%b" "Choose the option [0-7]: "
+  printf "%b" "Choose the option [0-6]: "
   read -r choice
 }
 
@@ -210,9 +209,6 @@ while [ "$choice" != "0" ]; do
     homeRowModsCheck
     ;;
   6)
-    . ./.scripts/doom.sh
-    ;;
-  7)
     cloneWallpapers
     ;;
   *)
