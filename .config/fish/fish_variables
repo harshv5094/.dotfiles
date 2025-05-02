@@ -61,7 +61,7 @@ SETUVAR fish_pager_color_selected_description:\x1d
 SETUVAR fish_pager_color_selected_prefix:\x1d
 SETUVAR fish_user_paths:/home/harsh/\x2ecache/\x2ebun/bin
 SETUVAR nvm_default_packages:commitizen\x1ecz\x2dgit
-SETUVAR nvm_default_version:v22\x2e14\x2e0
+SETUVAR nvm_default_version:v22\x2e15\x2e0
 SETUVAR sponge_allow_previously_successful:true
 SETUVAR sponge_delay:2
 SETUVAR sponge_filters:sponge_filter_failed\x1esponge_filter_matched

@@ -93,7 +93,7 @@ if type -q zoxide
 end
 
 if type -q nvm
-    set --universal nvm_default_version v22.14.0
+    set --universal nvm_default_version v22.15.0
     set --universal nvm_default_packages commitizen cz-git
 end
 
