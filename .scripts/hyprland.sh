@@ -56,7 +56,7 @@ settingUpSddm() {
     fi
     ;;
   n | N)
-    success_msg "Skipping home row mods setup."
+    success_msg "** Skipping up SDDM Setup **"
     ;;
   *)
     warning_msg "Invalid choice. Please enter Y or N."
