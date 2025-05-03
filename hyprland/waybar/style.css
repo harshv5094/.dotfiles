@@ -82,6 +82,10 @@ window#waybar.empty #window {
   color: #2ecc71;
 }
 
+#battery {
+  margin-right: 3px;
+}
+
 /* Battery warning level */
 #battery.warning:not(.charging) {
   color: #ffcc47;
