@@ -27,14 +27,6 @@ have() {
   command -v "$1" >/dev/null 2>&1
 }
 
-# Paru AUR Helper installer #
-installParu() {
-  info_msg "** Installing Paru **"
-  "${ESCALATION_TOOL}" pacman -S --noconfirm --needed git base-devel
-  git clone https://aur.archlinux.org/paru.git /tmp/paru && cd /tmp/paru && makepkg -si
-  rm -rf /tmp/paru
-}
-
 # Systemd Service Starter #
 systemdServices() {
   info_msg "** Enable Systemd Services **"
@@ -153,7 +145,6 @@ cloneWallpapers() {
     info_msg "** Clonning My wallpapers **"
     git clone https://github.com/harshv5094/wallpapers "$HOME/Pictures/wallpapers/"
   fi
-
 }
 
 # Main Menu #
@@ -174,6 +165,16 @@ prompt() {
 DOTFILES_DIR="$HOME/.dotfiles"
 CONFIG_DIR="$HOME/.config"
 ESCALATION_TOOL=$(command -v doas || command -v sudo || error_msg "No escalation tool found")
+AUR_HELPER=$(command -v paru || command -v yay)
+
+# Check for AUR_HELPER Helper #
+checkAUR_HELPER(){
+  # Check if an AUR_HELPER helper was found
+  if [ -z "$AUR_HELPER" ]; then
+    echo "No AUR_HELPER helper found. Please install paru or yay."
+    exit 1
+  fi
+}
 
 if [ ! -d "${CONFIG_DIR}" ]; then
   mkdir -p "${CONFIG_DIR}"
@@ -182,11 +183,11 @@ fi
 if [ ! -d "${DOTFILES_DIR}" ]; then
   info_msg "Cloning my dotfiles repository..."
   git clone https://github.com/harshv5094/.dotfiles "${DOTFILES_DIR}"
-  cd "${DOTFILES_DIR}"
+  cd "${DOTFILES_DIR}" || return
   success_msg "DOTFILES_DIR: $(pwd)"
   prompt
 else
-  cd "${DOTFILES_DIR}"
+  cd "${DOTFILES_DIR}" || return
   success_msg "DOTFILES_DIR: $(pwd)"
   prompt
 fi

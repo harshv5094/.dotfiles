@@ -6,6 +6,9 @@ if [ "$(id -u)" -eq 0 ]; then
   exit 1
 fi
 
+# Check if paru or yay exist or not
+checkAUR_HELPER
+
 # Check config folder #
 checkFolderStatus() {
   CONFIG_DIR="$HOME/.config"
@@ -16,7 +19,8 @@ checkFolderStatus() {
 
   for folder in $dir_paths; do
     if [ -e "${CONFIG_DIR}/${folder}" ]; then
-      warning_msg "*** ${CONFIG_DIR}/${folder} exists **"
+      warning_msg "*** ${CONFIG_DIR}/${folder} exists ***"
+      warning_msg "** Backing up my config files **"
       mv "${CONFIG_DIR:?}/${folder:?}" "${CONFIG_DIR:?}/${folder:?}.bak"
       info_msg "* Creating symlink for ${folder} directory *"
       ln -s "${BASE_DIR}/${folder}" "${CONFIG_DIR}"
@@ -36,9 +40,8 @@ settingUpSddm() {
 
   case "$choice" in
   y | Y)
-    if have paru; then
       warning_msg "** Setting Up SDDM Display Manager **"
-      paru -S --noconfirm sddm sddm-astronaut-theme
+      ${AUR_HELPER} -S --noconfirm sddm sddm-astronaut-theme
 
       warning_msg "** Setting up sddm.conf **"
       printf "[Theme]\nCurrent=sddm-astronaut-theme" | sudo tee /etc/sddm.conf
@@ -50,10 +53,6 @@ settingUpSddm() {
 
       warning_msg "Enabling SDDM service..."
       sudo systemctl enable sddm.service
-    else
-      installParu
-      settingUpSddm
-    fi
     ;;
   n | N)
     success_msg "** Skipping up SDDM Setup **"
@@ -66,25 +65,25 @@ settingUpSddm() {
 
 # Install Packages #
 packageInstall() {
-  if have paru; then
     info_msg "** Installing Hyprland Packages **"
-    paru -S --noconfirm kitty hyprland hyprlock hypridle hyprpicker hyprpaper uwsm rofi xdg-desktop-portal-hyprland xdg-desktop-portal-gtk
+    ${AUR_HELPER} -S --noconfirm kitty hyprland hyprlock hypridle hyprpicker hyprpaper uwsm rofi xdg-desktop-portal-hyprland xdg-desktop-portal-gtk
 
     info_msg "** Installing Base tools **"
-    paru -S --noconfirm pavucontrol brightnessctl playerctl network-manager-applet gnome-keyring power-profiles-daemon \
+    ${AUR_HELPER} -S --noconfirm pavucontrol brightnessctl playerctl network-manager-applet gnome-keyring power-profiles-daemon \
       wl-clipboard copyq swaync blueman bluez bluez-utils waybar grimblast-git mate-polkit nwg-look \
-      xdg-utils xdg-user-dirs xdg-user-dirs-gtk nitch \
-      gnome-themes-extra breeze-gtk qt5ct
+      xdg-utils xdg-user-dirs xdg-user-dirs-gtk gnome-themes-extra breeze-gtk qt5ct
 
     info_msg "** Installing GUI tools **"
-    paru -S --noconfirm firefox gnome-disk-utility gnome-tweaks gnome-text-editor gnome-clocks gnome-characters \
-      transmission-gtk seahorse rhythmbox loupe totem timeshift evince syncthing localsend-bin transmission-gtk baobab visual-studio-code-bin mpv libportal-gtk4 libportal-qt5 libportal-gtk3 libportal-qt6 gst-plugins-ugly
+    ${AUR_HELPER} -S --noconfirm firefox gnome-disk-utility gnome-tweaks gnome-text-editor gnome-clocks gnome-characters \
+      seahorse rhythmbox loupe totem timeshift evince syncthing transmission-gtk \
+      baobab mpv libportal-gtk4 libportal-qt5 libportal-gtk3 libportal-qt6 gst-plugins-ugly
 
     info_msg "** Installing File Manager **"
-    paru -S --noconfirm thunar tumbler libgepub libopenraw thunar-volman thunar-media-tags-plugin thunar-archive-plugin xarchiver
+    ${AUR_HELPER} -S --noconfirm thunar tumbler libgepub libopenraw \
+      thunar-volman thunar-media-tags-plugin thunar-archive-plugin xarchiver
 
     info_msg "** Installing Fonts & Icons **"
-    paru -S --noconfirm noto-fonts noto-fonts-emoji noto-fonts-extra ttf-jetbrains-mono-nerd inter-font ttf-firacode-nerd \
+    ${AUR_HELPER} -S --noconfirm noto-fonts noto-fonts-emoji noto-fonts-extra ttf-jetbrains-mono-nerd inter-font ttf-firacode-nerd \
       ttf-nerd-fonts-symbols ttf-nerd-fonts-symbols-common ttf-nerd-fonts-symbols-mono ttf-hanazono noto-fonts-cjk papirus-icon-theme otf-font-awesome
 
     info_msg "** Setting up XDG Default Directories **"
@@ -92,11 +91,6 @@ packageInstall() {
 
     info_msg "** Setting up XDG GTK Default Directories **"
     xdg-user-dirs-gtk-update
-
-  else
-    installParu
-    packageInstall
-  fi
 }
 
 # Main function #
