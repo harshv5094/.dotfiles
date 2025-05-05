@@ -4,10 +4,10 @@ if [[ $# -eq 1 ]]; then
   selected=$1
 else
   selected=$(
-    find ~/.dotfiles/.config/ ~/.dotfiles/ ~/.dotfiles/.local ~/.dotfiles/hyprland/ ~/.dotfiles/hyprland/.config \
+    find ~/.dotfiles/.config/ ~/.dotfiles/hyprland/  \
       -mindepth 1 -maxdepth 1 -type d -not -path '*/.git*' | fzf --style full --layout=reverse \
       --border --padding 1,2 \
-      --border-label '** Tmux New Window **' --input-label ' Input ' --header-label ' File Type ' \
+      --border-label '** Tmux Nvim Config Window **' --input-label ' Input ' --header-label ' File Type ' \
       --bind 'focus:transform-header:file --brief {}' \
       --bind 'alt-j:down,alt-k:up' \
       --preview "tree -C --noreport -L 1 {}" \
