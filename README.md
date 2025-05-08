@@ -13,7 +13,7 @@ For now I'm using Arch Linux as my current system.
 ### Linux
 
 ```bash
-curl -fsLo /tmp/setup.sh https://raw.githubusercontent.com/harshv5094/.dotfiles/refs/heads/main/setup.sh && bash /tmp/setup.sh && rm -rf /tmp/setup.sh
+curl -fsLo /tmp/setup.sh https://raw.githubusercontent.com/harshv5094/.dotfiles/refs/heads/main/setup.sh && sh /tmp/setup.sh && rm -rf /tmp/setup.sh
 ```
 
 ## FAQ
