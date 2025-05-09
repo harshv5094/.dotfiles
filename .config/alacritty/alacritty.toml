@@ -15,11 +15,15 @@ normal = { family = "JetBrainsMono Nerd Font", style = "SemiBold" }
 bold = { family = "JetBrainsMono Nerd Font", style = "Bold" }
 italic = { family = "JetBrainsMono Nerd Font", style = "Italic" }
 bold_italic = { family = "JetBrainsMono Nerd Font", style = "Bold Italic" }
-size = 12.0
+size = 13.0
 
 # [terminal.shell]
 # program = "C:\\Program Files\\PowerShell\\7\\pwsh.exe"
 # args = ["-NoLogo"]
+#
+# [terminal.shell]
+# program = "C:\\Windows\\System32\\wsl.exe"
+# args = ["-d archlinux --cd ~"]
 
 [keyboard]
 bindings = [
