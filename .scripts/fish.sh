@@ -1,7 +1,7 @@
 #!/bin/env sh
 
 # Fish Shell Setup
-info_msg "** Install fish shell and required cli tools"
+info_msg "** Install fish shell and required cli tools **"
 package_manager=$(command -v pacman || true)
 if [ -n "${package_manager}" ]; then
   "${ESCALATION_TOOL}" "${package_manager}" -S --needed --noconfirm fish flatpak tree git github-cli git-lfs git-filter-repo \
