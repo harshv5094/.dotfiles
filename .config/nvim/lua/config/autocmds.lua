@@ -23,3 +23,12 @@ vim.api.nvim_create_autocmd({ "BufEnter", "VimEnter" }, {
 		vim.api.nvim_set_hl(0, "LineNrBelow", { fg = fgcolor, bg = bgcolor })
 	end,
 })
+
+-- Setting up command line color to white
+vim.api.nvim_create_autocmd({ "BufEnter", "VimEnter", "CmdLineEnter", "CmdLineLeave" }, {
+	callback = function()
+		local fgcolor = "#ffffff"
+		local bgcolor = "none"
+		vim.api.nvim_set_hl(0, "MsgArea", { fg = fgcolor, bg = bgcolor })
+	end,
+})
