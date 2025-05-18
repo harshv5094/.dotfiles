@@ -3,8 +3,12 @@ local opt = vim.opt
 
 g.mapleader = " "
 g.maplocalleader = "\\"
+
+-- Lazyvim Options
 g.snacks_animate = true
 g.lazyvim_picker = "telescope"
+g.lazyvim_cmp = "blink.cmp"
+g.lazyvim_prettier_needs_config = true
 
 opt.encoding = "utf-8"
 opt.number = true
