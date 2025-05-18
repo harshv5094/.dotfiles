@@ -19,6 +19,14 @@ return {
 				desc = "Telescope -> Find files from Lazy config root",
 			},
 			{
+				";c",
+				function()
+					local builtin = require("telescope.builtin")
+					builtin.lsp_incoming_calls()
+				end,
+				desc = "Telescope -> LSP incoming calls",
+			},
+			{
 				";;",
 				function()
 					require("telescope.builtin").resume()
