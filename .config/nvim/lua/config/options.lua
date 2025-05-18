@@ -4,6 +4,7 @@ local opt = vim.opt
 g.mapleader = " "
 g.maplocalleader = "\\"
 g.snacks_animate = true
+g.lazyvim_picker = "telescope"
 
 opt.encoding = "utf-8"
 opt.number = true
