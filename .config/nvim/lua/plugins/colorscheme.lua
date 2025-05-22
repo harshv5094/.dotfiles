@@ -17,4 +17,8 @@ return {
 			opts.cache = true
 		end,
 	},
+	{
+		"catppuccin/nvim",
+		enabled = false,
+	},
 }
