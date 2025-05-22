@@ -1,3 +1,6 @@
+-- Default variables values for common options
+local default_height = 20
+
 return {
 	{
 		"nvim-telescope/telescope.nvim",
@@ -78,7 +81,9 @@ return {
 						grouped = true,
 						previewer = true,
 						initial_mode = "normal",
-						layout_config = { height = 20 },
+						layout_config = {
+							height = default_height,
+						},
 					})
 				end,
 				desc = "Telescope -> Browse File",
@@ -94,7 +99,10 @@ return {
 				selection_caret = "➤ ",
 				wrap_results = true,
 				layout_strategy = "horizontal",
-				layout_config = { prompt_position = "top" },
+				layout_config = {
+					prompt_position = "top",
+					height = default_height,
+				},
 				sorting_strategy = "ascending",
 				winblend = 0,
 				mappings = {
