@@ -4,14 +4,14 @@ customCommands:
     description: "commit with commitizen"
     context: "files"
     loadingText: "opening commitizen commit tool"
-    subprocess: true
+    output: terminal
 
   - key: "E"
     command: "gh repo create"
     description: "Create GitHub Repository"
     context: "files"
     loadingText: "Loading..."
-    subprocess: true
+    output: terminal
 
 gui:
   nerdFontsVersion: "3"
