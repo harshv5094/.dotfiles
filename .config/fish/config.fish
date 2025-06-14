@@ -46,6 +46,7 @@ alias ls "ls -p -G"
 alias la "ls -A"
 alias ll "ls -l"
 alias lla "ll -A"
+alias weather "~/.dotfiles/.scripts/weather_report.sh"
 
 if type -q eza
     alias ls="eza -g --icons"

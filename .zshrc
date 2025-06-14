@@ -111,6 +111,7 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias weather="~/.dotfiles/.scripts/weather_report.sh"
 
 if have eza; then
   alias ls="eza -g --icons"

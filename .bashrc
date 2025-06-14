@@ -36,6 +36,7 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias weather="~/.dotfiles/.scripts/weather_report.sh"
 
 function have() {
   command -v "$1" >/dev/null 2>&1
