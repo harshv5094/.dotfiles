@@ -49,7 +49,7 @@ return {
 				desc = "Telescope -> Find Files",
 			},
 			{
-				"\\\\",
+				";b",
 				function()
 					local builtin = require("telescope.builtin")
 					builtin.buffers()
