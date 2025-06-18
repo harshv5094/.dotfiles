@@ -30,5 +30,3 @@ background {
 " >~/.config/hypr/conf/lock-background.conf
 
 hyprpaper &
-
-main
