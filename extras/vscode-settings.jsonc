@@ -1,0 +1,269 @@
+{
+  // Workbench Settings
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorTheme": "Rosé Pine",
+  "window.menuBarVisibility": "toggle",
+  "workbench.editor.showTabs": "single",
+  "breadcrumbs.enabled": false,
+
+  // Files Settings
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 2000,
+
+  // Git Settings
+  "git.autofetch": true,
+  "git.fetchOnPull": true,
+  "git.detectSubmodules": true,
+  "git.confirmSync": true,
+  "git.autorefresh": true,
+  "git.decorations.enabled": true,
+
+  // VS Code UI Enhancement
+  "scm.diffDecorations": "all",
+  "scm.inputFontSize": 14,
+
+  // GitHub Settings
+  "github.gitProtocol": "https",
+  "github.showAvatar": true,
+
+  // Editor Settings
+  "editor.wordWrap": "off",
+  "editor.stickyScroll.enabled": true,
+  "editor.stickyScroll.defaultModel": "foldingProviderModel",
+  "editor.fontFamily": "JetBrainsMono Nerd Font, monospace",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.linkedEditing": true,
+  "editor.formatOnSave": true,
+  "editor.experimental.treeSitterTelemetry": false,
+  "editor.minimap.enabled": false,
+  "editor.fontSize": 15,
+
+  // Prettier configuration
+  "prettier.arrowParens": "avoid",
+  "prettier.tabWidth": 2,
+
+  // Disable Telemetry
+  "redhat.telemetry.enabled": false,
+  "telemetry.telemetryLevel": "off",
+  "telemetry.feedback.enabled": false,
+  "python.analysis.enablePerfTelemetry": false,
+  "python.analysis.reportExtraTelemetry": false,
+
+  // Window Title bar style
+  "window.titleBarStyle": "custom",
+  "window.title": "${dirty}${activeEditorShort}${separator}${rootName}",
+  // Zen Mode
+  "zenMode.fullScreen": true,
+  "zenMode.hideStatusBar": true,
+  "zenMode.hideActivityBar": true,
+
+  // vim plugin settings
+  "vim.smartRelativeLine": true,
+  "vim.leader": "<space>",
+  "vim.hlsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.normalModeKeyBindings": [
+    // file motions and actions (Start)
+    {
+      "before": ["<leader>", "]"],
+      "commands": ["workbench.action.nextEditorInGroup"]
+    },
+    {
+      "before": ["<leader>", "["],
+      "commands": ["workbench.action.previousEditorInGroup"]
+    },
+    {
+      "before": ["s", "s"],
+      "commands": ["workbench.action.splitEditorDown"]
+    },
+    {
+      "before": ["<Tab>"],
+      "commands": ["workbench.action.nextEditor"]
+    },
+    {
+      "before": ["<S-Tab>"],
+      "commands": ["workbench.action.previousEditor"]
+    },
+    {
+      "before": ["s", "v"],
+      "commands": ["workbench.action.splitEditorRight"]
+    },
+    {
+      "before": ["s", "h"],
+      "commands": ["workbench.action.focusLeftGroup"]
+    },
+    {
+      "before": ["s", "j"],
+      "commands": ["workbench.action.focusBelowGroup"]
+    },
+    {
+      "before": ["<leader>", "q"],
+      "commands": ["workbench.action.closeActiveEditor"]
+    },
+    {
+      "before": ["s", "k"],
+      "commands": ["workbench.action.focusAboveGroup"]
+    },
+    {
+      "before": ["s", "l"],
+      "commands": ["workbench.action.focusRightGroup"]
+    },
+    // file motions and actions (End)
+
+    // Primary Sidebar tabs (Start)
+    {
+      "before": ["<leader>", "e"],
+      "commands": ["workbench.view.explorer"]
+    },
+    {
+      "before": ["<leader>", "s"],
+      "commands": ["workbench.view.scm"]
+    },
+    {
+      "before": ["<leader>", "d"],
+      "commands": ["workbench.view.debug"]
+    },
+    {
+      "before": ["<leader>", "x"],
+      "commands": ["workbench.view.extensions"]
+    },
+    // Primary Sidebar tabs (End)
+
+    // File Search and Special Command mode (Start)
+    {
+      "before": ["<leader>", "c"],
+      "commands": ["workbench.action.showCommands"]
+    },
+    {
+      "before": ["<leader>", "b"],
+      "commands": ["workbench.action.toggleSidebarVisibility"]
+    },
+    {
+      "before": ["<leader>", "S"],
+      "commands": ["workbench.action.toggleStatusbarVisibility"]
+    },
+    {
+      "before": ["<leader>", "f"],
+      "commands": ["workbench.action.quickOpen"]
+    },
+    {
+      "before": ["<leader>", "z"],
+      "commands": ["workbench.action.toggleZenMode"]
+    },
+    {
+      "before": ["<leader>", "a"],
+      "commands": ["workbench.action.toggleActivityBarVisibility"]
+    },
+    // File Search and Special Command mode (End)
+
+    // Text actions (Start)
+    {
+      "before": ["<leader>", "F"],
+      "commands": ["actions.find"]
+    },
+    {
+      "before": ["<leader>", "H"],
+      "commands": ["editor.action.startFindReplaceAction"]
+    },
+    {
+      "before": ["<leader>", "Y"],
+      "commands": [
+        "editor.action.selectAll",
+        "editor.action.clipboardCopyAction"
+      ]
+    },
+    {
+      "before": ["<leader>", "X"],
+      "commands": [
+        "editor.action.selectAll",
+        "editor.action.clipboardCutAction"
+      ]
+    },
+    {
+      "before": ["<leader>", "P"],
+      "commands": ["editor.action.clipboardPasteAction"]
+    },
+    // Text actions (End)
+
+    // Git Keybindings (Start)
+    {
+      "before": ["<leader>", "g", "l"],
+      "commands": ["git.clone"]
+    },
+    {
+      "before": ["<leader>", "g", "b"],
+      "commands": ["git.checkout"]
+    },
+    {
+      "before": ["<leader>", "g", "a"],
+      "commands": ["git.stage"]
+    },
+    {
+      "before": ["<leader>", "g", "A"],
+      "commands": ["git.stageAll"]
+    },
+    {
+      "before": ["<leader>", "g", "u"],
+      "commands": ["git.unstageChanges"]
+    },
+    {
+      "before": ["<leader>", "g", "U"],
+      "commands": ["git.unstageAll"]
+    },
+    {
+      "before": ["<leader>", "g", "c"],
+      "commands": ["git.commitStaged"]
+    },
+    {
+      "before": ["<leader>", "g", "p"],
+      "commands": ["git.push"]
+    },
+    {
+      "before": ["<leader>", "g", "P"],
+      "commands": ["git.pull"]
+    },
+    {
+      "before": ["<leader>", "g", "s"],
+      "commands": ["git.sync"]
+    },
+    {
+      "before": ["<leader>", "g", "S", "s"],
+      "commands": ["git.stash"]
+    },
+    {
+      "before": ["<leader>", "g", "S", "a"],
+      "commands": ["git.stashApply"]
+    },
+    {
+      "before": ["<leader>", "g", "S", "p"],
+      "commands": ["git.stashPop"]
+    },
+    {
+      "before": ["<leader>", "g", "S", "l"],
+      "commands": ["git.stashList"]
+    }
+    // Git Keybindings (End)
+  ],
+  "vim.visualModeKeyBindings": [
+    {
+      "before": ["<leader>", "F"],
+      "commands": ["actions.find"]
+    },
+    {
+      "before": ["<leader>", "H"],
+      "commands": ["editor.action.startFindReplaceAction"]
+    }
+  ],
+
+  // Misc and Dynamic settings
+  "explorer.confirmDragAndDrop": false,
+  "security.workspace.trust.untrustedFiles": "open",
+  "svelte.enable-ts-plugin": true,
+  "github.copilot.enable": {
+    "*": false,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  },
+  "workbench.activityBar.location": "hidden"
+}
