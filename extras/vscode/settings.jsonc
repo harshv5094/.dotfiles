@@ -40,6 +40,10 @@
 
   // Prettier configuration
   "prettier.arrowParens": "avoid",
+  "prettier.trailingComma": "none",
+  "prettier.bracketSpacing": true,
+  "prettier.bracketSameLine": false,
+  "prettier.jsxSingleQuote": true,
   "prettier.tabWidth": 2,
 
   // Disable Telemetry
