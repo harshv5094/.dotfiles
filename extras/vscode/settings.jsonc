@@ -252,7 +252,7 @@
     },
     {
       "before": ["<leader>", "g", "S", "l"],
-      "commands": ["git.stashList"]
+      "commands": ["git.stashView"]
     },
     // Git Keybindings (End)
 
