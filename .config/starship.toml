@@ -28,9 +28,3 @@ disabled = false
 use_12hr = true
 disabled = false
 time_format = "%I:%M %p"
-
-# Starship modules
-[character]
-success_symbol = "[[󰄛](green) ❯](green)"
-error_symbol = "[[󰄛](red) ❯](green)"
-vimcmd_symbol = "[󰄛 ❮](green)"           # For use with zsh-vi-mode
