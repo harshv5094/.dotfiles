@@ -14,7 +14,6 @@
   "git.autofetch": true,
   "git.fetchOnPull": true,
   "git.detectSubmodules": true,
-  "git.confirmSync": true,
   "git.autorefresh": true,
   "git.decorations.enabled": true,
   "git.blame.editorDecoration.enabled": true,
