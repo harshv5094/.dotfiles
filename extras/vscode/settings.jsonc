@@ -219,11 +219,11 @@
       "commands": ["git.branch"]
     },
     {
-      "before": ["<leader>", "g", "p"],
+      "before": ["<leader>", "g", "P"],
       "commands": ["git.push"]
     },
     {
-      "before": ["<leader>", "g", "P"],
+      "before": ["<leader>", "g", "p"],
       "commands": ["git.pull"]
     },
     {
