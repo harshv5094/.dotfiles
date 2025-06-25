@@ -17,13 +17,14 @@
   "git.confirmSync": true,
   "git.autorefresh": true,
   "git.decorations.enabled": true,
+  "git.blame.editorDecoration.enabled": true,
 
   // VS Code UI Enhancement
   "scm.diffDecorations": "all",
   "scm.inputFontSize": 14,
 
   // GitHub Settings
-  "github.gitProtocol": "https",
+  "github.gitProtocol": "ssh",
   "github.showAvatar": true,
 
   // Editor Settings
@@ -187,12 +188,12 @@
 
     // Git Keybindings (Start)
     {
-      "before": ["<leader>", "g", "l"],
-      "commands": ["git.clone"]
+      "before": ["<leader>", "g", "c"],
+      "commands": ["git.commitStaged"]
     },
     {
-      "before": ["<leader>", "g", "b"],
-      "commands": ["git.checkout"]
+      "before": ["<leader>", "g", "C"],
+      "commands": ["git.commitAll"]
     },
     {
       "before": ["<leader>", "g", "a"],
@@ -211,8 +212,12 @@
       "commands": ["git.unstageAll"]
     },
     {
-      "before": ["<leader>", "g", "c"],
-      "commands": ["git.commitStaged"]
+      "before": ["<leader>", "g", "b"],
+      "commands": ["git.checkout"]
+    },
+    {
+      "before": ["<leader>", "g", "B"],
+      "commands": ["git.branch"]
     },
     {
       "before": ["<leader>", "g", "p"],
@@ -225,6 +230,14 @@
     {
       "before": ["<leader>", "g", "s"],
       "commands": ["git.sync"]
+    },
+    {
+      "before": ["<leader>", "g", "m"],
+      "commands": ["git.commitStaged"] // commit with message prompt
+    },
+    {
+      "before": ["<leader>", "g", "c", "l"],
+      "commands": ["git.clone"]
     },
     {
       "before": ["<leader>", "g", "S", "s"],
@@ -241,18 +254,31 @@
     {
       "before": ["<leader>", "g", "S", "l"],
       "commands": ["git.stashList"]
-    }
+    },
     // Git Keybindings (End)
-  ],
-  "vim.visualModeKeyBindings": [
+
+    // Terminal Specific Keybindings (Start)
     {
-      "before": ["<leader>", "F"],
-      "commands": ["actions.find"]
+      "before": ["<leader>", "t", "t"],
+      "commands": ["workbench.action.terminal.toggleTerminal"]
     },
     {
-      "before": ["<leader>", "H"],
-      "commands": ["editor.action.startFindReplaceAction"]
+      "before": ["<leader>", "t", "p"],
+      "commands": ["workbench.action.remote.showPorts"]
+    },
+    {
+      "before": ["<leader>", "t", "d"],
+      "commands": ["workbench.debug.action.toggleRepl"]
+    },
+    {
+      "before": ["<leader>", "t", "x"],
+      "commands": ["workbench.actions.view.problems"]
+    },
+    {
+      "before": ["<leader>", "t", "o"],
+      "commands": ["workbench.action.output.toggleOutput"]
     }
+    // Terminal Specific Keybindings (End)
   ],
 
   // Misc and Dynamic settings
