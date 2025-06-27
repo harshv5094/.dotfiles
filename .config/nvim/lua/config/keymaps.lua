@@ -1,6 +1,9 @@
 local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
+-- Custom Utility function
+local git_init = require("utils.git_init")
+
 -- New tab
 map("n", "te", ":tabedit<CR>")
 map("n", "<tab>", ":tabnext<CR>", opts)
@@ -21,6 +24,9 @@ map("n", "<C-h>", "<C-w><", opts)
 map("n", "<C-l>", "<C-w>>", opts)
 map("n", "<C-k>", "<C-w>+", opts)
 map("n", "<C-j>", "<C-w>-", opts)
+
+-- Git init current open file root dir
+map("n", "<leader>gi", git_init, { desc = "Git init (root)" })
 
 -- netrw Directory explore window
 map("n", ";x", "<cmd>Explore<CR>", opts)
