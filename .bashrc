@@ -73,10 +73,6 @@ if have tmux; then
   alias ide="~/.dotfiles/.scripts/ide.sh"
 fi
 
-if have git; then
-  alias g=git
-fi
-
 # Yazi functions
 if command -v yazi &>/dev/null; then
   function y() {

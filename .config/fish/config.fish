@@ -71,10 +71,6 @@ if type -q tmux
     alias ide="~/.dotfiles/.scripts/ide.sh"
 end
 
-if type -q git
-    alias g=git
-end
-
 ########################################
 # Eval / Initlaization
 ########################################

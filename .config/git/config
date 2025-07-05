@@ -22,36 +22,11 @@
   ui = auto
 
 [alias]
-  # Add all
-  aa = add -A
-
   # Amend to the last commit
   amend = commit --amend --no-edit --allow-empty
 
   # Force pushes the repository overwriting remote
   forcepush = push --force-with-lease
-
-  # Short commit aliases
-  co = checkout
-  ci = commit
-  cia = commit -a
-	cis = commit -S
-
-  # Short branch aliases
-  br = branch
-  bd = branch --delete
-  ba = branch -a
-  bm = branch --merged
-  bn = branch --no-merged
-
-  # Remaining aliases
-  rst = restore
-  cl = clone
-  st = status
-  sw = switch
-  sts = status --short --branch --renames
-  ps = push
-  pl = pull
 
   # Short log aliases
 	logs = log --show-signature
