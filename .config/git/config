@@ -47,6 +47,9 @@
   # add conflicted file on merge
   add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
 
+  # Clean untracked object
+	deepclean = !git reflog expire --expire=now --expire-unreachable=now --all && git gc --prune=now --aggressive
+
 [ghq]
   root = ~/.ghq/
 
