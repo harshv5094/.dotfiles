@@ -1,6 +1,9 @@
 node_modules/
 .config/nvim/*.json
 
+.config/mpd/database
+.config/mpd/*.sql
+
 .config/fish/functions/tide
 .config/fish/functions/*.py
 
