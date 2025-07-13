@@ -81,7 +81,7 @@ packageInstall() {
   info_msg "** Installing GUI tools **"
   ${AUR_HELPER} -S --noconfirm firefox gnome-disk-utility gnome-tweaks gnome-text-editor gnome-clocks gnome-characters \
     seahorse rhythmbox loupe totem timeshift evince syncthing transmission-gtk \
-    baobab mpv libportal-gtk4 libportal-qt5 libportal-gtk3 libportal-qt6 gst-plugins-ugly
+    baobab mpv mpd mpc libportal-gtk4 libportal-qt5 libportal-gtk3 libportal-qt6 gst-plugins-ugly
 
   info_msg "** Installing File Manager **"
   ${AUR_HELPER} -S --noconfirm thunar tumbler libgepub libopenraw \
