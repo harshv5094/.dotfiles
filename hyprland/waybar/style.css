@@ -71,8 +71,8 @@ window#waybar.empty #window {
   margin-left: 5px;
 }
 
-/* Adjust right margin for the last right-side module (custom power button) */
-.modules-right>widget:last-child>#custom-power {
+/* Adjust right margin for the last right-side module */
+.modules-right>widget:last-child>#pulseaudio {
   margin-right: 8px;
 }
 

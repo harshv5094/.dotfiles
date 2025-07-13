@@ -15,7 +15,6 @@
     "backlight",
     "battery",
     "pulseaudio",
-    "custom/power"
   ],
   "hyprland/workspaces": {},
   "hyprland/window": {
@@ -83,7 +82,7 @@
     "format-bluetooth": "{volume}% {icon} {format_source}",
     "format-bluetooth-muted": " {icon} {format_source}",
     "format-muted": " {format_source}",
-    "format-source": "{volume}% ",
+    "format-source": " {volume}% ",
     "format-source-muted": "",
     "format-icons": {
       "headphone": "",
@@ -100,8 +99,4 @@
     },
     "on-click": "pavucontrol"
   },
-  "custom/power": {
-    "format": "⏻ ",
-    "on-click": "~/.config/hypr/scripts/power_menu.sh"
-  }
 }
