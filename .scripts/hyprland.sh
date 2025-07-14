@@ -76,7 +76,7 @@ packageInstall() {
   info_msg "** Installing Base tools **"
   ${AUR_HELPER} -S --noconfirm pavucontrol brightnessctl playerctl network-manager-applet gnome-keyring power-profiles-daemon \
     wl-clipboard copyq swaync blueman bluez bluez-utils waybar grimblast-git mate-polkit nwg-look \
-    xdg-utils xdg-user-dirs xdg-user-dirs-gtk gnome-themes-extra qt5ct
+    xdg-utils xdg-user-dirs xdg-user-dirs-gtk gnome-themes-extra qt5ct mtpfs gvfs-mtp android-udev
 
   info_msg "** Installing GUI tools **"
   ${AUR_HELPER} -S --noconfirm firefox gnome-disk-utility gnome-tweaks gnome-text-editor gnome-clocks gnome-characters \
