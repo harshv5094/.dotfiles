@@ -16,5 +16,6 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCoL8olX-259lS1N6QPyP4IQ "Re
 
 "query:Web Articles:tags # \"Posts\""
 https://archlinux.org/feeds/news "Posts"  "Arch Linux"                                                               # Arch Linux News
+https://archlinux.org/feeds/security/ "Posts" "Arch Linux Security"                                             # Arch Linux Security Feed
 https://itsfoss.com/rss/ "Posts" "Its Foss"                                                                          # Its Foss
 https://dotfyle.com/this-week-in-neovim/rss.xml "Posts" "This Week In Neovim"                                        # This week in neovim
