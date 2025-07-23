@@ -1,14 +1,26 @@
+# Node.js
 node_modules/
+
+# Neovim
 .config/nvim/*.json
 
+# MPD (fixes)
 .config/mpd/database
+.config/mpd/*.db
+.config/mpd/*.log
+.config/mpd/*.pid
+.config/mpd/*.state
 .config/mpd/*.sql
 
+# Fish Shell
 .config/fish/functions/tide
 .config/fish/functions/*.py
 
+# Tmux
 .config/tmux/plugins/*
-.config/tmux/plugins/
 
+# BTOP
 .config/btop/btop.log
+
+# oh-my-posh
 .local/bin/oh-my-posh
