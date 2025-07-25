@@ -46,19 +46,6 @@ return {
 			opts.dashboard.sections = {
 				{ section = "header" },
 				{ icon = " ", title = "Keymaps", section = "keys", indent = 2, padding = 1 },
-				{
-					icon = " ",
-					title = "Git Status",
-					section = "terminal",
-					enabled = function()
-						return Snacks.git.get_root() ~= nil
-					end,
-					cmd = "git status --short --branch --renames",
-					height = 3,
-					padding = 1,
-					ttl = 5 * 60,
-					indent = 3,
-				},
 				{ section = "startup" },
 			}
 		end,
