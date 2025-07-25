@@ -105,3 +105,8 @@ if type -q yazi
         rm -f -- "$tmp"
     end
 end
+
+# My minimal nvim config alias
+if test -d ~/.config/nvim-*
+    alias mnvim='NVIM_APPNAME=nvim-minimal nvim'
+end

@@ -175,5 +175,10 @@ if have starship; then
   eval "$(starship init zsh)"
 fi
 
+# My minimal nvim config alias
+if [ -d "$HOME/.config/nvim-*" ]; then
+    alias nvim-minimal='NVIM_APPNAME=nvim-minimal nvim'
+fi
+
 export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
