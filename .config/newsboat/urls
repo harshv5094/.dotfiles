@@ -2,23 +2,19 @@
 https://www.youtube.com/feeds/videos.xml?channel_id=UCg6gPGh8HU2U01vaFCAsvmQ "Linux" "YouTube"                              # Chris Titus Tech
 https://www.youtube.com/feeds/videos.xml?channel_id=UCVls1GmFKf6WlTraIb_IaJg "Linux" "YouTube"                              # Distro Tube
 https://www.youtube.com/feeds/videos.xml?channel_id=UCld68syR8Wi-GY_n4CaoJGA "Linux" "YouTube"                              # Brodie
-https://www.youtube.com/feeds/videos.xml?channel_id=UC7YOGHUfC1Tb6E4pudI9STA "Linux" "YouTube"                              # Mental Outlaw
 https://www.youtube.com/feeds/videos.xml?channel_id=UCsBjURrPoezykLs9EqgamOA "Tech News" "YouTube"                          # Fireship
-https://www.youtube.com/feeds/videos.xml?channel_id=UC6biysICWOJ-C3P4Tyeggzg "Linux" "YouTube"                              # Low Level
 https://www.youtube.com/feeds/videos.xml?channel_id=UCxrqVfm7FUHSkboVbp1dr7w "Linux" "YouTube"                              # Reluctant Anarchist
 https://www.youtube.com/feeds/videos.xml?channel_id=UCjSEJkpGbcZhvo0lr-44X_w "Linux" "YouTube"                              # Tech Hut
-https://www.youtube.com/feeds/videos.xml?channel_id=UC5UAwBUum7CPN5buc-_N1Fw "Linux" "Tech News" "YouTube"                  # The Linux Experiment
 https://www.youtube.com/feeds/videos.xml?channel_id=UCwHwDuNd9lCdA7chyyquDXw "Linux"  "YouTube"                             # Bread on Penguins
 https://www.youtube.com/feeds/videos.xml?channel_id=UC8uT9cgJorJPWu7ITLGo9Ww "Retro Tech" "YouTube"                         # 8 Bit Guy
-https://www.youtube.com/feeds/videos.xml?channel_id=UCR-DXc1voovS8nhAvccRZhg "IT" "Retro Tech" "YouTube"                    # Jeff Gerling
-https://www.youtube.com/feeds/videos.xml?channel_id=UC9x0AN7BWHpCDHSm9NiJFJQ "IT" "Retro Tech" "YouTube"                    # NetworkChuck
-https://www.youtube.com/feeds/videos.xml?channel_id=UCMiyV_Ib77XLpzHPQH_q0qQ "Retro Tech" "YouTube"                 # Veronica Explains
+https://www.youtube.com/feeds/videos.xml?channel_id=UCMiyV_Ib77XLpzHPQH_q0qQ "Retro Tech" "YouTube"                         # Veronica Explains
 https://www.youtube.com/feeds/videos.xml?channel_id=UCoL8olX-259lS1N6QPyP4IQ "Retro Tech" "YouTube"                         # Action Retro
 https://www.youtube.com/feeds/videos.xml?channel_id=UC098LVIqMd6HQI0B0kWtLgQ "Retro Tech" "YouTube"                         # The Taylor and Amy Show
 https://www.youtube.com/feeds/videos.xml?channel_id=UC5U7mHlhP6s6478wd7ZvnhA "Tech News" "YouTube"                          # Trafotin
 
+
 "query:Web Articles:tags # \"Posts\""
-https://archlinux.org/feeds/news "Posts"  "Arch Linux"                                                               # Arch Linux News
-https://archlinux.org/feeds/security "Posts" "Arch Linux Security"                                                   # Arch Linux Security Feed
-https://itsfoss.com/rss/ "Posts" "Its Foss"                                                                          # Its Foss
-https://dotfyle.com/this-week-in-neovim/rss.xml "Posts" "This Week In Neovim"                                        # This week in neovim
+https://archlinux.org/feeds/news "Posts"                                                                                    # Arch Linux News
+https://itsfoss.com/rss/ "Posts"                                                                                            # Its Foss
+https://dotfyle.com/this-week-in-neovim/rss.xml "Posts"                                                                     # This week in neovim
+https://hnrss.org/frontpage "Posts"                                                                                         # Hacker News Front Page
