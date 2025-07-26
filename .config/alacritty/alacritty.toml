@@ -3,11 +3,12 @@ import = ["./colorscheme.toml"]
 
 [env]
 TERM = "xterm-256color"
+WINIT_X11_SCALE_FACTOR = "1.0"
 
 [window]
-startup_mode = "Maximized"
+startup_mode = "Fullscreen"
 padding = { x = 5, y = 5 }
-decorations = "full"
+decorations = "none"
 opacity = 1
 
 [font]
@@ -30,4 +31,5 @@ bindings = [
   { key = "V", mods = "Control|Shift", action = "Paste" },
   { key = "C", mods = "Control|Shift", action = "Copy" },
   { key = "Return", mods = "Control|Shift", action = "SpawnNewInstance" },
+  { key = "F", mods = "Control|Shift", action = "ToggleFullScreen" },
 ]
