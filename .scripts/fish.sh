@@ -1,4 +1,4 @@
-#!/bin/env sh
+#!/bin/sh -e
 
 # Fish Shell Setup
 info_msg "** Install fish shell and required cli tools **"
@@ -14,7 +14,6 @@ fi
 if have fish; then
   info_msg "** Setting Up Fish Shell **"
   ~/.dotfiles/.scripts/fish-shell-setup.fish
-
 else
   info_msg "** Exiting script, Please install fish shell manually **"
   exit 1

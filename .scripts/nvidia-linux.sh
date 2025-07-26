@@ -1,4 +1,4 @@
-#!/bin/env sh
+#!/bin/sh -e
 
 ESCALATION_TOOL=$(command -v doas || command -v sudo || error_msg "No escalation tool found")
 

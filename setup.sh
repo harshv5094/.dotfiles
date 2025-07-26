@@ -1,4 +1,4 @@
-#!/bin/env sh
+#!/bin/sh -e
 
 error_msg() {
   printf "\033[1;31m%b\033[0m\n" "$1"
@@ -168,7 +168,7 @@ ESCALATION_TOOL=$(command -v doas || command -v sudo || error_msg "No escalation
 AUR_HELPER=$(command -v paru || command -v yay)
 
 # Check for AUR_HELPER Helper #
-checkAUR_HELPER(){
+checkAUR_HELPER() {
   # Check if an AUR_HELPER helper was found
   if [ -z "$AUR_HELPER" ]; then
     echo "No AUR_HELPER helper found. Please install paru or yay."

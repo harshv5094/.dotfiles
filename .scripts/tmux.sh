@@ -1,4 +1,4 @@
-#!/bin/env sh
+#!/bin/sh -e
 
 # Installing tmux package
 package_manager=$(command -v pacman || true)
