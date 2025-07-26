@@ -4,6 +4,9 @@ return {
 		lazy = false,
 		priority = 1000,
 		opts = function(_, opts)
+			--NOTE: Disable explorer on folder startup
+			opts.explorer.enabled = false
+
 			-- NOTE: Dashboard Header
 			opts.dashboard.preset.header = [[
  ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗
