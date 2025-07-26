@@ -29,6 +29,13 @@ return {
 				{ icon = " ", key = "s", desc = "Restore Session", section = "session" },
 				{ icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
 				{
+					icon = "󰒲 ",
+					key = "L",
+					desc = "LazyExtras",
+					action = ":LazyExtras",
+					enabled = package.loaded.lazy ~= nil,
+				},
+				{
 					icon = " ",
 					desc = "Browse Repo",
 					key = "b",
