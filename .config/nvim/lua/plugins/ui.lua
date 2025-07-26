@@ -10,7 +10,6 @@ return {
 	{
 		"folke/noice.nvim",
 		event = "VeryLazy",
-		enabled = false,
 		opts = function(_, opts)
 			table.insert(opts.routes, {
 				filter = {
