@@ -18,8 +18,8 @@ return {
 			opts.on_highlights = function(hl)
 				local fgcolor = "#636da6"
 				local bgcolor = "none"
-				local colors = require("tokyonight.colors").setup()
-				hl.MsgArea = { fg = colors.fg_float }
+				-- local colors = require("tokyonight.colors").setup()
+				-- hl.MsgArea = { fg = colors.fg_float }
 				hl.LineNrAbove = { fg = fgcolor, bg = bgcolor }
 				hl.LineNrBelow = { fg = fgcolor, bg = bgcolor }
 				hl.Comment = { fg = fgcolor, bg = bgcolor }

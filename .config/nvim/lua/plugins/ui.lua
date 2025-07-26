@@ -64,6 +64,7 @@ return {
 	-- Highlight Color
 	{
 		"brenoprata10/nvim-highlight-colors",
+		event = "BufReadPre",
 		opts = function()
 			local colors = require("nvim-highlight-colors")
 			local opts = colors.setup({
