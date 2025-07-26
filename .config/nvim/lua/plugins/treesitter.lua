@@ -22,6 +22,7 @@ return {
 			local context = require("treesitter-context")
 			local opts = context.setup({
 				enable = true,
+				multiwindow = true,
 				max_lines = 0,
 				min_window_height = 0,
 				line_numbers = true,

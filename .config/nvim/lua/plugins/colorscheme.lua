@@ -23,6 +23,7 @@ return {
 				hl.LineNrAbove = { fg = fgcolor, bg = bgcolor }
 				hl.LineNrBelow = { fg = fgcolor, bg = bgcolor }
 				hl.Comment = { fg = fgcolor, bg = bgcolor }
+				hl.TreesitterContextLineNumber = { fg = fgcolor, bg = bgcolor }
 			end
 		end,
 	},
